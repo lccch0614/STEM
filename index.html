@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>創科有營「惜」食小助手</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- 引入五彩紙屑 Confetti 特效庫 -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- 🌟 把外面的衣服 (CSS) 穿起來 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 頂部導航列 Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      🥗 創科「惜」食小助手
+    </div>
+    <div class="nav-menu">
+      <button class="nav-item active" onclick="switchTab('home')">🏠 主頁</button>
+      <button class="nav-item" onclick="switchTab('app')">🥗 智能餐盤</button>
+      <button class="nav-item" onclick="switchTab('quiz')">🎮 營養大挑戰</button>
+      <button class="nav-item" onclick="switchTab('nutrition')">📖 營養超能力圖鑑</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- ==================== VIEW 1: HOME PAGE (主頁) ==================== -->
+    <div id="view-home" class="page-view active">
+      <div class="hero-banner">
+        <span class="hero-badge">🌱 香港 STEM 教育 × 智慧健康</span>
+        <h1 class="hero-title">創科有營「惜」食小助手</h1>
+        <p style="font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
+          專為香港小學生設計的智慧健康餐盤！結合在地 55+ 種食材數據、實時烹調調味計算、AI 廚餘診斷以及可落地執行的「星級大廚詳細食譜」！
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-add" style="max-width: 240px;" onclick="switchTab('app')">
+            🚀 體驗智能餐盤
+          </button>
+          <button class="btn btn-ai" style="max-width: 240px; margin-top: 0;" onclick="switchTab('quiz')">
+            🎮 挑戰營養問答
+          </button>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">在地數據與智囊圖表</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
+            收錄 55 種香港常見食材，配合即時動態 Bar-chart，精準追蹤卡路里、蛋白質、油脂與鹽分。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🍳</div>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">實時烹調影響加成</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
+            首創「烹調法智囊演算法」，自動計算清蒸、清炒、香炸或甜品製作對熱量與脂肪的影響。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🍳</div>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">星級大廚實戰超細食譜</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
+            OpenRouter AI 實時生成包含「火候、時間、醃製與切法細節」的超詳細實戰食譜！
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 2: APP PAGE (智能餐盤計算器) ==================== -->
+    <div id="view-app" class="page-view">
+      
+      <!-- 1. 選擇食材與烹調方式 -->
+      <div class="card">
+        <div class="card-title">
+          <span>第一步：挑選食材與烹調方式</span>
+        </div>
+        
+        <div class="selector-grid">
+          <div class="field-group">
+            <label for="category-select">1. 食材類別</label>
+            <select id="category-select">
+            <option value="">-- 請選擇食物類別 --</option>
+            <option value="grains">🌾 穀物類</option>
+            <option value="vegetables">🥦 蔬菜類</option>
+            <option value="fruits">🍎 水果類</option>
+            <option value="protein">🥩 肉、魚、蛋及豆製品類</option>
+            <option value="dairy">🥛 奶類</option>
+            <option value="oil_salt_sugar">🧂 油、鹽、糖類</option>
+            <option value="liquids">💧 流質飲品類</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="food-select">2. 選擇食材</label>
+            <select id="food-select">
+              <option value="">-- 載入中... --</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="food-qty">3. 數量</label>
+            <div class="qty-box">
+              <input type="number" id="food-qty" value="1" min="0.5" max="10" step="0.5">
+              <span id="unit-label" class="unit-badge">份</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="cooking-select">4. 預計烹調方式</label>
+            <select id="cooking-select">
+              <option value="清蒸 (Steaming)">💨 清蒸 (少油原味)</option>
+              <option value="清炒 (Stir-frying)">🍳 清炒 (+少許油卡路里)</option>
+              <option value="焗/烘烤 (Baking/Roasting)">♨️ 焗 / 烘烤 (+少許油脂)</option>
+              <option value="滾湯/燉煮 (Boiling/Stewing)">🥘 滾湯 / 燉煮</option>
+              <option value="香炸/酥炸 (Deep-frying)">🍗 香炸 / 酥炸 (大幅增加油脂與卡路里)</option>
+              <option value="涼拌/生食 (Raw/Salad)">🥗 涼拌 / 生食</option>
+              <option value="甜品製作 (Dessert Making)">🍮 甜品製作 (大幅增加糖分與油脂)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="add-btn" class="btn btn-add">➕ 加入餐盤 (實時計算烹調影響)</button>
+      </div>
+
+      <!-- 2. 智囊健康數據圖表 (Bar-chart) -->
+      <div class="card">
+        <div class="card-title">
+          <span>📊 第二步：智囊健康數據圖表 (Bar-chart 實時更新)</span>
+        </div>
+
+        <div class="pills-container">
+          <div class="pill-badge">🧺 購物籃項目：<span id="pill-items-count">0</span></div>
+          <div class="pill-badge">⚖️ 總重量：<span id="pill-total-weight">0</span>g</div>
+          <div class="pill-badge">🧂 鹽分/鈉追蹤：<span id="pill-minerals-count">0.00</span>g</div>
+        </div>
+
+        <!-- 熱量 -->
+        <div class="chart-item">
+          <div class="chart-header">
+            <span>🔥 熱量 (Calories)</span>
+            <span><span id="val-calories">0</span> / <span id="target-calories">650</span> kcal</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-calories" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- 碳水化合物 -->
+        <div class="chart-item">
+          <div class="chart-header">
+            <span>🌾 碳水化合物 / 糖分 (Carbs)</span>
+            <span><span id="val-carbs">0</span> / <span id="target-carbs">90</span> g</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-carbs" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- 蛋白質 -->
+        <div class="chart-item">
+          <div class="chart-header">
+            <span>💪 蛋白質 (Protein)</span>
+            <span><span id="val-protein">0</span> / <span id="target-protein">20</span> g</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-protein" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- 脂肪 -->
+        <div class="chart-item">
+          <div class="chart-header">
+            <span>🥑 脂肪 (Fat)</span>
+            <span><span id="val-fat">0</span> / <span id="target-fat">20</span> g</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-fat" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- 礦物質 -->
+        <div class="chart-item">
+          <div class="chart-header">
+            <span>🍫 礦物質 / 鹽分 (Minerals/Salt)</span>
+            <span><span id="val-minerals">0.0</span> / <span id="target-minerals">2.5</span> g</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-minerals" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- 膳食纖維 -->
+        <div class="chart-item">
+          <div class="chart-header">
+            <span>🌿 膳食纖維 (Dietary Fiber)</span>
+            <span><span id="val-fiber">0.0</span> / <span id="target-fiber">8.0</span> g</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-fiber" class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 我的餐盤明細 -->
+      <div class="card">
+        <div class="card-title">
+          <span>🍽️ 第三步：我的餐盤明細</span>
+          <button id="reset-btn" class="btn btn-reset">🧹 清空餐盤</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>食材與烹調</th>
+                <th>選擇份量</th>
+                <th>重量</th>
+                <th>總熱量</th>
+                <th>脂肪 (含烹調油)</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="plate-list">
+              <tr><td colspan="6" style="color: #94a3b8; padding: 24px;">🛒 購物籃空空如也，請先加入食材...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button id="ai-analyze-btn" class="btn btn-ai">✨ 請 OpenRouter AI 生成「星級詳細大廚食譜」與分析</button>
+        <div id="loading-spinner" class="loading">🧠 大廚 AI 正在撰寫超詳細火候步驟與繪製 4K 美食圖...</div>
+      </div>
+
+      <!-- 4. AI 分析與食譜展示 -->
+      <div class="card ai-card" id="ai-card" style="display: none;">
+        <div class="card-title">
+          <span>💡 AI 營養診深與星級實戰大廚食譜</span>
+        </div>
+        
+        <div id="ai-result" class="ai-result-box">
+          <p style="font-size: 16px; margin-top: 0;">
+            <strong>🏆 綜合健康評分：</strong> 
+            <span id="ai-score" class="score-badge">0</span> <span style="font-size: 18px; font-weight: bold; color: #d97706;">/ 100</span>
+          </p>
+          <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 16px 0;">
+          <p><strong>⚠️ 廚餘與浪費風險分析 (以小四至小六單餐為準則)：</strong></p>
+          <div id="ai-waste-risk" style="margin-left: 8px; color: #334155; line-height: 1.7;"></div>
+          <br>
+          <p><strong>🌱 大師給你的改善建議：</strong></p>
+          <ul id="ai-suggestions" style="margin-top: 6px; padding-left: 20px; color: #334155; line-height: 1.8;"></ul>
+
+          <!-- 👨‍🍳 AI 超詳細實戰大廚食譜區塊 -->
+          <div class="recipe-container">
+            <div id="ai-recipe-title" class="recipe-title">👨‍🍳 菜式：載入中...</div>
+            
+            <div class="recipe-section-title">🛒 必備食材與精確調味料份量：</div>
+            <ul id="ai-recipe-ingredients" class="recipe-list"></ul>
+
+            <div class="recipe-section-title">🍳 星級大廚詳細步驟指南 (含火候與時間)：</div>
+            <ul id="ai-recipe-steps" class="recipe-steps-list"></ul>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <h3 style="margin: 0; color: #0f172a; font-size: 18px;">🎨 AI HD/4K 精緻菜色概念圖</h3>
+          <p id="image-status" style="color: var(--text-muted); font-size: 14px; margin: 8px 0;">正在畫圖中...</p>
+          <img id="ai-food-img" class="food-image" src="" alt="AI 食物概念圖" style="display: none;">
+        </div>
+
+        <!-- 🏷️ 專屬雪櫃貼 QR Code 產生區塊 -->
+        <div class="magnet-preview-card" style="margin-top: 28px; padding: 24px; background: #fff; border-radius: var(--radius-lg); border: 2px dashed var(--primary);">
+          <h3 style="margin: 0 0 10px 0; color: var(--primary-dark); font-size: 20px; text-align: center;">🧊 製作「小廚師專屬雪櫃貼」貼紙</h3>
+          <p style="font-size: 14px; color: var(--text-muted); text-align: center; margin-bottom: 18px;">
+            請輸入學生姓名，系統會自動生成專屬 QR Code！印出後貼在雪櫃貼上帶回家，家長掃描即可解鎖買餸清單與點讚功能！
+          </p>
+
+          <div style="max-width: 320px; margin: 0 auto 20px; text-align: center;">
+            <label style="font-size: 13px; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 6px;">👨‍🍳 小廚師姓名：</label>
+            <input type="text" id="chef-name-input" value="小博士" placeholder="請輸入姓名..." style="text-align: center; font-weight: bold;" oninput="updateMagnetQRCode()">
+          </div>
+
+          <!-- 實體雪櫃貼視覺卡片 -->
+          <div id="printable-magnet" class="magnet-box">
+            <div class="magnet-badge">🌱 創科「惜」食小廚師</div>
+            <div class="magnet-chef" id="magnet-chef-display">👨‍🍳 廚師：小博士</div>
+            <div class="magnet-title" id="magnet-title-display">菜式：載入中...</div>
+            <div class="magnet-qr-wrap">
+              <img id="magnet-qr-img" class="magnet-qr-img" src="" alt="QR Code 載入中...">
+            </div>
+            <div class="magnet-footer">📱 家長請用手機掃描 QR Code<br>查看買餸清單 & 為小廚師點讚！</div>
+          </div>
+
+          <div style="text-align: center; margin-top: 20px;">
+            <button class="btn btn-add" style="max-width: 260px;" onclick="window.print()">🖨️ 印出 / 儲存雪櫃貼貼紙</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==================== VIEW 3: QUIZ GAME (營養問答遊戲) ==================== -->
+    <div id="view-quiz" class="page-view">
+      <div class="card">
+        <div class="card-title">
+          <span>🎮 營養與食物科學小博士挑戰賽</span>
+          <span id="quiz-progress-badge" class="hero-badge">題目 1 / 5</span>
+        </div>
+
+        <div id="quiz-box">
+          <h2 id="quiz-question" style="font-size: 20px; color: #0f172a; margin-top: 0;">
+            載入題目中...
+          </h2>
+
+          <div id="quiz-options" class="quiz-options"></div>
+
+          <div id="quiz-explanation" class="explanation-box"></div>
+
+          <button id="quiz-next-btn" class="btn btn-add" style="margin-top: 20px; display: none;" onclick="nextQuizQuestion()">
+            ➡️ 下一題
+          </button>
+        </div>
+
+        <div id="quiz-result" style="display: none; text-align: center; padding: 20px;">
+          <div style="font-size: 56px; margin-bottom: 12px;">🏆</div>
+          <h2 style="font-size: 28px; margin: 0 0 10px 0;">挑戰完成！</h2>
+          <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 20px;">
+            你的得分是：<strong id="quiz-final-score" style="color: var(--primary-dark); font-size: 32px;">0</strong> / 100 分
+          </p>
+          <p id="quiz-comment" style="font-size: 16px; font-weight: 700; color: #334155; margin-bottom: 28px;"></p>
+          <button class="btn btn-add" style="max-width: 240px;" onclick="resetQuiz()">
+            🔄 再挑戰一次
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 4: NUTRITION PAGE (營養超能力圖鑑) ==================== -->
+    <div id="view-nutrition" class="page-view">
+      <div class="card">
+        <div class="card-title">
+          <span>📖 營養超能力圖鑑 (Nutrient Superpowerpedia)</span>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <input type="text" id="dict-search-input" placeholder="🔍 搜尋營養素或食材（例如：蛋白質、菜心、鈣質...）" oninput="filterNutritionCards()">
+        </div>
+
+        <div class="dict-filter-bar">
+          <button class="dict-filter-btn active" onclick="setDictFilter('all', this)">🌟 全部圖鑑</button>
+          <button class="dict-filter-btn" onclick="setDictFilter('growth', this)">💪 肌肉與骨骼</button>
+          <button class="dict-filter-btn" onclick="setDictFilter('energy', this)">⚡ 能量補給</button>
+          <button class="dict-filter-btn" onclick="setDictFilter('immunity', this)">🛡️ 免疫防護</button>
+          <button class="dict-filter-btn" onclick="setDictFilter('digest', this)">🧹 腸道健康</button>
+        </div>
+
+        <div id="dict-grid" class="dict-grid"></div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 5: PARENT RECIPE VIEW (家長掃描專屬頁面) ==================== -->
+    <div id="view-parent-recipe" class="page-view">
+      <div class="hero-banner" style="background: linear-gradient(135deg, #fef3c7 0%, #dcfce7 100%);">
+        <span class="hero-badge">❤️ 家長專屬 · 小廚師愛心食譜</span>
+        <h1 class="hero-title" id="parent-chef-title">👨‍🍳 小廚師的愛心餐盤</h1>
+        <h2 id="parent-dish-title" style="margin: 10px 0 0 0; color: var(--primary-dark); font-size: 24px;">菜式載入中...</h2>
+      </div>
+
+      <!-- 買餸清單 (帶有 Checkbox 互動) -->
+      <div class="card">
+        <div class="card-title">
+          <span>🛒 互動式買餸清單 (點擊項目標記已購買)</span>
+        </div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: -10px; margin-bottom: 16px;">
+          💡 貼心提示：和孩子一起到街市或超市購買食材，點擊可劃掉項目喔！
+        </p>
+        <div id="parent-shopping-list" class="shopping-list"></div>
+      </div>
+
+      <!-- 分步烹飪指南 -->
+      <div class="card">
+        <div class="card-title">
+          <span>🍳 分步烹飪指南 (與孩子共同下廚)</span>
+        </div>
+        <ul id="parent-recipe-steps" class="recipe-steps-list"></ul>
+      </div>
+
+      <!-- 給小廚師點讚與評分卡片 -->
+      <div class="card" style="text-align: center; background: linear-gradient(180deg, #ffffff 0%, #fff7ed 100%); border: 2px solid #fed7aa;">
+        <div class="card-title" style="justify-content: center; border-bottom-color: #ffedd5;">
+          <span>🌟 給小廚師點讚與評分</span>
+        </div>
+        <p style="font-size: 15px; color: #475569;">覺得孩子設計的健康食譜怎麼樣？給他/她一個大大的鼓勵吧！</p>
+        
+        <!-- 星星評分 -->
+        <div class="star-rating" id="star-box">
+          <span class="star" onclick="rateChef(1)">⭐</span>
+          <span class="star" onclick="rateChef(2)">⭐</span>
+          <span class="star" onclick="rateChef(3)">⭐</span>
+          <span class="star" onclick="rateChef(4)">⭐</span>
+          <span class="star" onclick="rateChef(5)">⭐</span>
+        </div>
+        <div id="rating-feedback" style="font-weight: 800; font-size: 18px; color: #d97706; margin-top: 10px; min-height: 27px;"></div>
+
+        <!-- 點讚按鈕 -->
+        <button id="like-btn" class="btn" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; font-size: 18px; padding: 14px 28px; margin-top: 16px; max-width: 280px;" onclick="addChefLike()">
+          ❤️ 為小廚師點讚 (+1)
+        </button>
+        <p style="margin-top: 12px; font-weight: 700; color: #991b1b; font-size: 15px;">
+          目前已獲得 <span id="like-count" style="font-size: 22px; color: #dc2626;">0</span> 個愛心！
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🌟 把外面的大腦 (JS) 裝進來 -->
+  <script src="script.js"></script>
+</body>
+</html>
