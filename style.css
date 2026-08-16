@@ -529,6 +529,9 @@ td { padding: 14px 12px; border-top: 1px solid var(--border-color); font-size: 1
   display: flex;
   gap: 12px;
   align-items: flex-start;
+  white-space: normal;
+  word-break: break-word;
+  height: auto;
 }
 
 .step-num-badge {
