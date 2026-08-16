@@ -886,12 +886,12 @@ function updateMagnetQRCode() {
   document.getElementById("magnet-chef-display").textContent = `👨‍🍳 廚師：${chefName}`;
   document.getElementById("magnet-title-display").textContent = `菜式：${currentGeneratedRecipe.recipeTitle}`;
 
-const miniPayload = {
-  c: chefName,
-  t: currentGeneratedRecipe.recipeTitle,
-  i: (currentGeneratedRecipe.recipeIngredients || []).map(ing => ing.split("：")[0].split("(")[0]),
-  s: (currentGeneratedRecipe.recipeSteps || [])
-};
+  const miniPayload = {
+    c: chefName,
+    t: currentGeneratedRecipe.recipeTitle,
+    i: (currentGeneratedRecipe.recipeIngredients || []).map(ing => ing.split("：")[0].split("(")[0]).slice(0, 5),
+    s: (currentGeneratedRecipe.recipeSteps || []).map(step => step.length > 30 ? step.substring(0, 30) + "..." : step).slice(0, 4)
+  };
 
   const jsonStr = JSON.stringify(miniPayload);
   const encodedData = encodeURIComponent(jsonStr);
