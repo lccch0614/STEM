@@ -879,51 +879,192 @@ document.getElementById("ai-analyze-btn").addEventListener("click", async () => 
   }
 });
 
-function updateMagnetQRCode() {
+async function updateMagnetQRCode() {
   if (!currentGeneratedRecipe) return;
 
-  const chefName = document.getElementById("chef-name-input").value.trim() || "小博士";
-  document.getElementById("magnet-chef-display").textContent = `👨‍🍳 廚師：${chefName}`;
-  document.getElementById("magnet-title-display").textContent = `菜式：${currentGeneratedRecipe.recipeTitle}`;
+  // ==========================================
+  // 0. Library 健康檢查
+  // ==========================================
+  if (typeof LZString === "undefined") {
+    console.error("❌ LZString 未成功載入");
+    alert("壓縮程式未成功載入，請重新整理網頁。");
+    return;
+  }
 
-  const miniPayload = {
+  if (typeof QRCode === "undefined") {
+    console.error("❌ QRCode library 未成功載入");
+    alert("QR Code 程式未成功載入，請檢查網絡或 QR library。");
+    return;
+  }
+
+  const chefName =
+    document.getElementById("chef-name-input").value.trim() || "小博士";
+
+  document.getElementById("magnet-chef-display").textContent =
+    `👨‍🍳 廚師：${chefName}`;
+
+  document.getElementById("magnet-title-display").textContent =
+    `菜式：${currentGeneratedRecipe.recipeTitle}`;
+
+
+  // ==========================================
+  // 1. 清理多餘文字
+  // 不會截短實際內容
+  // ==========================================
+  function cleanRecipeText(text) {
+    return String(text)
+      .replace(/\s+/g, " ")
+      .replace(/【.*?】/g, "")
+      .trim();
+  }
+
+
+  // ==========================================
+  // 2. QR 只保存家長真正需要的資料
+  // ==========================================
+  const fullRecipeData = {
     c: chefName,
-    t: currentGeneratedRecipe.recipeTitle,
-    i: (currentGeneratedRecipe.recipeIngredients || []).map(ing => ing.split("：")[0].split("(")[0]).slice(0, 5),
-    s: (currentGeneratedRecipe.recipeSteps || []).map(step => step.length > 30 ? step.substring(0, 30) + "..." : step).slice(0, 4)
+
+    t: cleanRecipeText(
+      currentGeneratedRecipe.recipeTitle || "健康菜式"
+    ),
+
+    i: (currentGeneratedRecipe.recipeIngredients || [])
+      .map(cleanRecipeText),
+
+    s: (currentGeneratedRecipe.recipeSteps || [])
+      .map(cleanRecipeText)
   };
 
-  const jsonStr = JSON.stringify(miniPayload);
-  const encodedData = encodeURIComponent(jsonStr);
-  const baseUrl = window.location.href.split("#")[0];
-  const parentShareURL = `${baseUrl}#recipe=${encodedData}`;
-  const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&ecc=L&margin=10&data=${encodeURIComponent(parentShareURL)}`;
 
-  const qrImgEl = document.getElementById("magnet-qr-img");
-  qrImgEl.src = qrApiUrl;
+  // ==========================================
+  // 3. JSON → LZString 壓縮
+  // ==========================================
+  const jsonString =
+    JSON.stringify(fullRecipeData);
+
+  const compressedData =
+    LZString.compressToEncodedURIComponent(jsonString);
+
+
+  if (!compressedData) {
+    console.error("❌ 食譜壓縮失敗");
+    alert("食譜資料壓縮失敗，請重新生成食譜。");
+    return;
+  }
+
+
+  // ==========================================
+  // 4. 建立家長分享 URL
+  // ==========================================
+  const baseUrl =
+    window.location.href.split("#")[0];
+
+  const parentShareURL =
+    `${baseUrl}#recipe=${compressedData}`;
+
+
+  // ==========================================
+  // 5. Debug 資料
+  // ==========================================
+  const qrBytes =
+    new TextEncoder().encode(parentShareURL).length;
+
+  console.log("========== QR DEBUG ==========");
+  console.log("食材數量：", fullRecipeData.i.length);
+  console.log("步驟數量：", fullRecipeData.s.length);
+  console.log("原始 JSON 長度：", jsonString.length);
+  console.log("壓縮資料長度：", compressedData.length);
+  console.log("完整 URL 字數：", parentShareURL.length);
+  console.log("完整 URL bytes：", qrBytes);
+  console.log("QRCode library：", typeof QRCode);
+  console.log("==============================");
+
+
+  // ==========================================
+  // 6. 本地生成 QR Code
+  // ==========================================
+  const qrImgEl =
+    document.getElementById("magnet-qr-img");
+
+  try {
+
+    const qrDataUrl =
+      await QRCode.toDataURL(parentShareURL, {
+        errorCorrectionLevel: "L",
+        width: 300,
+        margin: 2
+      });
+
+    qrImgEl.src = qrDataUrl;
+
+    console.log("✅ QR Code 成功生成");
+
+  } catch (error) {
+
+    console.error(
+      "❌ QR Code 真正錯誤：",
+      error
+    );
+
+    alert(
+      "QR Code 生成失敗：\n" +
+      (error.message || error)
+    );
+  }
 }
 
 function checkParentRecipeURL() {
   const hash = window.location.hash;
 
-  if (hash && hash.includes("#recipe=")) {
-    try {
-      const encodedData = hash.replace("#recipe=", "");
-      const decodedJson = decodeURIComponent(encodedData);
-      const rawData = JSON.parse(decodedJson);
+  if (!hash || !hash.startsWith("#recipe=")) {
+    return;
+  }
 
-      const recipeData = {
-        chef: rawData.c || rawData.chef || "小廚師",
-        title: rawData.t || rawData.title || "健康菜式",
-        ing: rawData.i || rawData.ing || [],
-        steps: rawData.s || rawData.steps || []
-      };
+  try {
+    // ==========================================
+    // 1. 取出壓縮資料
+    // ==========================================
+    const compressedData =
+      hash.substring("#recipe=".length);
 
-      renderParentView(recipeData);
-      switchTab("parent-recipe");
-    } catch (e) {
-      console.error("解析家長食譜失敗:", e);
+    // ==========================================
+    // 2. 解壓
+    // ==========================================
+    const jsonString =
+      LZString.decompressFromEncodedURIComponent(compressedData);
+
+    if (!jsonString) {
+      throw new Error("無法解壓食譜資料");
     }
+
+    // ==========================================
+    // 3. JSON → JavaScript object
+    // ==========================================
+    const rawData = JSON.parse(jsonString);
+
+    // ==========================================
+    // 4. 整理資料
+    // ==========================================
+    const recipeData = {
+  chef: rawData.c || "小廚師",
+  title: rawData.t || "健康菜式",
+  ing: rawData.i || [],
+  steps: rawData.s || []
+};
+
+    // ==========================================
+    // 5. 顯示家長版
+    // ==========================================
+    renderParentView(recipeData);
+    switchTab("parent-recipe");
+
+  } catch (error) {
+    console.error("解析家長食譜失敗：", error);
+
+    alert(
+      "抱歉，這個食譜 QR Code 無法讀取，請重新產生。"
+    );
   }
 }
 
@@ -981,26 +1122,66 @@ async function callOpenRouterAPI(apiKey, plate) {
 
   const systemPrompt = `
 你是一位專門指導香港小學生與家長料理的「星級大廚兼營養師」。
-請根據學生提供的餐盤食材與對應烹調方式，設計一份現實中 100% 可行、請將每個烹飪步驟精簡扼要，每個步驟控制在 25 字以內，但確保語意完整且易懂。、新手與小學生都能完全照著做的美味食譜。
+
+請根據學生提供的餐盤食材與對應烹調方式，設計一份現實中可行、安全、適合新手、小學生及家長共同製作的美味食譜。
 
 學生選定的餐盤內容：
 - 食材列表：${itemsText}
 - 實時計算總熱量：${totalCal} kcal
 - 實時計算總脂肪：${totalFat} g
 
-請嚴格遵守以下 JSON 輸出格式，不要加任何 Markdown 標籤：
+【食譜設計原則】
+1. 優先使用學生已選擇的食材，不要加入大量額外食材。
+2. 可以加入少量必要的基本調味料，例如油、鹽、生抽、糖或清水，但請保持簡單。
+3. 食譜必須現實可行，烹調方式應配合學生選擇的烹調方法。
+4. 內容要使用繁體中文，語氣清楚、簡潔，適合香港小四至小六學生及家長閱讀。
+5. 涉及刀具、熱油、明火、焗爐或高溫烹調時，步驟中應提醒由家長協助。
+6. 肉類、蛋類及海鮮必須提醒徹底煮熟。
+
+【QR Code 食譜長度限制】
+為方便完整食譜放入 QR Code，請嚴格控制 recipeIngredients 和 recipeSteps 的長度：
+
+1. recipeIngredients 最多 8 項。
+2. 每項食材必須保留食材名稱及實際份量。
+3. 每項食材盡量控制在 20 個中文字以內。
+4. recipeSteps 最多 6 個步驟。
+5. 每個步驟控制在 25 個中文字以內。
+6. 步驟必須精簡，但不可省略重要的火候、時間及食物安全資訊。
+7. 不要加入冗長背景介紹、故事、重複說明或裝飾性文字。
+8. 不要在 recipeSteps 使用「【準備】」、「【烹調】」等長標題。
+9. 如果原本需要超過 6 步，請合併相近步驟，而不是截斷食譜。
+10. 如果食材超過 8 項，請只保留主要食材及必要調味料。
+
+【其他輸出要求】
+- wasteAnalysis 請控制在 60 個中文字以內。
+- suggestions 最多 2 項，每項控制在 30 個中文字以內。
+- recipeTitle 控制在 15 個中文字以內。
+- enRecipePrompt 只用英文，簡潔描述完成後的菜式外觀，不要加入食譜內容。
+
+請嚴格遵守以下 JSON 輸出格式。
+只輸出有效 JSON不要加入 Markdown、不加任何額外說明：
+
 {
   "score": 88,
-  "wasteAnalysis": "繁體中文廚餘與一人一餐份量風險分析",
-  "suggestions": ["營養建議1", "惜食建議2"],
-  "recipeTitle": "讓人食指大動的菜式名稱",
+  "wasteAnalysis": "簡短的繁體中文廚餘與份量風險分析",
+  "suggestions": [
+    "簡短營養建議",
+    "簡短惜食建議"
+  ],
+  "recipeTitle": "彩虹雞肉炒飯",
   "recipeIngredients": [
-    "菜心：150克（洗淨切段）"
+    "白飯：150克",
+    "雞胸肉：100克",
+    "西蘭花：80克"
   ],
   "recipeSteps": [
-    "【清洗預備】將菜心浸泡5分鐘，切成5公分段狀。"
+    "雞肉切粒，由家長協助處理。",
+    "西蘭花洗淨切小朵。",
+    "中火炒雞肉至完全熟透。",
+    "加入蔬菜炒約3分鐘。",
+    "加入白飯炒勻即可。"
   ],
-  "enRecipePrompt": "Masterpiece delicious cuisine photo, 4k resolution, ultra-detailed food photography"
+  "enRecipePrompt": "Colorful chicken vegetable fried rice, appetizing food photography"
 }
 `;
 
