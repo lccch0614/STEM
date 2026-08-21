@@ -1192,7 +1192,7 @@ async function callOpenRouterAPI(apiKey, plate) {
       "Authorization": `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      model: "google/gemma-4-26b-a4b-it:free",
+      model: "openrouter/free",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: "請為我生成星級詳細大廚食譜與分析。" }
@@ -1201,9 +1201,26 @@ async function callOpenRouterAPI(apiKey, plate) {
     })
   });
 
-  if (!response.ok) {
-    throw new Error("OpenRouter API 請求失敗");
+if (!response.ok) {
+  let errorData = null;
+
+  try {
+    errorData = await response.json();
+  } catch (e) {
+    // 如果 response 不是 JSON 就略過
   }
+
+  console.error("OpenRouter HTTP Status:", response.status);
+  console.error("OpenRouter Error:", errorData);
+
+  const apiMessage =
+    errorData?.error?.message ||
+    `HTTP ${response.status}`;
+
+  throw new Error(
+    `OpenRouter ${response.status}: ${apiMessage}`
+  );
+}
 
   const data = await response.json();
   let rawText = data.choices[0].message.content;
@@ -1222,9 +1239,33 @@ function generateAIImage(customPrompt) {
   const imgEl = document.getElementById("ai-food-img");
   const imgStatus = document.getElementById("image-status");
   const ingredientNames = myPlate.map(item => item.enName).join(", ");
-  const promptText = (customPrompt || `delicious dish with ${ingredientNames}`) + ", 4k resolution, food photography";
+  const promptText = `
+${customPrompt || `A delicious dish made with ${ingredientNames}`},
 
-  const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(promptText)}?seed=${Math.floor(Math.random() * 10000)}&width=800&height=500&nologo=true`;
+professional restaurant food photography,
+beautiful modern plating,
+realistic freshly cooked ingredients,
+natural appetizing colors,
+visible texture and moisture,
+soft natural window lighting,
+warm highlights,
+45-degree camera angle,
+shallow depth of field,
+sharp focus on the main dish,
+subtle blurred restaurant background,
+clean ceramic plate,
+elegant garnish,
+premium editorial food photography,
+high detail,
+photorealistic,
+commercial food advertisement,
+Michelin restaurant presentation,
+no text,
+no watermark,
+no people
+`;
+
+  const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(promptText)}?seed=${Math.floor(Math.random() * 10000)}&width=1280&height=800&nologo=true`;
 
   imgStatus.textContent = "🎨 AI 概念圖生成中...";
   imgEl.style.display = "none";
