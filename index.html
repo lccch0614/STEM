@@ -51,15 +51,15 @@
           <div class="feature-icon">📊</div>
           <h3 style="margin: 0 0 8px 0; color: #0f172a;">在地數據與智囊圖表</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            收錄 55 種香港常見食材，配合即時動態 Bar-chart，精準追蹤卡路里、蛋白質、油脂與鹽分。
+            收錄香港常見食材，估算餐盤的能量及營養，方便比較不同食材與份量。
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🍳</div>
-          <h3 style="margin: 0 0 8px 0; color: #0f172a;">實時烹調影響加成</h3>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">烹調與用量探索</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            首創「烹調法智囊演算法」，自動計算清蒸、清炒、香炸或甜品製作對熱量與脂肪的影響。
+            選擇預計烹調方式，並加入實際需要的油或糖，探索食材和用量如何影響營養。
           </p>
         </div>
 
@@ -126,88 +126,71 @@
           </div>
         </div>
 
-        <button id="add-btn" class="btn btn-add">➕ 加入餐盤 (實時計算烹調影響)</button>
+        <button id="add-btn" class="btn btn-add">➕ 加入餐盤</button>
       </div>
 
       <!-- 2. 智囊健康數據圖表 (Bar-chart) -->
-      <div class="card">
-        <div class="card-title">
-          <span>📊 第二步：智囊健康數據圖表 (Bar-chart 實時更新)</span>
-        </div>
+      <!-- 2. 本餐營養估算 -->
+<div class="card">
+  <div class="card-title">
+    <span>📊 第二步：睇下你嘅餐盤營養</span>
+  </div>
 
-        <div class="pills-container">
-          <div class="pill-badge">🧺 購物籃項目：<span id="pill-items-count">0</span></div>
-          <div class="pill-badge">⚖️ 總重量：<span id="pill-total-weight">0</span>g</div>
-          <div class="pill-badge">🧂 鹽分/鈉追蹤：<span id="pill-minerals-count">0.00</span>g</div>
-        </div>
+  <div class="pills-container">
+    <div class="pill-badge">
+      🧺 食材項目：<span id="pill-items-count">0</span>
+    </div>
+    <div class="pill-badge">
+      ⚖️ 總重量：<span id="pill-total-weight">0</span> g
+    </div>
+  </div>
 
-        <!-- 熱量 -->
-        <div class="chart-item">
-          <div class="chart-header">
-            <span>🔥 熱量 (Calories)</span>
-            <span><span id="val-calories">0</span> / <span id="target-calories">650</span> kcal</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="bar-calories" class="progress-bar-fill"></div>
-          </div>
-        </div>
+  <div class="chart-item">
+    <div class="chart-header">
+      <span>🔥 能量</span>
+      <span><span id="val-calories">0</span> kcal</span>
+    </div>
+  </div>
 
-        <!-- 碳水化合物 -->
-        <div class="chart-item">
-          <div class="chart-header">
-            <span>🌾 碳水化合物 / 糖分 (Carbs)</span>
-            <span><span id="val-carbs">0</span> / <span id="target-carbs">90</span> g</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="bar-carbs" class="progress-bar-fill"></div>
-          </div>
-        </div>
+  <div class="chart-item">
+    <div class="chart-header">
+      <span>🌾 碳水化合物</span>
+      <span><span id="val-carbs">0</span> g</span>
+    </div>
+  </div>
 
-        <!-- 蛋白質 -->
-        <div class="chart-item">
-          <div class="chart-header">
-            <span>💪 蛋白質 (Protein)</span>
-            <span><span id="val-protein">0</span> / <span id="target-protein">20</span> g</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="bar-protein" class="progress-bar-fill"></div>
-          </div>
-        </div>
+  <div class="chart-item">
+    <div class="chart-header">
+      <span>💪 蛋白質</span>
+      <span><span id="val-protein">0</span> g</span>
+    </div>
+  </div>
 
-        <!-- 脂肪 -->
-        <div class="chart-item">
-          <div class="chart-header">
-            <span>🥑 脂肪 (Fat)</span>
-            <span><span id="val-fat">0</span> / <span id="target-fat">20</span> g</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="bar-fat" class="progress-bar-fill"></div>
-          </div>
-        </div>
+  <div class="chart-item">
+    <div class="chart-header">
+      <span>🥑 脂肪</span>
+      <span><span id="val-fat">0</span> g</span>
+    </div>
+  </div>
 
-        <!-- 礦物質 -->
-        <div class="chart-item">
-          <div class="chart-header">
-            <span>🍫 礦物質 / 鹽分 (Minerals/Salt)</span>
-            <span><span id="val-minerals">0.0</span> / <span id="target-minerals">2.5</span> g</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="bar-minerals" class="progress-bar-fill"></div>
-          </div>
-        </div>
+  <div class="chart-item">
+    <div class="chart-header">
+      <span>🌿 膳食纖維</span>
+      <span><span id="val-fiber">0</span> g</span>
+    </div>
+  </div>
 
-        <!-- 膳食纖維 -->
-        <div class="chart-item">
-          <div class="chart-header">
-            <span>🌿 膳食纖維 (Dietary Fiber)</span>
-            <span><span id="val-fiber">0.0</span> / <span id="target-fiber">8.0</span> g</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div id="bar-fiber" class="progress-bar-fill"></div>
-          </div>
-        </div>
-      </div>
+  <p style="color: var(--text-muted); font-size: 14px;">
+    營養數值只供學習及比較，會因食材、份量和實際烹調方法而改變。
+    每個人的需要亦有所不同。
+  </p>
 
+  <p style="color: var(--text-muted); font-size: 14px;">
+    💡 如烹調時會用油或糖，請在「油、鹽、糖類」加入預計用量。
+    系統只計算已加入餐盤的食材，不會自動增加油或糖。
+  </p>
+  
+</div>
       <!-- 3. 我的餐盤明細 -->
       <div class="card">
         <div class="card-title">
@@ -222,8 +205,8 @@
                 <th>食材與烹調</th>
                 <th>選擇份量</th>
                 <th>重量</th>
-                <th>總熱量</th>
-                <th>脂肪 (含烹調油)</th>
+                <th>估算熱量</th>
+                <th>脂肪</th>
                 <th>操作</th>
               </tr>
             </thead>

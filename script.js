@@ -1,13 +1,47 @@
 const PRESET_OPENROUTER_KEY = "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";
 
-const TARGETS = {
-  calories: 650,
-  carbs: 90,
-  protein: 20,
-  fat: 20,
-  minerals: 2.5,
-  fiber: 8.0
-};
+const NUTRIENT_KEYS = [
+  "calories", "carbs", "protein", "fat", "fiber"
+];
+
+// 資料庫數值按每 100 克換算。
+// 缺少資料時保留 null，不用熱量推算其他營養素。
+function nutrientAmount(food, key, ratio) {
+  const value = food[key];
+
+  if (
+    typeof value !== "number" ||
+    !Number.isFinite(value) ||
+    value < 0
+  ) {
+    return null;
+  }
+
+  return value * ratio;
+}
+
+// 任何一項食材缺少該營養資料，就不顯示完整總量。
+function sumNutrient(items, key) {
+  const hasMissingData = items.some(item =>
+    typeof item[key] !== "number" ||
+    !Number.isFinite(item[key])
+  );
+
+  if (hasMissingData) return null;
+
+  return items.reduce((sum, item) => sum + item[key], 0);
+}
+
+// 計算時保留精度，到顯示時才四捨五入。
+function formatNutrient(value, key) {
+  if (value === null || !Number.isFinite(value)) {
+    return "未有完整資料";
+  }
+
+  return key === "calories"
+    ? String(Math.round(value))
+    : value.toFixed(1);
+}
 
 let foodDatabase = [];
 let myPlate = [];
@@ -530,19 +564,19 @@ document.getElementById("add-btn").addEventListener("click", () => {
   const addedCalories = (addedFat * 9) + (addedCarbs * 4);
 
   myPlate.push({
-    id: Date.now(),
-    name: foodItem.name,
-    enName: foodItem.enName,
-    cookingMethod: cookingMethod,
-    displayQty: `${qty} ${foodItem.unit}`,
-    weight: totalWeight,
-    calories: Math.round(baseCalories + addedCalories),
-    protein: parseFloat(baseProtein.toFixed(1)),
-    carbs: parseFloat((baseCarbs + addedCarbs).toFixed(1)),
-    fat: parseFloat((baseFat + addedFat).toFixed(1)),
-    minerals: parseFloat(baseMinerals.toFixed(2)),
-    fiber: parseFloat(baseFiber.toFixed(1))
-  });
+  id: Date.now(),
+  name: foodItem.name,
+  enName: foodItem.enName,
+  cookingMethod: cookingMethod,
+  displayQty: `${qty} ${foodItem.unit}`,
+  weight: totalWeight,
+
+  calories: nutrientAmount(foodItem, "calories", itemRatio),
+  carbs: nutrientAmount(foodItem, "carbs", itemRatio),
+  protein: nutrientAmount(foodItem, "protein", itemRatio),
+  fat: nutrientAmount(foodItem, "fat", itemRatio),
+  fiber: nutrientAmount(foodItem, "fiber", itemRatio)
+});
 
   triggerConfetti();
   updateUI();
@@ -567,60 +601,54 @@ function updateUI() {
   const tbody = document.getElementById("plate-list");
 
   if (myPlate.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" style="color: #94a3b8; padding: 24px;">🛒 購物籃空空如也，請先加入食材...</td></tr>';
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="6" style="color: #94a3b8; padding: 24px;">
+          🛒 餐盤空空如也，請先加入食材。
+        </td>
+      </tr>
+    `;
   } else {
     tbody.innerHTML = myPlate.map(item => `
       <tr class="animated-row">
         <td>
           <strong style="font-size: 15px;">${item.name}</strong><br>
-          <span class="cooking-tag tag-default">${item.cookingMethod.split(" ")[0]}</span>
+          <span class="cooking-tag tag-default">
+            ${item.cookingMethod.split(" ")[0]}
+          </span>
         </td>
         <td>${item.displayQty}</td>
-        <td>${item.weight}g</td>
-        <td><strong>${item.calories}</strong> kcal</td>
-        <td>${item.fat} g</td>
-        <td><button class="btn-delete" onclick="removeItem(${item.id})">❌ 移除</button></td>
+        <td>${item.weight} g</td>
+        <td>
+          <strong>${formatNutrient(item.calories, "calories")}</strong>
+          kcal
+        </td>
+        <td>${formatNutrient(item.fat, "fat")} g</td>
+        <td>
+          <button class="btn-delete" onclick="removeItem(${item.id})">
+            ❌ 移除
+          </button>
+        </td>
       </tr>
     `).join("");
   }
 
-  const totalWeight = myPlate.reduce((sum, item) => sum + item.weight, 0);
+  const totalWeight = myPlate.reduce(
+    (sum, item) => sum + item.weight, 0
+  );
 
-  const totals = {
-    calories: myPlate.reduce((sum, item) => sum + item.calories, 0),
-    carbs: parseFloat(myPlate.reduce((sum, item) => sum + item.carbs, 0).toFixed(1)),
-    protein: parseFloat(myPlate.reduce((sum, item) => sum + item.protein, 0).toFixed(1)),
-    fat: parseFloat(myPlate.reduce((sum, item) => sum + item.fat, 0).toFixed(1)),
-    minerals: parseFloat(myPlate.reduce((sum, item) => sum + item.minerals, 0).toFixed(2)),
-    fiber: parseFloat(myPlate.reduce((sum, item) => sum + item.fiber, 0).toFixed(1))
-  };
+  document.getElementById("pill-items-count").textContent =
+    myPlate.length;
 
-  document.getElementById("pill-items-count").textContent = myPlate.length;
-  document.getElementById("pill-total-weight").textContent = totalWeight;
-  document.getElementById("pill-minerals-count").textContent = totals.minerals.toFixed(2);
+  document.getElementById("pill-total-weight").textContent =
+    Number(totalWeight.toFixed(1));
 
-  updateBar("calories", totals.calories, TARGETS.calories);
-  updateBar("carbs", totals.carbs, TARGETS.carbs);
-  updateBar("protein", totals.protein, TARGETS.protein);
-  updateBar("fat", totals.fat, TARGETS.fat);
-  updateBar("minerals", totals.minerals, TARGETS.minerals);
-  updateBar("fiber", totals.fiber, TARGETS.fiber);
-}
+  NUTRIENT_KEYS.forEach(key => {
+    const total = sumNutrient(myPlate, key);
 
-function updateBar(key, currentVal, targetVal) {
-  document.getElementById(`val-${key}`).textContent = currentVal;
-  const percent = Math.min((currentVal / targetVal) * 100, 100);
-  const barEl = document.getElementById(`bar-${key}`);
-
-  barEl.style.width = `${percent}%`;
-
-  if (currentVal > targetVal * 1.3) {
-    barEl.style.backgroundColor = "#ef4444";
-  } else if (currentVal > targetVal * 1.1) {
-    barEl.style.backgroundColor = "#f59e0b";
-  } else {
-    barEl.style.backgroundColor = "#10b981";
-  }
+    document.getElementById(`val-${key}`).textContent =
+      formatNutrient(total, key);
+  });
 }
 
 // ==========================================
@@ -1116,8 +1144,13 @@ function addChefLike() {
 
 async function callOpenRouterAPI(apiKey, plate) {
   const endpoint = "https://openrouter.ai/api/v1/chat/completions";
-  const totalCal = plate.reduce((sum, item) => sum + item.calories, 0);
-  const totalFat = plate.reduce((sum, item) => sum + item.fat, 0);
+ const totalCal = formatNutrient(
+  sumNutrient(plate, "calories"), "calories"
+);
+
+const totalFat = formatNutrient(
+  sumNutrient(plate, "fat"), "fat"
+);
   const itemsText = plate.map(i => `${i.name} (${i.weight}g, 預計烹調: ${i.cookingMethod})`).join("、");
 
   const systemPrompt = `
@@ -1129,6 +1162,12 @@ async function callOpenRouterAPI(apiKey, plate) {
 - 食材列表：${itemsText}
 - 實時計算總熱量：${totalCal} kcal
 - 實時計算總脂肪：${totalFat} g
+- 上述營養總量只包括學生已加入餐盤的食材及調味料。
+- 系統沒有自動加入烹調用油或糖。
+- 如食譜額外加入油、糖或其他食材，成品營養會有所改變。
+- 如顯示「未有完整資料」，不可自行假設該營養素為零。
+- 沒有獨立的鈉或糖數據，不可將礦物質當鈉、
+  或將碳水化合物當糖分。
 
 【食譜設計原則】
 1. 優先使用學生已選擇的食材，不要加入大量額外食材。
