@@ -23,6 +23,9 @@
       <button class="nav-item" onclick="switchTab('app')">🥗 智能餐盤</button>
       <button class="nav-item" onclick="switchTab('quiz')">🎮 營養大挑戰</button>
       <button class="nav-item" onclick="switchTab('nutrition')">📖 營養超能力圖鑑</button>
+      <button class="nav-item" onclick="switchTab('missions')">
+  🧊 惜食任務站
+</button>
     </div>
   </nav>
 
@@ -76,6 +79,40 @@
     <!-- ==================== VIEW 2: APP PAGE (智能餐盤計算器) ==================== -->
     <div id="view-app" class="page-view">
       
+<!-- 配餐時顯示目前任務 -->
+<div id="mission-context" class="card"
+     style="display: none;">
+  <div class="card-title">
+    <span id="mission-context-title"></span>
+  </div>
+
+  <p id="mission-context-story"></p>
+
+  <p>
+    <strong>🧺 家中已有：</strong>
+    <span id="mission-context-pantry"></span>
+  </p>
+
+  <p>
+    <strong>🎯 你的任務：</strong>
+    <span id="mission-context-goal"></span>
+  </p>
+
+  <p>
+    <strong>💭 想一想：</strong>
+    <span id="mission-context-question"></span>
+  </p>
+
+  <p style="color: var(--text-muted);">
+    留起合適食材供下一餐使用，也是惜食。
+    不需要一次用完所有食材。
+  </p>
+
+  <button class="btn btn-reset" onclick="leaveMission()">
+    返回自由配餐
+  </button>
+</div>
+
       <!-- 1. 選擇食材與烹調方式 -->
       <div class="card">
         <div class="card-title">
@@ -346,6 +383,26 @@
         <div id="dict-grid" class="dict-grid"></div>
       </div>
     </div>
+
+<!-- 惜食任務站 -->
+<div id="view-missions" class="page-view">
+  <div class="card">
+    <div class="card-title">
+      <span>🧊 惜食任務站</span>
+    </div>
+
+    <p>
+      每個家庭都有不同的惜食難題。
+      選一個情境，設計你的餐盤，並解釋你的選擇！
+    </p>
+
+    <button class="btn btn-add" onclick="startRandomMission()">
+      🎲 隨機接一個任務
+    </button>
+
+    <div id="mission-grid" class="mission-grid"></div>
+  </div>
+</div>
 
     <!-- ==================== VIEW 5: PARENT RECIPE VIEW (家長掃描專屬頁面) ==================== -->
     <div id="view-parent-recipe" class="page-view">

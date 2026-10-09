@@ -411,13 +411,14 @@ function switchTab(tabName) {
     targetView.classList.add("active");
   }
 
-  const navMap = {
-    home: 0,
-    app: 1,
-    quiz: 2,
-    nutrition: 3,
-    "parent-recipe": -1
-  };
+ const navMap = {
+  home: 0,
+  app: 1,
+  quiz: 2,
+  nutrition: 3,
+  missions: 4,
+  "parent-recipe": -1
+};
 
   const activeNavIdx = navMap[tabName];
   if (activeNavIdx !== undefined && activeNavIdx >= 0) {
@@ -432,6 +433,10 @@ function switchTab(tabName) {
   if (tabName === "nutrition") {
     renderNutritionCards();
   }
+
+  if (tabName === "missions") {
+  renderMissions();
+}
 
   if (tabName === "quiz") {
     renderQuizQuestion();
@@ -1153,11 +1158,29 @@ const totalFat = formatNutrient(
 );
   const itemsText = plate.map(i => `${i.name} (${i.weight}g, 預計烹調: ${i.cookingMethod})`).join("、");
 
+ const missionPrompt = activeMission
+  ? `
+【目前惜食任務】
+名稱：${activeMission.title}
+背景：${activeMission.story}
+家中已有食材：${activeMission.pantry.join("、")}
+任務目標：${activeMission.goal}
+思考問題：${activeMission.question}
+
+請配合此情境設計食譜及惜食建議。
+以學生餐盤中的食材為主要材料。
+如需要額外食材或調味料，列明名稱及實際用量，
+並提醒額外材料未計入原本餐盤營養數值。
+沒有學生的解釋或完整資料時，不可宣稱任務已完成。
+`
+  : "";
+  
   const systemPrompt = `
 你是一位專門指導香港小學生與家長料理的「星級大廚兼營養師」。
 
 請根據學生提供的餐盤食材與對應烹調方式，設計一份現實中可行、安全、適合新手、小學生及家長共同製作的美味食譜。
 
+${missionPrompt}
 學生選定的餐盤內容：
 - 食材列表：${itemsText}
 - 實時計算總熱量：${totalCal} kcal
@@ -1319,6 +1342,183 @@ no people
   };
 
   imgEl.src = imageUrl;
+}
+
+// ==========================================
+// 惜食任務站
+// ==========================================
+
+let activeMission = null;
+
+const MISSIONS = [
+  {
+    id: "leftover-rice",
+    title: "🍚 剩飯大變身",
+    level: "入門",
+    story:
+      "小晴家中有一碗剩飯。家長已確認剩飯保存妥當，" +
+      "並適合食用。小晴想用它準備自己的午餐。",
+    pantry: ["白飯", "雞蛋", "西蘭花"],
+    goal:
+      "善用剩飯，設計一人午餐，兼顧食物配搭及份量。",
+    question:
+      "除了白飯，你會加入哪些食材？為甚麼？"
+  },
+  {
+    id: "use-first",
+    title: "🥬 今晚邊樣先煮？",
+    level: "進階",
+    story:
+      "阿樂家中有菠菜和紅蘿蔔。家長表示菠菜需要" +
+      "優先使用，紅蘿蔔可以留待之後。兩款蔬菜都未變壞。",
+    pantry: ["菠菜", "紅蘿蔔", "硬豆腐 (板豆腐)", "白飯"],
+    goal:
+      "為一人晚餐選擇應優先使用的食材，" +
+      "並安排其他食材留待下一餐。",
+    question:
+      "你會先用哪款蔬菜？未使用的食材可以怎樣安排？"
+  },
+  {
+    id: "shopping",
+    title: "🛒 超市優惠陷阱",
+    level: "進階",
+    story:
+      "小敏準備和家長買餸，超市正在做買一送一。" +
+      "但家中其實已有雞蛋、牛奶和全麥方包。",
+    pantry: ["雞蛋", "全脂牛奶", "全麥方包"],
+    goal:
+      "先用家中已有食材設計一人早餐。" +
+      "如需額外買食材，最多選一種，並說明原因。",
+    question:
+      "有優惠是否一定要買？你需要補充甚麼食材？"
+  },
+  {
+    id: "food-safety",
+    title: "🔎 呢樣仲食得嗎？",
+    level: "挑戰",
+    story:
+      "雪櫃中有外形不漂亮但未變壞的紅蘿蔔、" +
+      "已發霉的麵包，以及保存情況不明的熟食。" +
+      "家長另外確認雞蛋和白飯適合食用。",
+    pantry: ["紅蘿蔔", "雞蛋", "白飯"],
+    goal:
+      "只使用已確認適合食用的食材，設計一人午餐。" +
+      "已發霉的麵包不可使用；保存情況不明的熟食先問成人。",
+    question:
+      "外形不好看和食物變壞，有甚麼分別？"
+  }
+];
+
+function renderMissions() {
+  const grid = document.getElementById("mission-grid");
+
+  grid.innerHTML = MISSIONS.map(mission => `
+    <div class="mission-card">
+      <span class="hero-badge">${mission.level}</span>
+
+      <h3>${mission.title}</h3>
+
+      <p>${mission.story}</p>
+
+      <p>
+        <strong>家中已有：</strong>
+        ${mission.pantry.join("、")}
+      </p>
+
+      <p>
+        <strong>任務：</strong>
+        ${mission.goal}
+      </p>
+
+      <button class="btn btn-add"
+              onclick="startMission('${mission.id}')">
+        🚀 接受任務
+      </button>
+    </div>
+  `).join("");
+}
+
+function startMission(id) {
+  const mission = MISSIONS.find(item => item.id === id);
+  if (!mission) return;
+
+  // 避免舊 AI 請求完成後，結果落入新任務。
+  const loading = document.getElementById("loading-spinner");
+
+  if (loading && loading.style.display === "block") {
+    alert("請先等目前的 AI 分析完成，再開始新任務。");
+    return;
+  }
+
+  if (
+    myPlate.length > 0 &&
+    !confirm("開始新任務會清空目前餐盤，是否繼續？")
+  ) {
+    return;
+  }
+
+  activeMission = mission;
+  myPlate = [];
+  currentGeneratedRecipe = null;
+
+  document.getElementById("ai-card").style.display = "none";
+
+  updateUI();
+  renderMissionContext();
+  switchTab("app");
+}
+
+function startRandomMission() {
+  // 盡量避免再次抽到目前任務。
+  const choices = MISSIONS.filter(
+    mission => mission.id !== activeMission?.id
+  );
+
+  const index = Math.floor(Math.random() * choices.length);
+  startMission(choices[index].id);
+}
+
+function renderMissionContext() {
+  const panel = document.getElementById("mission-context");
+
+  if (!activeMission) {
+    panel.style.display = "none";
+    return;
+  }
+
+  document.getElementById("mission-context-title").textContent =
+    activeMission.title;
+
+  document.getElementById("mission-context-story").textContent =
+    activeMission.story;
+
+  document.getElementById("mission-context-pantry").textContent =
+    activeMission.pantry.join("、");
+
+  document.getElementById("mission-context-goal").textContent =
+    activeMission.goal;
+
+  document.getElementById("mission-context-question").textContent =
+    activeMission.question;
+
+  panel.style.display = "block";
+}
+
+function leaveMission() {
+  const loading = document.getElementById("loading-spinner");
+
+  if (loading && loading.style.display === "block") {
+    alert("請先等目前的 AI 分析完成。");
+    return;
+  }
+
+  activeMission = null;
+  currentGeneratedRecipe = null;
+
+  document.getElementById("ai-card").style.display = "none";
+  renderMissionContext();
+
+  // 保留餐盤，讓學生繼續自由配餐。
 }
 
 initApp();
