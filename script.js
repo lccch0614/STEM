@@ -1,48 +1,34 @@
-const PRESET_OPENROUTER_KEY = "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";
+const PRESET_OPENROUTER_KEY = ""; // 在此沿用你自己的 API 設定
 
-const NUTRIENT_KEYS = [
-  "calories", "carbs", "protein", "fat", "fiber"
-];
+const TARGETS = {
+  calories: 650,
+  carbs: 90,
+  protein: 20,
+  fat: 20,
+  fiber: 8.0
+};
 
-// 資料庫數值按每 100 克換算。
-// 缺少資料時保留 null，不用熱量推算其他營養素。
+// 以下原有數值只作課堂比較示例，並非個人建議攝取量。
+const NUTRIENTS = {
+  calories: {label: "熱量", unit: "kcal", icon: "🔥"},
+  carbs: {label: "碳水化合物", unit: "g", icon: "🌾"},
+  protein: {label: "蛋白質", unit: "g", icon: "💪"},
+  fat: {label: "脂肪", unit: "g", icon: "🥑"},
+  fiber: {label: "膳食纖維", unit: "g", icon: "🌿"}
+};
+let comparisonPlate = null;
 function nutrientAmount(food, key, ratio) {
   const value = food[key];
-
-  if (
-    typeof value !== "number" ||
-    !Number.isFinite(value) ||
-    value < 0
-  ) {
-    return null;
-  }
-
-  return value * ratio;
+  return typeof value === "number" && Number.isFinite(value) && value >= 0
+    ? value * ratio : null;
 }
-
-// 任何一項食材缺少該營養資料，就不顯示完整總量。
-function sumNutrient(items, key) {
-  const hasMissingData = items.some(item =>
-    typeof item[key] !== "number" ||
-    !Number.isFinite(item[key])
-  );
-
-  if (hasMissingData) return null;
-
-  return items.reduce((sum, item) => sum + item[key], 0);
+function sumNutrient(plate, key) {
+  return plate.some(item => typeof item[key] !== "number" || !Number.isFinite(item[key]))
+    ? null : plate.reduce((sum, item) => sum + item[key], 0);
 }
-
-// 計算時保留精度，到顯示時才四捨五入。
 function formatNutrient(value, key) {
-  if (value === null || !Number.isFinite(value)) {
-    return "未有完整資料";
-  }
-
-  return key === "calories"
-    ? String(Math.round(value))
-    : value.toFixed(1);
+  return value === null ? "資料不足" : value.toFixed(key === "calories" ? 0 : 1);
 }
-
 let foodDatabase = [];
 let myPlate = [];
 let currentGeneratedRecipe = null;
@@ -411,14 +397,13 @@ function switchTab(tabName) {
     targetView.classList.add("active");
   }
 
- const navMap = {
-  home: 0,
-  app: 1,
-  quiz: 2,
-  nutrition: 3,
-  missions: 4,
-  "parent-recipe": -1
-};
+  const navMap = {
+    home: 0,
+    app: 1,
+    quiz: 2,
+    nutrition: 3,
+    "parent-recipe": -1
+  };
 
   const activeNavIdx = navMap[tabName];
   if (activeNavIdx !== undefined && activeNavIdx >= 0) {
@@ -433,10 +418,6 @@ function switchTab(tabName) {
   if (tabName === "nutrition") {
     renderNutritionCards();
   }
-
-  if (tabName === "missions") {
-  renderMissions();
-}
 
   if (tabName === "quiz") {
     renderQuizQuestion();
@@ -527,7 +508,7 @@ document.getElementById("add-btn").addEventListener("click", () => {
   const qty = parseFloat(qtyEl.value);
   const cookingMethod = cookingEl.value;
 
-  if (!selectedCode || !qty || qty <= 0) {
+  if (!selectedCode || !Number.isFinite(qty) || qty < 0.5 || qty > 10 || !Number.isInteger(qty * 2)) {
     alert("請選擇食材與正確數量！");
     return;
   }
@@ -541,47 +522,19 @@ document.getElementById("add-btn").addEventListener("click", () => {
   const totalWeight = qty * foodItem.unitWeight;
   const itemRatio = totalWeight / 100;
 
-  let baseCalories = foodItem.calories * itemRatio;
-  let baseProtein = foodItem.protein * itemRatio;
-  let baseCarbs = (foodItem.carbs !== undefined ? foodItem.carbs : (foodItem.calories * 0.13)) * itemRatio;
-  let baseFat = (foodItem.fat !== undefined ? foodItem.fat : (foodItem.calories * 0.03)) * itemRatio;
-  let baseMinerals = (foodItem.minerals !== undefined ? foodItem.minerals : (foodItem.calories * 0.002)) * itemRatio;
-  let baseFiber = (foodItem.fiber !== undefined ? foodItem.fiber : (foodItem.calories * 0.01)) * itemRatio;
-
-  let extraFatPer100g = 0;
-  let extraCarbsPer100g = 0;
-
-  if (cookingMethod.includes("香炸")) {
-    extraFatPer100g = 8.0;
-  } else if (cookingMethod.includes("清炒")) {
-    extraFatPer100g = 3.0;
-  } else if (cookingMethod.includes("焗/烘烤")) {
-    extraFatPer100g = 2.0;
-  } else if (cookingMethod.includes("甜品")) {
-    extraCarbsPer100g = 12.0;
-    extraFatPer100g = 4.0;
-  } else if (cookingMethod.includes("滾湯")) {
-    extraFatPer100g = 1.0;
-  }
-
-  const addedFat = extraFatPer100g * itemRatio;
-  const addedCarbs = extraCarbsPer100g * itemRatio;
-  const addedCalories = (addedFat * 9) + (addedCarbs * 4);
+  // 只計已加入的食材；烹調方式不自動假設油、糖份量。
+  const nutrients = Object.fromEntries(Object.keys(NUTRIENTS).map(key =>
+    [key, nutrientAmount(foodItem, key, itemRatio)]));
 
   myPlate.push({
-  id: Date.now(),
-  name: foodItem.name,
-  enName: foodItem.enName,
-  cookingMethod: cookingMethod,
-  displayQty: `${qty} ${foodItem.unit}`,
-  weight: totalWeight,
-
-  calories: nutrientAmount(foodItem, "calories", itemRatio),
-  carbs: nutrientAmount(foodItem, "carbs", itemRatio),
-  protein: nutrientAmount(foodItem, "protein", itemRatio),
-  fat: nutrientAmount(foodItem, "fat", itemRatio),
-  fiber: nutrientAmount(foodItem, "fiber", itemRatio)
-});
+    id: Date.now(),
+    name: foodItem.name,
+    enName: foodItem.enName,
+    cookingMethod: cookingMethod,
+    displayQty: `${qty} ${foodItem.unit}`,
+    weight: totalWeight,
+    ...nutrients
+  });
 
   triggerConfetti();
   updateUI();
@@ -597,6 +550,7 @@ document.getElementById("reset-btn").addEventListener("click", () => {
 
   if (confirm("🧹 確定要清空餐盤嗎？")) {
     myPlate = [];
+    comparisonPlate = null;
     updateUI();
     document.getElementById("ai-card").style.display = "none";
   }
@@ -606,55 +560,95 @@ function updateUI() {
   const tbody = document.getElementById("plate-list");
 
   if (myPlate.length === 0) {
-    tbody.innerHTML = `
-      <tr>
-        <td colspan="6" style="color: #94a3b8; padding: 24px;">
-          🛒 餐盤空空如也，請先加入食材。
-        </td>
-      </tr>
-    `;
+    tbody.innerHTML = '<tr><td colspan="6" style="color: #94a3b8; padding: 24px;">🛒 購物籃空空如也，請先加入食材...</td></tr>';
   } else {
     tbody.innerHTML = myPlate.map(item => `
       <tr class="animated-row">
         <td>
           <strong style="font-size: 15px;">${item.name}</strong><br>
-          <span class="cooking-tag tag-default">
-            ${item.cookingMethod.split(" ")[0]}
-          </span>
+          <span class="cooking-tag tag-default">${item.cookingMethod.split(" ")[0]}</span>
         </td>
         <td>${item.displayQty}</td>
-        <td>${item.weight} g</td>
-        <td>
-          <strong>${formatNutrient(item.calories, "calories")}</strong>
-          kcal
-        </td>
+        <td>${item.weight}g</td>
+        <td><strong>${formatNutrient(item.calories, "calories")}</strong> kcal</td>
         <td>${formatNutrient(item.fat, "fat")} g</td>
-        <td>
-          <button class="btn-delete" onclick="removeItem(${item.id})">
-            ❌ 移除
-          </button>
-        </td>
+        <td><button class="btn-delete" onclick="removeItem(${item.id})">❌ 移除</button></td>
       </tr>
     `).join("");
   }
 
-  const totalWeight = myPlate.reduce(
-    (sum, item) => sum + item.weight, 0
-  );
+  const totalWeight = myPlate.reduce((sum, item) => sum + item.weight, 0);
 
-  document.getElementById("pill-items-count").textContent =
-    myPlate.length;
-
-  document.getElementById("pill-total-weight").textContent =
-    Number(totalWeight.toFixed(1));
-
-  NUTRIENT_KEYS.forEach(key => {
-    const total = sumNutrient(myPlate, key);
-
-    document.getElementById(`val-${key}`).textContent =
-      formatNutrient(total, key);
-  });
+  document.getElementById("pill-items-count").textContent = myPlate.length;
+  document.getElementById("pill-total-weight").textContent = Number(totalWeight.toFixed(1));
+  renderNutritionCharts();
+  // 餐盤改變後，舊食譜不再代表目前材料。
+  document.getElementById("ai-card").style.display = "none";
+  currentGeneratedRecipe = null;
 }
+
+function renderNutritionCharts() {
+  const container = document.getElementById("nutrition-charts");
+  if (!container) return;
+  container.innerHTML = Object.entries(NUTRIENTS).map(([key, meta]) => {
+    const current = sumNutrient(myPlate, key);
+    const previous = comparisonPlate ? sumNutrient(comparisonPlate, key) : null;
+    const target = TARGETS[key];
+    const scaleMax = target * 2;
+    function track(value, kind, label) {
+      const missing = value === null;
+      const pct = missing ? 0 : value / target * 100;
+      const width = missing ? 0 : Math.min(value / scaleMax * 100, 100);
+      const description = missing ? "資料不足，無法比較" : `${formatNutrient(value, key)} ${meta.unit}，示例的 ${Math.round(pct)}%`;
+      return `<div class="nutrition-track-row"><span>${label}</span>
+        <div class="nutrition-track ${missing ? "is-missing" : ""}" role="img" aria-label="${meta.label}，${label}：${description}">
+          <div id="${kind === "current" ? "bar-" : "before-"}${key}" class="nutrition-fill ${kind}" style="width:${width}%"></div>
+          <span class="nutrition-reference" aria-hidden="true"></span>
+        </div><span class="nutrition-ratio">${missing ? "—" : `${Math.round(pct)}%${pct > 200 ? " ↗" : ""}`}</span></div>`;
+    }
+    return `<section class="chart-item" aria-labelledby="label-${key}">
+      <div class="chart-header"><span id="label-${key}">${meta.icon} ${meta.label}</span><strong><span id="val-${key}">${formatNutrient(current, key)}</span>${current === null ? "" : ` ${meta.unit}`}</strong></div>
+      <div class="nutrition-target">課堂示例：<span id="target-${key}">${target}</span> ${meta.unit}（虛線位置）</div>
+      ${comparisonPlate ? track(previous, "previous", "調整前") : ""}${track(current, "current", "現在")}
+      <div class="nutrition-axis" aria-hidden="true"><span>0</span><span>示例 100%</span><span>200%</span></div>
+      <p class="nutrition-status" id="status-${key}"></p>
+    </section>`;
+  }).join("");
+  // 食材名稱以 textContent 寫入，避免將資料當 HTML。
+  for (const [key, meta] of Object.entries(NUTRIENTS)) {
+    const current = sumNutrient(myPlate, key);
+    const previous = comparisonPlate ? sumNutrient(comparisonPlate, key) : null;
+    let status = myPlate.length ? "長條表示份量，並非健康評分。" : "加入食材後，觀察長條變化。";
+    if (current === null) status = "部分食材缺少這項營養資料，無法計算總量；未作推算。";
+    else if (comparisonPlate && previous !== null) {
+      const delta = current - previous;
+      status = `調整前 ${formatNutrient(previous, key)} ${meta.unit} → 現在 ${formatNutrient(current, key)} ${meta.unit}（${delta > 0 ? "+" : ""}${formatNutrient(delta, key)} ${meta.unit}）。`;
+    } else if (comparisonPlate) status = "調整前資料不足，無法計算差值。";
+    if (current !== null && current > TARGETS[key] * 2) status += " 超出圖表刻度；請看實際數值。";
+    document.getElementById(`status-${key}`).textContent = status;
+  }
+  document.getElementById("save-comparison-btn").disabled = myPlate.length === 0;
+  document.getElementById("clear-comparison-btn").disabled = !comparisonPlate;
+  document.getElementById("comparison-message").textContent = comparisonPlate
+    ? `已記錄調整前的 ${comparisonPlate.length} 項食材。加減食材，觀察兩條長條及差值。`
+    : "先配好一餐，再按「記錄調整前」，然後加減食材比較。";
+}
+document.getElementById("save-comparison-btn").addEventListener("click", () => {
+  if (!myPlate.length) return;
+  comparisonPlate = myPlate.map(item => ({...item}));
+  renderNutritionCharts();
+});
+document.getElementById("clear-comparison-btn").addEventListener("click", () => {
+  comparisonPlate = null;
+  renderNutritionCharts();
+});
+document.getElementById("reference-form").addEventListener("submit", event => {
+  event.preventDefault();
+  const values = Object.fromEntries(Object.keys(NUTRIENTS).map(key => [key, Number(document.getElementById(`reference-${key}`).value)]));
+  if (Object.values(values).some(value => !Number.isFinite(value) || value <= 0 || value > 10000)) return;
+  Object.assign(TARGETS, values);
+  renderNutritionCharts();
+});
 
 // ==========================================
 // 營養超能力圖鑑
@@ -1149,48 +1143,19 @@ function addChefLike() {
 
 async function callOpenRouterAPI(apiKey, plate) {
   const endpoint = "https://openrouter.ai/api/v1/chat/completions";
- const totalCal = formatNutrient(
-  sumNutrient(plate, "calories"), "calories"
-);
-
-const totalFat = formatNutrient(
-  sumNutrient(plate, "fat"), "fat"
-);
+  const totalCal = formatNutrient(sumNutrient(plate, "calories"), "calories");
+  const totalFat = formatNutrient(sumNutrient(plate, "fat"), "fat");
   const itemsText = plate.map(i => `${i.name} (${i.weight}g, 預計烹調: ${i.cookingMethod})`).join("、");
 
- const missionPrompt = activeMission
-  ? `
-【目前惜食任務】
-名稱：${activeMission.title}
-背景：${activeMission.story}
-家中已有食材：${activeMission.pantry.join("、")}
-任務目標：${activeMission.goal}
-思考問題：${activeMission.question}
-
-請配合此情境設計食譜及惜食建議。
-以學生餐盤中的食材為主要材料。
-如需要額外食材或調味料，列明名稱及實際用量，
-並提醒額外材料未計入原本餐盤營養數值。
-沒有學生的解釋或完整資料時，不可宣稱任務已完成。
-`
-  : "";
-  
   const systemPrompt = `
 你是一位專門指導香港小學生與家長料理的「星級大廚兼營養師」。
 
 請根據學生提供的餐盤食材與對應烹調方式，設計一份現實中可行、安全、適合新手、小學生及家長共同製作的美味食譜。
 
-${missionPrompt}
 學生選定的餐盤內容：
 - 食材列表：${itemsText}
 - 實時計算總熱量：${totalCal} kcal
 - 實時計算總脂肪：${totalFat} g
-- 上述營養總量只包括學生已加入餐盤的食材及調味料。
-- 系統沒有自動加入烹調用油或糖。
-- 如食譜額外加入油、糖或其他食材，成品營養會有所改變。
-- 如顯示「未有完整資料」，不可自行假設該營養素為零。
-- 沒有獨立的鈉或糖數據，不可將礦物質當鈉、
-  或將碳水化合物當糖分。
 
 【食譜設計原則】
 1. 優先使用學生已選擇的食材，不要加入大量額外食材。
@@ -1342,183 +1307,6 @@ no people
   };
 
   imgEl.src = imageUrl;
-}
-
-// ==========================================
-// 惜食任務站
-// ==========================================
-
-let activeMission = null;
-
-const MISSIONS = [
-  {
-    id: "leftover-rice",
-    title: "🍚 剩飯大變身",
-    level: "入門",
-    story:
-      "小晴家中有一碗剩飯。家長已確認剩飯保存妥當，" +
-      "並適合食用。小晴想用它準備自己的午餐。",
-    pantry: ["白飯", "雞蛋", "西蘭花"],
-    goal:
-      "善用剩飯，設計一人午餐，兼顧食物配搭及份量。",
-    question:
-      "除了白飯，你會加入哪些食材？為甚麼？"
-  },
-  {
-    id: "use-first",
-    title: "🥬 今晚邊樣先煮？",
-    level: "進階",
-    story:
-      "阿樂家中有菠菜和紅蘿蔔。家長表示菠菜需要" +
-      "優先使用，紅蘿蔔可以留待之後。兩款蔬菜都未變壞。",
-    pantry: ["菠菜", "紅蘿蔔", "硬豆腐 (板豆腐)", "白飯"],
-    goal:
-      "為一人晚餐選擇應優先使用的食材，" +
-      "並安排其他食材留待下一餐。",
-    question:
-      "你會先用哪款蔬菜？未使用的食材可以怎樣安排？"
-  },
-  {
-    id: "shopping",
-    title: "🛒 超市優惠陷阱",
-    level: "進階",
-    story:
-      "小敏準備和家長買餸，超市正在做買一送一。" +
-      "但家中其實已有雞蛋、牛奶和全麥方包。",
-    pantry: ["雞蛋", "全脂牛奶", "全麥方包"],
-    goal:
-      "先用家中已有食材設計一人早餐。" +
-      "如需額外買食材，最多選一種，並說明原因。",
-    question:
-      "有優惠是否一定要買？你需要補充甚麼食材？"
-  },
-  {
-    id: "food-safety",
-    title: "🔎 呢樣仲食得嗎？",
-    level: "挑戰",
-    story:
-      "雪櫃中有外形不漂亮但未變壞的紅蘿蔔、" +
-      "已發霉的麵包，以及保存情況不明的熟食。" +
-      "家長另外確認雞蛋和白飯適合食用。",
-    pantry: ["紅蘿蔔", "雞蛋", "白飯"],
-    goal:
-      "只使用已確認適合食用的食材，設計一人午餐。" +
-      "已發霉的麵包不可使用；保存情況不明的熟食先問成人。",
-    question:
-      "外形不好看和食物變壞，有甚麼分別？"
-  }
-];
-
-function renderMissions() {
-  const grid = document.getElementById("mission-grid");
-
-  grid.innerHTML = MISSIONS.map(mission => `
-    <div class="mission-card">
-      <span class="hero-badge">${mission.level}</span>
-
-      <h3>${mission.title}</h3>
-
-      <p>${mission.story}</p>
-
-      <p>
-        <strong>家中已有：</strong>
-        ${mission.pantry.join("、")}
-      </p>
-
-      <p>
-        <strong>任務：</strong>
-        ${mission.goal}
-      </p>
-
-      <button class="btn btn-add"
-              onclick="startMission('${mission.id}')">
-        🚀 接受任務
-      </button>
-    </div>
-  `).join("");
-}
-
-function startMission(id) {
-  const mission = MISSIONS.find(item => item.id === id);
-  if (!mission) return;
-
-  // 避免舊 AI 請求完成後，結果落入新任務。
-  const loading = document.getElementById("loading-spinner");
-
-  if (loading && loading.style.display === "block") {
-    alert("請先等目前的 AI 分析完成，再開始新任務。");
-    return;
-  }
-
-  if (
-    myPlate.length > 0 &&
-    !confirm("開始新任務會清空目前餐盤，是否繼續？")
-  ) {
-    return;
-  }
-
-  activeMission = mission;
-  myPlate = [];
-  currentGeneratedRecipe = null;
-
-  document.getElementById("ai-card").style.display = "none";
-
-  updateUI();
-  renderMissionContext();
-  switchTab("app");
-}
-
-function startRandomMission() {
-  // 盡量避免再次抽到目前任務。
-  const choices = MISSIONS.filter(
-    mission => mission.id !== activeMission?.id
-  );
-
-  const index = Math.floor(Math.random() * choices.length);
-  startMission(choices[index].id);
-}
-
-function renderMissionContext() {
-  const panel = document.getElementById("mission-context");
-
-  if (!activeMission) {
-    panel.style.display = "none";
-    return;
-  }
-
-  document.getElementById("mission-context-title").textContent =
-    activeMission.title;
-
-  document.getElementById("mission-context-story").textContent =
-    activeMission.story;
-
-  document.getElementById("mission-context-pantry").textContent =
-    activeMission.pantry.join("、");
-
-  document.getElementById("mission-context-goal").textContent =
-    activeMission.goal;
-
-  document.getElementById("mission-context-question").textContent =
-    activeMission.question;
-
-  panel.style.display = "block";
-}
-
-function leaveMission() {
-  const loading = document.getElementById("loading-spinner");
-
-  if (loading && loading.style.display === "block") {
-    alert("請先等目前的 AI 分析完成。");
-    return;
-  }
-
-  activeMission = null;
-  currentGeneratedRecipe = null;
-
-  document.getElementById("ai-card").style.display = "none";
-  renderMissionContext();
-
-  // 保留餐盤，讓學生繼續自由配餐。
 }
 
 initApp();

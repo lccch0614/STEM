@@ -10,6 +10,9 @@
 
   <!-- 🌟 把外面的衣服 (CSS) 穿起來 -->
   <link rel="stylesheet" href="style.css">
+  ```html
+<link rel="stylesheet" href="quiz-upgrade.css?v=2">
+```
 </head>
 <body>
 
@@ -23,9 +26,6 @@
       <button class="nav-item" onclick="switchTab('app')">🥗 智能餐盤</button>
       <button class="nav-item" onclick="switchTab('quiz')">🎮 營養大挑戰</button>
       <button class="nav-item" onclick="switchTab('nutrition')">📖 營養超能力圖鑑</button>
-      <button class="nav-item" onclick="switchTab('missions')">
-  🧊 惜食任務站
-</button>
     </div>
   </nav>
 
@@ -37,7 +37,7 @@
         <span class="hero-badge">🌱 香港 STEM 教育 × 智慧健康</span>
         <h1 class="hero-title">創科有營「惜」食小助手</h1>
         <p style="font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
-          專為香港小學生設計的智慧健康餐盤！結合在地 55+ 種食材數據、實時烹調調味計算、AI 廚餘診斷以及可落地執行的「星級大廚詳細食譜」！
+          專為香港小學生設計的智慧健康餐盤！結合在地 55+ 種食材數據、食材與調味料份量計算、AI 廚餘診斷以及可落地執行的「星級大廚詳細食譜」！
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <button class="btn btn-add" style="max-width: 240px;" onclick="switchTab('app')">
@@ -54,15 +54,15 @@
           <div class="feature-icon">📊</div>
           <h3 style="margin: 0 0 8px 0; color: #0f172a;">在地數據與智囊圖表</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            收錄香港常見食材，估算餐盤的能量及營養，方便比較不同食材與份量。
+            收錄 55 種香港常見食材，配合即時動態 Bar-chart，比較熱量、碳水化合物、蛋白質、脂肪與膳食纖維。
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🍳</div>
-          <h3 style="margin: 0 0 8px 0; color: #0f172a;">烹調與用量探索</h3>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">實時烹調影響加成</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            選擇預計烹調方式，並加入實際需要的油或糖，探索食材和用量如何影響營養。
+            首創「烹調法智囊演算法」，自動計算清蒸、清炒、香炸或甜品製作對熱量與脂肪的影響。
           </p>
         </div>
 
@@ -79,40 +79,6 @@
     <!-- ==================== VIEW 2: APP PAGE (智能餐盤計算器) ==================== -->
     <div id="view-app" class="page-view">
       
-<!-- 配餐時顯示目前任務 -->
-<div id="mission-context" class="card"
-     style="display: none;">
-  <div class="card-title">
-    <span id="mission-context-title"></span>
-  </div>
-
-  <p id="mission-context-story"></p>
-
-  <p>
-    <strong>🧺 家中已有：</strong>
-    <span id="mission-context-pantry"></span>
-  </p>
-
-  <p>
-    <strong>🎯 你的任務：</strong>
-    <span id="mission-context-goal"></span>
-  </p>
-
-  <p>
-    <strong>💭 想一想：</strong>
-    <span id="mission-context-question"></span>
-  </p>
-
-  <p style="color: var(--text-muted);">
-    留起合適食材供下一餐使用，也是惜食。
-    不需要一次用完所有食材。
-  </p>
-
-  <button class="btn btn-reset" onclick="leaveMission()">
-    返回自由配餐
-  </button>
-</div>
-
       <!-- 1. 選擇食材與烹調方式 -->
       <div class="card">
         <div class="card-title">
@@ -153,81 +119,32 @@
             <label for="cooking-select">4. 預計烹調方式</label>
             <select id="cooking-select">
               <option value="清蒸 (Steaming)">💨 清蒸 (少油原味)</option>
-              <option value="清炒 (Stir-frying)">🍳 清炒 (+少許油卡路里)</option>
-              <option value="焗/烘烤 (Baking/Roasting)">♨️ 焗 / 烘烤 (+少許油脂)</option>
+              <option value="清炒 (Stir-frying)">🍳 清炒（油請另加）</option>
+              <option value="焗/烘烤 (Baking/Roasting)">♨️ 焗 / 烘烤（油請另加）</option>
               <option value="滾湯/燉煮 (Boiling/Stewing)">🥘 滾湯 / 燉煮</option>
-              <option value="香炸/酥炸 (Deep-frying)">🍗 香炸 / 酥炸 (大幅增加油脂與卡路里)</option>
+              <option value="香炸/酥炸 (Deep-frying)">🍗 香炸 / 酥炸（用油須另計）</option>
               <option value="涼拌/生食 (Raw/Salad)">🥗 涼拌 / 生食</option>
-              <option value="甜品製作 (Dessert Making)">🍮 甜品製作 (大幅增加糖分與油脂)</option>
+              <option value="甜品製作 (Dessert Making)">🍮 甜品製作（油、糖請另加）</option>
             </select>
           </div>
         </div>
 
-        <button id="add-btn" class="btn btn-add">➕ 加入餐盤</button>
+        <button id="add-btn" class="btn btn-add">➕ 加入餐盤（即時更新營養）</button>
       </div>
 
-      <!-- 2. 智囊健康數據圖表 (Bar-chart) -->
-      <!-- 2. 本餐營養估算 -->
-<div class="card">
-  <div class="card-title">
-    <span>📊 第二步：睇下你嘅餐盤營養</span>
-  </div>
+      <div class="card" id="nutrition-card">
+        <div class="card-title">📊 第二步：一餐營養比較</div>
+        <p class="nutrition-intro">加減食材，看看這一餐的營養怎樣改變。</p>
+        <div class="nutrition-notice"><strong>目前使用課堂示例數值</strong><br>虛線是比較位置，並非每位高小學生的建議攝取量或上限；不用把每條長條填滿。老師可按課堂需要修改。</div>
+        <div class="pills-container"><div class="pill-badge">🧺 食材項目：<span id="pill-items-count">0</span></div><div class="pill-badge">⚖️ 食材總重量：<span id="pill-total-weight">0</span> g</div><div class="pill-badge">🍽️ 顯示整個餐盤總量</div></div>
+        <div class="nutrition-actions"><button type="button" id="save-comparison-btn" class="btn btn-add">📌 記錄調整前</button><button type="button" id="clear-comparison-btn" class="btn btn-reset">清除比較</button></div>
+        <p id="comparison-message" class="nutrition-status" role="status"></p>
+        <div class="nutrition-legend"><span>🔵 現在</span><span>⚪ 灰色：調整前</span><span>┆ 虛線：課堂示例</span></div>
+        <div id="nutrition-charts"></div>
+        <details class="nutrition-settings"><summary>老師設定：修改課堂示例</summary><p>下列數字沿用原網站，只作練習比較，未經核定為高小建議量。修改只在本次開啟有效。</p><form id="reference-form"><div class="reference-grid"><label>熱量 (kcal)<input id="reference-calories" type="number" min="0.1" max="10000" step="0.1" value="650" required></label><label>碳水化合物 (g)<input id="reference-carbs" type="number" min="0.1" max="10000" step="0.1" value="90" required></label><label>蛋白質 (g)<input id="reference-protein" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>脂肪 (g)<input id="reference-fat" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>膳食纖維 (g)<input id="reference-fiber" type="number" min="0.1" max="10000" step="0.1" value="8" required></label></div><button type="submit" class="btn btn-add">套用示例數值</button></form></details>
+        <div class="nutrition-footnote"><p>📖 碳水化合物不等於糖。資料庫沒有獨立糖及鈉數據，因此暫不顯示糖、鈉或鹽分圖表。</p><p>計算採用原食材資料庫的估算值，只包含已加入餐盤的材料。油、糖及醬料請自行加入；選烹調方式不會自動加油或糖。食材的生熟狀態及實際烹調會影響結果。</p><p>配餐亦可參考衞生署「健康午膳 321」：穀物、蔬菜、肉及代替品按體積約 3：2：1；這不是營養克數比例。<a href="https://www.chp.gov.hk/en/resources/e_health_topics/12513.html" target="_blank" rel="noopener noreferrer">查看資料來源</a>（上方示例數字並非引自此指引。）</p></div>
+      </div>
 
-  <div class="pills-container">
-    <div class="pill-badge">
-      🧺 食材項目：<span id="pill-items-count">0</span>
-    </div>
-    <div class="pill-badge">
-      ⚖️ 總重量：<span id="pill-total-weight">0</span> g
-    </div>
-  </div>
-
-  <div class="chart-item">
-    <div class="chart-header">
-      <span>🔥 能量</span>
-      <span><span id="val-calories">0</span> kcal</span>
-    </div>
-  </div>
-
-  <div class="chart-item">
-    <div class="chart-header">
-      <span>🌾 碳水化合物</span>
-      <span><span id="val-carbs">0</span> g</span>
-    </div>
-  </div>
-
-  <div class="chart-item">
-    <div class="chart-header">
-      <span>💪 蛋白質</span>
-      <span><span id="val-protein">0</span> g</span>
-    </div>
-  </div>
-
-  <div class="chart-item">
-    <div class="chart-header">
-      <span>🥑 脂肪</span>
-      <span><span id="val-fat">0</span> g</span>
-    </div>
-  </div>
-
-  <div class="chart-item">
-    <div class="chart-header">
-      <span>🌿 膳食纖維</span>
-      <span><span id="val-fiber">0</span> g</span>
-    </div>
-  </div>
-
-  <p style="color: var(--text-muted); font-size: 14px;">
-    營養數值只供學習及比較，會因食材、份量和實際烹調方法而改變。
-    每個人的需要亦有所不同。
-  </p>
-
-  <p style="color: var(--text-muted); font-size: 14px;">
-    💡 如烹調時會用油或糖，請在「油、鹽、糖類」加入預計用量。
-    系統只計算已加入餐盤的食材，不會自動增加油或糖。
-  </p>
-  
-</div>
       <!-- 3. 我的餐盤明細 -->
       <div class="card">
         <div class="card-title">
@@ -242,8 +159,8 @@
                 <th>食材與烹調</th>
                 <th>選擇份量</th>
                 <th>重量</th>
-                <th>估算熱量</th>
-                <th>脂肪</th>
+                <th>總熱量</th>
+                <th>脂肪（已加入材料）</th>
                 <th>操作</th>
               </tr>
             </thead>
@@ -384,26 +301,6 @@
       </div>
     </div>
 
-<!-- 惜食任務站 -->
-<div id="view-missions" class="page-view">
-  <div class="card">
-    <div class="card-title">
-      <span>🧊 惜食任務站</span>
-    </div>
-
-    <p>
-      每個家庭都有不同的惜食難題。
-      選一個情境，設計你的餐盤，並解釋你的選擇！
-    </p>
-
-    <button class="btn btn-add" onclick="startRandomMission()">
-      🎲 隨機接一個任務
-    </button>
-
-    <div id="mission-grid" class="mission-grid"></div>
-  </div>
-</div>
-
     <!-- ==================== VIEW 5: PARENT RECIPE VIEW (家長掃描專屬頁面) ==================== -->
     <div id="view-parent-recipe" class="page-view">
       <div class="hero-banner" style="background: linear-gradient(135deg, #fef3c7 0%, #dcfce7 100%);">
@@ -468,5 +365,7 @@
 
 <!-- 自己的 JS 最後載入 -->
 <script src="script.js"></script>
+<script src="quiz-bank.js?v=2"></script>
+<script src="quiz-upgrade.js?v=2"></script>
 
 </html>
