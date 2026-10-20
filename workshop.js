@@ -2,9 +2,10 @@
   'use strict';
   const C = window.FoodWorkshopCore, $ = id => document.getElementById(id);
   const DRAFT_KEY = 'food-workshop-draft-v1', SETTINGS_KEY = 'food-workshop-settings-v1', QUEUE_KEY = 'food-workshop-queue-v1';
-  const fields = {chef:'chef-name-input',title:'recipe-title',equipment:'recipe-equipment',stock:'recipe-stock',waste:'recipe-waste',reason:'recipe-reason',allergy:'recipe-allergy'};
-  const fresh = () => ({version:1,chef:'',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:25,items:[],steps:[''],size:'standard'});
-  let draft = fresh(), database = [], comparison = null, basis = 'person', revision = 0, approved = '', qr = null, qrEpoch = 0;
+  const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
+  const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
+  const fresh = () => ({version:1,chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'standard'});
+  let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
   let queue = [], pendingAI = null, saveTimer, qrTimer, initialized = false;
   const references = Object.fromEntries(Object.entries(C.nutrients).map(([key,m]) => [key,m.reference]));
   const snapshot = value => JSON.parse(JSON.stringify(value));
@@ -14,7 +15,7 @@
   function saveDraft() {
     clearTimeout(saveTimer);
     if (!initialized) return;
-    try {localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));$('draft-status').textContent='草稿已儲存在這個瀏覽器；共用裝置前可先下載備份。';}
+    try {localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));$('draft-status').textContent='已自動儲存。';}
     catch {$('draft-status').textContent='這個瀏覽器未能儲存草稿，請按「下載草稿」保留作品。';}
   }
   function invalidateQR() {
@@ -24,14 +25,15 @@
   }
   function touch(message = '') {
     revision++;approved='';invalidateQR();
-    document.querySelectorAll('.review-check').forEach(input => input.checked=false);
-    $('review-status').textContent=message || '內容已更新，完成後請老師重新審閱。';
+    $('review-status').textContent=(draft.title.trim()&&draft.steps.some(s=>s.trim())) ? (message || '食譜已更新，可按「更新雪櫃貼」。') : '';
     if (pendingAI) cancelAI('設計已更改，已停止套用舊的 AI 回覆。');
     $('draft-status').textContent='正在儲存草稿…';
-    clearTimeout(saveTimer);saveTimer=setTimeout(saveDraft,250);
+    clearTimeout(saveTimer);saveTimer=setTimeout(saveDraft,250);renderRecipePreview();
   }
   function syncFields() {
     for (const [key,id] of Object.entries(fields)) draft[key]=$(id).value;
+    draft.equipment=[...$('equipment-choices').querySelectorAll('input:checked')].map(input=>input.value).join('、');
+    if (!$('recipe-minutes').value) draft.minutes=0;
     for (const [key,id] of [['servings','servings'],['minutes','recipe-minutes']]) {
       const n=Number($(id).value);
       if ($(id).value && $(id).checkValidity()) draft[key]=n;
@@ -39,8 +41,26 @@
   }
   function fillFields() {
     for (const [key,id] of Object.entries(fields)) $(id).value=draft[key];
-    $('servings').value=draft.servings;$('recipe-minutes').value=draft.minutes;$('magnet-size').value=draft.size;
-    renderSteps();renderMaterials();renderNutrition();
+    $('servings').value=draft.servings;$('recipe-minutes').value=draft.minutes||'';$('magnet-size').value=draft.size;
+    renderEquipment();renderSteps();renderMaterials();renderNutrition();renderRecipePreview();
+  }
+  function renderEquipment() {
+    const selected=draft.equipment.split('、').map(x=>x.trim()).filter(Boolean),root=$('equipment-choices');root.replaceChildren();
+    for (const name of [...equipmentOptions,...selected.filter(x=>!equipmentOptions.includes(x))]) {
+      const label=document.createElement('label'),input=document.createElement('input'),span=document.createElement('span');
+      input.type='checkbox';input.value=name;input.checked=selected.includes(name);span.textContent=name;label.append(input,span);root.append(label);
+    }
+  }
+  function renderRecipePreview() {
+    const available=Boolean(draft.title.trim()&&draft.steps.some(step=>step.trim()));
+    $('recipe-result').hidden=!available;$('magnet-section').hidden=!available;
+    if(available)$('recipe-edit-details').hidden=false;
+    const root=$('recipe-preview');root.replaceChildren();if(!available)return;
+    const title=document.createElement('h3');title.className='recipe-title';title.textContent=draft.title;root.append(title);
+    for (const [heading,lines,tag] of [['材料',C.ingredients(draft.items,database),'ul'],['做法',draft.steps.filter(step=>step.trim()),'ol']]) {
+      const h=document.createElement('h4');h.className='recipe-section-title';h.textContent=heading;
+      const list=document.createElement(tag);list.className='ws-preview-list';for(const text of lines){const li=document.createElement('li');li.textContent=text;list.append(li);}root.append(h,list);
+    }
   }
   function foodOptions() {
     const category=$('category-select').value, select=$('food-select');
@@ -51,7 +71,7 @@
   function showFoodDetail() {
     const f=database.find(x => x.code===$('food-select').value);
     $('unit-label').textContent=f?.unit || '份';
-    $('food-detail').textContent=f ? `每 ${f.unit} 約 ${f.unitWeight} 克；${C.stateLabel(f)}。營養按每 100 克的原網站課堂估算值計算。` : '';
+    $('food-detail').textContent=f ? `1 ${f.unit} 約 ${f.unitWeight} 克${C.stateLabel(f).startsWith('依資料庫')?'':`（${C.stateLabel(f)}）`}` : '';
   }
   function renderMaterials() {
     const tbody=$('plate-list');tbody.replaceChildren();
@@ -60,28 +80,29 @@
       const food=database.find(f => f.code===item.code), row=document.createElement('tr');
       const name=document.createElement('td');
       const strong=document.createElement('strong');strong.textContent=food.name;
-      const detail=document.createElement('small');detail.textContent=`約 ${Number((item.grams/food.unitWeight).toFixed(2))} ${food.unit}；${C.stateLabel(food)}`;
+      const portion=()=>`約 ${Number((item.grams/food.unitWeight).toFixed(2))} ${food.unit}${C.stateLabel(food).startsWith('依資料庫')?'':`；${C.stateLabel(food)}`}`;
+      const detail=document.createElement('small');detail.textContent=portion();
       name.append(strong,detail);
       const weightCell=document.createElement('td'), input=document.createElement('input');
       input.type='number';input.min='0.1';input.max='5000';input.step='0.1';input.required=true;input.value=Number(item.grams.toFixed(1));input.setAttribute('aria-label',`${food.name}整份克數`);
       input.addEventListener('input',() => {
-        touch('材料份量已更新。請檢查步驟及重新審閱。');
+        touch('材料份量已更新，可重新生成食譜。');
         if (!input.value || !input.checkValidity()) return;
         item.grams=Number(input.value);
-        detail.textContent=`約 ${Number((item.grams/food.unitWeight).toFixed(2))} ${food.unit}；${C.stateLabel(food)}`;
+        detail.textContent=portion();
         renderNutrition();
       });weightCell.append(input);
       const methodCell=document.createElement('td'), select=document.createElement('select');select.setAttribute('aria-label',`${food.name}烹調方式`);
       C.methods.forEach(m => select.add(new Option(m,m)));select.value=item.method;
       select.addEventListener('change',() => {item.method=select.value;touch('烹調方式已更新，請檢查火力、時間及步驟。');renderMaterials();});methodCell.append(select);
       const action=document.createElement('td'), remove=document.createElement('button');remove.type='button';remove.className='ws-link';remove.textContent='移除';remove.setAttribute('aria-label',`移除${food.name}`);
-      remove.addEventListener('click',() => {draft.items=draft.items.filter(i => i.id!==item.id);touch('材料已更新。請檢查步驟及重新審閱。');renderMaterials();renderNutrition();});action.append(remove);
+      remove.addEventListener('click',() => {draft.items=draft.items.filter(i => i.id!==item.id);touch('材料已更新，可重新生成食譜。');renderMaterials();renderNutrition();});action.append(remove);
       row.append(name,weightCell,methodCell,action);tbody.append(row);
     });
     const warning=C.warnings(draft.items,database), container=$('safety-warnings');container.replaceChildren();
     warning.blocking.forEach(message => {const p=document.createElement('p');p.className='ws-error';p.textContent=message;container.append(p);});
-    if (draft.items.length) {
-      const p=document.createElement('p');p.className='ws-note';p.textContent=`按食材名稱提示可能涉及：${warning.allergens.join('、') || '未識別到已列食物致敏物'}。提示不是完整致敏物清單；仍須由成人查看包裝、交叉接觸及個別飲食需要。`;container.append(p);
+    if (warning.allergens.length) {
+      const p=document.createElement('p');p.className='ws-note';p.textContent=`可能涉及：${warning.allergens.join('、')}。請成人按包裝及個別飲食需要核對。`;container.append(p);
     }
     $('save-comparison-btn').disabled=!draft.items.length;
   }
@@ -98,7 +119,7 @@
       const heading=document.createElement('div');heading.className='chart-header';
       const label=document.createElement('strong');label.textContent=meta.label;
       const amount=document.createElement('span');amount.textContent=`${format(current[key],key)}${current[key]===null?'':` ${meta.unit}`}`;heading.append(label,amount);section.append(heading);
-      const target=document.createElement('p');target.className='nutrition-target';target.textContent=`虛線：課堂比較示例 ${references[key]} ${meta.unit}，不是個人建議量。`;section.append(target);
+      const target=document.createElement('p');target.className='nutrition-target';target.textContent=`比較示例：${references[key]} ${meta.unit}`;section.append(target);
       for (const [name,values,kind] of [...(before?[['調整前',before,'previous']]:[]),['現在',current,'current']]) {
         const row=document.createElement('div');row.className='nutrition-track-row';
         const text=document.createElement('span');text.textContent=name;
@@ -108,7 +129,7 @@
         const value=document.createElement('span');value.className='nutrition-ratio';value.textContent=format(values[key],key);row.append(text,track,value);section.append(row);
       }
       const status=document.createElement('p');status.className='nutrition-status';
-      status.textContent=before ? (current[key]===null||before[key]===null?'資料不足，無法計算差值。':`調整前 ${format(before[key],key)} → 現在 ${format(current[key],key)} ${meta.unit}；差值 ${current[key]-before[key]>0?'+':''}${format(current[key]-before[key],key)} ${meta.unit}。`) : '長條表示數量，並非健康評分。';
+      status.textContent=before ? (current[key]===null||before[key]===null?'資料不足，無法計算差值。':`調整前 ${format(before[key],key)} → 現在 ${format(current[key],key)} ${meta.unit}；差值 ${current[key]-before[key]>0?'+':''}${format(current[key]-before[key],key)} ${meta.unit}。`) : '';
       if (current[key]!==null && current[key]>references[key]*2) status.textContent+=' 超出圖表刻度，請看實際數值。';
       section.append(status);charts.append(section);
     }
@@ -128,7 +149,8 @@
   }
   function validPayload() {
     syncFields();
-    for (const id of ['servings','recipe-minutes']) if (!$(id).value||!$(id).reportValidity()) throw new Error('請先填妥有效人數及時間。');
+    if (!$('servings').value||!$('servings').reportValidity()) throw new Error('請先填妥有效人數。');
+    if ($('recipe-minutes').value&&!$('recipe-minutes').reportValidity()) throw new Error('請填寫有效時間，或留空表示不限制。');
     for (const input of $('plate-list').querySelectorAll('input')) if (!input.value||!input.reportValidity()) throw new Error('請先填妥所有材料的有效克數。');
     return C.payload(draft,database);
   }
@@ -150,7 +172,7 @@
     const timer=setTimeout(() => {timedOut=true;controller.abort();},60000);
     try {
       const itemDescriptions=materials.map(i => ({id:i.id,name:database.find(f => f.code===i.code).name,grams:i.grams,method:i.method}));
-      const prompt=`你是香港高小親子煮食工作坊的食譜編寫助手。請使用繁體中文提供可供學生修改的初稿，不作健康評分或個人營養診斷。使用下列所有材料，完整保留 id 和克數，不可刪除材料、改份量或新增未列出的材料（包括油、糖、鹽、醬料及清水）。若材料不適合組合成安全可行食譜，回傳 {"error":"簡短說明需要先如何調整材料"}。步驟須包含適當火力、估計時間、熟透檢查及成人協助，不能為了縮短 QR code 省略安全資訊。提供 1 至 10 個步驟，每步最多180字，菜名最多40字。設計條件：${JSON.stringify({servings:context.servings,minutes:context.minutes,equipment:context.equipment,stock:context.stock,allergyNotes:context.allergy,materials:itemDescriptions})}。只輸出有效 JSON，格式：{"recipeTitle":"菜名","materials":[{"id":"原材料id","grams":原克數}],"recipeSteps":["步驟文字"]}。`;
+      const prompt=`你是香港高小親子煮食工作坊的食譜編寫助手。請使用繁體中文提供可供學生修改的初稿，不作健康評分或個人營養診斷。使用下列所有材料，完整保留 id 和克數，不可刪除材料、改份量或新增未列出的材料（包括油、糖、鹽、醬料及清水）。若材料不適合組合成安全可行食譜，回傳 {"error":"簡短說明需要先如何調整材料"}。步驟須包含適當火力、估計時間、熟透檢查及成人協助，不能為了縮短 QR code 省略安全資訊。器具欄留空代表未限制器具；時間為0代表未限制時間。請估算整道菜所需分鐘數。提供 1 至 10 個步驟，每步最多180字，菜名最多40字。設計條件：${JSON.stringify({servings:context.servings,minutes:context.minutes,equipment:context.equipment,stock:context.stock,allergyNotes:context.allergy,materials:itemDescriptions})}。只輸出有效 JSON，格式：{"recipeTitle":"菜名","minutes":25,"materials":[{"id":"原材料id","grams":原克數}],"recipeSteps":["步驟文字"]}。`;
       const response=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify({model:'openrouter/free',messages:[{role:'system',content:prompt},{role:'user',content:'請提供食譜初稿。'}],temperature:0.4}),signal:controller.signal});
       const body=await response.json();
       if (!response.ok||body.error) throw new Error(`OpenRouter ${response.status}: ${body.error?.message||'未能提供初稿'}`);
@@ -160,8 +182,10 @@
       if (raw.error) throw new Error(String(raw.error).slice(0,300));
       const result=C.parseAI(raw,materials);
       if (pendingAI!==controller||revision!==version) return;
-      pendingAI=null;draft.title=result.title;draft.steps=result.steps;touch('AI 初稿已加入。請學生檢查、修改及說明理由，再請老師審閱。');
-      $('recipe-title').value=draft.title;renderSteps();$('ai-status').textContent='初稿已加入；請核對每項材料是否在步驟中使用，並記下你的修改理由。';
+      pendingAI=null;draft.title=result.title;draft.steps=result.steps;if(result.minutes)draft.minutes=result.minutes;
+      touch();$('recipe-title').value=draft.title;$('recipe-minutes').value=draft.minutes||'';renderSteps();renderRecipePreview();
+      $('ai-status').textContent='食譜已生成！可直接打印雪櫃貼，或展開下方修改菜名及步驟。';
+      await prepareShare(true);
     } catch (e) {
       if (pendingAI===controller) {
         if (e.name==='AbortError') error('ai-error',timedOut?'等待超過一分鐘。你可以重試，或直接手動完成食譜。':'已停止等待。');
@@ -184,7 +208,7 @@
     if (!window.LZString||!window.QRCode) throw new Error('QR 程式尚未載入；請檢查網絡後重新整理。草稿仍可下載。');
     const validated=C.validatePayload(payload), url=`${C.shareBase(base)}#recipe=${LZString.compressToEncodedURIComponent(JSON.stringify(validated))}`;
     let symbol;
-    try {symbol=QRCode.create(url,{errorCorrectionLevel:'M'});} catch {throw new Error('這份食譜超出 QR code 容量。請保留重要安全資訊，精簡重複文字後再審閱；不會自動刪除內容。');}
+    try {symbol=QRCode.create(url,{errorCorrectionLevel:'M'});} catch {throw new Error('這份食譜超出 QR code 容量。請保留重要安全資訊，精簡重複文字後再更新；不會自動刪除內容。');}
     const dimensions=C.sizes[size], moduleMM=dimensions.qr/(symbol.modules.size+8);
     if (moduleMM<0.32) throw new Error(`這份食譜的 QR code 在 ${dimensions.label} 磁貼太密。請選更大尺寸，或精簡重複文字；不會自動截短食譜。`);
     const dataURL=await QRCode.toDataURL(url,{errorCorrectionLevel:'M',width:Math.max(600,(symbol.modules.size+8)*6),margin:4});
@@ -205,7 +229,7 @@
     $('qr-status').textContent='正在準備 QR code…';
     try {
       const payload=validPayload(), fingerprint=JSON.stringify(payload);
-      if (fingerprint!==approved) {approved='';throw new Error('內容有變更，請重新審閱。');}
+      if (fingerprint!==approved) {approved='';throw new Error('食譜有更新，請按「更新雪櫃貼」。');}
       const entry=await buildQR(payload,$('share-base').value,draft.size);
       if (epoch!==qrEpoch||approved!==fingerprint) return;
       const card=magnetNode(entry);
@@ -218,7 +242,11 @@
       ['print-magnet','queue-magnet','export-approved'].forEach(id => $(id).disabled=false);
     } catch (e) {if (epoch===qrEpoch) {error('qr-error',e.message);$('qr-status').textContent='尚未準備好可列印的 QR code。';if(e.message.includes('網址'))$('share-base').closest('details').open=true;}}
   }
-  function ensureQR() {if (!qr||!approved||qr.fingerprint!==JSON.stringify(validPayload())||qr.size!==draft.size||qr.base!==C.shareBase($('share-base').value)) throw new Error('QR code 尚未準備好，請完成審閱及確認網址。');return qr;}
+  async function prepareShare(quiet=false) {
+    try {approved=JSON.stringify(validPayload());$('review-status').textContent='';saveDraft();await refreshQR();}
+    catch(e){if(!quiet)$('review-status').textContent=e.message;}
+  }
+  function ensureQR() {if (!qr||!approved||qr.fingerprint!==JSON.stringify(validPayload())||qr.size!==draft.size||qr.base!==C.shareBase($('share-base').value)) throw new Error('食譜有更新，請按「更新雪櫃貼」後再打印。');return qr;}
   function download(filename,data) {
     const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
     const link=document.createElement('a');link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();setTimeout(() => URL.revokeObjectURL(url),1000);
@@ -265,14 +293,14 @@
     const title=document.createElement('h1');title.className='hero-title';title.textContent=p.t;
     const author=document.createElement('p');author.textContent=`${p.c} 的親子食譜`;
     hero.append(author,title);
-    const meta=document.createElement('p');meta.className='ws-parent-meta';meta.textContent=p.v===2?`${p.n} 人份 · 預計 ${p.m} 分鐘 · 器具：${p.e}`:'這是舊版食譜，未記錄人數及器具，請與孩子確認。';hero.append(meta);root.append(hero);
+    const meta=document.createElement('p');meta.className='ws-parent-meta';meta.textContent=p.v===2?[`${p.n} 人份`,p.m?`預計 ${p.m} 分鐘`:'',p.e?`器具：${p.e}`:''].filter(Boolean).join(' · '):'親子一起煮，按需要準備份量。';hero.append(meta);root.append(hero);
     function section(heading) {const section=document.createElement('section');section.className='card';const h=document.createElement('h2');h.textContent=heading;section.append(h);root.append(section);return section;}
     const shop=section('完整材料與買餸清單'), list=document.createElement('div');list.className='ws-parent-list';
     p.i.forEach(ingredient => {const label=document.createElement('label'), input=document.createElement('input'), text=document.createElement('span');input.type='checkbox';text.textContent=ingredient;label.append(input,text);list.append(label);});shop.append(list);
     const steps=section('與孩子共同下廚'), ol=document.createElement('ol');ol.className='ws-parent-steps';p.s.forEach(step => {const li=document.createElement('li');li.textContent=step;ol.append(li);});steps.append(ol);
     if (p.v===2) {
-      const learning=section('孩子的設計與惜食方法');
-      for (const [label,value] of [['惜食方法',p.w],['設計修改理由',p.r],['敏感食材核對備註',p.a||'未填寫，請成人核對'],['按食材名稱提示',p.z||'未識別；仍須查看包裝及個別飲食需要']]) {const para=document.createElement('p'), strong=document.createElement('strong');strong.textContent=`${label}：`;para.append(strong,document.createTextNode(value));learning.append(para);}
+      const notes=[['惜食方法',p.w],['設計修改理由',p.r],['敏感食材備註',p.a],['可能涉及的致敏物',p.z]].filter(([,value])=>value);
+      if(notes.length){const learning=section('食譜備註');for(const [label,value] of notes){const para=document.createElement('p'),strong=document.createElement('strong');strong.textContent=`${label}：`;para.append(strong,document.createTextNode(value));learning.append(para);}}
       const nutrition=section('每人營養估算');
       const values=document.createElement('p');values.textContent=Object.entries(C.nutrients).map(([key,m]) => `${m.label} ${format(p.u[key],key)}${p.u[key]===null?'':m.unit}`).join(' · ');nutrition.append(values);
       const note=document.createElement('p');note.className='ws-note';note.textContent='原網站課堂估算資料，未逐項核定來源及生熟狀態；並非個人飲食建議，未包含獨立糖及鈉數據。';nutrition.append(note);
@@ -301,8 +329,9 @@
       if (!Array.isArray(data)||!data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0)) throw new Error('食材資料格式無效。');
       database=data;foodOptions();
       const saved=readStorage(DRAFT_KEY);
-      if (saved) {try {draft=C.validateDraft(saved,database);$('draft-status').textContent='已恢復上次草稿。完成後請重新審閱。';} catch {$('draft-status').textContent='上次草稿無法恢復；可開啟下載過的草稿。';}}
+      if (saved) {try {draft=C.validateDraft(saved,database);$('draft-status').textContent='已恢復上次食譜。';} catch {$('draft-status').textContent='上次草稿無法恢復；可開啟下載過的草稿。';}}
       initialized=true;fillFields();
+      if(draft.title.trim()&&draft.steps.some(step=>step.trim()))prepareShare(true);
     } catch (e) {
       error('food-error',`${e.message} 請以網站網址開啟並檢查網絡；目前不會使用未載入的資料估算營養。`);
       $('food-select').replaceChildren(new Option('資料未載入，請重新整理',''));$('add-btn').disabled=true;$('ai-analyze-btn').disabled=true;
@@ -322,7 +351,7 @@
         const existing=draft.items.find(i => i.code===food.code&&i.method===method);
         if (existing) existing.grams=C.makeItem(food,existing.grams+grams,method,existing.id).grams;
         else draft.items.push(C.makeItem(food,grams,method,crypto.randomUUID()));
-        touch('材料已更新。請檢查步驟及重新審閱。');renderMaterials();renderNutrition();
+        touch('材料已更新，可重新生成食譜。');renderMaterials();renderNutrition();
       } catch (e) {error('food-error',e.message);}
     });
     $('reset-btn').addEventListener('click',() => {if (draft.items.length&&confirm('清空所有材料？食譜文字會保留供你修改。')) {draft.items=[];comparison=null;touch('材料已清空，請重新配好材料及修改步驟。');renderMaterials();renderNutrition();}});
@@ -332,17 +361,11 @@
     $('save-comparison-btn').addEventListener('click',() => {comparison={items:snapshot(draft.items),servings:draft.servings};renderNutrition();});
     $('clear-comparison-btn').addEventListener('click',() => {comparison=null;renderNutrition();});
     $('reference-form').addEventListener('submit',event => {event.preventDefault();for (const key of Object.keys(references)) references[key]=Number($(`reference-${key}`).value);renderNutrition();});
-    $('manual-help').addEventListener('click',() => {$('manual-tips').hidden=!$('manual-tips').hidden;$('recipe-title').focus();});
+    $('manual-help').addEventListener('click',() => {$('recipe-edit-details').hidden=false;$('recipe-edit-details').open=true;$('recipe-title').focus();});
     $('ai-analyze-btn').addEventListener('click',generateAI);$('cancel-ai').addEventListener('click',() => cancelAI());
-    $('approve-recipe').addEventListener('click',() => {
-      error('qr-error');
-      try {
-        const payload=validPayload();
-        if (![...document.querySelectorAll('.review-check')].every(input => input.checked)) throw new Error('請老師先核對全部四個項目。');
-        approved=JSON.stringify(payload);$('review-status').textContent='此版本已完成課堂審閱。請確認家長網址及磁貼尺寸。';saveDraft();refreshQR();
-      } catch (e) {$('review-status').textContent=e.message;}
-    });
-    document.querySelectorAll('.review-check').forEach(input => input.addEventListener('change',() => {approved='';invalidateQR();$('review-status').textContent='請完成核對後按「完成審閱」。';}));
+    $('approve-recipe').addEventListener('click',() => prepareShare());
+    $('equipment-choices').addEventListener('change',() => {syncFields();touch('器具已更新，可重新生成食譜。');});
+    $('chef-name-input').addEventListener('change',() => prepareShare(true));
     $('share-base').addEventListener('input',() => {settingsSave();invalidateQR();clearTimeout(qrTimer);if (approved) qrTimer=setTimeout(refreshQR,400);});
     $('magnet-size').addEventListener('change',() => {draft.size=$('magnet-size').value;settingsSave();saveDraft();refreshQR();});
     $('preview-parent').addEventListener('click',() => {try {renderParent(validPayload(),true);} catch (e) {$('review-status').textContent=e.message;$('review-status').scrollIntoView({block:'center'});}});
@@ -354,11 +377,11 @@
       } catch (e) {error('qr-error',e.message);}
     });
     $('export-draft').addEventListener('click',() => {syncFields();saveDraft();download('我的惜食食譜-草稿.json',draft);});
-    $('export-approved').addEventListener('click',() => {try {const entry=ensureQR();download('我的惜食食譜-已審閱.json',{kind:'food-workshop-approved',version:1,payload:entry.payload,size:entry.size});} catch (e) {error('qr-error',e.message);}});
+    $('export-approved').addEventListener('click',() => {try {const entry=ensureQR();download('我的惜食食譜-作品.json',{kind:'food-workshop-approved',version:1,payload:entry.payload,size:entry.size});} catch (e) {error('qr-error',e.message);}});
     $('import-draft').addEventListener('change',async event => {
       try {if (!initialized) throw new Error('請先成功載入食材資料。');const incoming=C.validateDraft(await jsonFile(event.target.files[0]),database);
         if (!confirm('開啟草稿會取代目前作品；如要保留，請先取消並下載目前草稿。繼續？')) return;
-        draft=incoming;comparison=null;touch('已開啟草稿，請檢查內容及重新審閱。');fillFields();saveDraft();
+        draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();saveDraft();prepareShare(true);
       } catch (e) {$('draft-status').textContent=e.message;} finally {event.target.value='';}
     });
     $('new-project').addEventListener('click',() => {if (!confirm('開始另一份作品會取代目前草稿；如要保留，請先下載。繼續？')) return;draft=fresh();comparison=null;touch('已開始新作品。');fillFields();saveDraft();});
@@ -366,8 +389,7 @@
       try {
         const files=[...event.target.files];if (!files.length) return;if (files.length+queue.length>60) throw new Error('佇列最多60份作品。');
         const base=C.shareBase($('share-base').value), incoming=[];
-        for (const file of files) {const raw=await jsonFile(file);if (raw.kind!=='food-workshop-approved'||raw.version!==1||raw.payload?.v!==2) throw new Error(`${file.name} 不是新版已審閱作品檔案。`);incoming.push({payload:C.validatePayload(raw.payload),size:Object.hasOwn(C.sizes,raw.size)?raw.size:'standard',base});}
-        if (!confirm(`請老師先核對這 ${incoming.length} 份匯入作品的材料、做法、敏感食材及學生說明。確認已審閱並加入列印佇列？`)) return;
+        for (const file of files) {const raw=await jsonFile(file);if (raw.kind!=='food-workshop-approved'||raw.version!==1||raw.payload?.v!==2) throw new Error(`${file.name} 不是食譜作品檔案。`);incoming.push({payload:C.validatePayload(raw.payload),size:Object.hasOwn(C.sizes,raw.size)?raw.size:'standard',base});}
         let added=0;for (const entry of incoming) if (!queue.some(x => JSON.stringify(x.payload)===JSON.stringify(entry.payload)&&x.base===entry.base)) {queue.push(entry);added++;}
         renderQueue();queueSave();$('queue-status').textContent=`已匯入 ${added} 份作品，略過重複作品。`;
       } catch (e) {$('queue-status').textContent=e.message;} finally {event.target.value='';}

@@ -72,7 +72,8 @@
     return items.map(i => {
       const f = byCode.get(i.code);
       if (!f) throw new Error('部分材料已不在資料庫，請重新選擇。');
-      return `${f.name} ${Number(i.grams.toFixed(1))}克（${stateLabel(f)}）`;
+      const state=stateLabel(f);
+      return `${f.name} ${Number(i.grams.toFixed(1))}克${state.startsWith('依資料庫')?'':`（${state}）`}`;
     });
   }
   function validateDraft(raw, database) {
@@ -81,7 +82,7 @@
     const items = raw.items.map((i, n) => makeItem(byCode.get(i.code), i.grams, i.method, `restored-${n}`));
     const fields = {};
     for (const [key, max] of Object.entries({chef:20,title:40,equipment:100,stock:160,waste:160,reason:200,allergy:120})) fields[key] = text(raw[key] ?? '', max, key, true);
-    return {version:1, ...fields, items, servings:number(raw.servings,1,12,'人數',true), minutes:number(raw.minutes,1,240,'時間',true),
+    return {version:1, ...fields, items, servings:number(raw.servings,1,12,'人數',true), minutes:number(raw.minutes ?? 0,0,240,'時間',true),
       steps: Array.isArray(raw.steps) && raw.steps.length <= 10 ? raw.steps.map(x => text(x, 180, '步驟', true)) : [''],
       size: Object.hasOwn(sizes, raw.size) ? raw.size : 'standard'};
   }
@@ -90,11 +91,11 @@
     const warning = warnings(draft.items, database);
     if (warning.blocking.length) throw new Error(warning.blocking.join(' '));
     return {
-      v:2, c:text(draft.chef,20,'作品代號／暱稱'), t:text(draft.title,40,'菜名'),
-      n:number(draft.servings,1,12,'人數',true), m:number(draft.minutes,1,240,'時間',true),
-      e:text(draft.equipment,100,'器具'), i:ingredients(draft.items,database),
-      s:list(draft.steps,1,10,180,'步驟'), w:text(draft.waste,160,'惜食方法'),
-      r:text(draft.reason,200,'修改理由'), a:text(draft.allergy,120,'敏感食材核對備註',true),
+      v:2, c:text(draft.chef?.trim() || '小廚師',20,'小廚師暱稱'), t:text(draft.title,40,'菜名'),
+      n:number(draft.servings,1,12,'人數',true), m:number(draft.minutes ?? 0,0,240,'時間',true),
+      e:text(draft.equipment ?? '',100,'器具',true), i:ingredients(draft.items,database),
+      s:list(draft.steps,1,10,180,'步驟'), w:text(draft.waste ?? '',160,'惜食方法',true),
+      r:text(draft.reason ?? '',200,'修改理由',true), a:text(draft.allergy ?? '',120,'敏感食材核對備註',true),
       z:warning.allergens.join('、'), u:Object.fromEntries(Object.entries(totals(draft.items,database,draft.servings)).map(([key,n]) => [key,n===null?null:Number(n.toFixed(1))]))
     };
   }
@@ -103,8 +104,8 @@
     const result = {v:raw.v === 2 ? 2 : 1, c:text(raw.c ?? '小廚師',20,'作品代號'), t:text(raw.t,40,'菜名'),
       i:list(raw.i,1,30,120,'材料'), s:list(raw.s,1,10,180,'步驟')};
     if (result.v === 2) {
-      Object.assign(result,{n:number(raw.n,1,12,'人數',true),m:number(raw.m,1,240,'時間',true),e:text(raw.e,100,'器具'),
-        w:text(raw.w,160,'惜食方法'),r:text(raw.r,200,'修改理由'),a:text(raw.a ?? '',120,'備註',true),z:text(raw.z ?? '',200,'致敏物提醒',true)});
+      Object.assign(result,{n:number(raw.n,1,12,'人數',true),m:number(raw.m ?? 0,0,240,'時間',true),e:text(raw.e ?? '',100,'器具',true),
+        w:text(raw.w ?? '',160,'惜食方法',true),r:text(raw.r ?? '',200,'修改理由',true),a:text(raw.a ?? '',120,'備註',true),z:text(raw.z ?? '',200,'致敏物提醒',true)});
       result.u = Object.fromEntries(Object.keys(nutrients).map(key => [key, raw.u?.[key] === null ? null : number(raw.u?.[key],0,1000000,'營養數據')]));
     }
     return result;
@@ -120,7 +121,8 @@
       if (!item || seen.has(material.id) || typeof material.grams !== 'number' || Math.abs(material.grams-item.grams)>0.01) throw new Error('AI 更改或遺漏材料，未套用這次回覆。請重試或手動編輯。');
       seen.add(material.id);
     }
-    return {title,steps};
+    const minutes=raw.minutes == null ? 0 : number(raw.minutes,1,240,'AI 預計時間',true);
+    return {title,steps,minutes};
   }
   function shareBase(value) {
     let url;
