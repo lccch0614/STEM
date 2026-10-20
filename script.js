@@ -1,4 +1,4 @@
-const PRESET_OPENROUTER_KEY = "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"; // 在此沿用你自己的 API 設定
+const PRESET_OPENROUTER_KEY = "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"; // 在此沿用你自己的 API 設定
 
 const TARGETS = {
   calories: 650,
