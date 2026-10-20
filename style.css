@@ -783,11 +783,7 @@ td { padding: 14px 12px; border-top: 1px solid var(--border-color); font-size: 1
 .star:hover { transform: scale(1.3); }
 
 /* 🖨️ 列印專用樣式：只印雪櫃貼 */
-@media print {
-  body * { visibility: hidden; }
-  #printable-magnet, #printable-magnet * { visibility: visible; }
-  #printable-magnet { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(1.3); }
-}
+
 /* 營養比較圖表 */
 .nutrition-intro {font-size:18px;color:#334155;}
 .nutrition-notice {background:#fff8e6;border-left:4px solid #c28617;padding:14px 16px;border-radius:10px;line-height:1.7;color:#59431a;margin:16px 0;}

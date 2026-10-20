@@ -9,9 +9,10 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <!-- 🌟 把外面的衣服 (CSS) 穿起來 -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=workshop-1">
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
+<link rel="stylesheet" href="workshop.css?v=1">
 
 </head>
 <body>
@@ -37,7 +38,7 @@
         <span class="hero-badge">🌱 香港 STEM 教育 × 智慧健康</span>
         <h1 class="hero-title">創科有營「惜」食小助手</h1>
         <p style="font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
-          專為香港小學生設計的智慧健康餐盤！結合在地 55+ 種食材數據、食材與調味料份量計算、AI 廚餘診斷以及可落地執行的「星級大廚詳細食譜」！
+          專為香港小學生設計的智慧健康餐盤！運用 61 種常見食材的課堂估算資料，比較份量、修改自己的食譜，完成老師審閱後製作 QR code 雪櫃磁貼。
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <button class="btn btn-add" style="max-width: 240px;" onclick="switchTab('app')">
@@ -54,23 +55,23 @@
           <div class="feature-icon">📊</div>
           <h3 style="margin: 0 0 8px 0; color: #0f172a;">在地數據與智囊圖表</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            收錄 55 種香港常見食材，配合即時動態 Bar-chart，比較熱量、碳水化合物、蛋白質、脂肪與膳食纖維。
+            收錄 61 種香港常見食材，配合即時動態 Bar-chart，比較熱量、碳水化合物、蛋白質、脂肪與膳食纖維。
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🍳</div>
-          <h3 style="margin: 0 0 8px 0; color: #0f172a;">實時烹調影響加成</h3>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">材料份量同步比較</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            首創「烹調法智囊演算法」，自動計算清蒸、清炒、香炸或甜品製作對熱量與脂肪的影響。
+            所有材料包括油、糖及醬料由你加入，圖表、食譜與家長買餸清單使用同一份材料資料。
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">👨‍🍳</div>
-          <h3 style="margin: 0 0 8px 0; color: #0f172a;">星級大廚實戰超細食譜</h3>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">我的設計與親子食譜</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            OpenRouter AI 實時生成包含「火候、時間、醃製與切法細節」的超詳細實戰食譜！
+            自己編輯菜名及步驟，說明惜食方法和修改理由；AI 可提供初稿，老師協助核對。
           </p>
         </div>
       </div>
@@ -78,169 +79,78 @@
 
     <!-- ==================== VIEW 2: APP PAGE (智能餐盤計算器) ==================== -->
     <div id="view-app" class="page-view">
-      
-      <!-- 1. 選擇食材與烹調方式 -->
-      <div class="card">
-        <div class="card-title">
-          <span>第一步：挑選食材與烹調方式</span>
+      <header class="workshop-intro">
+        <p class="ws-eyebrow">我的惜食食譜工作室</p>
+        <h1>設計一餐，帶回家實踐。</h1>
+        <p>先想好人數及材料，再比較、修改。AI 可以提供初稿，最後的選擇由你說明。</p>
+        <ol class="ws-route" aria-label="工作坊流程"><li>訂條件</li><li>配材料</li><li>改食譜</li><li>老師審閱</li><li>製作磁貼</li></ol>
+        <p id="draft-status" class="ws-status" role="status" aria-live="polite"></p>
+        <div class="ws-actions"><button id="export-draft" class="ws-secondary" type="button">下載草稿</button><label class="ws-file-button">開啟草稿<input id="import-draft" type="file" accept=".json,application/json"></label><button id="new-project" class="ws-link" type="button">開始另一份作品</button></div>
+      </header>
+      <section class="card" aria-labelledby="plan-heading">
+        <h2 id="plan-heading">1. 我的設計條件</h2>
+        <div class="ws-grid">
+          <label>作品代號／暱稱<input id="chef-name-input" maxlength="20" placeholder="例如：青豆小廚師" autocomplete="off"></label>
+          <label>這份食譜供幾人食用？<input id="servings" type="number" min="1" max="12" step="1" value="1"></label>
+          <label>預計總時間（分鐘）<input id="recipe-minutes" type="number" min="1" max="240" value="25"></label>
+          <label>可用器具<input id="recipe-equipment" maxlength="100" placeholder="例如：電飯煲、蒸架"></label>
+          <label class="ws-span">家中已有、想優先使用的材料<textarea id="recipe-stock" maxlength="160" rows="2" placeholder="例如：有半條紅蘿蔔及兩隻蛋，先檢查是否適合使用。"></textarea></label>
         </div>
-        
-        <div class="selector-grid">
-          <div class="field-group">
-            <label for="category-select">1. 食材類別</label>
-            <select id="category-select">
-            <option value="">-- 請選擇食物類別 --</option>
-            <option value="grains">🌾 穀物類</option>
-            <option value="vegetables">🥦 蔬菜類</option>
-            <option value="fruits">🍎 水果類</option>
-            <option value="protein">🥩 肉、魚、蛋及豆製品類</option>
-            <option value="dairy">🥛 奶類</option>
-            <option value="oil_salt_sugar">🧂 油、鹽、糖類</option>
-            <option value="liquids">💧 流質飲品類</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="food-select">2. 選擇食材</label>
-            <select id="food-select">
-              <option value="">-- 載入中... --</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="food-qty">3. 數量</label>
-            <div class="qty-box">
-              <input type="number" id="food-qty" value="1" min="0.5" max="10" step="0.5">
-              <span id="unit-label" class="unit-badge">份</span>
-            </div>
-          </div>
-
-          <div class="field-group">
-            <label for="cooking-select">4. 預計烹調方式</label>
-            <select id="cooking-select">
-              <option value="清蒸 (Steaming)">💨 清蒸 (少油原味)</option>
-              <option value="清炒 (Stir-frying)">🍳 清炒（油請另加）</option>
-              <option value="焗/烘烤 (Baking/Roasting)">♨️ 焗 / 烘烤（油請另加）</option>
-              <option value="滾湯/燉煮 (Boiling/Stewing)">🥘 滾湯 / 燉煮</option>
-              <option value="香炸/酥炸 (Deep-frying)">🍗 香炸 / 酥炸（用油須另計）</option>
-              <option value="涼拌/生食 (Raw/Salad)">🥗 涼拌 / 生食</option>
-              <option value="甜品製作 (Dessert Making)">🍮 甜品製作（油、糖請另加）</option>
-            </select>
-          </div>
-        </div>
-
-        <button id="add-btn" class="btn btn-add">➕ 加入餐盤（即時更新營養）</button>
-      </div>
-
-      <div class="card" id="nutrition-card">
-        <div class="card-title">📊 第二步：一餐營養比較</div>
-        <p class="nutrition-intro">加減食材，看看這一餐的營養怎樣改變。</p>
-        <div class="nutrition-notice"><strong>目前使用課堂示例數值</strong><br>虛線是比較位置，並非每位高小學生的建議攝取量或上限；不用把每條長條填滿。老師可按課堂需要修改。</div>
-        <div class="pills-container"><div class="pill-badge">🧺 食材項目：<span id="pill-items-count">0</span></div><div class="pill-badge">⚖️ 食材總重量：<span id="pill-total-weight">0</span> g</div><div class="pill-badge">🍽️ 顯示整個餐盤總量</div></div>
-        <div class="nutrition-actions"><button type="button" id="save-comparison-btn" class="btn btn-add">📌 記錄調整前</button><button type="button" id="clear-comparison-btn" class="btn btn-reset">清除比較</button></div>
-        <p id="comparison-message" class="nutrition-status" role="status"></p>
-        <div class="nutrition-legend"><span>🔵 現在</span><span>⚪ 灰色：調整前</span><span>┆ 虛線：課堂示例</span></div>
+      </section>
+      <section class="card" aria-labelledby="materials-heading">
+        <h2 id="materials-heading">2. 配好材料，量清份量</h2>
+        <p>所有人合共使用的份量，請在這裏加入，包括油、糖、鹽、醬料和清水。選烹調方式不會自動加材料。</p>
+        <form id="ingredient-form" class="selector-grid">
+          <label>食材類別<select id="category-select"><option value="all">全部類別</option><option value="grains">穀物類</option><option value="vegetables">蔬菜類</option><option value="fruits">水果類</option><option value="protein">肉、魚、蛋及豆製品類</option><option value="dairy">奶類</option><option value="oil_salt_sugar">油、鹽、糖及調味料</option><option value="liquids">飲品及清水</option></select></label>
+          <label>選擇食材<select id="food-select" required><option value="">正在載入食材…</option></select></label>
+          <label>數量（<span id="unit-label">份</span>）<input id="food-qty" type="number" value="1" min="0.25" max="30" step="0.25" required></label>
+          <label>烹調方式<select id="cooking-select"></select></label>
+          <button id="add-btn" class="btn btn-add ws-span" type="submit">加入材料</button>
+        </form>
+        <p id="food-detail" class="ws-note"></p>
+        <div id="food-error" class="ws-error" role="alert" hidden></div>
+        <div class="ws-table-wrap"><table class="ws-materials"><caption>食譜的完整材料清單（直接修改克數，圖表和買餸清單會同步更新）</caption><thead><tr><th scope="col">食材</th><th scope="col">整份克數</th><th scope="col">做法</th><th scope="col">操作</th></tr></thead><tbody id="plate-list"></tbody></table></div>
+        <button id="reset-btn" class="ws-link" type="button">清空材料</button>
+        <div id="safety-warnings" role="status" aria-live="polite"></div>
+      </section>
+      <section class="card" id="nutrition-card" aria-labelledby="nutrition-heading">
+        <h2 id="nutrition-heading">3. 比較一次，說出改變</h2>
+        <div class="ws-notice">以下為原網站課堂估算資料，尚未逐項核定來源及生熟狀態。虛線只作比較，並非個人建議量；不用把長條填滿。未有糖和鈉資料，不會以碳水化合物或「礦物質」代替。</div>
+        <div class="ws-actions"><label>顯示方式<select id="nutrition-basis"><option value="person">每人份量</option><option value="total">整份食譜</option></select></label><button id="save-comparison-btn" class="ws-secondary" type="button">記錄調整前</button><button id="clear-comparison-btn" class="ws-link" type="button">清除比較</button></div>
+        <p id="plate-summary" class="ws-note"></p><p id="comparison-message" class="ws-status" role="status"></p>
         <div id="nutrition-charts"></div>
-        <details class="nutrition-settings"><summary>老師設定：修改課堂示例</summary><p>下列數字沿用原網站，只作練習比較，未經核定為高小建議量。修改只在本次開啟有效。</p><form id="reference-form"><div class="reference-grid"><label>熱量 (kcal)<input id="reference-calories" type="number" min="0.1" max="10000" step="0.1" value="650" required></label><label>碳水化合物 (g)<input id="reference-carbs" type="number" min="0.1" max="10000" step="0.1" value="90" required></label><label>蛋白質 (g)<input id="reference-protein" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>脂肪 (g)<input id="reference-fat" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>膳食纖維 (g)<input id="reference-fiber" type="number" min="0.1" max="10000" step="0.1" value="8" required></label></div><button type="submit" class="btn btn-add">套用示例數值</button></form></details>
-        <div class="nutrition-footnote"><p>📖 碳水化合物不等於糖。資料庫沒有獨立糖及鈉數據，因此暫不顯示糖、鈉或鹽分圖表。</p><p>計算採用原食材資料庫的估算值，只包含已加入餐盤的材料。油、糖及醬料請自行加入；選烹調方式不會自動加油或糖。食材的生熟狀態及實際烹調會影響結果。</p><p>配餐亦可參考衞生署「健康午膳 321」：穀物、蔬菜、肉及代替品按體積約 3：2：1；這不是營養克數比例。<a href="https://www.chp.gov.hk/en/resources/e_health_topics/12513.html" target="_blank" rel="noopener noreferrer">查看資料來源</a>（上方示例數字並非引自此指引。）</p></div>
-      </div>
-
-      <!-- 3. 我的餐盤明細 -->
-      <div class="card">
-        <div class="card-title">
-          <span>🍽️ 第三步：我的餐盤明細</span>
-          <button id="reset-btn" class="btn btn-reset">🧹 清空餐盤</button>
-        </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>食材與烹調</th>
-                <th>選擇份量</th>
-                <th>重量</th>
-                <th>總熱量</th>
-                <th>脂肪（已加入材料）</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody id="plate-list">
-              <tr><td colspan="6" style="color: #94a3b8; padding: 24px;">🛒 購物籃空空如也，請先加入食材...</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <button id="ai-analyze-btn" class="btn btn-ai">✨ 請 OpenRouter AI 生成「星級詳細大廚食譜」與分析</button>
-        <div id="loading-spinner" class="loading">🧠 大廚 AI 正在撰寫超詳細火候步驟與繪製 4K 美食圖...</div>
-      </div>
-
-      <!-- 4. AI 分析與食譜展示 -->
-      <div class="card ai-card" id="ai-card" style="display: none;">
-        <div class="card-title">
-          <span>💡 AI 營養診深與星級實戰大廚食譜</span>
-        </div>
-        
-        <div id="ai-result" class="ai-result-box">
-          <p style="font-size: 16px; margin-top: 0;">
-            <strong>🏆 綜合健康評分：</strong> 
-            <span id="ai-score" class="score-badge">0</span> <span style="font-size: 18px; font-weight: bold; color: #d97706;">/ 100</span>
-          </p>
-          <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 16px 0;">
-          <p><strong>⚠️ 廚餘與浪費風險分析 (以小四至小六單餐為準則)：</strong></p>
-          <div id="ai-waste-risk" style="margin-left: 8px; color: #334155; line-height: 1.7;"></div>
-          <br>
-          <p><strong>🌱 大師給你的改善建議：</strong></p>
-          <ul id="ai-suggestions" style="margin-top: 6px; padding-left: 20px; color: #334155; line-height: 1.8;"></ul>
-
-          <!-- 👨‍🍳 AI 超詳細實戰大廚食譜區塊 -->
-          <div class="recipe-container">
-            <div id="ai-recipe-title" class="recipe-title">👨‍🍳 菜式：載入中...</div>
-            
-            <div class="recipe-section-title">🛒 必備食材與精確調味料份量：</div>
-            <ul id="ai-recipe-ingredients" class="recipe-list"></ul>
-
-            <div class="recipe-section-title">🍳 星級大廚詳細步驟指南 (含火候與時間)：</div>
-            <ul id="ai-recipe-steps" class="recipe-steps-list"></ul>
-          </div>
-        </div>
-
-        <div class="image-container">
-          <h3 style="margin: 0; color: #0f172a; font-size: 18px;">🎨 AI HD/4K 精緻菜色概念圖</h3>
-          <p id="image-status" style="color: var(--text-muted); font-size: 14px; margin: 8px 0;">正在畫圖中...</p>
-          <img id="ai-food-img" class="food-image" src="" alt="AI 食物概念圖" style="display: none;">
-        </div>
-
-        <!-- 🏷️ 專屬雪櫃貼 QR Code 產生區塊 -->
-        <div class="magnet-preview-card" style="margin-top: 28px; padding: 24px; background: #fff; border-radius: var(--radius-lg); border: 2px dashed var(--primary);">
-          <h3 style="margin: 0 0 10px 0; color: var(--primary-dark); font-size: 20px; text-align: center;">🧊 製作「小廚師專屬雪櫃貼」貼紙</h3>
-          <p style="font-size: 14px; color: var(--text-muted); text-align: center; margin-bottom: 18px;">
-            請輸入學生姓名，系統會自動生成專屬 QR Code！印出後貼在雪櫃貼上帶回家，家長掃描即可解鎖買餸清單與點讚功能！
-          </p>
-
-          <div style="max-width: 320px; margin: 0 auto 20px; text-align: center;">
-            <label style="font-size: 13px; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 6px;">👨‍🍳 小廚師姓名：</label>
-            <input type="text" id="chef-name-input" value="小博士" placeholder="請輸入姓名..." style="text-align: center; font-weight: bold;" oninput="updateMagnetQRCode()">
-          </div>
-
-          <!-- 實體雪櫃貼視覺卡片 -->
-          <div id="printable-magnet" class="magnet-box">
-            <div class="magnet-badge">🌱 創科「惜」食小廚師</div>
-            <div class="magnet-chef" id="magnet-chef-display">👨‍🍳 廚師：小博士</div>
-            <div class="magnet-title" id="magnet-title-display">菜式：載入中...</div>
-            <div class="magnet-qr-wrap">
-              <img id="magnet-qr-img" class="magnet-qr-img" src="" alt="QR Code 載入中...">
-            </div>
-            <div class="magnet-footer">📱 家長請用手機掃描 QR Code<br>查看買餸清單 & 為小廚師點讚！</div>
-          </div>
-
-          <div style="text-align: center; margin-top: 20px;">
-            <button class="btn btn-add" style="max-width: 260px;" onclick="window.print()">🖨️ 印出 / 儲存雪櫃貼貼紙</button>
-          </div>
-        </div>
-
-      </div>
-
+        <details class="nutrition-settings"><summary>老師設定：課堂比較示例</summary><p>示例沿用原網站，不是高小學生的建議量。比較前後須留意人數及顯示方式。</p><form id="reference-form"><div class="reference-grid"><label>熱量（kcal）<input id="reference-calories" type="number" min="0.1" max="10000" step="0.1" value="650" required></label><label>碳水化合物（g）<input id="reference-carbs" type="number" min="0.1" max="10000" step="0.1" value="90" required></label><label>蛋白質（g）<input id="reference-protein" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>脂肪（g）<input id="reference-fat" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>膳食纖維（g）<input id="reference-fiber" type="number" min="0.1" max="10000" step="0.1" value="8" required></label></div><button class="ws-secondary" type="submit">套用課堂示例</button></form></details>
+        <p class="ws-note">均衡配搭可參考「健康午膳321」：穀物、蔬菜、肉及代替品按體積約 3：2：1，不能用這裏的克數直接換算。<a href="https://www.chp.gov.hk/tc/resources/e_health_topics/12513.html" target="_blank" rel="noopener noreferrer">衞生署資料</a></p>
+      </section>
+      <section class="card" id="recipe-editor" aria-labelledby="recipe-heading">
+        <h2 id="recipe-heading">4. 寫好我的食譜</h2>
+        <p>你可以直接寫步驟，或請 AI 提供初稿再修改。材料以第 2 步的完整清單為準；新增調味料亦要回到材料清單加入。</p>
+        <div class="ws-actions"><button id="ai-analyze-btn" class="btn btn-ai" type="button">請 AI 提供食譜初稿</button><button id="cancel-ai" class="ws-secondary" type="button" hidden>停止等待</button><button id="manual-help" class="ws-secondary" type="button">查看手寫食譜提示</button></div>
+        <p id="ai-status" class="ws-status" role="status" aria-live="polite"></p><div id="ai-error" class="ws-error" role="alert" hidden></div>
+        <div id="manual-tips" class="ws-notice" hidden>試按這個次序寫：準備材料 → 成人協助處理刀具 → 烹調火力及時間 → 檢查熟透 → 上碟。請按你選的食材及器具寫實際做法，並請老師核對。</div>
+        <label>我設計的菜名<input id="recipe-title" maxlength="40" placeholder="為自己的菜式命名"></label>
+        <div id="recipe-step-editors"></div><button id="add-step" class="ws-secondary" type="button">加入一個步驟</button>
+        <div class="ws-grid ws-reflection"><label>我的具體惜食方法<textarea id="recipe-waste" maxlength="160" rows="3" placeholder="例如：先用現有紅蘿蔔，按兩人的食量準備。"></textarea></label><label>我改了甚麼？為甚麼？<textarea id="recipe-reason" maxlength="200" rows="3" placeholder="記下你修改材料、份量或 AI 建議的理由；可引用圖表比較。"></textarea></label><label class="ws-span">敏感食材核對備註<textarea id="recipe-allergy" maxlength="120" rows="2" placeholder="由老師／家長查看包裝及飲食需要；例如：已核對生抽含小麥。"></textarea></label></div>
+        <div class="ws-notice"><strong>親子煮食提醒</strong><p id="fixed-safety"></p><a href="https://www.cfs.gov.hk/tc_chi/trade_zone/safe_kitchen/Temperature_Danger_Zone.html" target="_blank" rel="noopener noreferrer">食物安全中心：兩小時／四小時原則</a></div>
+        <div class="ws-actions"><button id="preview-parent" class="ws-secondary" type="button">預覽家長版</button></div>
+      </section>
+      <section class="card" aria-labelledby="review-heading">
+        <h2 id="review-heading">5. 請老師審閱，再製作磁貼</h2>
+        <p>材料、人數、步驟或設計內容更改後，請老師重新核對。</p>
+        <fieldset class="ws-review"><legend>請老師核對</legend><label><input type="checkbox" class="review-check">材料及調味料齊全，份量和人數一致。</label><label><input type="checkbox" class="review-check">步驟、器具、火力、時間及成人協助安排可行。</label><label><input type="checkbox" class="review-check">已核對敏感食材及安全煮食安排。</label><label><input type="checkbox" class="review-check">學生能說明惜食方法及一次設計修改。</label></fieldset>
+        <button id="approve-recipe" class="btn btn-add" type="button">完成審閱，準備 QR code</button><p id="review-status" class="ws-status" role="status" aria-live="polite"></p>
+        <details class="ws-publish-settings"><summary>老師設定：家長網址及磁貼尺寸</summary><label>家長可開啟的正式 HTTPS 網址<input id="share-base" type="url" placeholder="填寫已上載的網頁完整網址" autocomplete="url"></label><p class="ws-note">網頁須已上載並可由家長手機開啟；這裏不會自動上載網站。更改網址不會更新已打印的磁貼。</p><label>磁貼尺寸<select id="magnet-size"><option value="compact">60 × 80 mm</option><option value="standard" selected>80 × 100 mm</option><option value="large">100 × 130 mm</option></select></label></details>
+        <div id="qr-error" class="ws-error" role="alert" hidden></div><p id="qr-status" class="ws-status" role="status" aria-live="polite"></p>
+        <div id="magnet-preview" class="ws-magnet-preview" hidden></div>
+        <div class="ws-actions"><button id="print-magnet" class="btn btn-add" type="button" disabled>打印這張磁貼</button><button id="queue-magnet" class="ws-secondary" type="button" disabled>加入本機列印佇列</button><button id="export-approved" class="ws-secondary" type="button" disabled>下載已審閱作品</button></div>
+        <p class="ws-note">請用實際手機掃描試印品，再裁切及貼上磁片；覆膜後再掃一次。</p>
+      </section>
+      <section class="card" aria-labelledby="queue-heading">
+        <h2 id="queue-heading">老師列印站</h2><p>這個瀏覽器可保存多份作品。其他裝置的學生可下載已審閱作品，再由老師在此匯入。</p>
+        <div class="ws-actions"><label class="ws-file-button">匯入作品<input id="import-approved" type="file" accept=".json,application/json" multiple></label><button id="print-queue" class="ws-secondary" type="button" disabled>批次打印</button></div><p id="queue-status" role="status" aria-live="polite"></p><ul id="print-queue-list"></ul>
+      </section>
     </div>
+
 
     <!-- ==================== VIEW 3: QUIZ GAME (營養問答遊戲) ==================== -->
     <div id="view-quiz" class="page-view">
@@ -302,70 +212,22 @@
     </div>
 
     <!-- ==================== VIEW 5: PARENT RECIPE VIEW (家長掃描專屬頁面) ==================== -->
-    <div id="view-parent-recipe" class="page-view">
-      <div class="hero-banner" style="background: linear-gradient(135deg, #fef3c7 0%, #dcfce7 100%);">
-        <span class="hero-badge">❤️ 家長專屬 · 小廚師愛心食譜</span>
-        <h1 class="hero-title" id="parent-chef-title">👨‍🍳 小廚師的愛心餐盤</h1>
-        <h2 id="parent-dish-title" style="margin: 10px 0 0 0; color: var(--primary-dark); font-size: 24px;">菜式載入中...</h2>
-      </div>
-
-      <!-- 買餸清單 (帶有 Checkbox 互動) -->
-      <div class="card">
-        <div class="card-title">
-          <span>🛒 互動式買餸清單 (點擊項目標記已購買)</span>
-        </div>
-        <p style="font-size: 14px; color: var(--text-muted); margin-top: -10px; margin-bottom: 16px;">
-          💡 貼心提示：和孩子一起到街市或超市購買食材，點擊可劃掉項目喔！
-        </p>
-        <div id="parent-shopping-list" class="shopping-list"></div>
-      </div>
-
-      <!-- 分步烹飪指南 -->
-      <div class="card">
-        <div class="card-title">
-          <span>🍳 分步烹飪指南 (與孩子共同下廚)</span>
-        </div>
-        <ul id="parent-recipe-steps" class="recipe-steps-list"></ul>
-      </div>
-
-      <!-- 給小廚師點讚與評分卡片 -->
-      <div class="card" style="text-align: center; background: linear-gradient(180deg, #ffffff 0%, #fff7ed 100%); border: 2px solid #fed7aa;">
-        <div class="card-title" style="justify-content: center; border-bottom-color: #ffedd5;">
-          <span>🌟 給小廚師點讚與評分</span>
-        </div>
-        <p style="font-size: 15px; color: #475569;">覺得孩子設計的健康食譜怎麼樣？給他/她一個大大的鼓勵吧！</p>
-        
-        <!-- 星星評分 -->
-        <div class="star-rating" id="star-box">
-          <span class="star" onclick="rateChef(1)">⭐</span>
-          <span class="star" onclick="rateChef(2)">⭐</span>
-          <span class="star" onclick="rateChef(3)">⭐</span>
-          <span class="star" onclick="rateChef(4)">⭐</span>
-          <span class="star" onclick="rateChef(5)">⭐</span>
-        </div>
-        <div id="rating-feedback" style="font-weight: 800; font-size: 18px; color: #d97706; margin-top: 10px; min-height: 27px;"></div>
-
-        <!-- 點讚按鈕 -->
-        <button id="like-btn" class="btn" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; font-size: 18px; padding: 14px 28px; margin-top: 16px; max-width: 280px;" onclick="addChefLike()">
-          ❤️ 為小廚師點讚 (+1)
-        </button>
-        <p style="margin-top: 12px; font-weight: 700; color: #991b1b; font-size: 15px;">
-          目前已獲得 <span id="like-count" style="font-size: 22px; color: #dc2626;">0</span> 個愛心！
-        </p>
-      </div>
-    </div>
+    <div id="view-parent-recipe" class="page-view"></div>
 
   </div>
 
 <!-- 壓縮食譜資料 -->
-<script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
+<script src="vendor/lz-string-1.5.0.min.js"></script>
 
 <!-- QR Code library：使用有 browser build 的 1.5.1 -->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script src="vendor/qrcode-1.5.1.min.js"></script>
 
 <!-- 自己的 JS 最後載入 -->
-<script src="script.js"></script>
+<script src="script.js?v=workshop-1"></script>
 <script src="quiz-bank.js?v=2"></script>
 <script src="quiz-upgrade.js?v=2"></script>
+<script src="workshop-core.js?v=1"></script>
+<script src="workshop.js?v=1"></script>
 
+</body>
 </html>
