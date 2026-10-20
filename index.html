@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css?v=workshop-1">
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
-<link rel="stylesheet" href="workshop.css?v=2">
+<link rel="stylesheet" href="workshop.css?v=3">
 
 </head>
 <body>
@@ -71,7 +71,7 @@
           <div class="feature-icon">👨‍🍳</div>
           <h3 style="margin: 0 0 8px 0; color: #0f172a;">我的設計與親子食譜</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            揀選材料和器具，由 AI 提供食譜，亦可自行修改菜名及步驟，帶回家與家人一起煮。
+            AI 就食材配搭及每人份量提供建議，再按你選定的材料生成食譜與菜式概念圖。
           </p>
         </div>
       </div>
@@ -105,13 +105,16 @@
         <details class="nutrition-settings"><summary>老師設定與資料說明</summary><p>沿用原網站估算資料，尚未逐項核定來源及生熟狀態。沒有獨立糖和鈉數據；油、糖及醬料請加入餐盤才會計算。以下示例不是高小學生的建議量。</p><form id="reference-form"><div class="reference-grid"><label>熱量（kcal）<input id="reference-calories" type="number" min="0.1" max="10000" step="0.1" value="650" required></label><label>碳水化合物（g）<input id="reference-carbs" type="number" min="0.1" max="10000" step="0.1" value="90" required></label><label>蛋白質（g）<input id="reference-protein" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>脂肪（g）<input id="reference-fat" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>膳食纖維（g）<input id="reference-fiber" type="number" min="0.1" max="10000" step="0.1" value="8" required></label></div><button class="ws-secondary" type="submit">套用比較示例</button></form><p>「健康午膳321」按體積約 3：2：1 配搭穀物、蔬菜、肉及代替品，不能直接用克數換算。<a href="https://www.chp.gov.hk/tc/resources/e_health_topics/12513.html" target="_blank" rel="noopener noreferrer">衞生署資料</a></p></details>
       </section>
       <section class="card" id="recipe-editor" aria-labelledby="recipe-heading">
-        <h2 id="recipe-heading">第三步：生成我的食譜</h2>
+        <h2 id="recipe-heading">第三步：AI 建議、食譜與概念圖</h2>
         <fieldset id="equipment-options" class="ws-equipment"><legend>可用器具 <span class="ws-note">（可多選，不選也可以）</span></legend><div id="equipment-choices"></div></fieldset>
         <details class="ws-extra"><summary>其他選項（選填）</summary><div class="ws-grid"><label>希望幾分鐘內完成？<input id="recipe-minutes" type="number" min="1" max="240" placeholder="不限制"></label><label>敏感食材備註<input id="recipe-allergy" maxlength="120" placeholder="有需要才填寫"></label><label class="ws-span">想優先使用的家中材料<textarea id="recipe-stock" maxlength="160" rows="2" placeholder="有需要才填寫"></textarea></label></div></details>
-        <div class="ws-actions"><button id="ai-analyze-btn" class="btn btn-ai" type="button">✨ AI 生成食譜</button><button id="cancel-ai" class="ws-secondary" type="button" hidden>停止等待</button><button id="manual-help" class="ws-link" type="button">自己寫食譜</button></div>
+        <div class="ws-actions"><button id="ai-analyze-btn" class="btn btn-ai" type="button">✨ AI 分析餐盤及生成食譜</button><button id="cancel-ai" class="ws-secondary" type="button" hidden>停止等待</button><button id="manual-help" class="ws-link" type="button">自己寫食譜</button></div>
+        <p class="ws-note">食譜分析及概念圖使用現有 OpenRouter 額度；圖片按所選模型計費。</p>
         <p id="ai-status" class="ws-status" role="status" aria-live="polite"></p><div id="ai-error" class="ws-error" role="alert" hidden></div>
+        <section id="ai-advice" class="ws-advice" aria-labelledby="ai-advice-heading" hidden><h3 id="ai-advice-heading">AI 給你的餐盤建議</h3><p id="ai-observation"></p><div class="ws-advice-columns"><div><h4>食材配搭</h4><ul id="ai-food-suggestions"></ul></div><div><h4>每人份量</h4><ul id="ai-portion-suggestions"></ul></div></div><p class="ws-note">建議供課堂討論；每人食量不同。你可自行修改上方餐盤，再按 AI 重新分析及生成。</p></section>
         <div id="recipe-result" hidden><div id="recipe-preview" class="recipe-container"></div></div>
         <details id="recipe-edit-details" class="ws-extra" hidden><summary>修改菜名或步驟（選用）</summary><label>菜名<input id="recipe-title" maxlength="40" placeholder="為自己的菜式命名"></label><div id="recipe-step-editors"></div><button id="add-step" class="ws-secondary" type="button">加入一個步驟</button><p class="ws-note">新增材料或調味料，請回到上方餐盤加入。</p></details>
+        <section id="concept-section" class="ws-concept" aria-labelledby="concept-heading" hidden><h3 id="concept-heading">AI 菜式概念圖</h3><p class="ws-note">圖片僅供構思；實際材料及份量以食譜為準。</p><p id="image-status" class="ws-status" role="status" aria-live="polite"></p><div id="image-error" class="ws-error" role="alert" hidden></div><img id="concept-image" alt="按這份食譜生成的 AI 菜式概念圖" hidden><div class="ws-actions"><button id="generate-image" class="ws-secondary" type="button">生成概念圖</button><button id="cancel-image" class="ws-link" type="button" hidden>停止畫圖</button><a id="download-image" class="ws-secondary" download="我的菜式概念圖.png" hidden>下載概念圖</a></div><details class="ws-extra"><summary>老師圖片設定</summary><label for="image-model">圖片模型</label><select id="image-model"></select><p class="ws-note">沿用現有 OpenRouter 金鑰及額度；每次生成一張，不會自動轉用另一個模型。圖片失敗仍可打印食譜。</p></details></section>
         <details class="ws-extra"><summary>親子煮食提示</summary><p id="fixed-safety"></p><a href="https://www.cfs.gov.hk/tc_chi/trade_zone/safe_kitchen/Temperature_Danger_Zone.html" target="_blank" rel="noopener noreferrer">食物安全中心資料</a></details>
       </section>
       <section id="magnet-section" class="card" aria-labelledby="review-heading" hidden>
@@ -201,8 +204,8 @@
 <script src="script.js?v=workshop-1"></script>
 <script src="quiz-bank.js?v=2"></script>
 <script src="quiz-upgrade.js?v=2"></script>
-<script src="workshop-core.js?v=2"></script>
-<script src="workshop.js?v=2"></script>
+<script src="workshop-core.js?v=3"></script>
+<script src="workshop.js?v=3"></script>
 
 </body>
 </html>

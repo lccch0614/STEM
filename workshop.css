@@ -52,6 +52,17 @@ textarea {font:inherit;width:100%;border:1px solid var(--border-color);border-ra
 .ws-publish-settings label input,.ws-publish-settings label select {margin-top:6px;}
 .ws-preview-list {padding-left:24px;line-height:1.9;}
 .ws-preview-list li {padding:4px 0;}
+.ws-advice {margin:20px 0;padding:18px;background:var(--primary-light);border-radius:12px;}
+.ws-advice h3,.ws-concept h3 {font-size:20px;margin:0 0 10px;}
+.ws-advice h4 {font-size:15px;margin:12px 0 8px;}
+.ws-advice-columns {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+.ws-advice ul {margin:0;padding-left:20px;}
+.ws-advice li {margin:10px 0;line-height:1.8;}
+.ws-advice li span {display:block;font-size:14px;color:#475569;}
+.ws-concept {margin-top:24px;padding-top:20px;border-top:1px solid #e2e8f0;}
+#concept-image {display:block;width:100%;max-width:760px;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:12px;background:#f8fafc;}
+#download-image {display:inline-flex;align-items:center;text-decoration:none;}
+#image-model {width:100%;max-width:360px;margin-top:6px;}
 #recipe-preview .recipe-title {font-size:22px;}
 #recipe-preview .recipe-section-title {font-size:16px;}
 #recipe-edit-details > label > input {margin-top:6px;}
@@ -79,6 +90,7 @@ button:disabled {opacity:.5;cursor:not-allowed;}
 @media(max-width:900px){#view-app .selector-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.ws-grid{grid-template-columns:1fr}.navbar{align-items:flex-start;flex-direction:column;gap:8px;padding:10px 16px}.nav-menu{gap:4px}.nav-item{padding:8px 10px}.card{padding:20px 16px}input,select,textarea{font-size:16px}.ws-step{grid-template-columns:1fr}.ws-step button{justify-self:start}#print-queue-list li{flex-direction:column;align-items:flex-start}#print-queue-list .ws-actions{width:100%;margin:0}#magnet-section .ws-actions>label{width:100%}}
 @media(max-width:440px){#view-app .selector-grid{grid-template-columns:1fr}#view-app .field-group select,#view-app .field-group input{font-size:16px}.ws-actions{gap:8px}.ws-equipment legend .ws-note{display:block;margin-top:3px}#nutrition-card .ws-actions>label{font-size:13px}}
+@media(max-width:640px){.ws-advice-columns{grid-template-columns:1fr;gap:0}.ws-advice{padding:16px}.ws-advice h3,.ws-concept h3{font-size:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 @page {size:A4 portrait;margin:10mm;}
 @media print {
