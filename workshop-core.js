@@ -45,11 +45,13 @@
     }));
   }
   function stateLabel(food) {
+    if(typeof food.state==='string'&&food.state.trim())return food.state;
     if (['白飯', '糙米飯'].includes(food.name) || /\(熟\)|（熟）/.test(food.name)) return '熟重';
     if (/浸發/.test(food.name)) return '浸發後重量';
     return '依資料庫食材狀態；未逐項核定';
   }
   function needsCooking(food) {
+    if(typeof food.requiresCooking==='boolean')return food.requiresCooking;
     return food.category === 'protein' && !/蜜汁叉燒|水浸吞拿魚|皮蛋/.test(food.name) && /豬|牛肉|雞|鯇|蝦|三文魚|鮭魚|鵪鶉|鴨蛋/.test(food.name);
   }
   function warnings(items, database) {
@@ -60,11 +62,12 @@
       const food = byCode.get(item.code);
       if (food && needsCooking(food) && item.method === '涼拌／生食') messages.push(`${food.name}不可在此工作坊選用生食做法，請改為徹底煮熟。`);
     }
-    const allergens = [
+    const recordedAllergens=items.flatMap(i=>byCode.get(i.code)?.allergens||[]);
+    const allergens = [...new Set([...recordedAllergens,...[
       [/花生/, '花生'], [/牛奶|奶粉|芝士|乳酪/, '奶'], [/雞蛋|鵪鶉蛋|鴨蛋|皮蛋/, '蛋'],
       [/三文魚|鮭魚|鯇|吞拿魚/, '魚'], [/蝦|蠔油/, '甲殼或貝類'],
       [/豆腐|豆漿|腐皮|枝竹|生抽|豉油/, '大豆'], [/麥|方包|麵|通心粉|意大利粉|烏冬|饅頭|生抽|豉油/, '含麩質穀物（須查標籤）'], [/芝麻/, '芝麻']
-    ].filter(([re]) => re.test(names)).map(([,label]) => label);
+    ].filter(([re]) => re.test(names)).map(([,label]) => label)])];
     return {blocking: messages, allergens};
   }
   function ingredients(items, database) {
@@ -82,7 +85,7 @@
     const items = raw.items.map((i, n) => makeItem(byCode.get(i.code), i.grams, i.method, `restored-${n}`));
     const fields = {};
     for (const [key, max] of Object.entries({chef:20,title:40,equipment:100,stock:160,waste:160,reason:200,allergy:120})) fields[key] = text(raw[key] ?? '', max, key, true);
-    return {version:1, ...fields, items, servings:number(raw.servings,1,12,'人數',true), minutes:number(raw.minutes ?? 0,0,240,'時間',true),
+    return {version:1, dataVersion:text(raw.dataVersion??'',40,'資料版本',true), ...fields, items, servings:number(raw.servings,1,12,'人數',true), minutes:number(raw.minutes ?? 0,0,240,'時間',true),
       steps: Array.isArray(raw.steps) && raw.steps.length <= 10 ? raw.steps.map(x => text(x, 180, '步驟', true)) : [''],
       size: Object.hasOwn(sizes, raw.size) ? raw.size : 'standard'};
   }
@@ -91,7 +94,7 @@
     const warning = warnings(draft.items, database);
     if (warning.blocking.length) throw new Error(warning.blocking.join(' '));
     return {
-      v:2, c:text(draft.chef?.trim() || '小廚師',20,'小廚師暱稱'), t:text(draft.title,40,'菜名'),
+      v:2, d:database.find(food=>draft.items.some(item=>item.code===food.code))?.dataVersion||'', c:text(draft.chef?.trim() || '小廚師',20,'小廚師暱稱'), t:text(draft.title,40,'菜名'),
       n:number(draft.servings,1,12,'人數',true), m:number(draft.minutes ?? 0,0,240,'時間',true),
       e:text(draft.equipment ?? '',100,'器具',true), i:ingredients(draft.items,database),
       s:list(draft.steps,1,10,180,'步驟'), w:text(draft.waste ?? '',160,'惜食方法',true),
@@ -104,7 +107,7 @@
     const result = {v:raw.v === 2 ? 2 : 1, c:text(raw.c ?? '小廚師',20,'作品代號'), t:text(raw.t,40,'菜名'),
       i:list(raw.i,1,30,120,'材料'), s:list(raw.s,1,10,180,'步驟')};
     if (result.v === 2) {
-      Object.assign(result,{n:number(raw.n,1,12,'人數',true),m:number(raw.m ?? 0,0,240,'時間',true),e:text(raw.e ?? '',100,'器具',true),
+      Object.assign(result,{d:text(raw.d??'',40,'資料版本',true),n:number(raw.n,1,12,'人數',true),m:number(raw.m ?? 0,0,240,'時間',true),e:text(raw.e ?? '',100,'器具',true),
         w:text(raw.w ?? '',160,'惜食方法',true),r:text(raw.r ?? '',200,'修改理由',true),a:text(raw.a ?? '',120,'備註',true),z:text(raw.z ?? '',200,'致敏物提醒',true)});
       result.u = Object.fromEntries(Object.keys(nutrients).map(key => [key, raw.u?.[key] === null ? null : number(raw.u?.[key],0,1000000,'營養數據')]));
     }

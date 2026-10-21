@@ -4,7 +4,7 @@
   const DRAFT_KEY = 'food-workshop-draft-v1', SETTINGS_KEY = 'food-workshop-settings-v1', QUEUE_KEY = 'food-workshop-queue-v1';
   const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
-  const fresh = () => ({version:1,chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'standard'});
+  const fresh = () => ({version:1,dataVersion:'2026-10-21-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'standard'});
   let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
   let queue = [], pendingAI = null, pendingImage = null, currentAnalysis = null, conceptImage = null, saveTimer, qrTimer, initialized = false;
   const references = Object.fromEntries(Object.entries(C.nutrients).map(([key,m]) => [key,m.reference]));
@@ -15,7 +15,7 @@
   function saveDraft() {
     clearTimeout(saveTimer);
     if (!initialized) return;
-    try {localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));$('draft-status').textContent='已自動儲存。';}
+    try {draft.dataVersion=database[0]?.dataVersion||draft.dataVersion||'';localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));$('draft-status').textContent='已自動儲存。';}
     catch {$('draft-status').textContent='這個瀏覽器未能儲存草稿，請按「下載草稿」保留作品。';}
   }
   function invalidateQR() {
@@ -67,13 +67,32 @@
   function foodOptions() {
     const category=$('category-select').value, select=$('food-select');
     select.replaceChildren(new Option('請選擇食材',''));
-    database.filter(f => category==='all'||f.category===category).forEach(f => select.add(new Option(`${f.name}（${f.categoryName}）`,f.code)));
+    database.filter(f => category==='all'||f.category===category).forEach(f => {const option=new Option(`${f.name}（${f.categoryName}）${f.status==='pending_label'?'〔營養待核對，供舊草稿〕':''}`,f.code);option.disabled=f.status==='pending_label';select.add(option);});
     showFoodDetail();
   }
   function showFoodDetail() {
-    const f=database.find(x => x.code===$('food-select').value);
-    $('unit-label').textContent=f?.unit || '份';
-    $('food-detail').textContent=f ? `1 ${f.unit} 約 ${f.unitWeight} 克${C.stateLabel(f).startsWith('依資料庫')?'':`（${C.stateLabel(f)}）`}` : '';
+    const f=database.find(x=>x.code===$('food-select').value),root=$('food-source-content');root.replaceChildren();
+    $('unit-label').textContent=f?.unit||'克';$('food-source-detail').hidden=!f;
+    if(!f){$('food-detail').textContent='按食材資料所列狀態，輸入可食部分克數；沒有秤重的「一個／一碗」不作固定換算。';return;}
+    $('food-qty').value=f.defaultQuantity||100;
+    $('food-detail').textContent=`${C.stateLabel(f)}。預填重量只供輸入起點，並非建議份量。`;
+    function note(text){const p=document.createElement('p');p.textContent=text;root.append(p);}
+    note(f.portionBasis||'按實際重量計算。');
+    note(`每100克：${Object.entries(C.nutrients).map(([key,m])=>`${m.label} ${format(f[key],key)}${f[key]===null?'':m.unit}`).join('；')}。`);
+    if(!f.source){note(f.auditNote);return;}
+    note(`${f.source.provider}；記錄 ${f.source.recordId}；資料版本 ${f.source.release}；查閱日期 ${f.source.accessed}。`);
+    note(`原始名稱：${f.source.description}`);
+    if(f.carbsBasis==='available')note('此來源的碳水化合物為可獲得碳水，未換作總碳水；總碳水圖表因此顯示資料不足。');
+    if(f.fiberBasis==='insoluble')note('此來源的纖維為不溶性纖維，未換作總膳食纖維。');
+    if(Object.values(f.nutrientMeta||{}).some(m=>m.status==='trace'))note('來源標示 Trace（微量）的項目保留為資料不足，並非零。');
+    if(f.source.lookupMethod==='POST') {
+      const form=document.createElement('form');form.method='POST';form.action=f.source.recordUrl;form.target='_blank';form.rel='noopener noreferrer';
+      for(const [name,value] of Object.entries(f.source.lookupFields)){const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;form.append(input);}
+      const button=document.createElement('button');button.type='submit';button.className='ws-link';button.textContent='查看食安中心原始食物記錄';form.append(button);root.append(form);
+    } else {const a=document.createElement('a');a.href=f.source.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='查看 USDA 官方資料下載頁';const local=document.createElement('a');local.href=f.source.snapshotUrl;local.target='_blank';local.rel='noopener noreferrer';local.textContent='查看本次引用記錄';root.append(local,document.createTextNode(' · '),a);}
+    note('數據為指定樣本或食物記錄的參考值；品種、品牌及實際處理方法會影響營養值。');
+    note(`保存：${f.storage.note}`);
+    const a=document.createElement('a');a.href=f.storage.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='食安中心保存指引';root.append(a);
   }
   function renderMaterials() {
     const tbody=$('plate-list');tbody.replaceChildren();
@@ -82,7 +101,7 @@
       const food=database.find(f => f.code===item.code), row=document.createElement('tr');
       const name=document.createElement('td');
       const strong=document.createElement('strong');strong.textContent=food.name;
-      const portion=()=>`約 ${Number((item.grams/food.unitWeight).toFixed(2))} ${food.unit}${C.stateLabel(food).startsWith('依資料庫')?'':`；${C.stateLabel(food)}`}`;
+      const portion=()=>`${C.stateLabel(food)}${food.status==='pending_label'?'；營養待核對':''}`;
       const detail=document.createElement('small');detail.textContent=portion();
       name.append(strong,detail);
       const weightCell=document.createElement('td'), input=document.createElement('input');
@@ -109,6 +128,8 @@
     $('save-comparison-btn').disabled=!draft.items.length;
   }
   function renderNutrition() {
+    const missing=draft.items.map(item=>database.find(food=>food.code===item.code)).filter(food=>food&&Object.keys(C.nutrients).some(key=>food[key]===null));
+    $('nutrition-data-note').textContent=missing.length?`以下食材有缺項、微量或不同營養定義：${missing.map(food=>food.name).join('、')}。相關營養總量顯示「資料不足」，不以0或其他食物數值補填。`:'';
     const perPerson=basis==='person', current=C.totals(draft.items,database,perPerson?draft.servings:1);
     const before=comparison ? C.totals(comparison.items,database,perPerson?comparison.servings:1) : null;
     const weight=draft.items.reduce((n,i) => n+i.grams,0);
@@ -237,8 +258,8 @@
     let timedOut=false;
     const timer=setTimeout(() => {timedOut=true;controller.abort();},60000);
     try {
-      const itemDescriptions=materials.map(i => {const food=database.find(f=>f.code===i.code);return {id:i.id,name:food.name,category:food.categoryName,state:C.stateLabel(food),grams:i.grams,gramsPerPerson:i.grams/context.servings,unit:food.unit,unitWeight:food.unitWeight,method:i.method};});
-      const prompt=`你是香港高小營養與惜食工作坊的食譜助手，使用繁體中文、簡單友善的語句。先按實際選材、整份和每人份量分析餐盤，提供食材配搭及份量建議，各1至2項；每項寫具體建議和原因。合適的安排亦可建議保留，不必強行改動。份量建議須盡量引用所選材料的克數及家用單位，清楚區分整份與每人份量。這是課堂參考，不是個人營養診斷；每人食量不同，不能提供減肥指示、健康評分或聲稱符合個人一日需要。營養數值是資料庫估算；缺值為null，沒有鈉、糖及完整過敏原數據，不可捏造。不能把材料克數比例當作體積比例。建議的增減或替代材料只寫在analysis，不可擅自套用於食譜，學生會自行決定。食譜必須使用目前所有材料，完整保留id及克數，不可刪除、改份量或加入未列出的油、糖、鹽、醬料、清水或配料。若目前材料無法組合成安全可行食譜，仍須回傳analysis，另加error說明先如何調整，不要編造食譜。器具留空及時間0代表未限制。步驟包含適當火力、估計時間、熟透檢查及成人協助；提供1至10步，每步最多180字，菜名最多40字。summary最多180字，suggestion最多160字，reason最多180字。設計條件：${JSON.stringify({servings:context.servings,minutes:context.minutes,equipment:context.equipment,stock:context.stock,allergyNotes:context.allergy,materials:itemDescriptions,nutritionTotal:C.totals(materials,database),nutritionPerPerson:C.totals(materials,database,context.servings)})}。只輸出有效 JSON，格式：{"analysis":{"summary":"餐盤觀察","foodSuggestions":[{"suggestion":"食材建議","reason":"原因"}],"portionSuggestions":[{"suggestion":"每人份量建議","reason":"原因"}]},"recipeTitle":"菜名","minutes":25,"materials":[{"id":"原材料id","grams":原克數}],"recipeSteps":["步驟文字"]}。`;
+      const itemDescriptions=materials.map(i => {const food=database.find(f=>f.code===i.code);return {id:i.id,name:food.name,category:food.categoryName,state:C.stateLabel(food),dataStatus:food.status,nutrientDefinitions:{carbs:food.carbsBasis,fiber:food.fiberBasis},grams:i.grams,gramsPerPerson:i.grams/context.servings,unit:food.unit,unitWeight:food.unitWeight,method:i.method};});
+      const prompt=`你是香港高小營養與惜食工作坊的食譜助手，使用繁體中文、簡單友善的語句。先按實際選材、整份和每人份量分析餐盤，提供食材配搭及份量建議，各1至2項；每項寫具體建議和原因。合適的安排亦可建議保留，不必強行改動。份量建議須盡量引用所選材料的克數及家用單位，清楚區分整份與每人份量。這是課堂參考，不是個人營養診斷；每人食量不同，不能提供減肥指示、健康評分或聲稱符合個人一日需要。營養數值是按資料來源指定狀態估算，烹調方式不會自動換算營養；null代表缺項、微量或營養定義不相符，不能填0或猜測。dataStatus為pending_label的食材未核實營養；缺值為null，沒有鈉、糖及完整過敏原數據，不可捏造。不能把材料克數比例當作體積比例。建議的增減或替代材料只寫在analysis，不可擅自套用於食譜，學生會自行決定。食譜必須使用目前所有材料，完整保留id及克數，不可刪除、改份量或加入未列出的油、糖、鹽、醬料、清水或配料。若目前材料無法組合成安全可行食譜，仍須回傳analysis，另加error說明先如何調整，不要編造食譜。器具留空及時間0代表未限制。步驟包含適當火力、估計時間、熟透檢查及成人協助；提供1至10步，每步最多180字，菜名最多40字。summary最多180字，suggestion最多160字，reason最多180字。設計條件：${JSON.stringify({servings:context.servings,minutes:context.minutes,equipment:context.equipment,stock:context.stock,allergyNotes:context.allergy,materials:itemDescriptions,nutritionTotal:C.totals(materials,database),nutritionPerPerson:C.totals(materials,database,context.servings)})}。只輸出有效 JSON，格式：{"analysis":{"summary":"餐盤觀察","foodSuggestions":[{"suggestion":"食材建議","reason":"原因"}],"portionSuggestions":[{"suggestion":"每人份量建議","reason":"原因"}]},"recipeTitle":"菜名","minutes":25,"materials":[{"id":"原材料id","grams":原克數}],"recipeSteps":["步驟文字"]}。`;
       const response=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify({model:'openrouter/free',messages:[{role:'system',content:prompt},{role:'user',content:'請分析我的食材及每人份量，並用目前餐盤生成食譜。'}],temperature:0.4}),signal:controller.signal});
       const body=await response.json();
       if (!response.ok||body.error) throw new Error(`OpenRouter ${response.status}: ${body.error?.message||'未能提供建議及食譜'}`);
@@ -373,7 +394,7 @@
       if(notes.length){const learning=section('食譜備註');for(const [label,value] of notes){const para=document.createElement('p'),strong=document.createElement('strong');strong.textContent=`${label}：`;para.append(strong,document.createTextNode(value));learning.append(para);}}
       const nutrition=section('每人營養估算');
       const values=document.createElement('p');values.textContent=Object.entries(C.nutrients).map(([key,m]) => `${m.label} ${format(p.u[key],key)}${p.u[key]===null?'':m.unit}`).join(' · ');nutrition.append(values);
-      const note=document.createElement('p');note.className='ws-note';note.textContent='原網站課堂估算資料，未逐項核定來源及生熟狀態；並非個人飲食建議，未包含獨立糖及鈉數據。';nutrition.append(note);
+      const note=document.createElement('p');note.className='ws-note';note.textContent=p.d?`食材資料版本：${p.d}。按食譜所列狀態及來源數據估算；缺項顯示資料不足，未另列糖及鈉，並非個人飲食建議。`:'此為舊版食譜所儲存的營養估算，未附本次資料版本；數字保持原作品內容，並非個人飲食建議。';nutrition.append(note);
     }
     const safe=section('親子煮食提醒'), safeText=document.createElement('p');safeText.textContent=C.safety;safe.append(safeText);
     const feedback=section('家庭實踐小記');
@@ -394,12 +415,12 @@
   }
   async function loadFoods() {
     try {
-      const response=await fetch('./data/foods.json');if (!response.ok) throw new Error('未能載入食材資料。');
+      const response=await fetch('./data/foods.json?v=2026-10-21-1');if (!response.ok) throw new Error('未能載入食材資料。');
       const data=await response.json();
       if (!Array.isArray(data)||!data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0)) throw new Error('食材資料格式無效。');
-      database=data;foodOptions();
+      database=data;foodOptions();document.querySelectorAll('[data-food-count]').forEach(node=>node.textContent=`提供 ${data.filter(food=>food.status==='verified').length} 款附官方來源的可選食材`);
       const saved=readStorage(DRAFT_KEY);
-      if (saved) {try {draft=C.validateDraft(saved,database);$('draft-status').textContent='已恢復上次食譜。';} catch {$('draft-status').textContent='上次草稿無法恢復；可開啟下載過的草稿。';}}
+      if (saved) {try {draft=C.validateDraft(saved,database);$('draft-status').textContent='已恢復上次食譜。';if(saved.dataVersion!==database[0]?.dataVersion){$('food-data-notice').hidden=false;$('food-data-notice').textContent='食材資料庫已核對更新；上次餐盤克數保留，營養會按新數據重新計算。請核對材料名稱及生熟狀態；待核對項目顯示資料不足。';}} catch {$('draft-status').textContent='上次草稿無法恢復；可開啟下載過的草稿。';}}
       initialized=true;fillFields();
       if(draft.title.trim()&&draft.steps.some(step=>step.trim()))prepareShare(true);
     } catch (e) {
@@ -415,6 +436,7 @@
       event.preventDefault();error('food-error');
       try {
         const food=database.find(f => f.code===$('food-select').value), qty=Number($('food-qty').value);
+        if(food?.status==='pending_label')throw new Error('這項舊食材的營養仍待核對，請選擇附有官方來源的食材。');
         if (!food||!qty||!$('food-qty').reportValidity()) throw new Error('請選擇食材及有效數量。');
         if (draft.items.length>=30) throw new Error('每份作品最多30項材料，請先整理材料清單。');
         const grams=Number((qty*food.unitWeight).toFixed(1)), method=$('cooking-select').value;
@@ -455,7 +477,7 @@
     $('import-draft').addEventListener('change',async event => {
       try {if (!initialized) throw new Error('請先成功載入食材資料。');const incoming=C.validateDraft(await jsonFile(event.target.files[0]),database);
         if (!confirm('開啟草稿會取代目前作品；如要保留，請先取消並下載目前草稿。繼續？')) return;
-        draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();saveDraft();prepareShare(true);
+        draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();if(incoming.dataVersion!==database[0]?.dataVersion){$('food-data-notice').hidden=false;$('food-data-notice').textContent='已保留草稿的材料克數，營養按本次來源數據重新計算。請核對材料名稱及生熟狀態；待核對項目顯示資料不足。';}saveDraft();prepareShare(true);
       } catch (e) {$('draft-status').textContent=e.message;} finally {event.target.value='';}
     });
     $('new-project').addEventListener('click',() => {if (!confirm('開始另一份作品會取代目前草稿；如要保留，請先下載。繼續？')) return;draft=fresh();comparison=null;touch('已開始新作品。');fillFields();saveDraft();});

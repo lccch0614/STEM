@@ -101,3 +101,6 @@ button:disabled {opacity:.5;cursor:not-allowed;}
   .ws-print-page:last-child {break-after:auto;page-break-after:auto;}
   .ws-magnet {-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
+
+.ws-source-content{font-size:13px;line-height:1.8;color:#475569;overflow-wrap:anywhere;padding:4px 12px;border-left:3px solid #cbd5e1;}
+.ws-source-content p{margin:8px 0;}

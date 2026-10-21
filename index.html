@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css?v=workshop-1">
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
-<link rel="stylesheet" href="workshop.css?v=3">
+<link rel="stylesheet" href="workshop.css?v=4">
 
 </head>
 <body>
@@ -38,7 +38,7 @@
         <span class="hero-badge">🌱 香港 STEM 教育 × 智慧健康</span>
         <h1 class="hero-title">創科有營「惜」食小助手</h1>
         <p style="font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
-          專為香港小學生設計的智慧健康餐盤！運用 61 種常見食材的課堂估算資料，比較份量、修改自己的食譜，生成食譜後製作 QR code 雪櫃磁貼。
+          專為香港小學生設計的智慧健康餐盤！運用附有來源及食材狀態的營養資料，比較份量、修改自己的食譜，生成食譜後製作 QR code 雪櫃磁貼。
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <button class="btn btn-add" style="max-width: 240px;" onclick="switchTab('app')">
@@ -53,9 +53,9 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">📊</div>
-          <h3 style="margin: 0 0 8px 0; color: #0f172a;">在地數據與智囊圖表</h3>
+          <h3 style="margin: 0 0 8px 0; color: #0f172a;">有來源的營養圖表</h3>
           <p style="font-size: 14px; color: var(--text-muted); margin: 0;">
-            收錄 61 種香港常見食材，配合即時動態 Bar-chart，比較熱量、碳水化合物、蛋白質、脂肪與膳食纖維。
+            <span data-food-count>載入食材庫中</span>，配合即時動態 Bar-chart，比較熱量、碳水化合物、蛋白質、脂肪與膳食纖維。
           </p>
         </div>
 
@@ -82,18 +82,18 @@
       <header class="workshop-intro">
         <h1>智能餐盤</h1><p>揀食材 → 生成食譜 → 製作雪櫃貼</p>
         <details class="ws-draft-tools"><summary>儲存／開啟作品</summary><div class="ws-actions"><button id="export-draft" class="ws-secondary" type="button">下載草稿</button><label class="ws-file-button">開啟草稿<input id="import-draft" type="file" accept=".json,application/json"></label><button id="new-project" class="ws-link" type="button">清空，重新開始</button></div></details>
-        <p id="draft-status" class="ws-status" role="status" aria-live="polite"></p>
+        <p id="food-data-notice" class="ws-note" role="status" hidden></p><p id="draft-status" class="ws-status" role="status" aria-live="polite"></p>
       </header>
       <section class="card" aria-labelledby="materials-heading">
         <h2 id="materials-heading">第一步：挑選食材與烹調方式</h2>
         <form id="ingredient-form" class="selector-grid">
-          <div class="field-group"><label for="category-select">食材類別</label><select id="category-select"><option value="all">全部類別</option><option value="grains">穀物類</option><option value="vegetables">蔬菜類</option><option value="fruits">水果類</option><option value="protein">肉、魚、蛋及豆製品類</option><option value="dairy">奶類</option><option value="oil_salt_sugar">油、鹽、糖及調味料</option><option value="liquids">飲品及清水</option></select></div>
+          <div class="field-group"><label for="category-select">食材類別</label><select id="category-select"><option value="all">全部類別</option><option value="grains">穀物及薯類</option><option value="vegetables">蔬菜類</option><option value="fruits">水果類</option><option value="protein">肉、魚、蛋及豆製品類</option><option value="dairy">奶類</option><option value="nuts_seeds">堅果及種子</option><option value="oil_salt_sugar">油、鹽、糖及調味料</option><option value="liquids">飲品及清水</option></select></div>
           <div class="field-group"><label for="food-select">選擇食材</label><select id="food-select" required><option value="">正在載入食材…</option></select></div>
-          <div class="field-group"><label for="food-qty">數量</label><div class="qty-box"><input id="food-qty" type="number" value="1" min="0.25" max="30" step="0.25" required><span id="unit-label" class="unit-badge">份</span></div></div>
+          <div class="field-group"><label for="food-qty">可食部分重量</label><div class="qty-box"><input id="food-qty" type="number" value="100" min="0.1" max="5000" step="0.1" required><span id="unit-label" class="unit-badge">克</span></div></div>
           <div class="field-group"><label for="cooking-select">烹調方式</label><select id="cooking-select"></select></div>
           <button id="add-btn" class="btn btn-add ws-span" type="submit">＋ 加入餐盤</button>
         </form>
-        <p id="food-detail" class="ws-note"></p><div id="food-error" class="ws-error" role="alert" hidden></div>
+        <p id="food-detail" class="ws-note"></p><details id="food-source-detail" class="ws-extra" hidden><summary>查看數據來源與份量依據（選看）</summary><div id="food-source-content" class="ws-source-content"></div></details><div id="food-error" class="ws-error" role="alert" hidden></div>
         <div class="ws-table-wrap"><table class="ws-materials"><caption>我的餐盤（可直接修改克數）</caption><thead><tr><th scope="col">食材</th><th scope="col">重量（克）</th><th scope="col">做法</th><th scope="col">操作</th></tr></thead><tbody id="plate-list"></tbody></table></div>
         <button id="reset-btn" class="ws-link" type="button">清空餐盤</button><div id="safety-warnings" role="status" aria-live="polite"></div>
       </section>
@@ -101,8 +101,8 @@
         <h2 id="nutrition-heading">第二步：看看餐盤營養</h2>
         <p class="ws-note">營養值為課堂估算；虛線只作比較，不是個人建議量，不用把長條填滿。</p>
         <div class="ws-actions"><label for="servings">食用人數</label><input id="servings" type="number" min="1" max="12" step="1" value="1"><label for="nutrition-basis">顯示</label><select id="nutrition-basis"><option value="total" selected>整份餐盤</option><option value="person">每人份量</option></select><button id="save-comparison-btn" class="ws-secondary" type="button">記錄調整前</button><button id="clear-comparison-btn" class="ws-link" type="button">清除比較</button></div>
-        <p id="plate-summary" class="ws-note"></p><p id="comparison-message" class="ws-status" role="status"></p><div id="nutrition-charts"></div>
-        <details class="nutrition-settings"><summary>老師設定與資料說明</summary><p>沿用原網站估算資料，尚未逐項核定來源及生熟狀態。沒有獨立糖和鈉數據；油、糖及醬料請加入餐盤才會計算。以下示例不是高小學生的建議量。</p><form id="reference-form"><div class="reference-grid"><label>熱量（kcal）<input id="reference-calories" type="number" min="0.1" max="10000" step="0.1" value="650" required></label><label>碳水化合物（g）<input id="reference-carbs" type="number" min="0.1" max="10000" step="0.1" value="90" required></label><label>蛋白質（g）<input id="reference-protein" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>脂肪（g）<input id="reference-fat" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>膳食纖維（g）<input id="reference-fiber" type="number" min="0.1" max="10000" step="0.1" value="8" required></label></div><button class="ws-secondary" type="submit">套用比較示例</button></form><p>「健康午膳321」按體積約 3：2：1 配搭穀物、蔬菜、肉及代替品，不能直接用克數換算。<a href="https://www.chp.gov.hk/tc/resources/e_health_topics/12513.html" target="_blank" rel="noopener noreferrer">衞生署資料</a></p></details>
+        <p id="plate-summary" class="ws-note"></p><p id="comparison-message" class="ws-status" role="status"></p><div id="nutrition-charts"></div><p id="nutrition-data-note" class="ws-note" role="status"></p>
+        <details class="nutrition-settings"><summary>老師設定與資料說明</summary><p>數據按每100克可食部分及來源指定狀態引用。總碳水化合物及總膳食纖維分別計算；來源只有可獲得碳水、不溶性纖維、微量或缺值時，相關總量顯示資料不足。烹調方式不會自動換算生熟重量或吸油量；油、糖及醬料請加入餐盤。圖表未另列糖及鈉；以下示例不是高小學生的建議量。<a href="data/food-sources.json" target="_blank" rel="noopener noreferrer">來源及原始數據</a></p><form id="reference-form"><div class="reference-grid"><label>熱量（kcal）<input id="reference-calories" type="number" min="0.1" max="10000" step="0.1" value="650" required></label><label>碳水化合物（g）<input id="reference-carbs" type="number" min="0.1" max="10000" step="0.1" value="90" required></label><label>蛋白質（g）<input id="reference-protein" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>脂肪（g）<input id="reference-fat" type="number" min="0.1" max="10000" step="0.1" value="20" required></label><label>膳食纖維（g）<input id="reference-fiber" type="number" min="0.1" max="10000" step="0.1" value="8" required></label></div><button class="ws-secondary" type="submit">套用比較示例</button></form><p>「健康午膳321」按體積約 3：2：1 配搭穀物、蔬菜、肉及代替品，不能直接用克數換算。<a href="https://www.chp.gov.hk/tc/resources/e_health_topics/12513.html" target="_blank" rel="noopener noreferrer">衞生署資料</a></p></details>
       </section>
       <section class="card" id="recipe-editor" aria-labelledby="recipe-heading">
         <h2 id="recipe-heading">第三步：AI 建議、食譜與概念圖</h2>
@@ -204,8 +204,8 @@
 <script src="script.js?v=workshop-1"></script>
 <script src="quiz-bank.js?v=2"></script>
 <script src="quiz-upgrade.js?v=2"></script>
-<script src="workshop-core.js?v=3"></script>
-<script src="workshop.js?v=3"></script>
+<script src="workshop-core.js?v=4"></script>
+<script src="workshop.js?v=4"></script>
 
 </body>
 </html>
