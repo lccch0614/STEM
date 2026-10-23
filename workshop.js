@@ -6,7 +6,7 @@
   let portionCatalog={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
   const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
-  const fresh = () => ({version:1,dataVersion:'2026-10-21-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'standard'});
+  const fresh = () => ({version:1,dataVersion:'2026-10-23-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'standard'});
   let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
   let queue = [], pendingAI = null, pendingImage = null, currentAnalysis = null, conceptImage = null, saveTimer, qrTimer, initialized = false;
   const references = Object.fromEntries(Object.entries(C.nutrients).map(([key,m]) => [key,m.reference]));
@@ -139,6 +139,7 @@
     if(!f.source){note(f.auditNote);return;}
     note(`${f.source.provider}；記錄 ${f.source.recordId}；資料版本 ${f.source.release}；查閱日期 ${f.source.accessed}。`);
     note(`原始名稱：${f.source.description}`);
+    if(Object.values(f.nutrientMeta||{}).some(m=>m.status==='source_estimated'))note('部分數值為官方來源的推估值（原值附括號），已按來源標示保留。');
     if(f.carbsBasis==='available')note('此來源的碳水化合物為可獲得碳水，未換作總碳水；總碳水圖表因此顯示資料不足。');
     if(f.fiberBasis==='insoluble')note('此來源的纖維為不溶性纖維，未換作總膳食纖維。');
     if(Object.values(f.nutrientMeta||{}).some(m=>m.status==='trace'))note('來源標示 Trace（微量）的項目保留為資料不足，並非零。');
@@ -146,7 +147,7 @@
       const form=document.createElement('form');form.method='POST';form.action=f.source.recordUrl;form.target='_blank';form.rel='noopener noreferrer';
       for(const [name,value] of Object.entries(f.source.lookupFields)){const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;form.append(input);}
       const button=document.createElement('button');button.type='submit';button.className='ws-link';button.textContent='查看食安中心原始食物記錄';form.append(button);root.append(form);
-    } else {const a=document.createElement('a');a.href=f.source.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='查看 USDA 官方資料下載頁';const local=document.createElement('a');local.href=f.source.snapshotUrl;local.target='_blank';local.rel='noopener noreferrer';local.textContent='查看本次引用記錄';root.append(local,document.createTextNode(' · '),a);}
+    } else {const a=document.createElement('a');a.href=f.source.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=f.source.sourceType==='MEXT'?'查看日本文部科學省原始食物記錄':'查看 USDA 官方資料下載頁';const local=document.createElement('a');local.href=f.source.snapshotUrl;local.target='_blank';local.rel='noopener noreferrer';local.textContent='查看本次引用記錄';root.append(local,document.createTextNode(' · '),a);}
     note('數據為指定樣本或食物記錄的參考值；品種、品牌及實際處理方法會影響營養值。');
     note(`保存：${f.storage.note}`);
     const a=document.createElement('a');a.href=f.storage.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='食安中心保存指引';root.append(a);
@@ -259,15 +260,31 @@
       }
     }
   }
+  function renderImageChoice() {
+    const model=C.imageModels.find(m=>m.id===$('image-model').value);
+    $('image-model-info').textContent=model?`${model.name}：參考收費 ${model.price}（美元，查閱 ${C.imagePricingDate}）；每次一張。以供應商實際計費及帳戶額度為準。須按「生成概念圖（付費）」才發出請求，失敗不會自動換模型。`:`免費模式：截至 ${C.imagePricingDate}，OpenRouter 未有可用的免費繪圖模型，因此不會發出畫圖請求。文字食譜及 QR code 照常使用；老師可在這裏自行選擇付費模型。`;
+    $('generate-image').textContent=model?'生成概念圖（付費）':'查看圖片模型';
+    $('image-model-source').href=model?`https://openrouter.ai/api/v1/images/models/${model.id}/endpoints`:'https://openrouter.ai/blog/tutorials/image-generation-models/';
+  }
   function resetConcept(message='') {
     const active=pendingImage;pendingImage=null;active?.controller.abort();conceptImage=null;
     $('concept-image').hidden=true;$('concept-image').removeAttribute('src');
     $('download-image').hidden=true;$('download-image').removeAttribute('href');
-    $('generate-image').disabled=false;$('generate-image').textContent='生成概念圖';$('cancel-image').hidden=true;
+    $('generate-image').disabled=false;renderImageChoice();$('cancel-image').hidden=true;
     $('image-status').textContent=message;error('image-error');
   }
-  async function generateConceptImage() {
+  async function generateConceptImage({automatic=false}={}) {
     error('image-error');
+    const selected=C.imageModels.find(m=>m.id===$('image-model').value);
+    if(!selected) {
+      resetConcept('目前沒有免費繪圖模型，未發出畫圖請求。食譜及 QR code 可照常使用。');
+      if(!automatic){$('image-settings').open=true;$('image-model').focus();}
+      return;
+    }
+    if(automatic) {
+      resetConcept('食譜已完成；概念圖須按「生成概念圖（付費）」才會使用額度。');
+      return;
+    }
     try {validPayload();} catch(e) {error('image-error',e.message);return;}
     if(!PRESET_OPENROUTER_KEY?.trim()) {error('image-error','尚未設定 AI 連線；食譜仍可打印。');return;}
     resetConcept();
@@ -281,7 +298,7 @@
     try {
       const response=await fetch('https://openrouter.ai/api/v1/images',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify(C.imageRequest(draft,database,model)),signal:controller.signal});
       const body=await response.json();
-      if(!response.ok||body.error)throw new Error(`OpenRouter ${response.status}: ${body.error?.message||'未能生成圖片'}`);
+      if(!response.ok||body.error)throw new Error(response.status===402?'OpenRouter 402：繪圖額度不足。免費文字模型的額度不能當作付費圖片額度；請老師核對金鑰所屬帳戶及可用額度。':`OpenRouter ${response.status}: ${body.error?.message||'未能生成圖片'}`);
       const dataURL=C.imageDataURL(body);
       if(!active())return;
       $('concept-image').src=dataURL;
@@ -299,7 +316,7 @@
       }
     } finally {
       clearTimeout(timer);
-      if(pendingImage?.controller===controller) {pendingImage=null;$('generate-image').disabled=false;$('generate-image').textContent='重新生成概念圖';$('cancel-image').hidden=true;}
+      if(pendingImage?.controller===controller) {pendingImage=null;$('generate-image').disabled=false;$('generate-image').textContent='重新生成概念圖（付費）';$('cancel-image').hidden=true;}
     }
   }
   async function generateAI() {
@@ -336,7 +353,7 @@
       $('recipe-title').value=draft.title;$('recipe-minutes').value=draft.minutes||'';renderSteps();renderRecipePreview();
       $('ai-status').textContent='建議及食譜已生成！材料份量保持你的選擇。可先打印雪櫃貼；概念圖進度會在下方顯示。';
       prepareShare(true);
-      generateConceptImage();
+      generateConceptImage({automatic:true});
     } catch (e) {
       if (pendingAI===controller) {
         if (e.name==='AbortError') error('ai-error',timedOut?'等待超過一分鐘。你可以重試，或直接手動完成食譜。':'已停止等待。');
@@ -475,11 +492,11 @@
   }
   async function loadFoods() {
     try {
-      const response=await fetch('./data/foods.json?v=2026-10-21-1');if (!response.ok) throw new Error('未能載入食材資料。');
+      const response=await fetch('./data/foods.json?v=2026-10-23-1');if (!response.ok) throw new Error('未能載入食材資料。');
       const data=await response.json();
       if (!Array.isArray(data)||!data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0)) throw new Error('食材資料格式無效。');
       database=data;
-      try{const response=await fetch('./data/portion-guides.json?v=1');if(!response.ok)throw new Error('未能載入份量');portionCatalog=P.catalog(await response.json(),database);}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
+      try{const response=await fetch('./data/portion-guides.json?v=2026-10-23-1');if(!response.ok)throw new Error('未能載入份量');portionCatalog=P.catalog(await response.json(),database);}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
       try{const saved=readStorage(PORTION_SETTINGS_KEY);if(saved)workshopMeasures=P.settings(saved,database);}catch{$('teacher-portion-status').textContent='上次實測設定未能核對，請重新匯入或量度。';}
       foodOptions();document.querySelectorAll('[data-food-count]').forEach(node=>node.textContent=`提供 ${data.filter(food=>food.status==='verified').length} 款附官方來源的可選食材`);
       const saved=readStorage(DRAFT_KEY);
@@ -516,10 +533,12 @@
     $('clear-comparison-btn').addEventListener('click',() => {comparison=null;renderNutrition();});
     $('reference-form').addEventListener('submit',event => {event.preventDefault();for (const key of Object.keys(references)) references[key]=Number($(`reference-${key}`).value);renderNutrition();});
     $('manual-help').addEventListener('click',() => {$('recipe-edit-details').hidden=false;$('recipe-edit-details').open=true;$('recipe-title').focus();});
-    C.imageModels.forEach(model=>$('image-model').add(new Option(model.name,model.id)));
-    $('generate-image').addEventListener('click',generateConceptImage);
+    $('image-model').add(new Option('只用免費模型（目前未有可用繪圖模型）','free-only'));
+    C.imageModels.forEach(model=>$('image-model').add(new Option(`${model.name} · ${model.price}（付費）`,model.id)));
+    renderImageChoice();
+    $('generate-image').addEventListener('click',()=>generateConceptImage());
     $('cancel-image').addEventListener('click',()=>resetConcept('已停止等待概念圖；食譜及 QR code 仍可使用。'));
-    $('image-model').addEventListener('change',()=>{resetConcept('已選擇新圖片模型，按「生成概念圖」才會使用額度。');settingsSave();});
+    $('image-model').addEventListener('change',()=>{resetConcept(C.imageModels.some(m=>m.id===$('image-model').value)?'已選擇付費模型；按「生成概念圖（付費）」才會使用額度。':'已切換免費模式；目前沒有免費繪圖模型，不會發出畫圖請求。');settingsSave();});
     $('ai-analyze-btn').addEventListener('click',generateAI);$('cancel-ai').addEventListener('click',() => cancelAI());
     $('approve-recipe').addEventListener('click',() => prepareShare());
     $('equipment-choices').addEventListener('change',() => {syncFields();touch('器具已更新，可重新生成食譜。');});
@@ -564,7 +583,8 @@
     const root=document.createElement('div');root.id='print-root';document.body.append(root);
     bind();
     const settings=readStorage(SETTINGS_KEY);$('share-base').value=typeof settings?.base==='string'?settings.base:autoBase();
-    if(C.imageModels.some(model=>model.id===settings?.imageModel))$('image-model').value=settings.imageModel;
+    // Always start in free-only mode, including browsers that saved an older paid model.
+    $('image-model').value='free-only';renderImageChoice();
     restoreQueue();renderQueue();fillFields();
     if (location.hash.startsWith('#recipe=')) {
       try {if (!window.LZString) throw new Error('壓縮程式未載入，請檢查網絡並重新整理。');renderParent(C.decodeHash(location.hash,LZString));}

@@ -30,7 +30,7 @@
     const basis=JSON.stringify([f.code,label,raw.gramsPerUnit,f.state,notes]);let hash=2166136261;for(const c of basis)hash=Math.imul(hash^c.charCodeAt(0),16777619);
     return {code:f.code,id:`workshop-${f.code}-${(hash>>>0).toString(16)}`,label:label+'（工作坊）',inputLabel:label,gramsPerUnit:raw.gramsPerUnit,kind:'workshop',foodState:f.state,note:'工作坊實測參考；'+notes,notes,photo,defaultQuantity:1};
   }
-  function settings(raw,database){if(raw?.kind!=='food-workshop-portions'||raw.version!==1||!Array.isArray(raw.guides)||raw.guides.length>118)throw new Error('這不是有效的工作坊份量設定檔。');const out={};for(const entry of raw.guides){const guide=teacherGuide(entry,database);if(out[guide.code])throw new Error('設定檔有重複食材。');out[guide.code]=guide;}return out;}
+  function settings(raw,database){if(raw?.kind!=='food-workshop-portions'||raw.version!==1||!Array.isArray(raw.guides)||raw.guides.length>database.length)throw new Error('這不是有效的工作坊份量設定檔。');const out={};for(const entry of raw.guides){const guide=teacherGuide(entry,database);if(out[guide.code])throw new Error('設定檔有重複食材。');out[guide.code]=guide;}return out;}
   function serialize(guides){return {kind:'food-workshop-portions',version:1,guides:Object.values(guides).map(g=>({code:g.code,label:g.inputLabel,gramsPerUnit:g.gramsPerUnit,notes:g.notes,photo:g.photo,foodState:g.foodState}))};}
   function signature(p){return p?JSON.stringify([p.id,p.label,p.gramsPerUnit,p.kind,p.foodState]):'';}
   const describe=p=>`${quantityText(p.quantity)}${p.label}`;
