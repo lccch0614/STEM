@@ -92,7 +92,12 @@
     $('unit-label').textContent=manual?'克':guide?.label.split('（')[0]||'份';
     $('portion-photo').hidden=true;$('portion-photo').removeAttribute('src');$('portion-reference').textContent='';$('portion-source-record').textContent='';
     if(!food){$('portion-estimate').textContent='';return;}
-    if(!manual&&guide){$('portion-source-record').textContent=guide.source?`份量來源：USDA食物編號 ${guide.source.foodRecordId}「${guide.source.foodDescription}」；原記錄 ${guide.source.referenceAmount} ${guide.source.referenceDescription}＝${guide.source.referenceGrams}克。${guide.source.alternateRecord?'份量參考與營養分析分別引用對應食物記錄。':''}`:'份量來源：老師按目前食材狀態實測；屬工作坊參考，不是官方固定份量。';$('portion-reference').textContent=`${guide.kind==='workshop'?'工作坊實測':'官方參考'}：${guide.note}`;if(guide.photo){$('portion-photo').src=guide.photo;$('portion-photo').hidden=false;}}
+    if(!manual&&guide){
+      const source=guide.source;
+      $('portion-source-record').textContent=source?`份量來源：${source.provider}；記錄 ${source.foodRecordId}「${source.foodDescription}」。原記錄 ${source.referenceAmount} ${source.referenceDescription}＝${source.referenceGrams}克。${source.factor?`換算倍率：${source.factor}。`:''}${source.alternateRecord?'份量與營養分析分別引用來源；營養數據不會因選擇單位而改換。':''}`:'份量來源：老師按目前食材狀態實測；屬工作坊參考，不是官方固定份量。';
+      $('portion-reference').textContent=`${guide.kind==='workshop'?'工作坊實測':guide.kind==='reference'?'常用份量參考':'來源份量參考'}：${guide.note}`;
+      if(guide.photo){$('portion-photo').src=guide.photo;$('portion-photo').hidden=false;}
+    }
     try{const n=manual?Number($('food-grams').value):P.grams(guide?.gramsPerUnit,Number($('food-qty').value));if(!(n>=0.1&&n<=5000))throw new Error('');const people=draft.servings||1;$('portion-estimate').textContent=`${!manual&&guide?P.quantityText(Number($('food-qty').value))+guide.label+'，':''}全份約 ${Number(n.toFixed(1))} 克${people>1?`；供${people}人時，每人約 ${Number((n/people).toFixed(1))} 克`:''}。`;}catch{$('portion-estimate').textContent=manual?'請老師或家長協助填寫克數，或在下方設定實測份量。':'請選擇有效數量（整份材料0.1至5000克）。';}
   }
   function renderTeacherFields(food){
@@ -496,7 +501,7 @@
       const data=await response.json();
       if (!Array.isArray(data)||!data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0)) throw new Error('食材資料格式無效。');
       database=data;
-      try{const response=await fetch('./data/portion-guides.json?v=2026-10-23-1');if(!response.ok)throw new Error('未能載入份量');portionCatalog=P.catalog(await response.json(),database);}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
+      try{const response=await fetch('./data/portion-guides.json?v=2026-10-23-all-1');if(!response.ok)throw new Error('未能載入份量');portionCatalog=P.catalog(await response.json(),database);}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
       try{const saved=readStorage(PORTION_SETTINGS_KEY);if(saved)workshopMeasures=P.settings(saved,database);}catch{$('teacher-portion-status').textContent='上次實測設定未能核對，請重新匯入或量度。';}
       foodOptions();document.querySelectorAll('[data-food-count]').forEach(node=>node.textContent=`提供 ${data.filter(food=>food.status==='verified').length} 款附官方來源的可選食材`);
       const saved=readStorage(DRAFT_KEY);

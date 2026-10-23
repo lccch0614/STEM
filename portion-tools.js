@@ -9,9 +9,9 @@
   function validateSnapshot(raw,weight,food,catalog){
     if(!raw||typeof raw!=='object'||Array.isArray(raw))throw new Error('份量記錄格式無效。');
     const p={id:cleanText(raw.id,80,'份量編號'),label:cleanText(raw.label,36,'份量單位'),gramsPerUnit:raw.gramsPerUnit,quantity:raw.quantity,kind:raw.kind,foodState:cleanText(raw.foodState,100,'食材狀態')};
-    if(!['official','workshop'].includes(p.kind)||Math.abs(grams(p.gramsPerUnit,p.quantity)-weight)>0.05)throw new Error('份量與克數不一致，請核對草稿。');
+    if(!['official','reference','workshop'].includes(p.kind)||Math.abs(grams(p.gramsPerUnit,p.quantity)-weight)>0.05)throw new Error('份量與克數不一致，請核對草稿。');
     if(p.foodState!==food.state)return null;
-    if(catalog&&p.kind==='official'&&!(catalog[food.code]||[]).some(g=>g.id===p.id&&g.label===p.label&&Math.abs(g.gramsPerUnit-p.gramsPerUnit)<1e-8))return null;
+    if(catalog&&p.kind!=='workshop'&&!(catalog[food.code]||[]).some(g=>g.id===p.id&&g.kind===p.kind&&g.label===p.label&&Math.abs(g.gramsPerUnit-p.gramsPerUnit)<1e-8))return null;
     return p;
   }
   function catalog(raw,database){
@@ -19,8 +19,10 @@
     const byCode=new Map(database.map(f=>[f.code,f])),out={};
     for(const [code,list] of Object.entries(raw.guides)){
       const f=byCode.get(code);if(!f||f.status!=='verified'||!Array.isArray(list)||list.length>3)throw new Error('家用份量資料格式無效。');
-      out[code]=list.map(g=>{const p=validateSnapshot({...g,quantity:1},grams(g.gramsPerUnit,1),f);if(!p||g.kind!=='official')throw new Error('家用份量食材狀態不符。');const source=g.source,divisor=source?.derivation==='referenceGrams / 14 halves'?14:Number(source?.referenceAmount);if(!finite(divisor,0.001,10000)||!finite(source?.referenceGrams,0.001,5000)||Math.abs(g.gramsPerUnit-source.referenceGrams/divisor)>1e-8)throw new Error('家用份量換算未能核對。');return {...p,quantity:undefined,note:cleanText(g.note,250,'份量說明'),defaultQuantity:finite(g.defaultQuantity,0.001,100)?g.defaultQuantity:1,source};});
-    }return out;
+      out[code]=list.map(g=>{const p=validateSnapshot({...g,quantity:1},grams(g.gramsPerUnit,1),f);if(!p||!['official','reference'].includes(g.kind))throw new Error('家用份量食材狀態不符。');const source=g.source,divisor=source?.derivation==='referenceGrams / 14 halves'?14:Number(source?.referenceAmount),factor=source?.derivation==='referenceGrams / referenceAmount * factor'?source.factor:1;if(!finite(divisor,0.001,10000)||!finite(factor,0.001,10000)||!finite(source?.referenceGrams,0.001,5000)||Math.abs(g.gramsPerUnit-source.referenceGrams/divisor*factor)>1e-8)throw new Error('家用份量換算未能核對。');return {...p,quantity:undefined,note:cleanText(g.note,250,'份量說明'),defaultQuantity:finite(g.defaultQuantity,0.001,100)?g.defaultQuantity:1,source};});
+    }
+    if(raw.coverage&&database.some(f=>f.status==='verified'&&!out[f.code]?.length))throw new Error('部分食材缺少常用份量，請重新載入完整資料。');
+    return out;
   }
   function teacherGuide(raw,database){
     const f=database.find(x=>x.code===raw?.code);if(!f||f.status!=='verified')throw new Error('請先選擇可用食材。');
