@@ -104,3 +104,29 @@ button:disabled {opacity:.5;cursor:not-allowed;}
 
 .ws-source-content{font-size:13px;line-height:1.8;color:#475569;overflow-wrap:anywhere;padding:4px 12px;border-left:3px solid #cbd5e1;}
 .ws-source-content p{margin:8px 0;}
+
+#portion-controls{display:grid;gap:8px;}
+#view-app .ws-portion-shortcuts{display:flex;flex-wrap:wrap;gap:6px;}
+.ws-portion-chip{font:inherit;min-width:38px;min-height:36px;border:1px solid #cbd5e1;background:white;border-radius:8px;color:#334155;cursor:pointer;}
+.ws-portion-chip:hover{background:#ecfdf5;}
+#portion-estimate{margin:8px 0 0;font-size:14px;font-weight:600;color:#166534;}
+#view-app label.ws-checkbox{display:flex;align-items:center;gap:10px;}
+#view-app label.ws-checkbox input{width:18px;height:18px;min-width:18px;padding:0;margin:0;appearance:auto;}
+.ws-direct-grams{max-width:300px;margin:10px 0;}
+.ws-direct-grams input{width:150px;min-height:44px;}
+.ws-measure-photo{display:block;max-width:100%;width:280px;max-height:220px;object-fit:contain;border-radius:10px;margin:10px 0;background:#f8fafc;}
+#teacher-portions{padding:10px 14px;background:#f8fafc;border-radius:10px;}
+#teacher-portions .ws-grid input:not([type=checkbox]){width:100%;min-height:42px;}
+.ws-materials{min-width:620px;}
+.ws-materials td:nth-child(2){min-width:190px;}
+.ws-materials td:nth-child(2)>select{max-width:230px;width:100%;margin-bottom:8px;}
+.ws-row-quantity input{width:100px;min-height:42px;}
+.ws-row-grams{font-size:13px;}
+.ws-row-grams summary{cursor:pointer;margin:6px 0;}
+@media(max-width:640px){#teacher-portions{padding:10px}#teacher-portions .ws-actions{align-items:stretch}#view-app .ws-checkbox{align-items:flex-start}}
+
+.ws-portion-line{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+#portion-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+#view-app #portion-controls>.qty-box{width:145px;}
+#view-app #portion-controls input{height:44px;min-width:0;}
+#portion-estimate{margin:0;}

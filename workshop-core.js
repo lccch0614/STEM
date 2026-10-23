@@ -28,9 +28,11 @@
     if (!Array.isArray(value) || value.length < min || value.length > max) throw new Error(`${label}須有 ${min} 至 ${max} 項。`);
     return value.map(x => text(x, length, label));
   }
-  function makeItem(food, grams, method, id) {
+  function makeItem(food, grams, method, id, portion = null) {
     if (!food || typeof food.code !== 'string' || !methods.includes(method)) throw new Error('食材或烹調方法無效。');
-    return {id: String(id), code: food.code, grams: number(grams, 0.1, 5000, '食材重量'), method};
+    const item={id: String(id), code: food.code, grams: number(grams, 0.1, 5000, '食材重量'), method};
+    if(portion)item.portion=window.PortionTools.validateSnapshot(portion,item.grams,food);
+    return item;
   }
   function totals(items, database, servings = 1) {
     const byCode = new Map(database.map(f => [f.code, f]));
@@ -76,13 +78,14 @@
       const f = byCode.get(i.code);
       if (!f) throw new Error('部分材料已不在資料庫，請重新選擇。');
       const state=stateLabel(f);
-      return `${f.name} ${Number(i.grams.toFixed(1))}克${state.startsWith('依資料庫')?'':`（${state}）`}`;
+      const unit=i.portion?`${window.PortionTools.describe(i.portion)}（約${Number(i.grams.toFixed(1))}克${state.startsWith('依資料庫')?'':`；${state}`}）`:`${Number(i.grams.toFixed(1))}克${state.startsWith('依資料庫')?'':`（${state}）`}`;
+      return `${f.name} ${unit}`;
     });
   }
-  function validateDraft(raw, database) {
+  function validateDraft(raw, database, catalog) {
     if (!raw || raw.version !== 1 || !Array.isArray(raw.items) || raw.items.length > 30) throw new Error('草稿格式無效。');
     const byCode = new Map(database.map(f => [f.code, f]));
-    const items = raw.items.map((i, n) => makeItem(byCode.get(i.code), i.grams, i.method, `restored-${n}`));
+    const items = raw.items.map((i, n) => {const f=byCode.get(i.code),item=makeItem(f,i.grams,i.method,`restored-${n}`);if(i.portion){const portion=window.PortionTools.validateSnapshot(i.portion,item.grams,f,catalog);if(portion)item.portion=portion;}return item;});
     const fields = {};
     for (const [key, max] of Object.entries({chef:20,title:40,equipment:100,stock:160,waste:160,reason:200,allergy:120})) fields[key] = text(raw[key] ?? '', max, key, true);
     return {version:1, dataVersion:text(raw.dataVersion??'',40,'資料版本',true), ...fields, items, servings:number(raw.servings,1,12,'人數',true), minutes:number(raw.minutes ?? 0,0,240,'時間',true),

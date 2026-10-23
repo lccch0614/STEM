@@ -1,0 +1,4792 @@
+{
+  "version": 1,
+  "dataVersion": "2026-10-21-v1",
+  "note": "常見用量為近似量度方式，不是建議食量。營養數值不變；實際份量會隨大小、品牌及量具改變。",
+  "guides": {
+    "carb_001": [
+      {
+        "id": "usda-carb_001-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 158.0,
+        "kind": "official",
+        "foodState": "熟重；無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169757",
+          "foodDescription": "Rice, white, long-grain, regular, unenriched, cooked without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 158.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_001:0"
+      }
+    ],
+    "carb_002": [
+      {
+        "id": "usda-carb_002-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 202.0,
+        "kind": "official",
+        "foodState": "熟重",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169704",
+          "foodDescription": "Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 202.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_002:0"
+      }
+    ],
+    "carb_003": [
+      {
+        "id": "usda-carb_003-2",
+        "label": "量杯（通心粉，鬆放）",
+        "gramsPerUnit": 120.0,
+        "kind": "official",
+        "foodState": "熟重；未強化，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168928",
+          "foodDescription": "Pasta, cooked, unenriched, without added salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup elbows not packed",
+          "referenceGrams": 120.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_003:2"
+      },
+      {
+        "id": "usda-carb_003-0",
+        "label": "量杯（長意粉，鬆放）",
+        "gramsPerUnit": 124.0,
+        "kind": "official",
+        "foodState": "熟重；未強化，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168928",
+          "foodDescription": "Pasta, cooked, unenriched, without added salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup spaghetti not packed",
+          "referenceGrams": 124.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_003:0"
+      }
+    ],
+    "carb_005": [
+      {
+        "id": "usda-carb_005-0",
+        "label": "量杯（長意粉，鬆放）",
+        "gramsPerUnit": 124.0,
+        "kind": "official",
+        "foodState": "熟重；強化，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169737",
+          "foodDescription": "Pasta, cooked, enriched, without added salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup spaghetti not packed",
+          "referenceGrams": 124.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_005:0"
+      },
+      {
+        "id": "usda-carb_005-2",
+        "label": "量杯（通心粉，鬆放）",
+        "gramsPerUnit": 120.0,
+        "kind": "official",
+        "foodState": "熟重；強化，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169737",
+          "foodDescription": "Pasta, cooked, enriched, without added salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup elbows not packed",
+          "referenceGrams": 120.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_005:2"
+      }
+    ],
+    "carb_006": [
+      {
+        "id": "usda-carb_006-0",
+        "label": "片（來源參考厚度）",
+        "gramsPerUnit": 32.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172688",
+          "foodDescription": "Bread, whole-wheat, commercially prepared",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "slice",
+          "referenceGrams": 32.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "carb_006:0"
+      }
+    ],
+    "dairy_001": [
+      {
+        "id": "usda-dairy_001-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 244.0,
+        "kind": "official",
+        "foodState": "液態重量；乳脂3.25%，無添加維他命A及D",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172217",
+          "foodDescription": "Milk, whole, 3.25% milkfat, without added vitamin A and vitamin D",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 244.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_001:0"
+      },
+      {
+        "id": "usda-dairy_001-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 15.0,
+        "kind": "official",
+        "foodState": "液態重量；乳脂3.25%，無添加維他命A及D",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172217",
+          "foodDescription": "Milk, whole, 3.25% milkfat, without added vitamin A and vitamin D",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 15.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_001:1"
+      }
+    ],
+    "dairy_002": [
+      {
+        "id": "usda-dairy_002-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 245.0,
+        "kind": "official",
+        "foodState": "液態重量；無添加維他命A及D",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173432",
+          "foodDescription": "Milk, nonfat, fluid, without added vitamin A and vitamin D (fat free or skim)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 245.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_002:0"
+      }
+    ],
+    "dairy_003": [
+      {
+        "id": "usda-dairy_003-0",
+        "label": "杯裝（170克規格）",
+        "gramsPerUnit": 170.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170886",
+          "foodDescription": "Yogurt, plain, low fat",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "container (6 oz)",
+          "referenceGrams": 170.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_003:0"
+      }
+    ],
+    "dairy_005": [
+      {
+        "id": "usda-dairy_005-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 120.0,
+        "kind": "official",
+        "foodState": "乾粉重量；未沖調",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170877",
+          "foodDescription": "Milk, dry, nonfat, regular, without added vitamin A and vitamin D",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.25",
+          "referenceDescription": "cup",
+          "referenceGrams": 30.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_005:0"
+      },
+      {
+        "id": "usda-dairy_005-2",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 4.6,
+        "kind": "official",
+        "foodState": "乾粉重量；未沖調",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170877",
+          "foodDescription": "Milk, dry, nonfat, regular, without added vitamin A and vitamin D",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "5",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 23.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_005:2"
+      }
+    ],
+    "veg_002": [
+      {
+        "id": "usda-veg_002-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 76.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "747447",
+          "foodDescription": "Broccoli, raw",
+          "release": "2026-04-30",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1.0",
+          "referenceDescription": "chopped",
+          "referenceGrams": 76.0,
+          "measureUnitId": "1000",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_002:0"
+      }
+    ],
+    "veg_003": [
+      {
+        "id": "usda-veg_003-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 30.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168462",
+          "foodDescription": "Spinach, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 30.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_003:0"
+      }
+    ],
+    "veg_004": [
+      {
+        "id": "usda-veg_004-4",
+        "label": "條（中型）",
+        "gramsPerUnit": 61.0,
+        "kind": "official",
+        "foodState": "生重；成熟紅蘿蔔可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170393",
+          "foodDescription": "Carrots, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium",
+          "referenceGrams": 61.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_004:4"
+      }
+    ],
+    "veg_005": [
+      {
+        "id": "usda-veg_005-0",
+        "label": "量杯（切絲）",
+        "gramsPerUnit": 70.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170390",
+          "foodDescription": "Cabbage, chinese (pak-choi), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, shredded",
+          "referenceGrams": 70.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_005:0"
+      }
+    ],
+    "veg_006": [
+      {
+        "id": "usda-veg_006-5",
+        "label": "個（中型）",
+        "gramsPerUnit": 123.0,
+        "kind": "official",
+        "foodState": "生重；成熟紅番茄可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170457",
+          "foodDescription": "Tomatoes, red, ripe, raw, year round average",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium whole (2-3/5\" dia)",
+          "referenceGrams": 123.0,
+          "measureUnitId": "9999",
+          "portionIndex": 5,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_006:5"
+      },
+      {
+        "id": "usda-veg_006-8",
+        "label": "個（小型）",
+        "gramsPerUnit": 91.0,
+        "kind": "official",
+        "foodState": "生重；成熟紅番茄可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170457",
+          "foodDescription": "Tomatoes, red, ripe, raw, year round average",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "small whole (2-2/5\" dia)",
+          "referenceGrams": 91.0,
+          "measureUnitId": "9999",
+          "portionIndex": 8,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_006:8"
+      },
+      {
+        "id": "usda-veg_006-4",
+        "label": "個（大型）",
+        "gramsPerUnit": 182.0,
+        "kind": "official",
+        "foodState": "生重；成熟紅番茄可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170457",
+          "foodDescription": "Tomatoes, red, ripe, raw, year round average",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "large whole (3\" dia)",
+          "referenceGrams": 182.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_006:4"
+      }
+    ],
+    "veg_008": [
+      {
+        "id": "usda-veg_008-3",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 65.0,
+        "kind": "official",
+        "foodState": "未烹調重量；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169382",
+          "foodDescription": "Mushrooms, enoki, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup sliced",
+          "referenceGrams": 65.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_008:3"
+      }
+    ],
+    "veg_009": [
+      {
+        "id": "usda-veg_009-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 124.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169291",
+          "foodDescription": "Squash, summer, zucchini, includes skin, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, chopped",
+          "referenceGrams": 124.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_009:0"
+      },
+      {
+        "id": "usda-veg_009-1",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 113.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169291",
+          "foodDescription": "Squash, summer, zucchini, includes skin, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, sliced",
+          "referenceGrams": 113.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_009:1"
+      }
+    ],
+    "veg_010": [
+      {
+        "id": "usda-veg_010-0",
+        "label": "量杯（切粒）",
+        "gramsPerUnit": 116.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168448",
+          "foodDescription": "Pumpkin, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup (1\" cubes)",
+          "referenceGrams": 116.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_010:0"
+      }
+    ],
+    "fruit_001": [
+      {
+        "id": "usda-fruit_001-2",
+        "label": "個（中型）",
+        "gramsPerUnit": 192.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167793",
+          "foodDescription": "Apples, raw, fuji, with skin (Includes foods for USDA's Food Distribution Program)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium",
+          "referenceGrams": 192.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "fruit_001:2"
+      },
+      {
+        "id": "usda-fruit_001-3",
+        "label": "個（小型）",
+        "gramsPerUnit": 158.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167793",
+          "foodDescription": "Apples, raw, fuji, with skin (Includes foods for USDA's Food Distribution Program)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "small",
+          "referenceGrams": 158.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "fruit_001:3"
+      },
+      {
+        "id": "usda-fruit_001-1",
+        "label": "個（大型）",
+        "gramsPerUnit": 236.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167793",
+          "foodDescription": "Apples, raw, fuji, with skin (Includes foods for USDA's Food Distribution Program)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "large",
+          "referenceGrams": 236.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "fruit_001:1"
+      }
+    ],
+    "fruit_002": [
+      {
+        "id": "usda-fruit_002-4",
+        "label": "隻（中型）",
+        "gramsPerUnit": 118.0,
+        "kind": "official",
+        "foodState": "生重；果肉可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173944",
+          "foodDescription": "Bananas, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium (7\" to 7-7/8\" long)",
+          "referenceGrams": 118.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_002:4"
+      },
+      {
+        "id": "usda-fruit_002-3",
+        "label": "隻（小型）",
+        "gramsPerUnit": 101.0,
+        "kind": "official",
+        "foodState": "生重；果肉可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173944",
+          "foodDescription": "Bananas, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "small (6\" to 6-7/8\" long)",
+          "referenceGrams": 101.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_002:3"
+      },
+      {
+        "id": "usda-fruit_002-5",
+        "label": "隻（大型）",
+        "gramsPerUnit": 136.0,
+        "kind": "official",
+        "foodState": "生重；果肉可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173944",
+          "foodDescription": "Bananas, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "large (8\" to 8-7/8\" long)",
+          "referenceGrams": 136.0,
+          "measureUnitId": "9999",
+          "portionIndex": 5,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_002:5"
+      }
+    ],
+    "fruit_003": [
+      {
+        "id": "usda-fruit_003-1",
+        "label": "個（直徑約7.3厘米）",
+        "gramsPerUnit": 140.0,
+        "kind": "official",
+        "foodState": "生重；臍橙可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "746771",
+          "foodDescription": "Oranges, raw, navels",
+          "release": "2026-04-30",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1.0",
+          "referenceDescription": " 2-7/8\" dia",
+          "referenceGrams": 140.0,
+          "measureUnitId": "1071",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_003:1"
+      }
+    ],
+    "fruit_004": [
+      {
+        "id": "usda-fruit_004-1",
+        "label": "個（直徑約5.1厘米）",
+        "gramsPerUnit": 69.0,
+        "kind": "official",
+        "foodState": "生重；去皮可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168153",
+          "foodDescription": "Kiwifruit, green, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "fruit (2\" dia)",
+          "referenceGrams": 69.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "fruit_004:1"
+      }
+    ],
+    "fruit_005": [
+      {
+        "id": "usda-fruit_005-1",
+        "label": "粒（來源參考大小）",
+        "gramsPerUnit": 4.9,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "174683",
+          "foodDescription": "Grapes, red or green (European type, such as Thompson seedless), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "10",
+          "referenceDescription": "grapes",
+          "referenceGrams": 49.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_005:1"
+      }
+    ],
+    "fruit_006": [
+      {
+        "id": "usda-fruit_006-1",
+        "label": "量杯（切粒）",
+        "gramsPerUnit": 152.0,
+        "kind": "official",
+        "foodState": "生重；西瓜果肉",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167765",
+          "foodDescription": "Watermelon, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, diced",
+          "referenceGrams": 152.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_006:1"
+      }
+    ],
+    "fruit_007": [
+      {
+        "id": "usda-fruit_007-2",
+        "label": "個（小型）",
+        "gramsPerUnit": 157.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169926",
+          "foodDescription": "Papayas, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "fruit, small",
+          "referenceGrams": 157.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_007:2"
+      },
+      {
+        "id": "usda-fruit_007-0",
+        "label": "量杯（切約2.5厘米粒）",
+        "gramsPerUnit": 145.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169926",
+          "foodDescription": "Papayas, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup 1\" pieces",
+          "referenceGrams": 145.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_007:0"
+      }
+    ],
+    "seas_001": [
+      {
+        "id": "usda-seas_001-1",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 5.3,
+        "kind": "official",
+        "foodState": "成品重量；大豆及小麥製醬油",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "174277",
+          "foodDescription": "Soy sauce made from soy and wheat (shoyu)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 5.3,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_001:1"
+      },
+      {
+        "id": "usda-seas_001-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 16.0,
+        "kind": "official",
+        "foodState": "成品重量；大豆及小麥製醬油",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "174277",
+          "foodDescription": "Soy sauce made from soy and wheat (shoyu)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 16.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_001:0"
+      },
+      {
+        "id": "usda-seas_001-2",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 255.0,
+        "kind": "official",
+        "foodState": "成品重量；大豆及小麥製醬油",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "174277",
+          "foodDescription": "Soy sauce made from soy and wheat (shoyu)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 255.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_001:2"
+      }
+    ],
+    "seas_002": [
+      {
+        "id": "usda-seas_002-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 18.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "174529",
+          "foodDescription": "Sauce, oyster, ready-to-serve",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 18.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_002:0"
+      }
+    ],
+    "seas_003": [
+      {
+        "id": "usda-seas_003-2",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 4.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171016",
+          "foodDescription": "Oil, sesame, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 4.5,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_003:2"
+      },
+      {
+        "id": "usda-seas_003-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 13.6,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171016",
+          "foodDescription": "Oil, sesame, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tablespoon",
+          "referenceGrams": 13.6,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_003:0"
+      },
+      {
+        "id": "usda-seas_003-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 218.0,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171016",
+          "foodDescription": "Oil, sesame, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 218.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_003:1"
+      }
+    ],
+    "seas_004": [
+      {
+        "id": "usda-seas_004-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 17.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168556",
+          "foodDescription": "Catsup",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 17.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_004:0"
+      },
+      {
+        "id": "usda-seas_004-2",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 240.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168556",
+          "foodDescription": "Catsup",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 240.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_004:2"
+      }
+    ],
+    "seas_007": [
+      {
+        "id": "usda-seas_007-2",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 4.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171410",
+          "foodDescription": "Oil, peanut, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 4.5,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_007:2"
+      },
+      {
+        "id": "usda-seas_007-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 13.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171410",
+          "foodDescription": "Oil, peanut, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 13.5,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_007:0"
+      },
+      {
+        "id": "usda-seas_007-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 216.0,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171410",
+          "foodDescription": "Oil, peanut, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 216.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_007:1"
+      }
+    ],
+    "seas_008": [
+      {
+        "id": "usda-seas_008-2",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 4.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171413",
+          "foodDescription": "Oil, olive, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 4.5,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_008:2"
+      },
+      {
+        "id": "usda-seas_008-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 13.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171413",
+          "foodDescription": "Oil, olive, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tablespoon",
+          "referenceGrams": 13.5,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_008:0"
+      },
+      {
+        "id": "usda-seas_008-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 216.0,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171413",
+          "foodDescription": "Oil, olive, salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 216.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_008:1"
+      }
+    ],
+    "seas_009": [
+      {
+        "id": "usda-seas_009-0",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 6.0,
+        "kind": "official",
+        "foodState": "食鹽重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 0.25,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173468",
+          "foodDescription": "Salt, table",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 6.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_009:0"
+      },
+      {
+        "id": "usda-seas_009-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 18.0,
+        "kind": "official",
+        "foodState": "食鹽重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 0.25,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173468",
+          "foodDescription": "Salt, table",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 18.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_009:1"
+      },
+      {
+        "id": "usda-seas_009-2",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 292.0,
+        "kind": "official",
+        "foodState": "食鹽重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 0.25,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173468",
+          "foodDescription": "Salt, table",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 292.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_009:2"
+      }
+    ],
+    "seas_006": [
+      {
+        "id": "usda-seas_006-1",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 4.2,
+        "kind": "official",
+        "foodState": "糖重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169655",
+          "foodDescription": "Sugars, granulated",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 4.2,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_006:1"
+      },
+      {
+        "id": "usda-seas_006-2",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 200.0,
+        "kind": "official",
+        "foodState": "糖重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169655",
+          "foodDescription": "Sugars, granulated",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 200.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "seas_006:2"
+      }
+    ],
+    "meat_003": [
+      {
+        "id": "usda-meat_003-1",
+        "label": "件（來源參考大小，去皮）",
+        "gramsPerUnit": 149.0,
+        "kind": "official",
+        "foodState": "生重；去骨去皮雞髀肉",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173627",
+          "foodDescription": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "thigh without skin",
+          "referenceGrams": 149.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "meat_003:1"
+      }
+    ],
+    "meat_004": [
+      {
+        "id": "usda-meat_004-1",
+        "label": "件（來源參考大小，去皮去骨）",
+        "gramsPerUnit": 272.0,
+        "kind": "official",
+        "foodState": "生重；去骨去皮雞胸肉",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 0.5,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171077",
+          "foodDescription": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "piece",
+          "referenceGrams": 272.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "meat_004:1"
+      }
+    ],
+    "meat_009": [
+      {
+        "id": "usda-meat_009-2",
+        "label": "罐（瀝乾165克規格）",
+        "gramsPerUnit": 165.0,
+        "kind": "official",
+        "foodState": "水浸罐裝；瀝乾可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173709",
+          "foodDescription": "Fish, tuna, light, canned in water, drained solids (Includes foods for USDA's Food Distribution Program)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "can",
+          "referenceGrams": 165.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "meat_009:2"
+      }
+    ],
+    "meat_010": [
+      {
+        "id": "usda-meat_010-1",
+        "label": "隻（去骨去皮肉，參考大小）",
+        "gramsPerUnit": 29.0,
+        "kind": "official",
+        "foodState": "生重；去皮去骨雞翼肉",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173632",
+          "foodDescription": "Chicken, broilers or fryers, wing, meat only, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "wing, bone and skin removed",
+          "referenceGrams": 29.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "meat_010:1"
+      }
+    ],
+    "soy_002": [
+      {
+        "id": "usda-soy_002-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 252.0,
+        "kind": "official",
+        "foodState": "未烹調重量；硫酸鈣製硬豆腐",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172475",
+          "foodDescription": "Tofu, raw, firm, prepared with calcium sulfate",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.5",
+          "referenceDescription": "cup",
+          "referenceGrams": 126.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "soy_002:0"
+      },
+      {
+        "id": "usda-soy_002-1",
+        "label": "磚（參考324克規格）",
+        "gramsPerUnit": 324.0,
+        "kind": "official",
+        "foodState": "未烹調重量；硫酸鈣製硬豆腐",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172475",
+          "foodDescription": "Tofu, raw, firm, prepared with calcium sulfate",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.25",
+          "referenceDescription": "block",
+          "referenceGrams": 81.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "soy_002:1"
+      }
+    ],
+    "egg_001": [
+      {
+        "id": "usda-egg_001-0",
+        "label": "隻（大型，去殼）",
+        "gramsPerUnit": 50.0,
+        "kind": "official",
+        "foodState": "生重；去殼全蛋",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171287",
+          "foodDescription": "Egg, whole, raw, fresh",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "large",
+          "referenceGrams": 50.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "egg_001:0"
+      },
+      {
+        "id": "usda-egg_001-4",
+        "label": "隻（中型，去殼）",
+        "gramsPerUnit": 44.0,
+        "kind": "official",
+        "foodState": "生重；去殼全蛋",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171287",
+          "foodDescription": "Egg, whole, raw, fresh",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium",
+          "referenceGrams": 44.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "egg_001:4"
+      },
+      {
+        "id": "usda-egg_001-1",
+        "label": "隻（特大型，去殼）",
+        "gramsPerUnit": 56.0,
+        "kind": "official",
+        "foodState": "生重；去殼全蛋",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171287",
+          "foodDescription": "Egg, whole, raw, fresh",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "extra large",
+          "referenceGrams": 56.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "egg_001:1"
+      }
+    ],
+    "egg_002": [
+      {
+        "id": "usda-egg_002-0",
+        "label": "隻（去殼）",
+        "gramsPerUnit": 9.0,
+        "kind": "official",
+        "foodState": "生重；去殼全蛋",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172191",
+          "foodDescription": "Egg, quail, whole, fresh, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "egg",
+          "referenceGrams": 9.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "egg_002:0"
+      }
+    ],
+    "liq_001": [
+      {
+        "id": "usda-liq_001-2",
+        "label": "公升（清水）",
+        "gramsPerUnit": 1000.0,
+        "kind": "official",
+        "foodState": "飲用自來水重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 0.25,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173647",
+          "foodDescription": "Beverages, water, tap, drinking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "liter",
+          "referenceGrams": 1000.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "liq_001:2"
+      }
+    ],
+    "liq_002": [
+      {
+        "id": "usda-liq_002-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 248.0,
+        "kind": "official",
+        "foodState": "液態重量；無糖、無添加維他命C",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173933",
+          "foodDescription": "Apple juice, canned or bottled, unsweetened, without added ascorbic acid",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 248.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "liq_002:0"
+      }
+    ],
+    "grain_009": [
+      {
+        "id": "usda-grain_009-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 81.0,
+        "kind": "official",
+        "foodState": "乾重；未煮原片燕麥",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173904",
+          "foodDescription": "Cereals, oats, regular and quick, not fortified, dry",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 81.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "grain_009:0"
+      },
+      {
+        "id": "usda-grain_009-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 81.81818181818181,
+        "kind": "official",
+        "foodState": "乾重；未煮原片燕麥",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173904",
+          "foodDescription": "Cereals, oats, regular and quick, not fortified, dry",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.33",
+          "referenceDescription": "cup",
+          "referenceGrams": 27.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "grain_009:1"
+      }
+    ],
+    "grain_010": [
+      {
+        "id": "usda-grain_010-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 234.0,
+        "kind": "official",
+        "foodState": "熟重；清水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173905",
+          "foodDescription": "Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 234.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_010:0"
+      },
+      {
+        "id": "usda-grain_010-2",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 233.33333333333334,
+        "kind": "official",
+        "foodState": "熟重；清水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173905",
+          "foodDescription": "Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.75",
+          "referenceDescription": "cup",
+          "referenceGrams": 175.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_010:2"
+      },
+      {
+        "id": "usda-grain_010-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 14.6,
+        "kind": "official",
+        "foodState": "熟重；清水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173905",
+          "foodDescription": "Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 14.6,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_010:1"
+      }
+    ],
+    "grain_011": [
+      {
+        "id": "usda-grain_011-1",
+        "label": "個（中型，去皮水煮）",
+        "gramsPerUnit": 151.0,
+        "kind": "official",
+        "foodState": "熟重；水煮去皮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168484",
+          "foodDescription": "Sweet potato, cooked, boiled, without skin",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium",
+          "referenceGrams": 151.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_011:1"
+      },
+      {
+        "id": "usda-grain_011-0",
+        "label": "量杯（壓蓉）",
+        "gramsPerUnit": 328.0,
+        "kind": "official",
+        "foodState": "熟重；水煮去皮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168484",
+          "foodDescription": "Sweet potato, cooked, boiled, without skin",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, mashed",
+          "referenceGrams": 328.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_011:0"
+      }
+    ],
+    "grain_013": [
+      {
+        "id": "usda-grain_013-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 185.0,
+        "kind": "official",
+        "foodState": "熟重",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168917",
+          "foodDescription": "Quinoa, cooked",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 185.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_013:0"
+      }
+    ],
+    "grain_015": [
+      {
+        "id": "usda-grain_015-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 176.0,
+        "kind": "official",
+        "foodState": "熟重",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168914",
+          "foodDescription": "Rice noodles, cooked",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 176.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_015:0"
+      }
+    ],
+    "grain_016": [
+      {
+        "id": "usda-grain_016-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 185.0,
+        "kind": "official",
+        "foodState": "乾重；未煮，未強化長粒白米",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169756",
+          "foodDescription": "Rice, white, long-grain, regular, raw, unenriched",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 185.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "grain_016:0"
+      }
+    ],
+    "grain_017": [
+      {
+        "id": "usda-grain_017-2",
+        "label": "個（中型，去皮水煮）",
+        "gramsPerUnit": 167.0,
+        "kind": "official",
+        "foodState": "熟重；水煮去皮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170440",
+          "foodDescription": "Potatoes, boiled, cooked without skin, flesh, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium (2-1/4\" to 3-1/4\" dia.)",
+          "referenceGrams": 167.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_017:2"
+      },
+      {
+        "id": "usda-grain_017-3",
+        "label": "個（小型，去皮水煮）",
+        "gramsPerUnit": 125.0,
+        "kind": "official",
+        "foodState": "熟重；水煮去皮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170440",
+          "foodDescription": "Potatoes, boiled, cooked without skin, flesh, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "small (1-3/4\" to 2-1/2\" dia.)",
+          "referenceGrams": 125.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "grain_017:3"
+      }
+    ],
+    "veg_011": [
+      {
+        "id": "usda-veg_011-4",
+        "label": "個（中型）",
+        "gramsPerUnit": 908.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169975",
+          "foodDescription": "Cabbage, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "head, medium (about 5-3/4\" dia)",
+          "referenceGrams": 908.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_011:4"
+      },
+      {
+        "id": "usda-veg_011-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 89.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169975",
+          "foodDescription": "Cabbage, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, chopped",
+          "referenceGrams": 89.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_011:0"
+      }
+    ],
+    "veg_012": [
+      {
+        "id": "usda-veg_012-4",
+        "label": "個（中型）",
+        "gramsPerUnit": 839.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169977",
+          "foodDescription": "Cabbage, red, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "head, medium (about 5\" dia)",
+          "referenceGrams": 839.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_012:4"
+      },
+      {
+        "id": "usda-veg_012-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 89.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169977",
+          "foodDescription": "Cabbage, red, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, chopped",
+          "referenceGrams": 89.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_012:0"
+      }
+    ],
+    "veg_013": [
+      {
+        "id": "usda-veg_013-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 107.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169986",
+          "foodDescription": "Cauliflower, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup chopped (1/2\" pieces)",
+          "referenceGrams": 107.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_013:0"
+      }
+    ],
+    "veg_014": [
+      {
+        "id": "usda-veg_014-6",
+        "label": "片葉（中型）",
+        "gramsPerUnit": 8.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169248",
+          "foodDescription": "Lettuce, iceberg (includes crisphead types), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "leaf, medium",
+          "referenceGrams": 8.0,
+          "measureUnitId": "9999",
+          "portionIndex": 6,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_014:6"
+      },
+      {
+        "id": "usda-veg_014-1",
+        "label": "量杯（切碎鬆放）",
+        "gramsPerUnit": 57.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169248",
+          "foodDescription": "Lettuce, iceberg (includes crisphead types), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, chopped (1/2\" pieces, loosely packed)",
+          "referenceGrams": 57.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_014:1"
+      }
+    ],
+    "veg_015": [
+      {
+        "id": "usda-veg_015-2",
+        "label": "片葉（外層）",
+        "gramsPerUnit": 28.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169247",
+          "foodDescription": "Lettuce, cos or romaine, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "leaf outer",
+          "referenceGrams": 28.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_015:2"
+      },
+      {
+        "id": "usda-veg_015-0",
+        "label": "量杯（切絲）",
+        "gramsPerUnit": 47.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169247",
+          "foodDescription": "Lettuce, cos or romaine, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup shredded",
+          "referenceGrams": 47.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_015:0"
+      }
+    ],
+    "veg_016": [
+      {
+        "id": "usda-veg_016-1",
+        "label": "條（長約21厘米）",
+        "gramsPerUnit": 301.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168409",
+          "foodDescription": "Cucumber, with peel, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cucumber (8-1/4\")",
+          "referenceGrams": 301.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_016:1"
+      },
+      {
+        "id": "usda-veg_016-0",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 104.0,
+        "kind": "official",
+        "foodState": "生重；連皮可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168409",
+          "foodDescription": "Cucumber, with peel, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.5",
+          "referenceDescription": "cup slices",
+          "referenceGrams": 52.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_016:0"
+      }
+    ],
+    "veg_017": [
+      {
+        "id": "usda-veg_017-0",
+        "label": "量杯（切粒）",
+        "gramsPerUnit": 82.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169228",
+          "foodDescription": "Eggplant, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, cubes",
+          "referenceGrams": 82.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_017:0"
+      }
+    ],
+    "veg_018": [
+      {
+        "id": "usda-veg_018-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 149.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170427",
+          "foodDescription": "Peppers, sweet, green, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, chopped",
+          "referenceGrams": 149.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_018:0"
+      },
+      {
+        "id": "usda-veg_018-1",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 92.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170427",
+          "foodDescription": "Peppers, sweet, green, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, sliced",
+          "referenceGrams": 92.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_018:1"
+      },
+      {
+        "id": "usda-veg_018-2",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 9.3,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170427",
+          "foodDescription": "Peppers, sweet, green, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 9.3,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_018:2"
+      }
+    ],
+    "veg_019": [
+      {
+        "id": "usda-veg_019-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 149.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170108",
+          "foodDescription": "Peppers, sweet, red, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, chopped",
+          "referenceGrams": 149.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_019:0"
+      },
+      {
+        "id": "usda-veg_019-1",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 92.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170108",
+          "foodDescription": "Peppers, sweet, red, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, sliced",
+          "referenceGrams": 92.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_019:1"
+      },
+      {
+        "id": "usda-veg_019-2",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 9.3,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170108",
+          "foodDescription": "Peppers, sweet, red, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tablespoon",
+          "referenceGrams": 9.3,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_019:2"
+      }
+    ],
+    "veg_021": [
+      {
+        "id": "usda-veg_021-0",
+        "label": "個（來源參考大小，去皮）",
+        "gramsPerUnit": 143.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "790646",
+          "foodDescription": "Onions, yellow, raw",
+          "release": "2026-04-30",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1.0",
+          "referenceDescription": "Edible",
+          "referenceGrams": 143.0,
+          "measureUnitId": "1120",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_021:0"
+      }
+    ],
+    "veg_022": [
+      {
+        "id": "usda-veg_022-0",
+        "label": "個（來源參考大小，去皮）",
+        "gramsPerUnit": 197.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "790577",
+          "foodDescription": "Onions, red, raw",
+          "release": "2026-04-30",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1.0",
+          "referenceDescription": "Edible",
+          "referenceGrams": 197.0,
+          "measureUnitId": "1120",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_022:0"
+      }
+    ],
+    "veg_023": [
+      {
+        "id": "usda-veg_023-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 136.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169230",
+          "foodDescription": "Garlic, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 136.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_023:0"
+      },
+      {
+        "id": "usda-veg_023-1",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 2.8,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169230",
+          "foodDescription": "Garlic, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 2.8,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_023:1"
+      }
+    ],
+    "veg_024": [
+      {
+        "id": "usda-veg_024-2",
+        "label": "片（直徑約2.5厘米）",
+        "gramsPerUnit": 2.2,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169231",
+          "foodDescription": "Ginger root, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "5",
+          "referenceDescription": "slices (1\" dia)",
+          "referenceGrams": 11.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_024:2"
+      },
+      {
+        "id": "usda-veg_024-0",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 2.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169231",
+          "foodDescription": "Ginger root, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 2.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_024:0"
+      }
+    ],
+    "veg_025": [
+      {
+        "id": "usda-veg_025-3",
+        "label": "條（中型）",
+        "gramsPerUnit": 15.0,
+        "kind": "official",
+        "foodState": "生重；去根莖葉",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170005",
+          "foodDescription": "Onions, spring or scallions (includes tops and bulb), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium (4-1/8\" long)",
+          "referenceGrams": 15.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_025:3"
+      },
+      {
+        "id": "usda-veg_025-1",
+        "label": "湯匙（切碎，量匙）",
+        "gramsPerUnit": 6.0,
+        "kind": "official",
+        "foodState": "生重；去根莖葉",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170005",
+          "foodDescription": "Onions, spring or scallions (includes tops and bulb), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp chopped",
+          "referenceGrams": 6.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_025:1"
+      }
+    ],
+    "veg_026": [
+      {
+        "id": "usda-veg_026-4",
+        "label": "條（中型，長約19–20厘米）",
+        "gramsPerUnit": 40.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169988",
+          "foodDescription": "Celery, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "stalk, medium (7-1/2\" - 8\" long)",
+          "referenceGrams": 40.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_026:4"
+      },
+      {
+        "id": "usda-veg_026-0",
+        "label": "量杯（切碎）",
+        "gramsPerUnit": 101.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169988",
+          "foodDescription": "Celery, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup chopped",
+          "referenceGrams": 101.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_026:0"
+      }
+    ],
+    "veg_027": [
+      {
+        "id": "usda-veg_027-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 134.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168389",
+          "foodDescription": "Asparagus, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 134.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_027:0"
+      }
+    ],
+    "veg_028": [
+      {
+        "id": "usda-veg_028-1",
+        "label": "條（來源參考大小）",
+        "gramsPerUnit": 89.0,
+        "kind": "official",
+        "foodState": "生重；球莖及下部葉段",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169246",
+          "foodDescription": "Leeks, (bulb and lower leaf-portion), raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "leek",
+          "referenceGrams": 89.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_028:1"
+      }
+    ],
+    "veg_030": [
+      {
+        "id": "usda-veg_030-0",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 70.0,
+        "kind": "official",
+        "foodState": "未烹調重量；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169251",
+          "foodDescription": "Mushrooms, white, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, pieces or slices",
+          "referenceGrams": 70.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_030:0"
+      }
+    ],
+    "veg_032": [
+      {
+        "id": "usda-veg_032-2",
+        "label": "量杯（切片）",
+        "gramsPerUnit": 86.0,
+        "kind": "official",
+        "foodState": "未烹調重量；可食部分",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168580",
+          "foodDescription": "Mushrooms, oyster, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup sliced",
+          "referenceGrams": 86.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "veg_032:2"
+      }
+    ],
+    "veg_034": [
+      {
+        "id": "usda-veg_034-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 145.0,
+        "kind": "official",
+        "foodState": "生重；去莢可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170419",
+          "foodDescription": "Peas, green, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 145.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_034:0"
+      }
+    ],
+    "veg_035": [
+      {
+        "id": "usda-veg_035-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 104.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169957",
+          "foodDescription": "Mung beans, mature seeds, sprouted, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 104.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "veg_035:0"
+      }
+    ],
+    "bean_001": [
+      {
+        "id": "usda-bean_001-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 164.0,
+        "kind": "official",
+        "foodState": "熟重；水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173757",
+          "foodDescription": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 164.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_001:0"
+      }
+    ],
+    "bean_002": [
+      {
+        "id": "usda-bean_002-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 198.0,
+        "kind": "official",
+        "foodState": "熟重；水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172421",
+          "foodDescription": "Lentils, mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 198.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_002:0"
+      },
+      {
+        "id": "usda-bean_002-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 12.3,
+        "kind": "official",
+        "foodState": "熟重；水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172421",
+          "foodDescription": "Lentils, mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 12.3,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_002:1"
+      }
+    ],
+    "bean_003": [
+      {
+        "id": "usda-bean_003-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 177.0,
+        "kind": "official",
+        "foodState": "熟重；水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "175194",
+          "foodDescription": "Beans, kidney, red, mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 177.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_003:0"
+      },
+      {
+        "id": "usda-bean_003-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 11.0,
+        "kind": "official",
+        "foodState": "熟重；水煮，無添加鹽",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "175194",
+          "foodDescription": "Beans, kidney, red, mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 11.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_003:1"
+      }
+    ],
+    "bean_004": [
+      {
+        "id": "usda-bean_004-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 172.0,
+        "kind": "official",
+        "foodState": "熟重；水煮，無添加鹽；非黑大豆",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173735",
+          "foodDescription": "Beans, black, mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 172.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_004:0"
+      }
+    ],
+    "bean_005": [
+      {
+        "id": "usda-bean_005-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 155.0,
+        "kind": "official",
+        "foodState": "冷凍產品煮熟重量；去莢可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168411",
+          "foodDescription": "Edamame, frozen, prepared",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 155.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "bean_005:0"
+      }
+    ],
+    "nut_001": [
+      {
+        "id": "usda-nut_001-5",
+        "label": "粒（來源參考大小）",
+        "gramsPerUnit": 1.2,
+        "kind": "official",
+        "foodState": "未烘烤重量；果仁",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170567",
+          "foodDescription": "Nuts, almonds",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "almond",
+          "referenceGrams": 1.2,
+          "measureUnitId": "9999",
+          "portionIndex": 5,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "nut_001:5"
+      },
+      {
+        "id": "usda-nut_001-0",
+        "label": "量杯（整粒）",
+        "gramsPerUnit": 143.0,
+        "kind": "official",
+        "foodState": "未烘烤重量；果仁",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170567",
+          "foodDescription": "Nuts, almonds",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, whole",
+          "referenceGrams": 143.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "nut_001:0"
+      }
+    ],
+    "nut_002": [
+      {
+        "id": "usda-nut_002-5",
+        "label": "瓣（半粒，來源參考大小）",
+        "gramsPerUnit": 2.025,
+        "kind": "official",
+        "foodState": "未烘烤重量；果仁",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170187",
+          "foodDescription": "Nuts, walnuts, english",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "oz (14 halves)",
+          "referenceGrams": 28.35,
+          "measureUnitId": "9999",
+          "portionIndex": 5,
+          "derivation": "referenceGrams / 14 halves",
+          "alternateRecord": true
+        },
+        "rawKey": "nut_002:5"
+      }
+    ],
+    "nut_004": [
+      {
+        "id": "usda-nut_004-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 146.0,
+        "kind": "official",
+        "foodState": "生重；花生仁",
+        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172430",
+          "foodDescription": "Peanuts, all types, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 146.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": true
+        },
+        "rawKey": "nut_004:1"
+      }
+    ],
+    "nut_005": [
+      {
+        "id": "usda-nut_005-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 144.0,
+        "kind": "official",
+        "foodState": "乾重；整粒芝麻",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170150",
+          "foodDescription": "Seeds, sesame seeds, whole, dried",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 144.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "nut_005:0"
+      },
+      {
+        "id": "usda-nut_005-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 9.0,
+        "kind": "official",
+        "foodState": "乾重；整粒芝麻",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170150",
+          "foodDescription": "Seeds, sesame seeds, whole, dried",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 9.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "nut_005:1"
+      }
+    ],
+    "sea_002": [
+      {
+        "id": "usda-sea_002-0",
+        "label": "份（2大粒／5小粒參考大小）",
+        "gramsPerUnit": 30.0,
+        "kind": "official",
+        "foodState": "生重；混合品種帶子可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "174220",
+          "foodDescription": "Mollusks, scallop, mixed species, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "unit 2 large or 5 small",
+          "referenceGrams": 30.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "sea_002:0"
+      }
+    ],
+    "fruit_008": [
+      {
+        "id": "usda-fruit_008-6",
+        "label": "粒（中型）",
+        "gramsPerUnit": 12.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167762",
+          "foodDescription": "Strawberries, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium (1-1/4\" dia)",
+          "referenceGrams": 12.0,
+          "measureUnitId": "9999",
+          "portionIndex": 6,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_008:6"
+      },
+      {
+        "id": "usda-fruit_008-3",
+        "label": "量杯（整粒）",
+        "gramsPerUnit": 144.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167762",
+          "foodDescription": "Strawberries, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, whole",
+          "referenceGrams": 144.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_008:3"
+      }
+    ],
+    "fruit_009": [
+      {
+        "id": "usda-fruit_009-1",
+        "label": "粒（來源參考大小）",
+        "gramsPerUnit": 1.36,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171711",
+          "foodDescription": "Blueberries, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "50",
+          "referenceDescription": "berries",
+          "referenceGrams": 68.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_009:1"
+      },
+      {
+        "id": "usda-fruit_009-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 148.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171711",
+          "foodDescription": "Blueberries, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 148.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_009:0"
+      }
+    ],
+    "fruit_010": [
+      {
+        "id": "usda-fruit_010-2",
+        "label": "粒（來源參考大小）",
+        "gramsPerUnit": 1.9,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167755",
+          "foodDescription": "Raspberries, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "10",
+          "referenceDescription": "raspberries",
+          "referenceGrams": 19.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_010:2"
+      },
+      {
+        "id": "usda-fruit_010-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 123.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167755",
+          "foodDescription": "Raspberries, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 123.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_010:0"
+      }
+    ],
+    "fruit_014": [
+      {
+        "id": "usda-fruit_014-1",
+        "label": "個（直徑約5.4厘米）",
+        "gramsPerUnit": 58.0,
+        "kind": "official",
+        "foodState": "生重；去皮可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167746",
+          "foodDescription": "Lemons, raw, without peel",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "fruit (2-1/8\" dia)",
+          "referenceGrams": 58.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_014:1"
+      }
+    ],
+    "fruit_015": [
+      {
+        "id": "usda-fruit_015-2",
+        "label": "個（中型，直徑約10厘米）",
+        "gramsPerUnit": 256.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173033",
+          "foodDescription": "Grapefruit, raw, pink and red and white, all areas",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "0.5",
+          "referenceDescription": "medium (approx 4\" dia)",
+          "referenceGrams": 128.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_015:2"
+      }
+    ],
+    "fruit_016": [
+      {
+        "id": "usda-fruit_016-2",
+        "label": "個（中型）",
+        "gramsPerUnit": 150.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169928",
+          "foodDescription": "Peaches, yellow, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "medium (2-2/3\" dia)",
+          "referenceGrams": 150.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_016:2"
+      },
+      {
+        "id": "usda-fruit_016-1",
+        "label": "個（小型）",
+        "gramsPerUnit": 130.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169928",
+          "foodDescription": "Peaches, yellow, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "small (2-1/2\" dia)",
+          "referenceGrams": 130.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_016:1"
+      }
+    ],
+    "fruit_018": [
+      {
+        "id": "usda-fruit_018-4",
+        "label": "角（小蜜瓜的⅛個）",
+        "gramsPerUnit": 125.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169911",
+          "foodDescription": "Melons, honeydew, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "wedge (1/8 of 5-1/4\" dia melon)",
+          "referenceGrams": 125.0,
+          "measureUnitId": "9999",
+          "portionIndex": 4,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_018:4"
+      },
+      {
+        "id": "usda-fruit_018-0",
+        "label": "量杯（切粒）",
+        "gramsPerUnit": 170.0,
+        "kind": "official",
+        "foodState": "生重；可食部分",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169911",
+          "foodDescription": "Melons, honeydew, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup, diced (approx 20 pieces per cup)",
+          "referenceGrams": 170.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_018:0"
+      }
+    ],
+    "fruit_019": [
+      {
+        "id": "usda-fruit_019-3",
+        "label": "個（來源參考大小）",
+        "gramsPerUnit": 201.0,
+        "kind": "official",
+        "foodState": "生重；去皮果肉",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171705",
+          "foodDescription": "Avocados, raw, all commercial varieties",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "avocado, NS as to Florida or California",
+          "referenceGrams": 201.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "fruit_019:3"
+      }
+    ],
+    "dairy_006": [
+      {
+        "id": "usda-dairy_006-0",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 244.0,
+        "kind": "official",
+        "foodState": "液態重量；添加維他命A及D",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170872",
+          "foodDescription": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 244.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_006:0"
+      }
+    ],
+    "dairy_007": [
+      {
+        "id": "usda-dairy_007-0",
+        "label": "杯裝（170克規格）",
+        "gramsPerUnit": 170.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170894",
+          "foodDescription": "Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "container",
+          "referenceGrams": 170.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_007:0"
+      }
+    ],
+    "dairy_008": [
+      {
+        "id": "usda-dairy_008-2",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 227.0,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173430",
+          "foodDescription": "Butter, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 227.0,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_008:2"
+      },
+      {
+        "id": "usda-dairy_008-1",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 14.2,
+        "kind": "official",
+        "foodState": "成品重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173430",
+          "foodDescription": "Butter, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 14.2,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "dairy_008:1"
+      }
+    ],
+    "oil_001": [
+      {
+        "id": "usda-oil_001-2",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 4.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172336",
+          "foodDescription": "Oil, canola",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 4.5,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "oil_001:2"
+      },
+      {
+        "id": "usda-oil_001-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 14.0,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172336",
+          "foodDescription": "Oil, canola",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 14.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "oil_001:0"
+      },
+      {
+        "id": "usda-oil_001-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 218.0,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172336",
+          "foodDescription": "Oil, canola",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 218.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "oil_001:1"
+      }
+    ],
+    "oil_002": [
+      {
+        "id": "usda-oil_002-2",
+        "label": "茶匙（量匙）",
+        "gramsPerUnit": 4.5,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171029",
+          "foodDescription": "Oil, corn, industrial and retail, all purpose salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tsp",
+          "referenceGrams": 4.5,
+          "measureUnitId": "9999",
+          "portionIndex": 2,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "oil_002:2"
+      },
+      {
+        "id": "usda-oil_002-0",
+        "label": "湯匙（量匙）",
+        "gramsPerUnit": 13.6,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171029",
+          "foodDescription": "Oil, corn, industrial and retail, all purpose salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "tbsp",
+          "referenceGrams": 13.6,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "oil_002:0"
+      },
+      {
+        "id": "usda-oil_002-1",
+        "label": "量杯（USDA參考）",
+        "gramsPerUnit": 218.0,
+        "kind": "official",
+        "foodState": "油重量",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "171029",
+          "foodDescription": "Oil, corn, industrial and retail, all purpose salad or cooking",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup",
+          "referenceGrams": 218.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "oil_002:1"
+      }
+    ],
+    "soy_006": [
+      {
+        "id": "usda-soy_006-0",
+        "label": "件（約6.4×7×2.5厘米）",
+        "gramsPerUnit": 120.0,
+        "kind": "official",
+        "foodState": "未烹調重量；硫酸鈣及氯化鎂製軟豆腐",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172449",
+          "foodDescription": "Tofu, soft, prepared with calcium sulfate and magnesium chloride (nigari)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "piece (2-1/2\" x 2-3/4\" x 1\")",
+          "referenceGrams": 120.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "soy_006:0"
+      },
+      {
+        "id": "usda-soy_006-1",
+        "label": "量杯（切約1.3厘米粒）",
+        "gramsPerUnit": 248.0,
+        "kind": "official",
+        "foodState": "未烹調重量；硫酸鈣及氯化鎂製軟豆腐",
+        "note": "來源參考份量；大小、品牌及量具會影響實際重量。量杯不等同飯碗；工作坊飯碗請由老師另作實測。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172449",
+          "foodDescription": "Tofu, soft, prepared with calcium sulfate and magnesium chloride (nigari)",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
+          "referenceAmount": "1",
+          "referenceDescription": "cup (1/2\" cubes)",
+          "referenceGrams": 248.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false
+        },
+        "rawKey": "soy_006:1"
+      }
+    ]
+  },
+  "referenceRows": {
+    "carb_001:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 158.0,
+      "measureUnitId": "9999"
+    },
+    "carb_002:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 202.0,
+      "measureUnitId": "9999"
+    },
+    "carb_003:2": {
+      "amount": "1",
+      "description": "cup elbows not packed",
+      "grams": 120.0,
+      "measureUnitId": "9999"
+    },
+    "carb_003:0": {
+      "amount": "1",
+      "description": "cup spaghetti not packed",
+      "grams": 124.0,
+      "measureUnitId": "9999"
+    },
+    "carb_005:0": {
+      "amount": "1",
+      "description": "cup spaghetti not packed",
+      "grams": 124.0,
+      "measureUnitId": "9999"
+    },
+    "carb_005:2": {
+      "amount": "1",
+      "description": "cup elbows not packed",
+      "grams": 120.0,
+      "measureUnitId": "9999"
+    },
+    "carb_006:0": {
+      "amount": "1",
+      "description": "slice",
+      "grams": 32.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_001:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 244.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_001:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 15.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_002:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 245.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_003:0": {
+      "amount": "1",
+      "description": "container (6 oz)",
+      "grams": 170.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_005:0": {
+      "amount": "0.25",
+      "description": "cup",
+      "grams": 30.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_005:2": {
+      "amount": "5",
+      "description": "tbsp",
+      "grams": 23.0,
+      "measureUnitId": "9999"
+    },
+    "veg_002:0": {
+      "amount": "1.0",
+      "description": "chopped",
+      "grams": 76.0,
+      "measureUnitId": "1000"
+    },
+    "veg_003:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 30.0,
+      "measureUnitId": "9999"
+    },
+    "veg_004:4": {
+      "amount": "1",
+      "description": "medium",
+      "grams": 61.0,
+      "measureUnitId": "9999"
+    },
+    "veg_005:0": {
+      "amount": "1",
+      "description": "cup, shredded",
+      "grams": 70.0,
+      "measureUnitId": "9999"
+    },
+    "veg_006:5": {
+      "amount": "1",
+      "description": "medium whole (2-3/5\" dia)",
+      "grams": 123.0,
+      "measureUnitId": "9999"
+    },
+    "veg_006:8": {
+      "amount": "1",
+      "description": "small whole (2-2/5\" dia)",
+      "grams": 91.0,
+      "measureUnitId": "9999"
+    },
+    "veg_006:4": {
+      "amount": "1",
+      "description": "large whole (3\" dia)",
+      "grams": 182.0,
+      "measureUnitId": "9999"
+    },
+    "veg_008:3": {
+      "amount": "1",
+      "description": "cup sliced",
+      "grams": 65.0,
+      "measureUnitId": "9999"
+    },
+    "veg_009:0": {
+      "amount": "1",
+      "description": "cup, chopped",
+      "grams": 124.0,
+      "measureUnitId": "9999"
+    },
+    "veg_009:1": {
+      "amount": "1",
+      "description": "cup, sliced",
+      "grams": 113.0,
+      "measureUnitId": "9999"
+    },
+    "veg_010:0": {
+      "amount": "1",
+      "description": "cup (1\" cubes)",
+      "grams": 116.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_001:2": {
+      "amount": "1",
+      "description": "medium",
+      "grams": 192.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_001:3": {
+      "amount": "1",
+      "description": "small",
+      "grams": 158.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_001:1": {
+      "amount": "1",
+      "description": "large",
+      "grams": 236.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_002:4": {
+      "amount": "1",
+      "description": "medium (7\" to 7-7/8\" long)",
+      "grams": 118.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_002:3": {
+      "amount": "1",
+      "description": "small (6\" to 6-7/8\" long)",
+      "grams": 101.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_002:5": {
+      "amount": "1",
+      "description": "large (8\" to 8-7/8\" long)",
+      "grams": 136.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_003:1": {
+      "amount": "1.0",
+      "description": " 2-7/8\" dia",
+      "grams": 140.0,
+      "measureUnitId": "1071"
+    },
+    "fruit_004:1": {
+      "amount": "1",
+      "description": "fruit (2\" dia)",
+      "grams": 69.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_005:1": {
+      "amount": "10",
+      "description": "grapes",
+      "grams": 49.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_006:1": {
+      "amount": "1",
+      "description": "cup, diced",
+      "grams": 152.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_007:2": {
+      "amount": "1",
+      "description": "fruit, small",
+      "grams": 157.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_007:0": {
+      "amount": "1",
+      "description": "cup 1\" pieces",
+      "grams": 145.0,
+      "measureUnitId": "9999"
+    },
+    "seas_001:1": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 5.3,
+      "measureUnitId": "9999"
+    },
+    "seas_001:0": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 16.0,
+      "measureUnitId": "9999"
+    },
+    "seas_001:2": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 255.0,
+      "measureUnitId": "9999"
+    },
+    "seas_002:0": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 18.0,
+      "measureUnitId": "9999"
+    },
+    "seas_003:2": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 4.5,
+      "measureUnitId": "9999"
+    },
+    "seas_003:0": {
+      "amount": "1",
+      "description": "tablespoon",
+      "grams": 13.6,
+      "measureUnitId": "9999"
+    },
+    "seas_003:1": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 218.0,
+      "measureUnitId": "9999"
+    },
+    "seas_004:0": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 17.0,
+      "measureUnitId": "9999"
+    },
+    "seas_004:2": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 240.0,
+      "measureUnitId": "9999"
+    },
+    "seas_007:2": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 4.5,
+      "measureUnitId": "9999"
+    },
+    "seas_007:0": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 13.5,
+      "measureUnitId": "9999"
+    },
+    "seas_007:1": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 216.0,
+      "measureUnitId": "9999"
+    },
+    "seas_008:2": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 4.5,
+      "measureUnitId": "9999"
+    },
+    "seas_008:0": {
+      "amount": "1",
+      "description": "tablespoon",
+      "grams": 13.5,
+      "measureUnitId": "9999"
+    },
+    "seas_008:1": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 216.0,
+      "measureUnitId": "9999"
+    },
+    "seas_009:0": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 6.0,
+      "measureUnitId": "9999"
+    },
+    "seas_009:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 18.0,
+      "measureUnitId": "9999"
+    },
+    "seas_009:2": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 292.0,
+      "measureUnitId": "9999"
+    },
+    "seas_006:1": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 4.2,
+      "measureUnitId": "9999"
+    },
+    "seas_006:2": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 200.0,
+      "measureUnitId": "9999"
+    },
+    "meat_003:1": {
+      "amount": "1",
+      "description": "thigh without skin",
+      "grams": 149.0,
+      "measureUnitId": "9999"
+    },
+    "meat_004:1": {
+      "amount": "1",
+      "description": "piece",
+      "grams": 272.0,
+      "measureUnitId": "9999"
+    },
+    "meat_009:2": {
+      "amount": "1",
+      "description": "can",
+      "grams": 165.0,
+      "measureUnitId": "9999"
+    },
+    "meat_010:1": {
+      "amount": "1",
+      "description": "wing, bone and skin removed",
+      "grams": 29.0,
+      "measureUnitId": "9999"
+    },
+    "soy_002:0": {
+      "amount": "0.5",
+      "description": "cup",
+      "grams": 126.0,
+      "measureUnitId": "9999"
+    },
+    "soy_002:1": {
+      "amount": "0.25",
+      "description": "block",
+      "grams": 81.0,
+      "measureUnitId": "9999"
+    },
+    "egg_001:0": {
+      "amount": "1",
+      "description": "large",
+      "grams": 50.0,
+      "measureUnitId": "9999"
+    },
+    "egg_001:4": {
+      "amount": "1",
+      "description": "medium",
+      "grams": 44.0,
+      "measureUnitId": "9999"
+    },
+    "egg_001:1": {
+      "amount": "1",
+      "description": "extra large",
+      "grams": 56.0,
+      "measureUnitId": "9999"
+    },
+    "egg_002:0": {
+      "amount": "1",
+      "description": "egg",
+      "grams": 9.0,
+      "measureUnitId": "9999"
+    },
+    "liq_001:2": {
+      "amount": "1",
+      "description": "liter",
+      "grams": 1000.0,
+      "measureUnitId": "9999"
+    },
+    "liq_002:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 248.0,
+      "measureUnitId": "9999"
+    },
+    "grain_009:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 81.0,
+      "measureUnitId": "9999"
+    },
+    "grain_009:1": {
+      "amount": "0.33",
+      "description": "cup",
+      "grams": 27.0,
+      "measureUnitId": "9999"
+    },
+    "grain_010:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 234.0,
+      "measureUnitId": "9999"
+    },
+    "grain_010:2": {
+      "amount": "0.75",
+      "description": "cup",
+      "grams": 175.0,
+      "measureUnitId": "9999"
+    },
+    "grain_010:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 14.6,
+      "measureUnitId": "9999"
+    },
+    "grain_011:1": {
+      "amount": "1",
+      "description": "medium",
+      "grams": 151.0,
+      "measureUnitId": "9999"
+    },
+    "grain_011:0": {
+      "amount": "1",
+      "description": "cup, mashed",
+      "grams": 328.0,
+      "measureUnitId": "9999"
+    },
+    "grain_013:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 185.0,
+      "measureUnitId": "9999"
+    },
+    "grain_015:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 176.0,
+      "measureUnitId": "9999"
+    },
+    "grain_016:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 185.0,
+      "measureUnitId": "9999"
+    },
+    "grain_017:2": {
+      "amount": "1",
+      "description": "medium (2-1/4\" to 3-1/4\" dia.)",
+      "grams": 167.0,
+      "measureUnitId": "9999"
+    },
+    "grain_017:3": {
+      "amount": "1",
+      "description": "small (1-3/4\" to 2-1/2\" dia.)",
+      "grams": 125.0,
+      "measureUnitId": "9999"
+    },
+    "veg_011:4": {
+      "amount": "1",
+      "description": "head, medium (about 5-3/4\" dia)",
+      "grams": 908.0,
+      "measureUnitId": "9999"
+    },
+    "veg_011:0": {
+      "amount": "1",
+      "description": "cup, chopped",
+      "grams": 89.0,
+      "measureUnitId": "9999"
+    },
+    "veg_012:4": {
+      "amount": "1",
+      "description": "head, medium (about 5\" dia)",
+      "grams": 839.0,
+      "measureUnitId": "9999"
+    },
+    "veg_012:0": {
+      "amount": "1",
+      "description": "cup, chopped",
+      "grams": 89.0,
+      "measureUnitId": "9999"
+    },
+    "veg_013:0": {
+      "amount": "1",
+      "description": "cup chopped (1/2\" pieces)",
+      "grams": 107.0,
+      "measureUnitId": "9999"
+    },
+    "veg_014:6": {
+      "amount": "1",
+      "description": "leaf, medium",
+      "grams": 8.0,
+      "measureUnitId": "9999"
+    },
+    "veg_014:1": {
+      "amount": "1",
+      "description": "cup, chopped (1/2\" pieces, loosely packed)",
+      "grams": 57.0,
+      "measureUnitId": "9999"
+    },
+    "veg_015:2": {
+      "amount": "1",
+      "description": "leaf outer",
+      "grams": 28.0,
+      "measureUnitId": "9999"
+    },
+    "veg_015:0": {
+      "amount": "1",
+      "description": "cup shredded",
+      "grams": 47.0,
+      "measureUnitId": "9999"
+    },
+    "veg_016:1": {
+      "amount": "1",
+      "description": "cucumber (8-1/4\")",
+      "grams": 301.0,
+      "measureUnitId": "9999"
+    },
+    "veg_016:0": {
+      "amount": "0.5",
+      "description": "cup slices",
+      "grams": 52.0,
+      "measureUnitId": "9999"
+    },
+    "veg_017:0": {
+      "amount": "1",
+      "description": "cup, cubes",
+      "grams": 82.0,
+      "measureUnitId": "9999"
+    },
+    "veg_018:0": {
+      "amount": "1",
+      "description": "cup, chopped",
+      "grams": 149.0,
+      "measureUnitId": "9999"
+    },
+    "veg_018:1": {
+      "amount": "1",
+      "description": "cup, sliced",
+      "grams": 92.0,
+      "measureUnitId": "9999"
+    },
+    "veg_018:2": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 9.3,
+      "measureUnitId": "9999"
+    },
+    "veg_019:0": {
+      "amount": "1",
+      "description": "cup, chopped",
+      "grams": 149.0,
+      "measureUnitId": "9999"
+    },
+    "veg_019:1": {
+      "amount": "1",
+      "description": "cup, sliced",
+      "grams": 92.0,
+      "measureUnitId": "9999"
+    },
+    "veg_019:2": {
+      "amount": "1",
+      "description": "tablespoon",
+      "grams": 9.3,
+      "measureUnitId": "9999"
+    },
+    "veg_021:0": {
+      "amount": "1.0",
+      "description": "Edible",
+      "grams": 143.0,
+      "measureUnitId": "1120"
+    },
+    "veg_022:0": {
+      "amount": "1.0",
+      "description": "Edible",
+      "grams": 197.0,
+      "measureUnitId": "1120"
+    },
+    "veg_023:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 136.0,
+      "measureUnitId": "9999"
+    },
+    "veg_023:1": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 2.8,
+      "measureUnitId": "9999"
+    },
+    "veg_024:2": {
+      "amount": "5",
+      "description": "slices (1\" dia)",
+      "grams": 11.0,
+      "measureUnitId": "9999"
+    },
+    "veg_024:0": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 2.0,
+      "measureUnitId": "9999"
+    },
+    "veg_025:3": {
+      "amount": "1",
+      "description": "medium (4-1/8\" long)",
+      "grams": 15.0,
+      "measureUnitId": "9999"
+    },
+    "veg_025:1": {
+      "amount": "1",
+      "description": "tbsp chopped",
+      "grams": 6.0,
+      "measureUnitId": "9999"
+    },
+    "veg_026:4": {
+      "amount": "1",
+      "description": "stalk, medium (7-1/2\" - 8\" long)",
+      "grams": 40.0,
+      "measureUnitId": "9999"
+    },
+    "veg_026:0": {
+      "amount": "1",
+      "description": "cup chopped",
+      "grams": 101.0,
+      "measureUnitId": "9999"
+    },
+    "veg_027:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 134.0,
+      "measureUnitId": "9999"
+    },
+    "veg_028:1": {
+      "amount": "1",
+      "description": "leek",
+      "grams": 89.0,
+      "measureUnitId": "9999"
+    },
+    "veg_030:0": {
+      "amount": "1",
+      "description": "cup, pieces or slices",
+      "grams": 70.0,
+      "measureUnitId": "9999"
+    },
+    "veg_032:2": {
+      "amount": "1",
+      "description": "cup sliced",
+      "grams": 86.0,
+      "measureUnitId": "9999"
+    },
+    "veg_034:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 145.0,
+      "measureUnitId": "9999"
+    },
+    "veg_035:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 104.0,
+      "measureUnitId": "9999"
+    },
+    "bean_001:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 164.0,
+      "measureUnitId": "9999"
+    },
+    "bean_002:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 198.0,
+      "measureUnitId": "9999"
+    },
+    "bean_002:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 12.3,
+      "measureUnitId": "9999"
+    },
+    "bean_003:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 177.0,
+      "measureUnitId": "9999"
+    },
+    "bean_003:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 11.0,
+      "measureUnitId": "9999"
+    },
+    "bean_004:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 172.0,
+      "measureUnitId": "9999"
+    },
+    "bean_005:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 155.0,
+      "measureUnitId": "9999"
+    },
+    "nut_001:5": {
+      "amount": "1",
+      "description": "almond",
+      "grams": 1.2,
+      "measureUnitId": "9999"
+    },
+    "nut_001:0": {
+      "amount": "1",
+      "description": "cup, whole",
+      "grams": 143.0,
+      "measureUnitId": "9999"
+    },
+    "nut_002:5": {
+      "amount": "1",
+      "description": "oz (14 halves)",
+      "grams": 28.35,
+      "measureUnitId": "9999"
+    },
+    "nut_004:1": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 146.0,
+      "measureUnitId": "9999"
+    },
+    "nut_005:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 144.0,
+      "measureUnitId": "9999"
+    },
+    "nut_005:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 9.0,
+      "measureUnitId": "9999"
+    },
+    "sea_002:0": {
+      "amount": "1",
+      "description": "unit 2 large or 5 small",
+      "grams": 30.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_008:6": {
+      "amount": "1",
+      "description": "medium (1-1/4\" dia)",
+      "grams": 12.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_008:3": {
+      "amount": "1",
+      "description": "cup, whole",
+      "grams": 144.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_009:1": {
+      "amount": "50",
+      "description": "berries",
+      "grams": 68.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_009:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 148.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_010:2": {
+      "amount": "10",
+      "description": "raspberries",
+      "grams": 19.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_010:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 123.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_014:1": {
+      "amount": "1",
+      "description": "fruit (2-1/8\" dia)",
+      "grams": 58.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_015:2": {
+      "amount": "0.5",
+      "description": "medium (approx 4\" dia)",
+      "grams": 128.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_016:2": {
+      "amount": "1",
+      "description": "medium (2-2/3\" dia)",
+      "grams": 150.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_016:1": {
+      "amount": "1",
+      "description": "small (2-1/2\" dia)",
+      "grams": 130.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_018:4": {
+      "amount": "1",
+      "description": "wedge (1/8 of 5-1/4\" dia melon)",
+      "grams": 125.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_018:0": {
+      "amount": "1",
+      "description": "cup, diced (approx 20 pieces per cup)",
+      "grams": 170.0,
+      "measureUnitId": "9999"
+    },
+    "fruit_019:3": {
+      "amount": "1",
+      "description": "avocado, NS as to Florida or California",
+      "grams": 201.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_006:0": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 244.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_007:0": {
+      "amount": "1",
+      "description": "container",
+      "grams": 170.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_008:2": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 227.0,
+      "measureUnitId": "9999"
+    },
+    "dairy_008:1": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 14.2,
+      "measureUnitId": "9999"
+    },
+    "oil_001:2": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 4.5,
+      "measureUnitId": "9999"
+    },
+    "oil_001:0": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 14.0,
+      "measureUnitId": "9999"
+    },
+    "oil_001:1": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 218.0,
+      "measureUnitId": "9999"
+    },
+    "oil_002:2": {
+      "amount": "1",
+      "description": "tsp",
+      "grams": 4.5,
+      "measureUnitId": "9999"
+    },
+    "oil_002:0": {
+      "amount": "1",
+      "description": "tbsp",
+      "grams": 13.6,
+      "measureUnitId": "9999"
+    },
+    "oil_002:1": {
+      "amount": "1",
+      "description": "cup",
+      "grams": 218.0,
+      "measureUnitId": "9999"
+    },
+    "soy_006:0": {
+      "amount": "1",
+      "description": "piece (2-1/2\" x 2-3/4\" x 1\")",
+      "grams": 120.0,
+      "measureUnitId": "9999"
+    },
+    "soy_006:1": {
+      "amount": "1",
+      "description": "cup (1/2\" cubes)",
+      "grams": 248.0,
+      "measureUnitId": "9999"
+    }
+  },
+  "measureUnits": {
+    "1000": "cup",
+    "1001": "tablespoon",
+    "1071": "each",
+    "1120": "Onion",
+    "9999": "undetermined"
+  }
+}
