@@ -507,6 +507,7 @@
       const saved=readStorage(DRAFT_KEY);
       if (saved) {try {draft=C.validateDraft(saved,database,portionCatalog);$('draft-status').textContent='已恢復上次食譜。';if(saved.dataVersion!==database[0]?.dataVersion){$('food-data-notice').hidden=false;$('food-data-notice').textContent='食材資料庫已核對更新；上次餐盤克數保留，營養會按新數據重新計算。請核對材料名稱及生熟狀態；待核對項目顯示資料不足。';}} catch {$('draft-status').textContent='上次草稿無法恢復；可開啟下載過的草稿。';}}
       initialized=true;fillFields();
+      window.dispatchEvent(new CustomEvent('food-workshop:ready'));
       if(draft.title.trim()&&draft.steps.some(step=>step.trim()))prepareShare(true);
     } catch (e) {
       error('food-error',`${e.message} 請以網站網址開啟並檢查網絡；目前不會使用未載入的資料估算營養。`);
@@ -584,6 +585,18 @@
     });
     window.addEventListener('pagehide',saveDraft);
   }
+  // Read-only food list and an explicit picker action for the learning encyclopedia.
+  // Selecting prepares the form only: the student still decides the amount and adds it.
+  window.FoodWorkshopPicker=Object.freeze({
+    foods:()=>initialized?database.filter(f=>f.status==='verified').map(f=>({code:f.code,name:f.name,state:f.state})):[],
+    selectFood(code){
+      const food=database.find(f=>f.code===code&&f.status==='verified');
+      if(!initialized||!food)return false;
+      $('category-select').value=food.category;foodOptions();
+      $('food-select').value=food.code;showFoodDetail();
+      return true;
+    }
+  });
   async function boot() {
     const root=document.createElement('div');root.id='print-root';document.body.append(root);
     bind();

@@ -13,6 +13,7 @@
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
 <link rel="stylesheet" href="workshop.css?v=5">
+<link rel="stylesheet" href="nutrition-encyclopedia.css?v=2026-10-24-1">
 
 </head>
 <body>
@@ -84,6 +85,7 @@
         <details class="ws-draft-tools"><summary>儲存／開啟作品</summary><div class="ws-actions"><button id="export-draft" class="ws-secondary" type="button">下載草稿</button><label class="ws-file-button">開啟草稿<input id="import-draft" type="file" accept=".json,application/json"></label><button id="new-project" class="ws-link" type="button">清空，重新開始</button></div></details>
         <p id="food-data-notice" class="ws-note" role="status" hidden></p><p id="draft-status" class="ws-status" role="status" aria-live="polite"></p>
       </header>
+      <aside id="pedia-return" aria-label="圖鑑食材提示" hidden><p id="pedia-return-label"></p><button id="pedia-back" type="button">返回營養圖鑑</button></aside>
       <section class="card" aria-labelledby="materials-heading">
         <h2 id="materials-heading">第一步：挑選食材與烹調方式</h2>
         <form id="ingredient-form" class="selector-grid">
@@ -167,27 +169,29 @@
       </div>
     </div>
 
-    <!-- ==================== VIEW 4: NUTRITION PAGE (營養超能力圖鑑) ==================== -->
+    <!-- ==================== VIEW 4: NUTRIENT SUPERPOWERPEDIA ==================== -->
     <div id="view-nutrition" class="page-view">
-      <div class="card">
-        <div class="card-title">
-          <span>📖 營養超能力圖鑑 (Nutrient Superpowerpedia)</span>
+      <header class="pedia-intro">
+        <div><p class="pedia-kicker">NUTRIENT SUPERPOWERPEDIA</p><h1>營養超能力圖鑑</h1><p>認識營養的工作，找找食物伙伴，再為你的食譜選材料。</p></div>
+        <div class="pedia-guide"><strong>今天先探索一種營養</strong><span>打開圖鑑 → 認識食材 → 返回餐盤</span></div>
+      </header>
+      <section class="pedia-toolbar" aria-label="搜尋及篩選圖鑑">
+        <label for="dict-search-input">想認識哪種營養或食物？</label>
+        <div class="pedia-search"><input type="search" id="dict-search-input" maxlength="80" autocomplete="off" placeholder="例如：蛋白質、豆腐、維生素C"><button id="pedia-clear-search" class="pedia-link" type="button">清除</button></div>
+        <div class="dict-filter-bar" role="group" aria-label="按身體功能篩選">
+          <button class="dict-filter-btn active" type="button" data-pedia-filter="all" aria-pressed="true">全部圖鑑</button>
+          <button class="dict-filter-btn" type="button" data-pedia-filter="growth" aria-pressed="false">成長與修補</button>
+          <button class="dict-filter-btn" type="button" data-pedia-filter="energy" aria-pressed="false">能量與活動</button>
+          <button class="dict-filter-btn" type="button" data-pedia-filter="body" aria-pressed="false">身體運作</button>
+          <button class="dict-filter-btn" type="button" data-pedia-filter="digest" aria-pressed="false">腸道與補水</button>
         </div>
-
-        <div style="margin-bottom: 20px;">
-          <input type="text" id="dict-search-input" placeholder="🔍 搜尋營養素或食材（例如：蛋白質、菜心、鈣質...）" oninput="filterNutritionCards()">
-        </div>
-
-        <div class="dict-filter-bar">
-          <button class="dict-filter-btn active" onclick="setDictFilter('all', this)">🌟 全部圖鑑</button>
-          <button class="dict-filter-btn" onclick="setDictFilter('growth', this)">💪 肌肉與骨骼</button>
-          <button class="dict-filter-btn" onclick="setDictFilter('energy', this)">⚡ 能量補給</button>
-          <button class="dict-filter-btn" onclick="setDictFilter('immunity', this)">🛡️ 免疫防護</button>
-          <button class="dict-filter-btn" onclick="setDictFilter('digest', this)">🧹 腸道健康</button>
-        </div>
-
-        <div id="dict-grid" class="dict-grid"></div>
-      </div>
+      </section>
+      <div class="pedia-results-line"><p id="pedia-result-count" role="status" aria-live="polite">7 大營養類別 · 6 個延伸專題</p><p>一種食物可提供多種營養，配搭才是關鍵。</p></div>
+      <p id="pedia-load-status" role="status">正在載入營養圖鑑……</p><button id="pedia-retry" type="button" class="pedia-primary" hidden>重新載入圖鑑</button>
+      <p id="pedia-action-status" role="status"></p>
+      <div id="dict-grid" class="dict-grid"></div>
+      <p class="pedia-footer">「超能力」是記憶比喻，營養要互相配合。餐盤目前估算熱量、碳水化合物、蛋白質、脂肪及膳食纖維；維他命、礦物質及水分屬知識介紹，未計入餐盤營養分析。<br>內容按香港衞生部門資料改寫；每張圖鑑可展開查看來源及核對日期。</p>
+      <noscript><p>請開啟 JavaScript，以閱讀圖鑑及使用食材連動。</p></noscript>
     </div>
 
     <!-- ==================== VIEW 5: PARENT RECIPE VIEW (家長掃描專屬頁面) ==================== -->
@@ -207,7 +211,8 @@
 <script src="quiz-upgrade.js?v=2"></script>
 <script src="portion-tools.js?v=3"></script>
 <script src="workshop-core.js?v=6"></script>
-<script src="workshop.js?v=7"></script>
+<script src="workshop.js?v=8"></script>
+<script src="nutrition-encyclopedia.js?v=2026-10-24-1"></script>
 
 </body>
 </html>

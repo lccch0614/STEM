@@ -1,0 +1,68 @@
+/* Scoped encyclopedia styles preserve the recipe and print layouts. */
+#view-nutrition { --pedia-ink:#163d33; --pedia-soft:#edf7f1; --pedia-line:#d4e4da; }
+#view-nutrition .pedia-intro {display:flex;justify-content:space-between;gap:24px;align-items:center;margin:12px 0 28px;}
+#view-nutrition .pedia-intro h1 {font-size:clamp(26px,3vw,36px);line-height:1.35;margin:6px 0 12px;}
+#view-nutrition .pedia-intro p {margin:0;max-width:650px;font-size:17px;color:#425e54;}
+#view-nutrition .pedia-kicker {font-size:13px!important;font-weight:700;letter-spacing:.09em;color:var(--pedia-ink)!important;}
+#view-nutrition .pedia-guide {padding:16px 20px;border-left:3px solid #42916e;flex:0 0 230px;color:var(--pedia-ink);font-size:16px;}
+#view-nutrition .pedia-guide strong,#view-nutrition .pedia-guide span {display:block;}
+#view-nutrition .pedia-toolbar {background:#fff;border:1px solid var(--pedia-line);border-radius:18px;padding:20px;margin-bottom:24px;}
+#view-nutrition .pedia-toolbar label {display:block;font-size:16px;font-weight:700;margin-bottom:8px;}
+#view-nutrition .pedia-search {display:flex;align-items:center;gap:10px;}
+#view-nutrition #dict-search-input {min-width:0;flex:1;font-size:17px;min-height:48px;margin:0;}
+#view-nutrition .dict-filter-bar {margin:16px 0 0;gap:8px;}
+#view-nutrition .dict-filter-btn {min-height:44px;padding:8px 14px;font-size:16px;border-color:var(--pedia-line);color:#36584b;box-shadow:none;transition:none;}
+#view-nutrition .dict-filter-btn.active {color:white;background:var(--pedia-ink);border-color:var(--pedia-ink);}
+#view-nutrition .dict-filter-btn:hover {background:#e3f1e9;color:var(--pedia-ink);box-shadow:none;}
+#view-nutrition .dict-filter-btn.active:hover {color:white;background:var(--pedia-ink);}
+#view-nutrition .pedia-results-line {display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:14px;font-size:15px;color:#425e54;}
+#view-nutrition .pedia-results-line p {margin:0;}
+#view-nutrition .dict-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+#view-nutrition .pedia-card {position:relative;min-width:0;background:#fff;border:1px solid var(--pedia-line);border-radius:18px;padding:22px;display:flex;flex-direction:column;}
+#view-nutrition .pedia-card.is-selected {border:2px solid #226446;padding:21px;background:#f8fcf9;}
+#view-nutrition .pedia-icon {position:absolute;right:20px;top:18px;font-size:30px;line-height:1.2;}
+#view-nutrition .pedia-eyebrow {font-size:13px;color:#51695e;margin:0 46px 10px 0;}
+#view-nutrition .pedia-card h2 {font-size:24px;margin:0 42px 0 0;line-height:1.5;}
+#view-nutrition .pedia-english {font-size:14px;color:#52655c;margin:2px 0 12px;}
+#view-nutrition .pedia-power {font-size:17px;font-weight:700;color:var(--pedia-ink);margin:0 0 8px;}
+#view-nutrition .pedia-summary {font-size:17px;line-height:1.75;margin:0 0 16px;}
+#view-nutrition .pedia-food-examples {font-size:15px;line-height:1.7;color:#425e54;margin:auto 0 16px;padding-top:12px;border-top:1px solid #e6eee9;}
+#view-nutrition .pedia-food-examples span {display:block;font-size:13px;}
+#view-nutrition button,#pedia-return button {font-family:inherit;cursor:pointer;}
+#view-nutrition .pedia-card-toggle,#view-nutrition .pedia-primary {min-height:46px;padding:10px 14px;font-size:16px;font-weight:700;color:var(--pedia-ink);background:var(--pedia-soft);border:1px solid #b6d3c2;border-radius:10px;text-align:left;}
+#view-nutrition .pedia-card-toggle:hover,#view-nutrition .pedia-primary:hover {background:#dceee2;}
+#view-nutrition .pedia-link {padding:8px 4px;min-height:44px;background:transparent;border:0;color:#1c6449;text-decoration:underline;text-underline-offset:4px;font-size:16px;}
+#view-nutrition .pedia-detail {grid-column:1/-1;min-width:0;background:#fff;border:1px solid #98bba7;border-radius:18px;padding:26px;scroll-margin-top:100px;}
+#view-nutrition .pedia-detail-head {display:flex;justify-content:space-between;gap:16px;align-items:start;}
+#view-nutrition .pedia-detail h3 {font-size:24px;line-height:1.5;margin:0;}
+#view-nutrition .pedia-detail-head button {flex-shrink:0;}
+#view-nutrition .pedia-detail-columns {display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+#view-nutrition .pedia-section {margin:20px 0;}
+#view-nutrition .pedia-section h4 {font-size:18px;margin:0 0 10px;color:var(--pedia-ink);}
+#view-nutrition .pedia-section p,#view-nutrition .pedia-section li,#view-nutrition .pedia-think p {font-size:17px;line-height:1.85;margin:8px 0;}
+#view-nutrition .pedia-section ul {margin:0;padding-left:23px;}
+#view-nutrition .pedia-question-title {font-weight:700;}
+#view-nutrition .pedia-analysis-note {font-size:14px;color:#40594c;margin:12px 0 0;}
+#view-nutrition .pedia-secondary {color:#52655c;font-size:15px!important;}
+#view-nutrition .pedia-family-links {display:flex;flex-wrap:wrap;gap:10px;}
+#view-nutrition .pedia-family-button {font-size:17px;min-height:46px;padding:10px 16px;border:1px solid #b6d3c2;background:#f4f9f6;color:var(--pedia-ink);border-radius:10px;}
+#view-nutrition .pedia-food-choices {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0;}
+#view-nutrition .pedia-food-choice {background:#f5f8f6;border-radius:10px;padding:14px;min-width:0;}
+#view-nutrition .pedia-food-choice small {display:block;font-size:14px;color:#52655c;line-height:1.7;margin-top:5px;}
+#view-nutrition .pedia-food-button {font-size:17px;padding:6px 0;min-height:44px;color:#155b3f;background:transparent;border:0;text-decoration:underline;text-underline-offset:4px;text-align:left;font-weight:700;}
+#view-nutrition .pedia-think {padding:16px 18px;background:#f0f6fb;border-radius:12px;margin:22px 0;}
+#view-nutrition summary {cursor:pointer;min-height:32px;line-height:1.7;font-size:16px;}
+#view-nutrition .pedia-sources {border-top:1px solid var(--pedia-line);padding-top:14px;}
+#view-nutrition .pedia-sources p {margin:12px 0;}
+#view-nutrition .pedia-sources a {font-size:15px;color:#155b3f;overflow-wrap:anywhere;}
+#view-nutrition .pedia-sources small {display:block;font-size:13px;color:#52655c;}
+#view-nutrition .pedia-empty {grid-column:1/-1;background:white;border-radius:12px;padding:24px;}
+#view-nutrition .pedia-footer {margin:28px 0;font-size:14px;line-height:1.8;color:#52655c;}
+#view-nutrition #pedia-load-status {padding:18px;background:#fff;border-radius:12px;}
+#view-nutrition #pedia-action-status:empty {display:none;}
+#view-nutrition [id^=pedia-card-],#ingredient-form {scroll-margin-top:100px;}
+#pedia-return {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#edf7f1;border-radius:12px;padding:14px 18px;margin:18px 0;color:#163d33;}
+#pedia-return p {font-size:15px;margin:0;}
+#pedia-return button {font-size:16px;min-height:44px;border:1px solid #b6d3c2;border-radius:8px;background:white;color:#163d33;padding:8px 12px;}
+@media(max-width:1024px){#view-nutrition .dict-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#view-nutrition .pedia-guide{flex-basis:200px}}
+@media(max-width:640px){#view-nutrition .pedia-intro{display:block;margin-top:8px}#view-nutrition .pedia-guide{margin-top:18px;padding:10px 14px}#view-nutrition .dict-grid{grid-template-columns:minmax(0,1fr)}#view-nutrition .pedia-toolbar{padding:16px}#view-nutrition .pedia-search{align-items:stretch}#view-nutrition .pedia-search button{font-size:14px;flex-shrink:0}#view-nutrition .pedia-results-line{display:block}#view-nutrition .pedia-results-line p+p{margin-top:5px}#view-nutrition .pedia-detail{padding:20px 16px}#view-nutrition .pedia-detail-head{display:block}#view-nutrition .pedia-detail h3{font-size:22px}#view-nutrition .pedia-detail-columns,#view-nutrition .pedia-food-choices{grid-template-columns:minmax(0,1fr);gap:0}#view-nutrition .pedia-food-choices{gap:10px}#view-nutrition .pedia-section{margin:16px 0}#view-nutrition .dict-filter-btn{font-size:15px;padding:8px 12px}}

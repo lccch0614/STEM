@@ -1,0 +1,816 @@
+{
+  "version": 1,
+  "contentVersion": "2026-10-24-v1",
+  "checked": "2026-10-24",
+  "audience": "香港高小學生",
+  "note": "超能力名稱是記憶比喻；功能及食物例子按列明來源改寫。食物含有某營養素，不代表已達營養聲稱或足夠攝取量。",
+  "sources": {
+    "groups": {
+      "title": "衞生防護中心：營養素的分類",
+      "url": "https://www.chp.gov.hk/tc/static/100022.html",
+      "scope": "七大類營養素及主要功能",
+      "checked": "2026-10-24"
+    },
+    "grains": {
+      "title": "衞生防護中心：穀物類",
+      "url": "https://www.chp.gov.hk/tc/static/100009.html",
+      "scope": "穀物、能量及全穀物來源",
+      "checked": "2026-10-24"
+    },
+    "vitamins": {
+      "title": "學生健康服務：維他命",
+      "url": "https://www.studenthealth.gov.hk/tc_chi/health/health_dn/health_dn_vit.html",
+      "scope": "A、B組、C、D的功能及食物來源",
+      "checked": "2026-10-24"
+    },
+    "vegetarian": {
+      "title": "學生健康服務：素食與營養",
+      "url": "https://www.studenthealth.gov.hk/tc_chi/health/health_dn/health_dn_vdn.html",
+      "scope": "植物性蛋白質、鐵與維他命C的配搭",
+      "checked": "2026-10-24"
+    },
+    "fiber": {
+      "title": "衞生防護中心：健康飲食高纖維",
+      "url": "https://www.chp.gov.hk/tc/static/90018.html",
+      "scope": "纖維種類及食物來源；不引用成人攝取量作學生目標",
+      "checked": "2026-10-24"
+    },
+    "fruit": {
+      "title": "衞生防護中心：水果類",
+      "url": "https://www.chp.gov.hk/tc/static/100010.html",
+      "scope": "原個水果與果汁的分別",
+      "checked": "2026-10-24"
+    },
+    "calcium": {
+      "title": "家庭健康服務：攝取足夠鈣質",
+      "url": "https://www.fhs.gov.hk/tc_chi/health_info/woman/30120.html",
+      "scope": "只引用鈣的功能及含鈣凝固劑；不引用成人攝取量作學生目標",
+      "checked": "2026-10-24"
+    },
+    "iron": {
+      "title": "學生健康服務：認識缺鐵性貧血",
+      "url": "https://www.studenthealth.gov.hk/tc_chi/health/health_ophp/health_ophp_ane.html",
+      "scope": "血紅素運氧、鐵的食物來源及維他命C配搭",
+      "checked": "2026-10-24"
+    },
+    "water": {
+      "title": "衞生防護中心：流質飲品",
+      "url": "https://www.chp.gov.hk/tc/static/100015.html",
+      "scope": "水分作用及炎熱天氣補水；不設定全班統一飲水目標",
+      "checked": "2026-10-24"
+    },
+    "vision": {
+      "title": "學生健康服務：彩橋通訊第48期（護眼與營養）",
+      "url": "https://www.studenthealth.gov.hk/tc_chi/newsletters/newsletter_48.html",
+      "scope": "均衡飲食、維他命A與護眼；近視需視力評估及合適矯正",
+      "checked": "2026-10-24"
+    }
+  },
+  "entries": [
+    {
+      "id": "carbohydrate",
+      "name": "碳水化合物",
+      "enName": "Carbohydrates",
+      "power": "能量補給員",
+      "icon": "⚡",
+      "tags": [
+        "energy"
+      ],
+      "summary": "提供日常活動所需的主要能量，陪你上課、走路和玩耍。",
+      "roles": [
+        "碳水化合物是身體主要的能量來源。",
+        "飯、麵、薯類及水果等都含有碳水化合物；糖只是其中一類。"
+      ],
+      "foods": [
+        {
+          "label": "白飯",
+          "code": "carb_001",
+          "note": ""
+        },
+        {
+          "label": "全麥方包",
+          "code": "carb_006",
+          "note": ""
+        },
+        {
+          "label": "蒸薯仔",
+          "code": "carb_008",
+          "note": ""
+        },
+        {
+          "label": "糙米飯",
+          "code": "carb_002",
+          "note": ""
+        }
+      ],
+      "myth": "碳水化合物只存在於糖果？",
+      "fact": "飯、麵、薯類等亦提供碳水化合物；不能將所有碳水化合物都當作糖果。",
+      "recipeTip": "先為食譜選一種主食，再配搭蔬菜及蛋、豆、魚或肉。可比較白飯與糙米飯的纖維含量。",
+      "question": "白飯和糙米飯都提供能量，怎樣比較？",
+      "answer": "先選相同的可食克數，再看餐盤的碳水化合物及纖維；食物種類和實際份量都重要。",
+      "sourceIds": [
+        "groups",
+        "grains"
+      ],
+      "parent": null,
+      "children": [],
+      "analysisKey": "carbs",
+      "aliases": [
+        "碳水",
+        "醣類",
+        "澱粉",
+        "carbs",
+        "carbohydrate"
+      ]
+    },
+    {
+      "id": "protein",
+      "name": "蛋白質",
+      "enName": "Protein",
+      "power": "身體修補隊",
+      "icon": "💪",
+      "tags": [
+        "growth",
+        "body"
+      ],
+      "summary": "幫助身體生長，修補及維持身體組織。",
+      "roles": [
+        "肌肉及其他身體組織的生長和修補都需要蛋白質。",
+        "肉、魚、蛋、奶及豆類可提供蛋白質，食物要多樣配搭。"
+      ],
+      "foods": [
+        {
+          "label": "雞蛋",
+          "code": "egg_001",
+          "note": ""
+        },
+        {
+          "label": "板豆腐",
+          "code": "soy_002",
+          "note": ""
+        },
+        {
+          "label": "去皮雞胸肉",
+          "code": "meat_004",
+          "note": ""
+        },
+        {
+          "label": "熟鷹嘴豆",
+          "code": "bean_001",
+          "note": ""
+        },
+        {
+          "label": "低脂牛奶",
+          "code": "dairy_006",
+          "note": ""
+        }
+      ],
+      "myth": "一隻約50克的雞蛋，就有50克蛋白質？",
+      "fact": "50克是整隻去殼雞蛋的食材重量，當中還有水分、脂肪等；食材克數並不等於蛋白質克數。",
+      "recipeTip": "為飯或麵配上一種蛋白質食物，再加入蔬菜。想選植物性材料，可考慮豆類或豆腐。",
+      "question": "不吃肉，就一定吃不到蛋白質？",
+      "answer": "不是。豆類及豆製品也提供蛋白質；選擇不同食物作配搭，有助攝取多種營養。",
+      "sourceIds": [
+        "groups",
+        "vegetarian"
+      ],
+      "parent": null,
+      "children": [],
+      "analysisKey": "protein",
+      "aliases": [
+        "蛋白",
+        "protein"
+      ]
+    },
+    {
+      "id": "fat",
+      "name": "脂肪",
+      "enName": "Fat",
+      "power": "能量與保護隊",
+      "icon": "🥑",
+      "tags": [
+        "energy",
+        "body"
+      ],
+      "summary": "提供能量、保護器官，也幫忙吸收部分維他命。",
+      "roles": [
+        "脂肪參與細胞組成，亦能儲存能量及保護身體器官。",
+        "身體吸收維他命A、D、E、K需要脂肪協助。"
+      ],
+      "foods": [
+        {
+          "label": "橄欖油",
+          "code": "seas_008",
+          "note": ""
+        },
+        {
+          "label": "杏仁",
+          "code": "nut_001",
+          "note": ""
+        },
+        {
+          "label": "三文魚",
+          "code": "meat_005",
+          "note": ""
+        },
+        {
+          "label": "牛油果",
+          "code": "fruit_019",
+          "note": ""
+        }
+      ],
+      "myth": "健康飲食是否完全不能有脂肪？",
+      "fact": "身體需要脂肪，但種類及份量都要留意；植物油和果仁亦含脂肪，不代表可以無限量加入。",
+      "recipeTip": "煮食油也要加入材料清單。比較少量清炒和大量油炸所用的油，觀察脂肪數字的變化。",
+      "question": "沒有把油加入材料清單，圖表會自動計算嗎？",
+      "answer": "不會。要把實際計劃使用的油加入，估算才會包括這部分；這也有助預先量好用量。",
+      "sourceIds": [
+        "groups",
+        "vegetarian"
+      ],
+      "parent": null,
+      "children": [],
+      "analysisKey": "fat",
+      "aliases": [
+        "油脂",
+        "fats",
+        "lipid",
+        "脂質"
+      ]
+    },
+    {
+      "id": "vitamins",
+      "name": "維他命",
+      "enName": "Vitamins",
+      "power": "身體運作助手",
+      "icon": "🌈",
+      "tags": [
+        "growth",
+        "body"
+      ],
+      "summary": "不同成員各有工作，一起維持身體正常運作。",
+      "roles": [
+        "維他命有很多種類，參與視覺、營養運用及其他身體功能。",
+        "維他命本身不是提供熱量的來源，攝取亦不是愈多愈好。"
+      ],
+      "foods": [
+        {
+          "label": "紅蘿蔔",
+          "code": "veg_004",
+          "note": "含可轉成維他命A的β-胡蘿蔔素"
+        },
+        {
+          "label": "橙",
+          "code": "fruit_003",
+          "note": "維他命C的食物例子"
+        },
+        {
+          "label": "雞蛋",
+          "code": "egg_001",
+          "note": "不同部位含不同營養"
+        },
+        {
+          "label": "三文魚",
+          "code": "meat_005",
+          "note": "維他命D的食物例子"
+        }
+      ],
+      "myth": "只吃一種「超級食物」就能取得所有營養？",
+      "fact": "不同食物含有不同營養素，單靠一種食物不能代替均衡、多樣的飲食。",
+      "recipeTip": "在食譜中加入不同種類的蔬菜，水果可另外作餐後配搭；再打開下面專題認識不同成員。",
+      "question": "為甚麼圖鑑有維他命，餐盤卻沒有維他命數字？",
+      "answer": "目前餐盤資料只計算熱量、碳水化合物、蛋白質、脂肪及纖維；圖鑑的維他命內容是知識介紹。",
+      "sourceIds": [
+        "groups",
+        "vitamins"
+      ],
+      "parent": null,
+      "children": [
+        "vitamin-a",
+        "vitamin-b",
+        "vitamin-c",
+        "vitamin-d"
+      ],
+      "analysisKey": null,
+      "aliases": [
+        "維生素",
+        "vitamin",
+        "維他命A",
+        "維他命B",
+        "維他命C",
+        "維他命D"
+      ]
+    },
+    {
+      "id": "minerals",
+      "name": "礦物質",
+      "enName": "Minerals",
+      "power": "身體協調隊",
+      "icon": "⚙️",
+      "tags": [
+        "growth",
+        "body"
+      ],
+      "summary": "參與骨骼構成、神經傳訊及身體多項運作。",
+      "roles": [
+        "礦物質有多種成員，例如鈣、鐵、鈉及鉀，各自參與不同功能。",
+        "鈣參與骨骼和牙齒結構；鐵是製造血紅素所需的元素。"
+      ],
+      "foods": [
+        {
+          "label": "低脂牛奶",
+          "code": "dairy_006",
+          "note": "鈣的食物例子"
+        },
+        {
+          "label": "免治牛肉",
+          "code": "meat_002",
+          "note": "鐵的食物例子"
+        },
+        {
+          "label": "熟小扁豆",
+          "code": "bean_002",
+          "note": "植物性鐵的食物例子"
+        },
+        {
+          "label": "板豆腐",
+          "code": "soy_002",
+          "note": "鈣含量視乎凝固劑及產品"
+        }
+      ],
+      "myth": "食物有礦物質，就代表愈多愈好？",
+      "fact": "身體需要不同礦物質，但並非愈多愈好；例如食鹽中的鈉也要留意用量。",
+      "recipeTip": "輪流選用不同的奶類、豆類及其他食物；調味鹽亦應先量好，按需要使用。",
+      "question": "一餐有牛奶，就代表全日營養已經足夠？",
+      "answer": "不能這樣判斷。一餐和一種食物都不能代表全日飲食，仍要看不同食物的配搭及份量。",
+      "sourceIds": [
+        "groups",
+        "calcium",
+        "iron"
+      ],
+      "parent": null,
+      "children": [
+        "calcium",
+        "iron"
+      ],
+      "analysisKey": null,
+      "aliases": [
+        "礦物",
+        "mineral",
+        "鈣質",
+        "鐵質"
+      ]
+    },
+    {
+      "id": "fiber",
+      "name": "膳食纖維",
+      "enName": "Dietary fibre",
+      "power": "腸道好伙伴",
+      "icon": "🌾",
+      "tags": [
+        "digest",
+        "body"
+      ],
+      "summary": "來自植物性食物，幫助維持腸道及排便健康。",
+      "roles": [
+        "膳食纖維大致分為水溶性和非水溶性，對身體有不同作用。",
+        "蔬菜、水果、全穀物及乾豆類都是可選的纖維來源。"
+      ],
+      "foods": [
+        {
+          "label": "菜心",
+          "code": "veg_001",
+          "note": ""
+        },
+        {
+          "label": "富士蘋果",
+          "code": "fruit_001",
+          "note": ""
+        },
+        {
+          "label": "原片燕麥",
+          "code": "grain_009",
+          "note": ""
+        },
+        {
+          "label": "熟紅腰豆",
+          "code": "bean_003",
+          "note": ""
+        }
+      ],
+      "myth": "只喝果汁，就和吃原個水果一樣？",
+      "fact": "果汁的纖維一般較原個水果少。選原個水果，較能保留水果中的纖維。",
+      "recipeTip": "試在主食中加入豆類或全穀物，並配搭蔬菜。由成人協助清洗及處理食材，按食用人數準備。",
+      "question": "同樣重量的白飯和糙米飯，纖維會完全一樣嗎？",
+      "answer": "未必。可用餐盤比較相同克數的食物；食物本身的成分及吃下的份量，都會影響攝取量。",
+      "sourceIds": [
+        "fiber",
+        "fruit",
+        "grains"
+      ],
+      "parent": null,
+      "children": [],
+      "analysisKey": "fiber",
+      "aliases": [
+        "纖維",
+        "纖維素",
+        "fiber",
+        "fibre",
+        "dietary fiber"
+      ]
+    },
+    {
+      "id": "water",
+      "name": "水分",
+      "enName": "Water",
+      "power": "運輸與降溫隊",
+      "icon": "💧",
+      "tags": [
+        "digest",
+        "body"
+      ],
+      "summary": "幫身體運送物質、製造體液及調節體溫。",
+      "roles": [
+        "水分參與體內運輸和調節體溫，亦是體液的重要成分。",
+        "需要的水分會受天氣和活動等影響；水分亦可來自食物。"
+      ],
+      "foods": [
+        {
+          "label": "清水",
+          "code": "liq_001",
+          "note": ""
+        },
+        {
+          "label": "西瓜",
+          "code": "fruit_006",
+          "note": "含水食物例子，不代替日常飲水"
+        },
+        {
+          "label": "青瓜",
+          "code": "veg_016",
+          "note": "含水食物例子，不代替日常飲水"
+        }
+      ],
+      "myth": "有吃西瓜，就可以整天不喝水？",
+      "fact": "含水食物可提供部分水分，但不應用它作為不喝水的理由；日常要留意補水。",
+      "recipeTip": "煮湯或煮粥時，將計劃使用的清水加入材料清單；飲用清水則可作餐外配搭。",
+      "question": "圖鑑介紹了水，是否代表網站會計算今天喝了多少水？",
+      "answer": "不是。餐盤的清水是食譜材料，並不是全日飲水紀錄，也不會計算每人的水分需求。",
+      "sourceIds": [
+        "groups",
+        "water"
+      ],
+      "parent": null,
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "水份",
+        "飲水",
+        "補水",
+        "water",
+        "hydration"
+      ]
+    },
+    {
+      "id": "vitamin-a",
+      "name": "維他命 A",
+      "enName": "Vitamin A",
+      "power": "視覺小助手",
+      "icon": "🥕",
+      "tags": [
+        "growth",
+        "body"
+      ],
+      "summary": "參與正常視覺，並幫助皮膚及黏膜維持健康。",
+      "roles": [
+        "維他命A參與眼睛在暗處的視覺功能。",
+        "紅蘿蔔等食物的β-胡蘿蔔素，可在體內轉化成維他命A。"
+      ],
+      "foods": [
+        {
+          "label": "紅蘿蔔",
+          "code": "veg_004",
+          "note": ""
+        },
+        {
+          "label": "菠菜",
+          "code": "veg_003",
+          "note": ""
+        },
+        {
+          "label": "木瓜",
+          "code": "fruit_007",
+          "note": ""
+        },
+        {
+          "label": "雞蛋",
+          "code": "egg_001",
+          "note": "蛋黃是食物來源之一"
+        }
+      ],
+      "myth": "多吃紅蘿蔔就能醫好近視？",
+      "fact": "維持正常視覺和治療近視是兩回事。紅蘿蔔可以作均衡飲食的一部分，不能用來代替視力檢查或治療。",
+      "recipeTip": "考慮用紅蘿蔔配搭不同蔬菜；材料切法及用具由成人協助，按需要取用。",
+      "question": "所有橙色食物，都含有相同份量的維他命A嗎？",
+      "answer": "不是。顏色可作探索食物的線索，但不能當作營養含量數字，仍要看可靠食物資料。",
+      "sourceIds": [
+        "vitamins",
+        "vision"
+      ],
+      "parent": "vitamins",
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "維生素A",
+        "維他命A",
+        "胡蘿蔔素",
+        "β-胡蘿蔔素",
+        "vitamin a",
+        "視力"
+      ]
+    },
+    {
+      "id": "vitamin-b",
+      "name": "維他命 B 組",
+      "enName": "B vitamins",
+      "power": "營養運用隊",
+      "icon": "🔧",
+      "tags": [
+        "energy",
+        "body"
+      ],
+      "summary": "是一個家族，不同成員協助身體運用營養及正常運作。",
+      "roles": [
+        "B組包括B1、B2、B6、B12等不同維他命；各成員的工作並不完全相同。",
+        "例如B1參與運用碳水化合物，B12參與紅血球製造及神經健康。"
+      ],
+      "foods": [
+        {
+          "label": "糙米飯",
+          "code": "carb_002",
+          "note": "提供部分B組維他命"
+        },
+        {
+          "label": "豬柳",
+          "code": "meat_001",
+          "note": "B1的食物例子"
+        },
+        {
+          "label": "雞蛋",
+          "code": "egg_001",
+          "note": "B12的食物例子"
+        },
+        {
+          "label": "低脂牛奶",
+          "code": "dairy_006",
+          "note": "B12的食物例子"
+        }
+      ],
+      "myth": "食物有一種B，就代表有所有B組維他命？",
+      "fact": "不是。B組有不同成員，來源各有分別；不能把某一種的食物來源當成全部成員的來源。",
+      "recipeTip": "輪流選用穀物、豆類、蛋、奶及其他合適食物，認識不同來源。全素飲食的B12來源須另外留意。",
+      "question": "維他命B本身就是食物熱量嗎？",
+      "answer": "不是。部分B組維他命協助身體運用食物中的營養，並不等於維他命本身提供熱量。",
+      "sourceIds": [
+        "vitamins",
+        "vegetarian",
+        "grains"
+      ],
+      "parent": "vitamins",
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "維生素B",
+        "維他命B",
+        "B群",
+        "B1",
+        "B2",
+        "B6",
+        "B12",
+        "vitamin b",
+        "b vitamins"
+      ]
+    },
+    {
+      "id": "vitamin-c",
+      "name": "維他命 C",
+      "enName": "Vitamin C",
+      "power": "修補與吸鐵助手",
+      "icon": "🍊",
+      "tags": [
+        "body"
+      ],
+      "summary": "參與組織維持，亦幫助吸收植物性食物中的鐵。",
+      "roles": [
+        "維他命C參與製造骨膠原，並支持免疫系統正常運作。",
+        "同餐配搭含維他命C的食物，有助吸收植物性食物的非血紅素鐵。"
+      ],
+      "foods": [
+        {
+          "label": "橙",
+          "code": "fruit_003",
+          "note": ""
+        },
+        {
+          "label": "奇異果",
+          "code": "fruit_004",
+          "note": ""
+        },
+        {
+          "label": "西蘭花",
+          "code": "veg_002",
+          "note": ""
+        },
+        {
+          "label": "青甜椒",
+          "code": "veg_018",
+          "note": ""
+        }
+      ],
+      "myth": "吃了維他命C，就一定不會生病？",
+      "fact": "維持免疫功能不等於保證不生病；均衡飲食也不只靠一種營養素。",
+      "recipeTip": "豆類菜式可配搭西蘭花，或餐後吃橙。蔬菜避免長時間浸洗或烹煮，同時仍要確保食物安全。",
+      "question": "想為豆類菜式配一款水果，可以考慮甚麼？",
+      "answer": "例如橙或奇異果，作為含維他命C的配搭；份量仍按食量及整體飲食安排。",
+      "sourceIds": [
+        "vitamins",
+        "vegetarian",
+        "iron"
+      ],
+      "parent": "vitamins",
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "維生素C",
+        "維他命C",
+        "vitamin c",
+        "免疫",
+        "吸鐵"
+      ]
+    },
+    {
+      "id": "vitamin-d",
+      "name": "維他命 D",
+      "enName": "Vitamin D",
+      "power": "鈣質吸收助手",
+      "icon": "☀️",
+      "tags": [
+        "growth",
+        "body"
+      ],
+      "summary": "協助吸收鈣和磷，與骨骼健康有關。",
+      "roles": [
+        "維他命D協助身體吸收鈣和磷，參與維持骨骼健康。",
+        "蛋黃及油脂較多的魚是食物來源；皮膚也可在陽光下製造維他命D。"
+      ],
+      "foods": [
+        {
+          "label": "三文魚",
+          "code": "meat_005",
+          "note": ""
+        },
+        {
+          "label": "雞蛋",
+          "code": "egg_001",
+          "note": "維他命D在蛋黃中"
+        },
+        {
+          "label": "有添加維他命D的奶類",
+          "code": null,
+          "note": "須查看產品標籤；不能假設所有牛奶都有添加"
+        }
+      ],
+      "myth": "所有牛奶都添加了相同份量的維他命D？",
+      "fact": "不是。是否添加及添加量要查看產品標籤，不能單憑「牛奶」名稱推斷。",
+      "recipeTip": "食譜可考慮蛋或三文魚，並配搭其他食物。選用添加維他命D的產品時，要核對實際標籤。",
+      "question": "為甚麼鈣質和維他命D會一起介紹？",
+      "answer": "鈣參與骨骼結構，維他命D協助鈣的吸收，顯示不同營養素需要互相配合。",
+      "sourceIds": [
+        "vitamins",
+        "vegetarian"
+      ],
+      "parent": "vitamins",
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "維生素D",
+        "維他命D",
+        "vitamin d",
+        "骨骼"
+      ]
+    },
+    {
+      "id": "calcium",
+      "name": "鈣質",
+      "enName": "Calcium",
+      "power": "骨骼建造員",
+      "icon": "🦴",
+      "tags": [
+        "growth",
+        "body"
+      ],
+      "summary": "參與骨骼和牙齒構成，也參與肌肉及神經運作。",
+      "roles": [
+        "大部分鈣存在於骨骼及牙齒，鈣亦參與肌肉收縮和神經傳訊。",
+        "奶類及部分豆製品可提供鈣，但豆製品和植物飲品的鈣量並不一致。"
+      ],
+      "foods": [
+        {
+          "label": "低脂牛奶",
+          "code": "dairy_006",
+          "note": ""
+        },
+        {
+          "label": "原味乳酪",
+          "code": "dairy_003",
+          "note": ""
+        },
+        {
+          "label": "板豆腐",
+          "code": "soy_002",
+          "note": "鈣含量取決於凝固劑及產品"
+        },
+        {
+          "label": "加鈣豆奶",
+          "code": null,
+          "note": "須查標籤；資料庫的無糖豆漿不等於加鈣豆奶"
+        }
+      ],
+      "myth": "豆漿和豆腐的鈣含量全部相同？",
+      "fact": "不是。豆腐使用的凝固劑、產品配方及有否加鈣都會影響鈣含量，應查看實際產品資料。",
+      "recipeTip": "可在適合的菜式中選用奶類或豆腐；如需避免奶類，與老師或家長一起核對合適的替代食品。",
+      "question": "無糖豆漿是否一定等於加鈣豆奶？",
+      "answer": "不是。「無糖」描述糖分，「加鈣」描述有否添加鈣，是兩件不同的事。",
+      "sourceIds": [
+        "calcium",
+        "vegetarian"
+      ],
+      "parent": "minerals",
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "鈣",
+        "鈣質",
+        "calcium",
+        "牙齒",
+        "骨骼"
+      ]
+    },
+    {
+      "id": "iron",
+      "name": "鐵質",
+      "enName": "Iron",
+      "power": "氧氣運送助手",
+      "icon": "🩸",
+      "tags": [
+        "body"
+      ],
+      "summary": "是製造血紅素所需的元素，幫助血液運送氧氣。",
+      "roles": [
+        "紅血球內的血紅素負責運送氧氣，製造血紅素需要鐵。",
+        "肉類及豆類等可提供鐵；不同形式的鐵，吸收情況有別。"
+      ],
+      "foods": [
+        {
+          "label": "免治牛肉",
+          "code": "meat_002",
+          "note": ""
+        },
+        {
+          "label": "熟小扁豆",
+          "code": "bean_002",
+          "note": ""
+        },
+        {
+          "label": "熟紅腰豆",
+          "code": "bean_003",
+          "note": ""
+        },
+        {
+          "label": "板豆腐",
+          "code": "soy_002",
+          "note": ""
+        }
+      ],
+      "myth": "只要食譜有含鐵食物，就代表鐵一定足夠？",
+      "fact": "不能單看一種食物判斷。種類、份量、吸收及全日飲食都會影響；本站目前沒有計算鐵含量。",
+      "recipeTip": "以豆類作材料時，可配搭西蘭花，或另外配橙，利用維他命C幫助吸收植物性鐵。",
+      "question": "紅腰豆菜式可以配甚麼來幫助植物性鐵的吸收？",
+      "answer": "可考慮含維他命C的西蘭花，或餐後吃橙；這是營養配搭知識，不是本站的鐵含量計算。",
+      "sourceIds": [
+        "iron",
+        "vegetarian"
+      ],
+      "parent": "minerals",
+      "children": [],
+      "analysisKey": null,
+      "aliases": [
+        "鐵",
+        "鐵質",
+        "iron",
+        "血紅素",
+        "氧氣"
+      ]
+    }
+  ]
+}
