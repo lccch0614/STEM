@@ -61,6 +61,7 @@
     const result=picker()?.selectFood(code);
     if(!result){$('pedia-action-status').textContent='食材資料未就緒，請稍後再試。圖鑑仍可閱讀。';return;}
     returnTarget=anchorId;returnScroll=window.scrollY;
+    if($('nqs-plate-return'))$('nqs-plate-return').hidden=true;
     $('pedia-return').hidden=false;
     $('pedia-return-label').textContent=`從「${e.name}」找到的食材已選好。揀份量後，再按「加入餐盤」。`;
     $('pedia-back').textContent=`返回「${e.name}」圖鑑`;
@@ -161,5 +162,13 @@
   window.addEventListener('food-workshop:ready',()=>{if(content)render();});
   // Only rebuild when the number of columns changes, preserving search and the open topic.
   for(const query of ['(max-width: 640px)','(max-width: 1024px)'])window.matchMedia(query).addEventListener?.('change',()=>render());
+  // Explicit learning shortcut; normal book navigation retains its existing state.
+  window.NutrientBook=Object.freeze({
+    open(id){
+      const entry=entries.get(id);if(!content||!entry)return false;
+      returnTarget='';$('dict-search-input').value='';setFilter('all');
+      window.switchTab('nutrition');openEntry(id,entry.parent||entry.id);return true;
+    }
+  });
   load();
 })();

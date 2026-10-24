@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css?v=workshop-1">
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
+<link rel="stylesheet" href="scenario-quiz.css?v=2026-10-24-1">
 <link rel="stylesheet" href="workshop.css?v=5">
 <link rel="stylesheet" href="nutrition-encyclopedia.css?v=2026-10-24-1">
 
@@ -46,7 +47,7 @@
             🚀 體驗智能餐盤
           </button>
           <button class="btn btn-ai" style="max-width: 240px; margin-top: 0;" onclick="switchTab('quiz')">
-            🎮 挑戰營養問答
+            🎮 探索人物情境任務
           </button>
         </div>
       </div>
@@ -85,6 +86,7 @@
         <details class="ws-draft-tools"><summary>儲存／開啟作品</summary><div class="ws-actions"><button id="export-draft" class="ws-secondary" type="button">下載草稿</button><label class="ws-file-button">開啟草稿<input id="import-draft" type="file" accept=".json,application/json"></label><button id="new-project" class="ws-link" type="button">清空，重新開始</button></div></details>
         <p id="food-data-notice" class="ws-note" role="status" hidden></p><p id="draft-status" class="ws-status" role="status" aria-live="polite"></p>
       </header>
+      <aside id="nqs-plate-return" class="nqs-return" hidden><p id="nqs-plate-label"></p><button id="nqs-plate-back" type="button">返回人物任務回顧</button></aside>
       <aside id="pedia-return" aria-label="圖鑑食材提示" hidden><p id="pedia-return-label"></p><button id="pedia-back" type="button">返回營養圖鑑</button></aside>
       <section class="card" aria-labelledby="materials-heading">
         <h2 id="materials-heading">第一步：挑選食材與烹調方式</h2>
@@ -171,6 +173,7 @@
 
     <!-- ==================== VIEW 4: NUTRIENT SUPERPOWERPEDIA ==================== -->
     <div id="view-nutrition" class="page-view">
+      <aside id="nqs-book-return" class="nqs-return" hidden><p id="nqs-book-label"></p><button id="nqs-book-back" type="button">返回本關繼續作答</button></aside>
       <header class="pedia-intro">
         <div><p class="pedia-kicker">NUTRIENT SUPERPOWERPEDIA</p><h1>營養超能力圖鑑</h1><p>認識營養的工作，找找食物伙伴，再為你的食譜選材料。</p></div>
         <div class="pedia-guide"><strong>今天先探索一種營養</strong><span>打開圖鑑 → 認識食材 → 返回餐盤</span></div>
@@ -208,11 +211,14 @@
 <!-- 自己的 JS 最後載入 -->
 <script src="script.js?v=workshop-1"></script>
 <script src="quiz-bank.js?v=2"></script>
-<script src="quiz-upgrade.js?v=2"></script>
+<script src="quiz-upgrade.js?v=3"></script>
 <script src="portion-tools.js?v=3"></script>
 <script src="workshop-core.js?v=6"></script>
 <script src="workshop.js?v=8"></script>
-<script src="nutrition-encyclopedia.js?v=2026-10-24-1"></script>
+<script src="nutrition-encyclopedia.js?v=2026-10-24-2"></script>
+<script src="scenario-bank.js?v=2026-10-24-1"></script>
+<script src="scenario-core.js?v=2026-10-24-1"></script>
+<script src="scenario-quiz.js?v=2026-10-24-1"></script>
 
 </body>
 </html>

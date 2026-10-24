@@ -71,6 +71,7 @@
   }
   function shell(body) {
     root.innerHTML=`<div class="card nq"><div class="nq-heading"><div><p class="nq-eyebrow">看資料 · 作選擇 · 說理由</p><h2>營養大挑戰</h2></div><span class="nq-badge">72 題生活題庫 · V2.1</span></div>${body}</div>`;
+    window.dispatchEvent(new CustomEvent('nutrition-practice:render'));
   }
   function setup() {
     shell(`<p class="nq-intro">用飲食、購物、食品標示和煮食情境，考考你的判斷。不限時，可以先用紙筆計算。</p>
@@ -165,6 +166,7 @@
     document.getElementById('nq-retry')?.addEventListener('click',()=>start(wrong.map(item=>byId.get(item.id)),{review:true},state.originalScore??`${right} / ${total} 題`));
   }
   function render(){if(!state)setup();else if(state.finished)result();else question();}
+  window.NutritionQuizPractice=Object.freeze({render,setup});
   // Existing tab switching and delayed initApp calls can safely call these repeatedly.
   window.initQuiz=render;
   window.renderQuizQuestion=render;
