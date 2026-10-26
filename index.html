@@ -13,7 +13,8 @@
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
 <link rel="stylesheet" href="scenario-quiz.css?v=2026-10-24-1">
-<link rel="stylesheet" href="workshop.css?v=5">
+<link rel="stylesheet" href="workshop.css?v=6">
+<link rel="stylesheet" href="publication.css?v=2026-10-26-1">
 <link rel="stylesheet" href="nutrition-encyclopedia.css?v=2026-10-24-1">
 
 </head>
@@ -119,19 +120,20 @@
         <section id="ai-advice" class="ws-advice" aria-labelledby="ai-advice-heading" hidden><h3 id="ai-advice-heading">AI 給你的餐盤建議</h3><p id="ai-observation"></p><div class="ws-advice-columns"><div><h4>食材配搭</h4><ul id="ai-food-suggestions"></ul></div><div><h4>每人份量</h4><ul id="ai-portion-suggestions"></ul></div></div><p class="ws-note">建議供課堂討論；每人食量不同。你可自行修改上方餐盤，再按 AI 重新分析及生成。</p></section>
         <div id="recipe-result" hidden><div id="recipe-preview" class="recipe-container"></div></div>
         <details id="recipe-edit-details" class="ws-extra" hidden><summary>修改菜名或步驟（選用）</summary><label>菜名<input id="recipe-title" maxlength="40" placeholder="為自己的菜式命名"></label><div id="recipe-step-editors"></div><button id="add-step" class="ws-secondary" type="button">加入一個步驟</button><p class="ws-note">新增材料或調味料，請回到上方餐盤加入。</p></details>
-        <section id="concept-section" class="ws-concept" aria-labelledby="concept-heading" hidden><h3 id="concept-heading">AI 菜式概念圖</h3><p class="ws-note">圖片僅供構思；實際材料及份量以食譜為準。</p><p id="image-status" class="ws-status" role="status" aria-live="polite"></p><div id="image-error" class="ws-error" role="alert" hidden></div><img id="concept-image" alt="按這份食譜生成的 AI 菜式概念圖" hidden><div class="ws-actions"><button id="generate-image" class="ws-secondary" type="button">生成概念圖</button><button id="cancel-image" class="ws-link" type="button" hidden>停止畫圖</button><a id="download-image" class="ws-secondary" download="我的菜式概念圖.png" hidden>下載概念圖</a></div><details id="image-settings" class="ws-extra"><summary>老師圖片設定：免費／付費選擇</summary><label for="image-model">圖片模型</label><select id="image-model" aria-describedby="image-model-info"></select><p id="image-model-info" class="ws-note" role="status"></p><p class="ws-note"><a id="image-model-source" href="https://openrouter.ai/blog/tutorials/image-generation-models/" target="_blank" rel="noopener noreferrer">查看官方模型／收費資料</a></p><p class="ws-note">預設只用免費模型；目前 OpenRouter 未有免費繪圖模型。免費文字／看圖模型不等於免費繪圖。付費模型需老師自行選擇，再按生成按鈕；每次一張，失敗不會自動轉用其他模型。圖片失敗仍可打印食譜。</p></details></section>
+        <section id="concept-section" class="ws-concept" aria-labelledby="concept-heading" hidden><h3 id="concept-heading">AI 菜式概念圖</h3><p class="ws-note">圖片僅供構思；實際材料及份量以食譜為準。</p><p id="image-status" class="ws-status" role="status" aria-live="polite"></p><div id="image-error" class="ws-error" role="alert" hidden></div><img id="concept-image" alt="按這份食譜生成的 AI 菜式概念圖" hidden><div class="ws-actions"><button id="generate-image" class="ws-secondary" type="button">生成概念圖</button><button id="cancel-image" class="ws-link" type="button" hidden>停止畫圖</button><a id="download-image" class="ws-secondary" download="我的菜式概念圖.png" hidden>下載概念圖</a></div><details id="text-settings" class="ws-extra"><summary>老師文字AI設定</summary><label>食譜及建議模型<select id="text-model"><option value="google/gemini-2.5-flash-lite">Gemini 2.5 Flash Lite（付費）</option><option value="openrouter/free">OpenRouter免費文字模型（後備）</option></select></label><p class="ws-note">參考收費：每100萬輸入tokens US$0.10、輸出tokens US$0.40（2026-10-26查閱）。每按一次生成發出一次請求；失敗不自動轉模型。</p></details><details id="image-settings" class="ws-extra"><summary>老師圖片設定：免費／付費選擇</summary><label for="image-model">圖片模型</label><select id="image-model" aria-describedby="image-model-info"></select><p id="image-model-info" class="ws-note" role="status"></p><p class="ws-note"><a id="image-model-source" href="https://openrouter.ai/blog/tutorials/image-generation-models/" target="_blank" rel="noopener noreferrer">查看官方模型／收費資料</a></p><p class="ws-note">工作坊預選Seedream 5.0 Flash，參考每張US$0.018（1K）。只有按生成按鈕才收費；每次一張，失敗不會自動轉模型。可改用免費模式（目前未有可用繪圖模型），或請老師確認文字版後備。圖片自動儲存於本機，交作品包及上傳後才會出現在家長頁。</p></details></section>
         <details class="ws-extra"><summary>親子煮食提示</summary><p id="fixed-safety"></p><a href="https://www.cfs.gov.hk/tc_chi/trade_zone/safe_kitchen/Temperature_Danger_Zone.html" target="_blank" rel="noopener noreferrer">食物安全中心資料</a></details>
       </section>
       <section id="magnet-section" class="card" aria-labelledby="review-heading" hidden>
         <h2 id="review-heading">我的雪櫃貼</h2>
         <div class="ws-actions"><label>小廚師暱稱<input id="chef-name-input" maxlength="20" value="小廚師" placeholder="小廚師" autocomplete="off"></label><button id="preview-parent" class="ws-secondary" type="button">預覽完整食譜</button><button id="approve-recipe" class="ws-secondary" type="button">更新雪櫃貼</button></div><p id="review-status" class="ws-status" role="status" aria-live="polite"></p>
-        <details class="ws-publish-settings"><summary>老師列印設定</summary><label>家長可開啟的正式 HTTPS 網址<input id="share-base" type="url" placeholder="填寫已上載的網頁完整網址" autocomplete="url"></label><p class="ws-note">網站上載後會自動使用目前網址；本機試用時由老師設定一次。</p><label>磁貼尺寸<select id="magnet-size"><option value="compact">60 × 80 mm</option><option value="standard" selected>80 × 100 mm</option><option value="large">100 × 130 mm</option></select></label></details>
+        <details class="ws-publish-settings"><summary>老師列印設定</summary><label>家長可開啟的正式 HTTPS 網址<input id="share-base" type="url" placeholder="填寫已上載的網頁完整網址" autocomplete="url"></label><p class="ws-note">網站上載後會自動使用目前網址；本機試用時由老師設定一次。</p><label>磁貼尺寸<select id="magnet-size"><option value="acrylic" selected>5 × 5 cm亞加力（48 × 48 mm貼片）</option><option value="compact">60 × 80 mm</option><option value="standard">80 × 100 mm</option><option value="large">100 × 130 mm</option></select></label></details>
         <div id="qr-error" class="ws-error" role="alert" hidden></div><p id="qr-status" class="ws-status" role="status" aria-live="polite"></p><div id="magnet-preview" class="ws-magnet-preview" hidden></div>
-        <div class="ws-actions"><button id="print-magnet" class="btn btn-add" type="button" disabled>🖨️ 打印雪櫃貼</button><button id="export-approved" class="ws-secondary" type="button" disabled>下載食譜作品</button></div>
-        <p class="ws-note">先試印及掃碼，確認可讀取完整食譜後再貼上磁片。</p>
+        <button id="print-magnet" class="btn btn-add" type="button" disabled hidden>🖨️ 打印雪櫃貼</button>
+        <div class="pub-student"><h3>把食譜和圖片交給老師</h3><p>概念圖會自動儲存在這部裝置。下載作品包後，用老師指定的方式交檔（例如AirDrop、學校雲端或課堂平台）。</p><button id="pub-export-student" class="btn btn-add" type="button" disabled>下載食譜＋概念圖作品包</button><details class="ws-extra"><summary>老師後備選項</summary><label class="pub-check"><input id="pub-text-fallback" type="checkbox">圖片未能生成時，由老師確認交文字版本</label><p class="ws-note">如需舊版自帶文字的QR code，可另外下載以下JSON，交「舊版文字作品列印」處理。</p><button id="export-approved" class="ws-secondary" type="button" disabled>下載舊版文字JSON（不含圖片）</button></details><p id="pub-student-status" role="status" aria-live="polite"></p><p class="ws-note">下載位置由瀏覽器決定，通常在「下載項目」。作品包未會自動傳送給老師或GitHub；上線核對後才可列印磁貼。</p></div>
 
       </section>
-        <details id="teacher-queue" class="ws-extra"><summary>老師批次列印</summary><div class="ws-actions"><button id="queue-magnet" class="ws-secondary" type="button" disabled>加入列印佇列</button><label class="ws-file-button">匯入作品<input id="import-approved" type="file" accept=".json,application/json" multiple></label><button id="print-queue" class="ws-secondary" type="button" disabled>批次打印</button></div><p id="queue-status" role="status" aria-live="polite"></p><ul id="print-queue-list"></ul></details>
+      <details id="publication-desk" class="card pub-desk"><summary>老師收集台：收檔 → 匯入 → 上傳 → 列印</summary><p>四位老師可各自收檔，再把「老師收集包」交給一位統籌老師合併。只用作品暱稱／代號，請勿填全名或聯絡資料。</p><ol><li><strong>收檔及匯入：</strong>選擇學生作品包或其他老師收集包，可多選。毋須解壓或改名。</li><li><strong>備份及上傳：</strong>下載GitHub上傳包，解壓後將r資料夾上傳至STEM根目錄，與index.html並列。保留所有舊作品。</li><li><strong>核對後列印：</strong>待GitHub Pages更新，核對每份作品和圖片，再用A4、實際大小100%列印，剪出48×48mm貼片。</li></ol><div class="ws-actions"><label class="ws-file-button">匯入作品／老師收集包<input id="pub-import" type="file" accept=".zip,application/zip" multiple></label><button id="pub-backup" type="button" class="ws-secondary" disabled>下載老師收集包</button><button id="pub-upload" type="button" class="ws-secondary" disabled>下載GitHub上傳包</button><button id="pub-verify" type="button" class="ws-secondary" disabled>核對上線作品及圖片</button><button id="pub-print" type="button" class="btn btn-add" disabled>列印已核對磁貼</button></div><p id="pub-desk-status" class="ws-status" role="status" aria-live="polite">正在開啟本機收集台…</p><p class="ws-note">本機收集台不會跨裝置同步，請每位老師下載收集包備份。匯入重複作品會略過；修改後的作品會有新代號。列印前請移除不採用的舊版本。</p><ul id="pub-work-list" class="pub-work-list"></ul></details>
+        <details id="teacher-queue" class="ws-extra"><summary>舊版文字作品列印（不含圖片）</summary><div class="ws-actions"><button id="queue-magnet" class="ws-secondary" type="button" disabled hidden>加入列印佇列</button><label class="ws-file-button">匯入作品<input id="import-approved" type="file" accept=".json,application/json" multiple></label><button id="print-queue" class="ws-secondary" type="button" disabled>批次打印</button></div><p id="queue-status" role="status" aria-live="polite"></p><ul id="print-queue-list"></ul></details>
     </div>
 
 
@@ -213,8 +215,11 @@
 <script src="quiz-bank.js?v=2"></script>
 <script src="quiz-upgrade.js?v=3"></script>
 <script src="portion-tools.js?v=3"></script>
-<script src="workshop-core.js?v=6"></script>
-<script src="workshop.js?v=8"></script>
+<script src="vendor/jszip-3.10.1.min.js"></script>
+<script src="workshop-core.js?v=7"></script>
+<script src="publication-core.js?v=2026-10-26-1"></script>
+<script src="workshop.js?v=9"></script>
+<script src="publication-ui.js?v=2026-10-26-1"></script>
 <script src="nutrition-encyclopedia.js?v=2026-10-24-2"></script>
 <script src="scenario-bank.js?v=2026-10-24-1"></script>
 <script src="scenario-core.js?v=2026-10-24-1"></script>

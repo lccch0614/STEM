@@ -10,6 +10,7 @@
   };
   const methods = ['清蒸', '清炒', '焗／烘烤', '滾湯／燉煮', '香炸／酥炸', '涼拌／生食', '甜品製作'];
   const sizes = {
+    acrylic: {label: '5 × 5 cm亞加力（48 × 48 mm貼片）', width: 48, height: 48, qr: 40, columns: 3, perPage: 15},
     compact: {label: '60 × 80 mm', width: 60, height: 80, qr: 34, columns: 3, perPage: 9},
     standard: {label: '80 × 100 mm', width: 80, height: 100, qr: 48, columns: 2, perPage: 4},
     large: {label: '100 × 130 mm', width: 100, height: 130, qr: 68, columns: 1, perPage: 2}
