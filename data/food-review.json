@@ -1,8 +1,8 @@
 {
-  "version": "2026-10-27-final-v2",
+  "version": "2026-10-27-portions-v3",
   "reviewed": "2026-10-27",
-  "activeFoods": 119,
-  "numericValuesChecked": 595,
+  "activeFoods": 120,
+  "numericValuesChecked": 600,
   "usdaNumericValuesChecked": 560,
   "mextNumericValuesChecked": 20,
   "officialSourceEstimated": [
@@ -845,7 +845,7 @@
       "sha256": "70457ee9d9342f43bda2010318c85f04210c689fdeb9cd2da4c513b0e8dbc655"
     }
   ],
-  "householdMeasures": 182,
+  "householdMeasures": 143,
   "supplement": {
     "report": "food-supplement-review.json",
     "activeAdditions": [
@@ -996,5 +996,24 @@
       }
     ],
     "pending": 8
-  }
+  },
+  "householdUpdate": "portion-update.json",
+  "brandedAdditions": [
+    {
+      "code": "dairy_009",
+      "name": "高鈣芝士片（安怡原味）",
+      "source": {
+        "provider": "安怡香港官方產品頁",
+        "recordId": "ANLENE-HK-ORIGINAL-CHEESE-20.8",
+        "description": "安怡原味高鈣芝士；官方網頁每食用分量20.8克營養表",
+        "url": "https://www.anlene.com/hk/zh/products/cheese/anlene-high-calcium-cheese",
+        "release": "官方網頁已索引的產品標籤參考（非本批產品實測）",
+        "accessed": "2026-10-27",
+        "snapshotUrl": "data/food-sources.html#dairy_009",
+        "retrievalMethod": "web_index_of_official_product_page",
+        "availabilityNote": "直接下載產品頁回傳404；五項值由官方頁面的已索引內容核對，實際包裝可能更新。"
+      },
+      "note": "安怡品牌獨立新增；未核實的原芝司樂資料仍保留於抽起清單。"
+    }
+  ]
 }

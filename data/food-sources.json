@@ -1,7 +1,7 @@
 {
-  "version": "2026-10-27-final-v2",
+  "version": "2026-10-27-portions-v3",
   "accessed": "2026-10-27",
-  "basis": "每100克可食部分，按記錄指定狀態。總碳水化合物和總膳食纖維分別計算；不混用可獲得碳水或不溶性纖維。Trace及未列資料保留為null，不填0。",
+  "basis": "每100克可食部分，按來源指定狀態及營養定義引用；安怡芝士碳水沿用標籤列值、定義未詳列，不冒稱USDA總碳水。未列數值不補零。",
   "energyPreference": [
     "2048 Atwater specific",
     "2047 Atwater general",
@@ -17029,15 +17029,52 @@
         "bytes": 6935,
         "sha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
       }
+    },
+    "ANLENE:ANLENE-HK-ORIGINAL-CHEESE-20.8": {
+      "source": {
+        "provider": "安怡香港官方產品頁",
+        "recordId": "ANLENE-HK-ORIGINAL-CHEESE-20.8",
+        "description": "安怡原味高鈣芝士；官方網頁每食用分量20.8克營養表",
+        "url": "https://www.anlene.com/hk/zh/products/cheese/anlene-high-calcium-cheese",
+        "release": "官方網頁已索引的產品標籤參考（非本批產品實測）",
+        "accessed": "2026-10-27",
+        "snapshotUrl": "data/food-sources.html#dairy_009",
+        "retrievalMethod": "web_index_of_official_product_page",
+        "availabilityNote": "直接下載產品頁回傳404；五項值由官方頁面的已索引內容核對，實際包裝可能更新。"
+      },
+      "servingGrams": 20.8,
+      "nutrientsPerServing": {
+        "calories": 44,
+        "carbs": 1.1,
+        "protein": 3.9,
+        "fat": 2.7,
+        "fiber": 0.5
+      },
+      "allergens": [
+        "奶",
+        "大豆"
+      ],
+      "nutrientStatus": "manufacturer_label_declared",
+      "portionEvidence": {
+        "packGrams": 250,
+        "slices": 12,
+        "sourceUrl": "https://www.consumer.org.hk/f/article_tab/401134/404065/534-annual-supermarket-price-survey-table-001.pdf",
+        "note": "包裝份量交叉參考；20.8克使用品牌營養表的列值。"
+      },
+      "notes": [
+        "官方原文碳水化合物定義未詳列，照錄1.1克／份，不改稱USDA總碳水。",
+        "官方網頁鈣質宣傳數字501毫克與營養表510毫克不一致；本網站五項營養沒有引用該鈣質數字。"
+      ]
     }
   },
   "mextGuide": "https://fooddb.mext.go.jp/",
   "finalReview": {
     "date": "2026-10-27",
-    "activeFoods": 119,
-    "numericValuesChecked": 595,
+    "activeFoods": 120,
+    "numericValuesChecked": 600,
     "withdrawnFoods": 9,
     "report": "food-review.json"
   },
-  "supplementReview": "food-supplement-review.json"
+  "supplementReview": "food-supplement-review.json",
+  "householdUpdate": "portion-update.json"
 }

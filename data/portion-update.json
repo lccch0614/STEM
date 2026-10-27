@@ -1,0 +1,1826 @@
+{
+  "version": "2026-10-27-portions-v3",
+  "reviewed": "2026-10-27",
+  "activeFoods": 120,
+  "sourceBackedValues": 600,
+  "existingNutrientValuesPreserved": 595,
+  "oldDefaultTaels": 42,
+  "studentTaelOptionsRemaining": 0,
+  "changes": [
+    {
+      "code": "carb_001",
+      "name": "白飯",
+      "oldUnits": [
+        "碗（衞生署參考）"
+      ],
+      "newUnits": [
+        "碗（衞生署參考）"
+      ],
+      "gramsPerUnit": [
+        198
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "carb_002",
+      "name": "糙米飯",
+      "oldUnits": [
+        "碗（240毫升參考）"
+      ],
+      "newUnits": [
+        "碗（240毫升參考）"
+      ],
+      "gramsPerUnit": [
+        250
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "carb_003",
+      "name": "意粉（熟，未強化）",
+      "oldUnits": [
+        "碗（熟意粉／通粉）"
+      ],
+      "newUnits": [
+        "碗（熟意粉／通粉）"
+      ],
+      "gramsPerUnit": [
+        175
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "carb_004",
+      "name": "烏冬（熟，水煮）",
+      "oldUnits": [
+        "團（熟烏冬，來源參考大小）"
+      ],
+      "newUnits": [
+        "團（熟烏冬，來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        213.33333333333334
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "carb_005",
+      "name": "意大利粉（熟，強化）",
+      "oldUnits": [
+        "碗（熟意粉／通粉）"
+      ],
+      "newUnits": [
+        "碗（熟意粉／通粉）"
+      ],
+      "gramsPerUnit": [
+        175
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "carb_006",
+      "name": "全麥方包",
+      "oldUnits": [
+        "片（來源參考厚度）"
+      ],
+      "newUnits": [
+        "片（來源參考厚度）"
+      ],
+      "gramsPerUnit": [
+        32.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "carb_008",
+      "name": "蒸薯仔（去皮）",
+      "oldUnits": [
+        "個（中型蒸薯仔，來源大小）"
+      ],
+      "newUnits": [
+        "個（中型蒸薯仔，來源大小）"
+      ],
+      "gramsPerUnit": [
+        95.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_001",
+      "name": "全脂牛奶",
+      "oldUnits": [
+        "杯（來源參考量杯）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "杯（來源參考量杯）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        244.0,
+        15.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_002",
+      "name": "脫脂牛奶",
+      "oldUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "newUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "gramsPerUnit": [
+        245.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_003",
+      "name": "低脂原味乳酪",
+      "oldUnits": [
+        "杯裝（170克規格）"
+      ],
+      "newUnits": [
+        "杯裝（170克規格）"
+      ],
+      "gramsPerUnit": [
+        170.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_005",
+      "name": "脫脂奶粉",
+      "oldUnits": [
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.6
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "veg_002",
+      "name": "西蘭花",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "枝（連梗，約13厘米）"
+      ],
+      "gramsPerUnit": [
+        31
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_003",
+      "name": "菠菜",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "片葉"
+      ],
+      "gramsPerUnit": [
+        10
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_004",
+      "name": "紅蘿蔔",
+      "oldUnits": [
+        "條（中型）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（中型）"
+      ],
+      "gramsPerUnit": [
+        61.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_005",
+      "name": "小白菜",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "片葉"
+      ],
+      "gramsPerUnit": [
+        14
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_006",
+      "name": "番茄",
+      "oldUnits": [
+        "個（中型）",
+        "個（小型）",
+        "個（大型）"
+      ],
+      "newUnits": [
+        "個（中型）",
+        "個（小型）",
+        "個（大型）"
+      ],
+      "gramsPerUnit": [
+        123.0,
+        91.0,
+        182.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "veg_008",
+      "name": "金針菇",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升；切片）"
+      ],
+      "gramsPerUnit": [
+        68.6847336131186
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_009",
+      "name": "翠玉瓜",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（中型）"
+      ],
+      "gramsPerUnit": [
+        196
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_010",
+      "name": "南瓜",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升；切粒）"
+      ],
+      "gramsPerUnit": [
+        122.57583229418088
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "fruit_001",
+      "name": "富士蘋果",
+      "oldUnits": [
+        "個（中型）",
+        "個（小型）",
+        "個（大型）"
+      ],
+      "newUnits": [
+        "個（中型）",
+        "個（小型）",
+        "個（大型）"
+      ],
+      "gramsPerUnit": [
+        192.0,
+        158.0,
+        236.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_002",
+      "name": "香蕉",
+      "oldUnits": [
+        "隻（中型）",
+        "隻（小型）",
+        "隻（大型）"
+      ],
+      "newUnits": [
+        "隻（中型）",
+        "隻（小型）",
+        "隻（大型）"
+      ],
+      "gramsPerUnit": [
+        118.0,
+        101.0,
+        136.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_003",
+      "name": "臍橙",
+      "oldUnits": [
+        "個（直徑約7.3厘米）"
+      ],
+      "newUnits": [
+        "個（直徑約7.3厘米）"
+      ],
+      "gramsPerUnit": [
+        140.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_004",
+      "name": "奇異果",
+      "oldUnits": [
+        "個（直徑約5.1厘米）"
+      ],
+      "newUnits": [
+        "個（直徑約5.1厘米）"
+      ],
+      "gramsPerUnit": [
+        69.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_005",
+      "name": "提子",
+      "oldUnits": [
+        "粒（來源參考大小）"
+      ],
+      "newUnits": [
+        "粒（來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        4.9
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_006",
+      "name": "西瓜",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "角（約整個西瓜的1/16）"
+      ],
+      "gramsPerUnit": [
+        286
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "fruit_007",
+      "name": "木瓜",
+      "oldUnits": [
+        "個（小型）"
+      ],
+      "newUnits": [
+        "個（小型）"
+      ],
+      "gramsPerUnit": [
+        157.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_001",
+      "name": "醬油（大豆及小麥製）",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        5.3,
+        16.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_002",
+      "name": "蠔油",
+      "oldUnits": [
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        18.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_003",
+      "name": "純芝麻油",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.5,
+        13.6
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_004",
+      "name": "茄汁",
+      "oldUnits": [
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        17.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_007",
+      "name": "花生油",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.5,
+        13.5
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_008",
+      "name": "橄欖油",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.5,
+        13.5
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_009",
+      "name": "幼鹽",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        6.0,
+        18.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_010",
+      "name": "粗鹽（日式並鹽參考）",
+      "oldUnits": [
+        "茶匙（5毫升量匙，日式並鹽）"
+      ],
+      "newUnits": [
+        "茶匙（5毫升量匙，日式並鹽）"
+      ],
+      "gramsPerUnit": [
+        4.5
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "seas_006",
+      "name": "幼砂糖",
+      "oldUnits": [
+        "茶匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.2
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "meat_001",
+      "name": "豬柳（瘦肉）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "條（整條豬柳，來源參考大小）"
+      ],
+      "newUnits": [
+        "條（整條豬柳，來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        505.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_002",
+      "name": "免治牛肉（90%瘦肉）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "湯匙（中式，生肉碎）"
+      ],
+      "newUnits": [
+        "湯匙（中式，生肉碎）"
+      ],
+      "gramsPerUnit": [
+        20.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_003",
+      "name": "去皮雞扒",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "件（來源參考大小，去皮）"
+      ],
+      "newUnits": [
+        "件（來源參考大小，去皮）"
+      ],
+      "gramsPerUnit": [
+        149.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_004",
+      "name": "去皮雞胸肉",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "件（來源參考大小，去皮去骨）"
+      ],
+      "newUnits": [
+        "件（來源參考大小，去皮去骨）"
+      ],
+      "gramsPerUnit": [
+        272.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_005",
+      "name": "三文魚（養殖大西洋鮭魚）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "片（整片去骨魚柳，來源大小）"
+      ],
+      "newUnits": [
+        "片（整片去骨魚柳，來源大小）"
+      ],
+      "gramsPerUnit": [
+        396.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_007",
+      "name": "蝦仁（生，混合品種）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "隻（中型去殼蝦，參考大小）"
+      ],
+      "newUnits": [
+        "隻（中型去殼蝦，參考大小）"
+      ],
+      "gramsPerUnit": [
+        6.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_009",
+      "name": "水浸吞拿魚",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "罐（瀝乾165克規格）"
+      ],
+      "newUnits": [
+        "罐（瀝乾165克規格）"
+      ],
+      "gramsPerUnit": [
+        165.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "meat_010",
+      "name": "去皮雞翼肉",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "隻（去骨去皮肉，參考大小）"
+      ],
+      "newUnits": [
+        "隻（去骨去皮肉，參考大小）"
+      ],
+      "gramsPerUnit": [
+        29.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "soy_002",
+      "name": "硬豆腐 (板豆腐)",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "磚（參考324克規格）"
+      ],
+      "newUnits": [
+        "磚（參考324克規格）"
+      ],
+      "gramsPerUnit": [
+        324.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "soy_004",
+      "name": "鮮腐皮（生湯葉參考）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "張（生平湯葉，43克參考規格）"
+      ],
+      "newUnits": [
+        "張（生平湯葉，43克參考規格）"
+      ],
+      "gramsPerUnit": [
+        43.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "egg_001",
+      "name": "雞蛋",
+      "oldUnits": [
+        "隻（大型，去殼）",
+        "隻（中型，去殼）",
+        "隻（特大型，去殼）"
+      ],
+      "newUnits": [
+        "隻（大型，去殼）",
+        "隻（中型，去殼）",
+        "隻（特大型，去殼）"
+      ],
+      "gramsPerUnit": [
+        50.0,
+        44.0,
+        56.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "egg_002",
+      "name": "鵪鶉蛋",
+      "oldUnits": [
+        "隻（去殼）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "隻（去殼）"
+      ],
+      "gramsPerUnit": [
+        9.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "soy_003",
+      "name": "無糖豆漿",
+      "oldUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "newUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "gramsPerUnit": [
+        243.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "liq_001",
+      "name": "清水",
+      "oldUnits": [
+        "杯（250毫升清水）"
+      ],
+      "newUnits": [
+        "杯（250毫升清水）"
+      ],
+      "gramsPerUnit": [
+        250
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "liq_002",
+      "name": "100% 蘋果汁",
+      "oldUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "newUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "gramsPerUnit": [
+        248.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "grain_009",
+      "name": "原片燕麥",
+      "oldUnits": [
+        "碗（240毫升乾燕麥）"
+      ],
+      "newUnits": [
+        "碗（240毫升乾燕麥）"
+      ],
+      "gramsPerUnit": [
+        81
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "grain_010",
+      "name": "燕麥粥（清水煮，無鹽）",
+      "oldUnits": [
+        "碗（熟麥皮）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "碗（熟麥皮）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        293,
+        14.6
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "grain_011",
+      "name": "番薯（水煮去皮）",
+      "oldUnits": [
+        "個（中型，去皮水煮）"
+      ],
+      "newUnits": [
+        "個（中型，去皮水煮）"
+      ],
+      "gramsPerUnit": [
+        151.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "grain_012",
+      "name": "甜粟米粒（生）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（中型粟米的生粟米粒）"
+      ],
+      "gramsPerUnit": [
+        102
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "grain_013",
+      "name": "藜麥（熟）",
+      "oldUnits": [
+        "碗（熟藜麥）"
+      ],
+      "newUnits": [
+        "碗（熟藜麥）"
+      ],
+      "gramsPerUnit": [
+        232
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "grain_014",
+      "name": "米粉（乾）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "包（乾米粉200克參考規格）"
+      ],
+      "gramsPerUnit": [
+        200.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "grain_015",
+      "name": "米粉（熟）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        185.9771248601365
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "grain_016",
+      "name": "白米（乾，長粒）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        195.48731874502985
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "grain_017",
+      "name": "薯仔（水煮去皮，無鹽）",
+      "oldUnits": [
+        "個（中型，去皮水煮）",
+        "個（小型，去皮水煮）"
+      ],
+      "newUnits": [
+        "個（中型，去皮水煮）",
+        "個（小型，去皮水煮）"
+      ],
+      "gramsPerUnit": [
+        167.0,
+        125.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "veg_011",
+      "name": "椰菜（綠）",
+      "oldUnits": [
+        "個（中型）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（中型）"
+      ],
+      "gramsPerUnit": [
+        908.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_012",
+      "name": "紫椰菜",
+      "oldUnits": [
+        "個（中型）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（中型）"
+      ],
+      "gramsPerUnit": [
+        839.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_013",
+      "name": "白菜花",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "朵（小朵花球）"
+      ],
+      "gramsPerUnit": [
+        13
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_014",
+      "name": "西生菜",
+      "oldUnits": [
+        "片葉（中型）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "片葉（中型）"
+      ],
+      "gramsPerUnit": [
+        8.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_015",
+      "name": "羅馬生菜",
+      "oldUnits": [
+        "片葉（外層）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "片葉（外層）"
+      ],
+      "gramsPerUnit": [
+        28.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_016",
+      "name": "青瓜（連皮）",
+      "oldUnits": [
+        "條（長約21厘米）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（長約21厘米）"
+      ],
+      "gramsPerUnit": [
+        301.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_017",
+      "name": "茄子",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（日本長茄子參考）"
+      ],
+      "gramsPerUnit": [
+        150
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_018",
+      "name": "青甜椒",
+      "oldUnits": [
+        "湯匙（量匙）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（中型）"
+      ],
+      "gramsPerUnit": [
+        119
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_019",
+      "name": "紅甜椒",
+      "oldUnits": [
+        "湯匙（量匙）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（中型）"
+      ],
+      "gramsPerUnit": [
+        119
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_020",
+      "name": "黃甜椒",
+      "oldUnits": [
+        "個（大型，長約9.5厘米）",
+        "條（來源參考大小）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（大型，長約9.5厘米）"
+      ],
+      "gramsPerUnit": [
+        186.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_021",
+      "name": "黃洋蔥",
+      "oldUnits": [
+        "個（來源參考大小，去皮）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（來源參考大小，去皮）"
+      ],
+      "gramsPerUnit": [
+        143.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_022",
+      "name": "紅洋蔥",
+      "oldUnits": [
+        "個（來源參考大小，去皮）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（來源參考大小，去皮）"
+      ],
+      "gramsPerUnit": [
+        197.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_023",
+      "name": "蒜頭",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "瓣"
+      ],
+      "gramsPerUnit": [
+        3
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_024",
+      "name": "薑",
+      "oldUnits": [
+        "片（直徑約2.5厘米）",
+        "茶匙（量匙）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "片（直徑約2.5厘米）",
+        "茶匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        2.2,
+        2.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_025",
+      "name": "蔥",
+      "oldUnits": [
+        "條（中型）",
+        "湯匙（切碎，量匙）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（中型）",
+        "湯匙（切碎，量匙）"
+      ],
+      "gramsPerUnit": [
+        15.0,
+        6.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_026",
+      "name": "西芹",
+      "oldUnits": [
+        "條（中型，長約19–20厘米）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（中型，長約19–20厘米）"
+      ],
+      "gramsPerUnit": [
+        40.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_027",
+      "name": "蘆筍（綠）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（中型，約13–18厘米）"
+      ],
+      "gramsPerUnit": [
+        16
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_028",
+      "name": "韭蔥",
+      "oldUnits": [
+        "條（來源參考大小）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        89.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_029",
+      "name": "鮮冬菇",
+      "oldUnits": [
+        "朵（鮮冬菇，來源參考大小）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "朵（鮮冬菇，來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        19.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_030",
+      "name": "白蘑菇",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "個（中型）"
+      ],
+      "gramsPerUnit": [
+        18
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_031",
+      "name": "杏鮑菇",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "包（杏鮑菇300克參考規格）"
+      ],
+      "gramsPerUnit": [
+        300.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_032",
+      "name": "平菇",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "朵（小型）"
+      ],
+      "gramsPerUnit": [
+        15
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_033",
+      "name": "四季豆（生）",
+      "oldUnits": [
+        "條（長約10厘米）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "條（長約10厘米）"
+      ],
+      "gramsPerUnit": [
+        5.5
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_034",
+      "name": "青豆（生）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        153.2197903677261
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "veg_035",
+      "name": "綠豆芽",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        109.89557378098975
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "bean_001",
+      "name": "鷹嘴豆（水煮，無鹽）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        173.2968663469454
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "bean_002",
+      "name": "小扁豆（水煮，無鹽）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        209.22426546765357
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "bean_003",
+      "name": "紅腰豆（水煮，無鹽）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        187.0338130695691
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "bean_004",
+      "name": "黑豆（水煮，無鹽）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        181.75037202240614
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "bean_005",
+      "name": "毛豆（冷凍後煮熟）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        163.78667246205202
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "nut_001",
+      "name": "杏仁（生）",
+      "oldUnits": [
+        "粒（來源參考大小）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "粒（來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        1.2
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "nut_002",
+      "name": "核桃（生）",
+      "oldUnits": [
+        "瓣（半粒，來源參考大小）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "瓣（半粒，來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        2.025
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "nut_003",
+      "name": "腰果（生）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升；生腰果，品牌參考）"
+      ],
+      "gramsPerUnit": [
+        125.00000000000001
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "nut_004",
+      "name": "花生（生）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升）"
+      ],
+      "gramsPerUnit": [
+        154.27647857715868
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "nut_005",
+      "name": "芝麻（整粒，乾）",
+      "oldUnits": [
+        "湯匙（量匙）",
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        9.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "fish_001",
+      "name": "大西洋鱈魚（生）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "片（大西洋鱈魚柳，來源大小）"
+      ],
+      "newUnits": [
+        "片（大西洋鱈魚柳，來源大小）"
+      ],
+      "gramsPerUnit": [
+        231.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "fish_002",
+      "name": "羅非魚（生）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "片（羅非魚柳，來源大小）"
+      ],
+      "newUnits": [
+        "片（羅非魚柳，來源大小）"
+      ],
+      "gramsPerUnit": [
+        116.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "sea_001",
+      "name": "魷魚（生，混合品種）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "隻（去內臟中型魷魚，參考大小）"
+      ],
+      "newUnits": [
+        "隻（去內臟中型魷魚，參考大小）"
+      ],
+      "gramsPerUnit": [
+        62.5
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "sea_002",
+      "name": "帶子（生，混合品種）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "份（2大粒／5小粒參考大小）"
+      ],
+      "newUnits": [
+        "粒（大帶子）"
+      ],
+      "gramsPerUnit": [
+        15
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "fruit_008",
+      "name": "士多啤梨",
+      "oldUnits": [
+        "粒（中型）"
+      ],
+      "newUnits": [
+        "粒（中型）"
+      ],
+      "gramsPerUnit": [
+        12.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_009",
+      "name": "藍莓",
+      "oldUnits": [
+        "粒（來源參考大小）"
+      ],
+      "newUnits": [
+        "粒（來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        1.36
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_010",
+      "name": "紅桑子",
+      "oldUnits": [
+        "粒（來源參考大小）"
+      ],
+      "newUnits": [
+        "粒（來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        1.9
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_011",
+      "name": "菠蘿",
+      "oldUnits": [
+        "片（直徑約9、厚約1.3厘米）"
+      ],
+      "newUnits": [
+        "片（直徑約9、厚約1.3厘米）"
+      ],
+      "gramsPerUnit": [
+        56.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_012",
+      "name": "芒果（Tommy Atkins品種）",
+      "oldUnits": [
+        "兩（香港司馬兩）"
+      ],
+      "newUnits": [
+        "碗（約250毫升；芒果切粒，通用品種參考）"
+      ],
+      "gramsPerUnit": [
+        174.353554556378
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "fruit_013",
+      "name": "梨（綠Anjou品種）",
+      "oldUnits": [
+        "個（中型綠Anjou梨）",
+        "個（小型綠Anjou梨）",
+        "個（大型綠Anjou梨）"
+      ],
+      "newUnits": [
+        "個（中型綠Anjou梨）",
+        "個（小型綠Anjou梨）",
+        "個（大型綠Anjou梨）"
+      ],
+      "gramsPerUnit": [
+        202.0,
+        172.0,
+        242.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_014",
+      "name": "檸檬（去皮）",
+      "oldUnits": [
+        "個（直徑約5.4厘米）"
+      ],
+      "newUnits": [
+        "個（直徑約5.4厘米）"
+      ],
+      "gramsPerUnit": [
+        58.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_015",
+      "name": "西柚",
+      "oldUnits": [
+        "個（中型，直徑約10厘米）"
+      ],
+      "newUnits": [
+        "個（中型，直徑約10厘米）"
+      ],
+      "gramsPerUnit": [
+        256.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_016",
+      "name": "黃桃",
+      "oldUnits": [
+        "個（中型）",
+        "個（小型）"
+      ],
+      "newUnits": [
+        "個（中型）",
+        "個（小型）"
+      ],
+      "gramsPerUnit": [
+        150.0,
+        130.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_017",
+      "name": "黑布冧",
+      "oldUnits": [
+        "個（直徑約5.4厘米，布冧參考）"
+      ],
+      "newUnits": [
+        "個（直徑約5.4厘米，布冧參考）"
+      ],
+      "gramsPerUnit": [
+        66.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_018",
+      "name": "蜜瓜（Honeydew）",
+      "oldUnits": [
+        "角（小蜜瓜的⅛個）"
+      ],
+      "newUnits": [
+        "角（小蜜瓜的⅛個）"
+      ],
+      "gramsPerUnit": [
+        125.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "fruit_019",
+      "name": "牛油果（一般品種）",
+      "oldUnits": [
+        "個（來源參考大小）"
+      ],
+      "newUnits": [
+        "個（來源參考大小）"
+      ],
+      "gramsPerUnit": [
+        201.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_006",
+      "name": "低脂牛奶（1%乳脂）",
+      "oldUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "newUnits": [
+        "杯（來源參考量杯）"
+      ],
+      "gramsPerUnit": [
+        244.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_007",
+      "name": "脫脂原味希臘乳酪",
+      "oldUnits": [
+        "杯裝（170克規格）"
+      ],
+      "newUnits": [
+        "杯裝（170克規格）"
+      ],
+      "gramsPerUnit": [
+        170.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_008",
+      "name": "無鹽牛油",
+      "oldUnits": [
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        14.2
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "oil_001",
+      "name": "芥花籽油",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.5,
+        14.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "oil_002",
+      "name": "粟米油",
+      "oldUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "newUnits": [
+        "茶匙（量匙）",
+        "湯匙（量匙）"
+      ],
+      "gramsPerUnit": [
+        4.5,
+        13.6
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "soy_006",
+      "name": "軟豆腐（未烹調）",
+      "oldUnits": [
+        "兩（香港司馬兩）",
+        "件（約6.4×7×2.5厘米）"
+      ],
+      "newUnits": [
+        "件（約6.4×7×2.5厘米）"
+      ],
+      "gramsPerUnit": [
+        120.0
+      ],
+      "status": "household_units_updated"
+    },
+    {
+      "code": "carb_007",
+      "name": "白饅頭（成品，台灣樣本）",
+      "oldUnits": [
+        "個（大白饅頭100克參考）"
+      ],
+      "newUnits": [
+        "個（大白饅頭100克參考）"
+      ],
+      "gramsPerUnit": [
+        100.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "egg_004",
+      "name": "皮蛋（鴨蛋，日本標準參考）",
+      "oldUnits": [
+        "隻（去殼皮蛋，55克參考大小）"
+      ],
+      "newUnits": [
+        "隻（去殼皮蛋，55克參考大小）"
+      ],
+      "gramsPerUnit": [
+        55.0
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "egg_005",
+      "name": "熟鹹鴨蛋（Hocean品牌）",
+      "oldUnits": [
+        "隻（Hocean去殼熟蛋）"
+      ],
+      "newUnits": [
+        "隻（Hocean去殼熟蛋）"
+      ],
+      "gramsPerUnit": [
+        62.5
+      ],
+      "status": "unchanged"
+    },
+    {
+      "code": "dairy_009",
+      "name": "高鈣芝士片（安怡原味）",
+      "oldUnits": [],
+      "newUnits": [
+        "片（安怡原味，參考規格）"
+      ],
+      "gramsPerUnit": [
+        20.8
+      ],
+      "status": "new_branded_food"
+    }
+  ],
+  "newFood": {
+    "code": "dairy_009",
+    "source": {
+      "provider": "安怡香港官方產品頁",
+      "recordId": "ANLENE-HK-ORIGINAL-CHEESE-20.8",
+      "description": "安怡原味高鈣芝士；官方網頁每食用分量20.8克營養表",
+      "url": "https://www.anlene.com/hk/zh/products/cheese/anlene-high-calcium-cheese",
+      "release": "官方網頁已索引的產品標籤參考（非本批產品實測）",
+      "accessed": "2026-10-27",
+      "snapshotUrl": "data/food-sources.html#dairy_009",
+      "retrievalMethod": "web_index_of_official_product_page",
+      "availabilityNote": "直接下載產品頁回傳404；五項值由官方頁面的已索引內容核對，實際包裝可能更新。"
+    },
+    "originalServingGrams": 20.8,
+    "nutrientsPerServing": {
+      "calories": 44,
+      "carbs": 1.1,
+      "protein": 3.9,
+      "fat": 2.7,
+      "fiber": 0.5
+    }
+  },
+  "estimateNotes": [
+    "容量換算是假設相近切法及裝填的估算，不是工作坊實測。",
+    "腰果品牌標籤杯用240毫升，250毫升碗約125克；修正計劃稿使用236.6毫升而得到約127克的換算。",
+    "茄子參考日本長茄子約150克；來源未交代去蒂重量，不當作精確可食部實測。"
+  ],
+  "legacyPolicy": "已存草稿的克數保留；已移除或改名的單位回到克數，營養按現版資料計。已發佈作品及圖片保持原快照。"
+}

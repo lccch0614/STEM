@@ -6,7 +6,7 @@
   let portionCatalog={},retiredFoods={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
   const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
-  const fresh = () => ({version:1,dataVersion:'2026-10-27-final-v2',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
+  const fresh = () => ({version:1,dataVersion:'2026-10-27-portions-v3',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
   let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
   let lastTextDiagnostic=null;
   let queue = [], pendingAI = null, pendingImage = null, currentAnalysis = null, conceptImage = null, saveTimer, qrTimer, initialized = false;
@@ -167,6 +167,7 @@
     if(!f.source){note(f.auditNote);return;}
     note(`${f.source.provider}；記錄 ${f.source.recordId}；資料版本 ${f.source.release}；查閱日期 ${f.source.accessed}。`);
     note(`原始名稱：${f.source.description}`);
+    if(f.nutritionNote)note(f.nutritionNote);
     if(Object.values(f.nutrientMeta||{}).some(m=>m.status==='source_estimated'))note('部分數值為官方來源的推估值（原值附括號），已按來源標示保留。');
     if(f.carbsBasis==='available')note('此來源的碳水化合物為可獲得碳水，未換作總碳水；總碳水圖表因此顯示資料不足。');
     if(f.fiberBasis==='insoluble')note('此來源的纖維為不溶性纖維，未換作總膳食纖維。');
@@ -562,11 +563,11 @@
   }
   async function loadFoods() {
     try {
-      const response=await fetch('./data/foods.json?v=2026-10-27-final-2');if (!response.ok) throw new Error('未能載入食材資料。');
+      const response=await fetch('./data/foods.json?v=2026-10-27-portions-3');if (!response.ok) throw new Error('未能載入食材資料。');
       const data=await response.json();
       if (!Array.isArray(data)||!data.length||new Set(data.map(f=>f.code)).size!==data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0||f.status!=='verified'||!f.source||Object.keys(C.nutrients).some(key=>typeof f[key]!=='number'||!Number.isFinite(f[key])||f[key]<0))) throw new Error('食材資料版本未能完整核對，請重新載入定稿檔案。');
       database=data;
-      try{const response=await fetch('./data/portion-guides.json?v=2026-10-27-final-2');if(!response.ok)throw new Error('未能載入份量');const raw=await response.json();portionCatalog=P.catalog(raw,database);retiredFoods=raw.retiredFoods||{};}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
+      try{const response=await fetch('./data/portion-guides.json?v=2026-10-27-portions-3');if(!response.ok)throw new Error('未能載入份量');const raw=await response.json();portionCatalog=P.catalog(raw,database);retiredFoods=raw.retiredFoods||{};}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
       try{const saved=readStorage(PORTION_SETTINGS_KEY);if(saved)workshopMeasures=P.settings(saved,database);}catch{$('teacher-portion-status').textContent='上次實測設定未能核對，請重新匯入或量度。';}
       foodOptions();document.querySelectorAll('[data-food-count]').forEach(node=>node.textContent=`提供 ${data.filter(food=>food.status==='verified').length} 款附官方來源的可選食材`);
       const saved=readStorage(DRAFT_KEY);

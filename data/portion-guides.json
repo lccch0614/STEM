@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "dataVersion": "2026-10-27-final-v2",
-  "note": "每款可選食材均有有來源的常用單位，保留自行輸入克數。香港碗份量逐項引用；兩為香港司馬兩37.7994克。件數、杯、碗是參考估算，並非所有實物的固定重量或建議食量。",
+  "dataVersion": "2026-10-27-portions-v3",
+  "note": "所有可選食材均提供易用常見單位，學生選單不再使用兩；可另輸入準確克數。份量依據區分來源樣本、容量比例估算、品牌標籤及老師實測；不混用生熟重。",
   "guides": {
     "carb_001": [
       {
@@ -323,52 +323,80 @@
     ],
     "veg_002": [
       {
-        "id": "hk-final-veg_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_002-count",
+        "label": "枝（連梗，約13厘米）",
+        "gramsPerUnit": 31,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生西蘭花，包括菜梗；枝的大小有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170379",
+          "foodDescription": "Broccoli, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/170379/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "spear (about 5\" long)",
+          "referenceGrams": 31.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "86530",
+            "fdc_id": "170379",
+            "seq_num": "3",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "spear (about 5\" long)",
+            "gram_weight": "31",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
     ],
     "veg_003": [
       {
-        "id": "hk-final-veg_003-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_003-count",
+        "label": "片葉",
+        "gramsPerUnit": 10,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生菠菜葉；葉片大小差異可很大；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168462",
+          "foodDescription": "Spinach, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/168462/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "leaf",
+          "referenceGrams": 10.0,
           "derivation": "referenceGrams / referenceAmount",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "originalRow": {
+            "id": "83134",
+            "fdc_id": "168462",
+            "seq_num": "3",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "leaf",
+            "gram_weight": "10",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -398,54 +426,44 @@
         },
         "rawKey": "veg_004:4",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_004-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；成熟紅蘿蔔可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_005": [
       {
-        "id": "hk-final-veg_005-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_005-count",
+        "label": "片葉",
+        "gramsPerUnit": 14,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生小白菜葉；品種與葉片大小會影響重量；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170390",
+          "foodDescription": "Cabbage, chinese (pak-choi), raw",
+          "url": "https://fdc.nal.usda.gov/food-details/170390/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "leaf",
+          "referenceGrams": 14.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "86552",
+            "fdc_id": "170390",
+            "seq_num": "3",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "leaf",
+            "gram_weight": "14",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -529,78 +547,112 @@
     ],
     "veg_008": [
       {
-        "id": "hk-final-veg_008-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_008-bowl250",
+        "label": "碗（約250毫升；切片）",
+        "gramsPerUnit": 68.6847336131186,
+        "kind": "reference",
         "foodState": "未烹調重量；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169382",
+          "foodDescription": "Mushrooms, enoki, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "referenceDescription": "cup sliced",
+          "referenceGrams": 65.0,
+          "measureUnitId": "9999",
+          "portionIndex": 3,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "alternateRecord": true,
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
     ],
     "veg_009": [
       {
-        "id": "hk-final-veg_009-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_009-count",
+        "label": "條（中型）",
+        "gramsPerUnit": 196,
+        "kind": "reference",
         "foodState": "生重；連皮可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生翠玉瓜連皮；不同大小重量有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169291",
+          "foodDescription": "Squash, summer, zucchini, includes skin, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "medium",
+          "referenceGrams": 196.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "84610",
+            "fdc_id": "169291",
+            "seq_num": "4",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "medium",
+            "gram_weight": "196",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
     ],
     "veg_010": [
       {
-        "id": "hk-final-veg_010-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_010-bowl250",
+        "label": "碗（約250毫升；切粒）",
+        "gramsPerUnit": 122.57583229418088,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168448",
+          "foodDescription": "Pumpkin, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup (1\" cubes)",
+          "referenceGrams": 116.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
@@ -842,26 +894,40 @@
     ],
     "fruit_006": [
       {
-        "id": "hk-final-fruit_006-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-fruit_006-count",
+        "label": "角（約整個西瓜的1/16）",
+        "gramsPerUnit": 286,
+        "kind": "reference",
         "foodState": "生重；西瓜果肉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
+        "note": "果肉，不包括瓜皮；來源西瓜約長38厘米，大小會影響重量；僅為來源樣本的近似大小，並非每件實物的固定重量。",
         "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "167765",
+          "foodDescription": "Watermelon, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/167765/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "wedge (approx 1/16 of melon)",
+          "referenceGrams": 286.0,
           "derivation": "referenceGrams / referenceAmount",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "originalRow": {
+            "id": "81935",
+            "fdc_id": "167765",
+            "seq_num": "4",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "wedge (approx 1/16 of melon)",
+            "gram_weight": "286",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -1263,30 +1329,6 @@
     ],
     "meat_001": [
       {
-        "id": "hk-final-meat_001-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；豬柳可分離瘦肉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "portion-meat_001-0",
         "label": "條（整條豬柳，來源參考大小）",
         "gramsPerUnit": 505.0,
@@ -1327,30 +1369,6 @@
     ],
     "meat_002": [
       {
-        "id": "hk-final-meat_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；90%瘦肉、10%脂肪",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "portion-meat_002-0",
         "label": "湯匙（中式，生肉碎）",
         "gramsPerUnit": 20.0,
@@ -1377,30 +1395,6 @@
       }
     ],
     "meat_003": [
-      {
-        "id": "hk-final-meat_003-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；去骨去皮雞髀肉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
       {
         "id": "usda-meat_003-1",
         "label": "件（來源參考大小，去皮）",
@@ -1429,30 +1423,6 @@
     ],
     "meat_004": [
       {
-        "id": "hk-final-meat_004-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；去骨去皮雞胸肉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "usda-meat_004-1",
         "label": "件（來源參考大小，去皮去骨）",
         "gramsPerUnit": 272.0,
@@ -1479,30 +1449,6 @@
       }
     ],
     "meat_005": [
-      {
-        "id": "hk-final-meat_005-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；養殖大西洋鮭魚可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
       {
         "id": "portion-meat_005-0",
         "label": "片（整片去骨魚柳，來源大小）",
@@ -1544,30 +1490,6 @@
     ],
     "meat_007": [
       {
-        "id": "hk-final-meat_007-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；混合品種蝦可食部分；來源註明可能含保水添加物",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "portion-meat_007-0",
         "label": "隻（中型去殼蝦，參考大小）",
         "gramsPerUnit": 6.0,
@@ -1608,30 +1530,6 @@
     ],
     "meat_009": [
       {
-        "id": "hk-final-meat_009-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "水浸罐裝；瀝乾可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "usda-meat_009-2",
         "label": "罐（瀝乾165克規格）",
         "gramsPerUnit": 165.0,
@@ -1658,30 +1556,6 @@
       }
     ],
     "meat_010": [
-      {
-        "id": "hk-final-meat_010-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；去皮去骨雞翼肉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
       {
         "id": "usda-meat_010-1",
         "label": "隻（去骨去皮肉，參考大小）",
@@ -1710,30 +1584,6 @@
     ],
     "soy_002": [
       {
-        "id": "hk-final-soy_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "未烹調重量；硫酸鈣製硬豆腐",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "usda-soy_002-1",
         "label": "磚（參考324克規格）",
         "gramsPerUnit": 324.0,
@@ -1760,30 +1610,6 @@
       }
     ],
     "soy_004": [
-      {
-        "id": "hk-final-soy_004-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "未乾燥、非油炸的鮮豆漿薄膜可食重量；日本生湯葉參考，非乾腐皮或浸發枝竹",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
       {
         "id": "portion-soy_004-0",
         "label": "張（生平湯葉，43克參考規格）",
@@ -1911,30 +1737,6 @@
           "alternateRecord": false
         },
         "rawKey": "egg_002:0",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-egg_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；去殼全蛋",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
         "hkCommon": true
       }
     ],
@@ -2138,26 +1940,40 @@
     ],
     "grain_012": [
       {
-        "id": "hk-final-grain_012-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-grain_012-count",
+        "label": "條（中型粟米的生粟米粒）",
+        "gramsPerUnit": 102,
+        "kind": "reference",
         "foodState": "生重；黃白甜粟米可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
+        "note": "只計去芯後的生粟米粒；不包括粟米芯；僅為來源樣本的近似大小，並非每件實物的固定重量。",
         "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169998",
+          "foodDescription": "Corn, sweet, yellow, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/169998/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "ear, medium (6-3/4\" to 7-1/2\" long) yields",
+          "referenceGrams": 102.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "85848",
+            "fdc_id": "169998",
+            "seq_num": "3",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "ear, medium (6-3/4\" to 7-1/2\" long) yields",
+            "gram_weight": "102",
+            "data_points": "3",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -2190,78 +2006,98 @@
     ],
     "grain_014": [
       {
-        "id": "hk-final-grain_014-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "portion-grain_014-0",
+        "label": "包（乾米粉200克參考規格）",
+        "gramsPerUnit": 200.0,
+        "kind": "reference",
         "foodState": "乾重；未煮",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 1,
+        "note": "常用份量只作近似量度，並非建議食量。引用未吸水乾米粉200克規格；非糙米米粉、粉絲或煮熟米粉。不是所有品牌一包都200克。",
+        "defaultQuantity": 0.25,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "源順米粉製造商產品頁",
+          "foodRecordId": "佛祖牌100%純米米粉",
+          "foodDescription": "佛祖牌100%純米米粉：單包重量200 g",
+          "url": "https://isun.hc.net.tw/231454307052525/index.php",
+          "release": "來源頁面／原始記錄",
+          "accessed": "2026-10-23",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "佛祖牌100%純米米粉：單包重量200 g",
+          "referenceGrams": 200.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
+          "factor": 1,
+          "alternateRecord": true,
+          "snapshotSha256": "4d207701b31d38db914bb70a5bedd011735e9003a74ace77ebccd36006452bfa"
+        }
       }
     ],
     "grain_015": [
       {
-        "id": "hk-final-grain_015-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-grain_015-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 185.9771248601365,
+        "kind": "reference",
         "foodState": "熟重",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
         "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168914",
+          "foodDescription": "Rice noodles, cooked",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup",
+          "referenceGrams": 176.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
     ],
     "grain_016": [
       {
-        "id": "hk-final-grain_016-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-grain_016-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 195.48731874502985,
+        "kind": "reference",
         "foodState": "乾重；未煮，未強化長粒白米",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
         "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169756",
+          "foodDescription": "Rice, white, long-grain, regular, raw, unenriched",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "referenceDescription": "cup",
+          "referenceGrams": 185.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "alternateRecord": true,
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
@@ -2343,30 +2179,6 @@
         },
         "rawKey": "veg_011:4",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_011-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_012": [
@@ -2394,54 +2206,44 @@
         },
         "rawKey": "veg_012:4",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_012-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_013": [
       {
-        "id": "hk-final-veg_013-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_013-count",
+        "label": "朵（小朵花球）",
+        "gramsPerUnit": 13,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生白菜花，切開後一朵的大小有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169986",
+          "foodDescription": "Cauliflower, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "floweret",
+          "referenceGrams": 13.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "85819",
+            "fdc_id": "169986",
+            "seq_num": "2",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "floweret",
+            "gram_weight": "13",
+            "data_points": "1",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -2471,30 +2273,6 @@
         },
         "rawKey": "veg_014:6",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_014-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_015": [
@@ -2521,30 +2299,6 @@
           "alternateRecord": false
         },
         "rawKey": "veg_015:2",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_015-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
         "hkCommon": true
       }
     ],
@@ -2573,156 +2327,112 @@
         },
         "rawKey": "veg_016:1",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_016-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；連皮可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_017": [
       {
-        "id": "hk-final-veg_017-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_017-long-eggplant",
+        "label": "條（日本長茄子參考）",
+        "gramsPerUnit": 150,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "來源為日本長茄子；與資料庫一般生茄子的營養樣本不同。來源未說明重量是否已去蒂，僅供粗略估算，大小及去蒂會影響實際重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "香港衞生署星級有營食肆運動",
+          "foodRecordId": "eatsmart-1016",
+          "foodDescription": "日本長茄子：1個約150克（食譜原材料）",
+          "url": "https://restaurant.eatsmart.gov.hk/b5/content.aspx?content_id=1016",
+          "release": "營廚第二十三期；來源頁2019-05-01",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "日本長茄子1個",
+          "referenceGrams": 150,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "snapshotSha256": "db8d74cfc8f6a431e4f1d973732a223b822badeb83755168e365e16df23efa49",
+          "portionStatus": "recipe_estimate",
+          "edibleWeightStatus": "source_does_not_specify_trimming"
         },
         "hkCommon": true
       }
     ],
     "veg_018": [
       {
-        "id": "usda-veg_018-2",
-        "label": "湯匙（量匙）",
-        "gramsPerUnit": 9.3,
-        "kind": "official",
+        "id": "child-v3-veg_018-count",
+        "label": "個（中型）",
+        "gramsPerUnit": 119,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "note": "生青甜椒；以可食部分估算；僅為來源樣本的近似大小，並非每件實物的固定重量。",
         "defaultQuantity": 1,
         "source": {
           "provider": "USDA FoodData Central",
           "foodRecordId": "170427",
           "foodDescription": "Peppers, sweet, green, raw",
-          "release": "2018-04",
-          "url": "https://fdc.nal.usda.gov/download-datasets/",
-          "referenceAmount": "1",
-          "referenceDescription": "tbsp",
-          "referenceGrams": 9.3,
-          "measureUnitId": "9999",
-          "portionIndex": 2,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": true
-        },
-        "rawKey": "veg_018:2",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_018-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "url": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "medium (approx 2-3/4\" long, 2-1/2\" dia)",
+          "referenceGrams": 119.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "86627",
+            "fdc_id": "170427",
+            "seq_num": "5",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "medium (approx 2-3/4\" long, 2-1/2\" dia)",
+            "gram_weight": "119",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
     ],
     "veg_019": [
       {
-        "id": "usda-veg_019-2",
-        "label": "湯匙（量匙）",
-        "gramsPerUnit": 9.3,
-        "kind": "official",
+        "id": "child-v3-veg_019-count",
+        "label": "個（中型）",
+        "gramsPerUnit": 119,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "note": "生紅甜椒；以可食部分估算；僅為來源樣本的近似大小，並非每件實物的固定重量。",
         "defaultQuantity": 1,
         "source": {
           "provider": "USDA FoodData Central",
           "foodRecordId": "170108",
           "foodDescription": "Peppers, sweet, red, raw",
-          "release": "2018-04",
-          "url": "https://fdc.nal.usda.gov/download-datasets/",
-          "referenceAmount": "1",
-          "referenceDescription": "tablespoon",
-          "referenceGrams": 9.3,
-          "measureUnitId": "9999",
-          "portionIndex": 2,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": true
-        },
-        "rawKey": "veg_019:2",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_019-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "url": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "medium (approx 2-3/4\" long, 2-1/2 dia.)",
+          "referenceGrams": 119.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "86066",
+            "fdc_id": "170108",
+            "seq_num": "5",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "medium (approx 2-3/4\" long, 2-1/2 dia.)",
+            "gram_weight": "119",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -2765,68 +2475,6 @@
           "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
         },
         "hkCommon": true
-      },
-      {
-        "id": "portion-veg_020-1",
-        "label": "條（來源參考大小）",
-        "gramsPerUnit": 5.2,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "份量與營養分別引用食物記錄；大小及品種可影響實際重量。",
-        "defaultQuantity": 1,
-        "source": {
-          "provider": "USDA FoodData Central",
-          "foodRecordId": "169383",
-          "foodDescription": "Peppers, sweet, yellow, raw",
-          "url": "https://fdc.nal.usda.gov/food-details/169383/nutrients",
-          "release": "SR Legacy 2018-04",
-          "accessed": "2026-10-23",
-          "referenceAmount": "10",
-          "referenceDescription": "strips",
-          "referenceGrams": 52.0,
-          "derivation": "referenceGrams / referenceAmount",
-          "factor": 1,
-          "alternateRecord": true,
-          "originalRow": {
-            "id": "84763",
-            "fdc_id": "169383",
-            "seq_num": "2",
-            "amount": "10",
-            "measure_unit_id": "9999",
-            "portion_description": "",
-            "modifier": "strips",
-            "gram_weight": "52",
-            "data_points": "",
-            "footnote": "",
-            "min_year_acquired": ""
-          },
-          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
-        },
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_020-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_021": [
@@ -2853,30 +2501,6 @@
           "alternateRecord": false
         },
         "rawKey": "veg_021:0",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_021-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
         "hkCommon": true
       }
     ],
@@ -2905,79 +2529,44 @@
         },
         "rawKey": "veg_022:0",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_022-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_023": [
       {
-        "id": "usda-veg_023-1",
-        "label": "茶匙（量匙）",
-        "gramsPerUnit": 2.8,
-        "kind": "official",
+        "id": "child-v3-veg_023-count",
+        "label": "瓣",
+        "gramsPerUnit": 3,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "同食物、同處理狀態的另一USDA記錄；來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "note": "去皮蒜瓣；大小有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
         "defaultQuantity": 1,
         "source": {
           "provider": "USDA FoodData Central",
           "foodRecordId": "169230",
           "foodDescription": "Garlic, raw",
-          "release": "2018-04",
-          "url": "https://fdc.nal.usda.gov/download-datasets/",
-          "referenceAmount": "1",
-          "referenceDescription": "tsp",
-          "referenceGrams": 2.8,
-          "measureUnitId": "9999",
-          "portionIndex": 1,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": true
-        },
-        "rawKey": "veg_023:1",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_023-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "url": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "clove",
+          "referenceGrams": 3.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "84480",
+            "fdc_id": "169230",
+            "seq_num": "3",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "clove",
+            "gram_weight": "3",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -3032,30 +2621,6 @@
         },
         "rawKey": "veg_024:0",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_024-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_025": [
@@ -3108,30 +2673,6 @@
         },
         "rawKey": "veg_025:1",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_025-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；去根莖葉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_026": [
@@ -3159,54 +2700,44 @@
         },
         "rawKey": "veg_026:4",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_026-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_027": [
       {
-        "id": "hk-final-veg_027-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_027-count",
+        "label": "條（中型，約13–18厘米）",
+        "gramsPerUnit": 16,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生蘆筍；粗幼有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168389",
+          "foodDescription": "Asparagus, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/168389/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "spear, medium (5-1/4\" to 7\" long)",
+          "referenceGrams": 16.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "83014",
+            "fdc_id": "168389",
+            "seq_num": "3",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "spear, medium (5-1/4\" to 7\" long)",
+            "gram_weight": "16",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -3235,30 +2766,6 @@
           "alternateRecord": false
         },
         "rawKey": "veg_028:1",
-        "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_028-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；球莖及下部葉段",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
         "hkCommon": true
       }
     ],
@@ -3300,106 +2807,110 @@
           "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
         },
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_029-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "未烹調重量；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_030": [
       {
-        "id": "hk-final-veg_030-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_030-count",
+        "label": "個（中型）",
+        "gramsPerUnit": 18,
+        "kind": "reference",
         "foodState": "未烹調重量；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生白蘑菇；大小有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169251",
+          "foodDescription": "Mushrooms, white, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/169251/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "medium",
+          "referenceGrams": 18.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "84529",
+            "fdc_id": "169251",
+            "seq_num": "4",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "medium",
+            "gram_weight": "18",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
     ],
     "veg_031": [
       {
-        "id": "hk-final-veg_031-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "portion-veg_031-0",
+        "label": "包（杏鮑菇300克參考規格）",
+        "gramsPerUnit": 300.0,
+        "kind": "reference",
         "foodState": "未烹調重量；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "常用份量只作近似量度，並非建議食量。這是來源產品的300克袋裝規格，不是每包杏鮑菇都相同。去掉不可食部分後如需準確重量，可改用克數。",
+        "defaultQuantity": 0.5,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "YES Produce 原廠產品規格",
+          "foodRecordId": "King-Oyster-Mushroom",
+          "foodDescription": "King Oyster Mushroom: 300 grams per pack",
+          "url": "https://www.yesproduce.com/mushrooms",
+          "release": "來源頁面／原始記錄",
+          "accessed": "2026-10-23",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "King Oyster Mushroom: 300 grams per pack",
+          "referenceGrams": 300.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
+          "factor": 1,
+          "alternateRecord": true,
+          "snapshotSha256": "7af9364d8bd0cea7dee5c15297b6fb60cd36dd7b799f0d50c9ce7ec808db5c0a"
+        }
       }
     ],
     "veg_032": [
       {
-        "id": "hk-final-veg_032-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_032-count",
+        "label": "朵（小型）",
+        "gramsPerUnit": 15,
+        "kind": "reference",
         "foodState": "未烹調重量；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "生平菇；大小有差異；僅為來源樣本的近似大小，並非每件實物的固定重量。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168580",
+          "foodDescription": "Mushrooms, oyster, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/168580/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
+          "referenceDescription": "small",
+          "referenceGrams": 15.0,
           "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "83362",
+            "fdc_id": "168580",
+            "seq_num": "2",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "small",
+            "gram_weight": "15",
+            "data_points": "",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
         },
         "hkCommon": true
       }
@@ -3442,142 +2953,124 @@
           "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
         },
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-veg_033-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "veg_034": [
       {
-        "id": "hk-final-veg_034-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_034-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 153.2197903677261,
+        "kind": "reference",
         "foodState": "生重；去莢可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "170419",
+          "foodDescription": "Peas, green, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup",
+          "referenceGrams": 145.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
     ],
     "veg_035": [
       {
-        "id": "hk-final-veg_035-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-veg_035-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 109.89557378098975,
+        "kind": "reference",
         "foodState": "生重；可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169957",
+          "foodDescription": "Mung beans, mature seeds, sprouted, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup",
+          "referenceGrams": 104.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
     ],
     "bean_001": [
       {
-        "id": "hk-final-bean_001-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-bean_001-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 173.2968663469454,
+        "kind": "reference",
         "foodState": "熟重；水煮，無添加鹽",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173757",
+          "foodDescription": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup",
+          "referenceGrams": 164.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
     ],
     "bean_002": [
       {
-        "id": "hk-final-bean_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-bean_002-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 209.22426546765357,
+        "kind": "reference",
         "foodState": "熟重；水煮，無添加鹽",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
-        "id": "usda-bean_002-1",
-        "label": "湯匙（量匙）",
-        "gramsPerUnit": 12.3,
-        "kind": "official",
-        "foodState": "熟重；水煮，無添加鹽",
-        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
         "defaultQuantity": 1,
         "source": {
           "provider": "USDA FoodData Central",
@@ -3586,49 +3079,34 @@
           "release": "2018-04",
           "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "tbsp",
-          "referenceGrams": 12.3,
+          "referenceDescription": "cup",
+          "referenceGrams": 198.0,
           "measureUnitId": "9999",
-          "portionIndex": 1,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "alternateRecord": false,
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
-        "rawKey": "bean_002:1",
         "hkCommon": true
       }
     ],
     "bean_003": [
       {
-        "id": "hk-final-bean_003-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-bean_003-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 187.0338130695691,
+        "kind": "reference",
         "foodState": "熟重；水煮，無添加鹽",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
-        "id": "usda-bean_003-1",
-        "label": "湯匙（量匙）",
-        "gramsPerUnit": 11.0,
-        "kind": "official",
-        "foodState": "熟重；水煮，無添加鹽",
-        "note": "來源參考份量；大小、品牌及量具會影響實際重量。按來源量匙參考，不以一般餐具湯匙代替。",
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
         "defaultQuantity": 1,
         "source": {
           "provider": "USDA FoodData Central",
@@ -3637,65 +3115,94 @@
           "release": "2018-04",
           "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "tbsp",
-          "referenceGrams": 11.0,
+          "referenceDescription": "cup",
+          "referenceGrams": 177.0,
           "measureUnitId": "9999",
-          "portionIndex": 1,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "alternateRecord": false,
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
-        "rawKey": "bean_003:1",
         "hkCommon": true
       }
     ],
     "bean_004": [
       {
-        "id": "hk-final-bean_004-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-bean_004-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 181.75037202240614,
+        "kind": "reference",
         "foodState": "熟重；水煮，無添加鹽；非黑大豆",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "173735",
+          "foodDescription": "Beans, black, mature seeds, cooked, boiled, without salt",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup",
+          "referenceGrams": 172.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
     ],
     "bean_005": [
       {
-        "id": "hk-final-bean_005-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-bean_005-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 163.78667246205202,
+        "kind": "reference",
         "foodState": "冷凍產品煮熟重量；去莢可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "168411",
+          "foodDescription": "Edamame, frozen, prepared",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
+          "referenceDescription": "cup",
+          "referenceGrams": 155.0,
+          "measureUnitId": "9999",
+          "portionIndex": 0,
+          "derivation": "referenceGrams / referenceAmount * factor",
           "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
@@ -3725,30 +3232,6 @@
         },
         "rawKey": "nut_001:5",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-nut_001-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "未烘烤重量；果仁",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 1,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "nut_002": [
@@ -3776,80 +3259,74 @@
         },
         "rawKey": "nut_002:5",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-nut_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "未烘烤重量；果仁",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 1,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "nut_003": [
       {
-        "id": "hk-final-nut_003-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-nut_003-bowl250",
+        "label": "碗（約250毫升；生腰果，品牌參考）",
+        "gramsPerUnit": 125.00000000000001,
+        "kind": "reference",
         "foodState": "未烘烤重量；果仁",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 1,
+        "note": "約250毫升碗；由來源240.0毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 0.25,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "NOW Foods 原廠標籤",
+          "foodRecordId": "NOW-7065",
+          "foodDescription": "1/4 cup raw unsalted cashews = 30 g",
+          "url": "https://www.nowfoods.com/products/natural-foods/cashews-whole-raw-unsalted",
+          "release": "來源頁面／原始記錄",
           "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "referenceAmount": "0.25",
+          "referenceDescription": "1/4 cup raw unsalted cashews = 30 g",
+          "referenceGrams": 30.0,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "factor": 1.0416666666666667,
+          "alternateRecord": true,
+          "conversion": {
+            "sourceVolumeMl": 240,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/owm/metric-si/metric-kitchen/metric-kitchen-cooking-measurement-equivalencies"
+          },
+          "portionStatus": "volume_scaled_estimate"
         },
         "hkCommon": true
       }
     ],
     "nut_004": [
       {
-        "id": "hk-final-nut_004-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-nut_004-bowl250",
+        "label": "碗（約250毫升）",
+        "gramsPerUnit": 154.27647857715868,
+        "kind": "reference",
         "foodState": "生重；花生仁",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 1,
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。",
+        "defaultQuantity": 0.25,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "172430",
+          "foodDescription": "Peanuts, all types, raw",
+          "release": "2018-04",
+          "url": "https://fdc.nal.usda.gov/download-datasets/",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "referenceDescription": "cup",
+          "referenceGrams": 146.0,
+          "measureUnitId": "9999",
+          "portionIndex": 1,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "alternateRecord": true,
+          "factor": 1.0566882094325938,
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate",
+          "accessed": "2026-10-27"
         },
         "hkCommon": true
       }
@@ -3879,57 +3356,9 @@
         },
         "rawKey": "nut_005:1",
         "hkCommon": true
-      },
-      {
-        "id": "hk-final-nut_005-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "乾重；整粒芝麻",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 1,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
       }
     ],
     "fish_001": [
-      {
-        "id": "hk-final-fish_001-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；大西洋鱈魚可食部分；來源未限定養殖或野生",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
       {
         "id": "portion-fish_001-0",
         "label": "片（大西洋鱈魚柳，來源大小）",
@@ -3971,30 +3400,6 @@
     ],
     "fish_002": [
       {
-        "id": "hk-final-fish_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；羅非魚可食部分；來源未限定養殖或野生",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "portion-fish_002-0",
         "label": "片（羅非魚柳，來源大小）",
         "gramsPerUnit": 116.0,
@@ -4035,30 +3440,6 @@
     ],
     "sea_001": [
       {
-        "id": "hk-final-sea_001-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "生重；混合品種魷魚可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "portion-sea_001-0",
         "label": "隻（去內臟中型魷魚，參考大小）",
         "gramsPerUnit": 62.5,
@@ -4086,36 +3467,12 @@
     ],
     "sea_002": [
       {
-        "id": "hk-final-sea_002-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-sea_002-large-scallop",
+        "label": "粒（大帶子）",
+        "gramsPerUnit": 15,
+        "kind": "reference",
         "foodState": "生重；混合品種帶子可食部分",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
-        "id": "usda-sea_002-0",
-        "label": "份（2大粒／5小粒參考大小）",
-        "gramsPerUnit": 30.0,
-        "kind": "official",
-        "foodState": "生重；混合品種帶子可食部分",
-        "note": "來源參考份量；大小、品牌及量具會影響實際重量。",
+        "note": "按來源「2粒大帶子共30克」推算每粒約15克；大小差異會影響重量。",
         "defaultQuantity": 1,
         "source": {
           "provider": "USDA FoodData Central",
@@ -4128,10 +3485,12 @@
           "referenceGrams": 30.0,
           "measureUnitId": "9999",
           "portionIndex": 0,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "alternateRecord": false,
+          "factor": 0.5,
+          "portionStatus": "count_divided_estimate",
+          "conversionNote": "來源一份含2大粒，除以2得每大粒15克。"
         },
-        "rawKey": "sea_002:0",
         "hkCommon": true
       }
     ],
@@ -4258,26 +3617,48 @@
     ],
     "fruit_012": [
       {
-        "id": "hk-final-fruit_012-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
+        "id": "child-v3-fruit_012-bowl250",
+        "label": "碗（約250毫升；芒果切粒，通用品種參考）",
+        "gramsPerUnit": 174.353554556378,
+        "kind": "reference",
         "foodState": "生重；去皮果肉",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
+        "note": "約250毫升碗；由來源236.6毫升杯按容量比例估算，食材切法及裝填須相近，並非實測碗重。份量來自一般芒果切粒，營養來自Tommy Atkins品種，並非同一樣本。",
         "defaultQuantity": 1,
         "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
+          "provider": "USDA FoodData Central",
+          "foodRecordId": "169910",
+          "foodDescription": "Mangos, raw",
+          "url": "https://fdc.nal.usda.gov/food-details/169910/nutrients",
+          "release": "SR Legacy 2018-04",
           "accessed": "2026-10-27",
           "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+          "referenceDescription": "cup pieces",
+          "referenceGrams": 165.0,
+          "derivation": "referenceGrams / referenceAmount * factor",
+          "factor": 1.0566882094325938,
+          "alternateRecord": true,
+          "originalRow": {
+            "id": "85651",
+            "fdc_id": "169910",
+            "seq_num": "1",
+            "amount": "1",
+            "measure_unit_id": "9999",
+            "portion_description": "",
+            "modifier": "cup pieces",
+            "gram_weight": "165",
+            "data_points": "3",
+            "footnote": "",
+            "min_year_acquired": ""
+          },
+          "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+          "conversion": {
+            "sourceVolumeMl": 236.5882365,
+            "targetVolumeMl": 250,
+            "method": "volume_ratio",
+            "assumption": "same food preparation and comparable packing; estimate, not measured",
+            "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+          },
+          "portionStatus": "volume_scaled_estimate"
         },
         "hkCommon": true
       }
@@ -4785,30 +4166,6 @@
     ],
     "soy_006": [
       {
-        "id": "hk-final-soy_006-HK-sima-tael",
-        "label": "兩（香港司馬兩）",
-        "gramsPerUnit": 37.7994,
-        "kind": "official",
-        "foodState": "未烹調重量；硫酸鈣及氯化鎂製軟豆腐",
-        "note": "香港買餸常用重量單位；1兩＝37.7994克，畫面約為37.8克。只計目前標示狀態的可食部分，不含骨、殼或果皮等不可食部分；沒有估計件數或生熟轉換。",
-        "defaultQuantity": 2,
-        "source": {
-          "provider": "香港政府度量衡換算表（立法會文件）",
-          "foodRecordId": "HK-sima-tael",
-          "foodDescription": "1司馬兩 = 37.7994克",
-          "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-          "release": "2017官方文件",
-          "accessed": "2026-10-27",
-          "referenceAmount": "1",
-          "referenceDescription": "1 tael (sima) = 37.7994 gram",
-          "referenceGrams": 37.7994,
-          "derivation": "referenceGrams / referenceAmount",
-          "alternateRecord": false,
-          "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-        },
-        "hkCommon": true
-      },
-      {
         "id": "usda-soy_006-0",
         "label": "件（約6.4×7×2.5厘米）",
         "gramsPerUnit": 120.0,
@@ -4911,6 +4268,32 @@
           "factor": 1,
           "alternateRecord": false,
           "snapshotSha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
+        },
+        "hkCommon": true
+      }
+    ],
+    "dairy_009": [
+      {
+        "id": "child-v3-dairy_009-slice",
+        "label": "片（安怡原味，參考規格）",
+        "gramsPerUnit": 20.8,
+        "kind": "reference",
+        "foodState": "即食芝士片；安怡原味產品標籤參考",
+        "note": "按安怡原味標籤參考每片20.8克；不同品牌、產品及包裝的重量與營養可能不同。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "安怡香港官方產品頁",
+          "foodRecordId": "ANLENE-HK-ORIGINAL-CHEESE-20.8",
+          "foodDescription": "安怡原味高鈣芝士片，每食用份量20.8克；250克12片包裝的每片參考",
+          "url": "https://www.anlene.com/hk/zh/products/cheese/anlene-high-calcium-cheese",
+          "release": "官方網頁已索引的產品標籤參考（非本批產品實測）",
+          "accessed": "2026-10-27",
+          "referenceAmount": "1",
+          "referenceDescription": "片（20.8克標籤份量）",
+          "referenceGrams": 20.8,
+          "derivation": "referenceGrams / referenceAmount",
+          "alternateRecord": false,
+          "portionStatus": "brand_label_reference"
         },
         "hkCommon": true
       }
@@ -5843,7 +5226,7 @@
     "1120": "Onion",
     "9999": "undetermined"
   },
-  "portionVersion": "2026-10-23-all-v1",
+  "portionVersion": "2026-10-27-portions-v3",
   "sourceRecords": {
     "hk-final-carb_001-CHP-energy-rice": {
       "provider": "香港衞生署衞生防護中心",
@@ -6015,33 +5398,61 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_002-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "170379",
+      "foodDescription": "Broccoli, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/170379/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "spear (about 5\" long)",
+      "referenceGrams": 31.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "86530",
+        "fdc_id": "170379",
+        "seq_num": "3",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "spear (about 5\" long)",
+        "gram_weight": "31",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
-    "hk-final-veg_003-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_003-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "168462",
+      "foodDescription": "Spinach, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/168462/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "leaf",
+      "referenceGrams": 10.0,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "originalRow": {
+        "id": "83134",
+        "fdc_id": "168462",
+        "seq_num": "3",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "leaf",
+        "gram_weight": "10",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "usda-veg_004-4": {
       "provider": "USDA FoodData Central",
@@ -6057,33 +5468,33 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": true
     },
-    "hk-final-veg_004-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_005-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "170390",
+      "foodDescription": "Cabbage, chinese (pak-choi), raw",
+      "url": "https://fdc.nal.usda.gov/food-details/170390/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "leaf",
+      "referenceGrams": 14.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-veg_005-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "86552",
+        "fdc_id": "170390",
+        "seq_num": "3",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "leaf",
+        "gram_weight": "14",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "usda-veg_006-5": {
       "provider": "USDA FoodData Central",
@@ -6127,47 +5538,81 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_008-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-veg_008-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169382",
+      "foodDescription": "Mushrooms, enoki, raw",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "referenceDescription": "cup sliced",
+      "referenceGrams": 65.0,
+      "measureUnitId": "9999",
+      "portionIndex": 3,
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "alternateRecord": true,
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "hk-final-veg_009-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_009-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169291",
+      "foodDescription": "Squash, summer, zucchini, includes skin, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "medium",
+      "referenceGrams": 196.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "84610",
+        "fdc_id": "169291",
+        "seq_num": "4",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "medium",
+        "gram_weight": "196",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
-    "hk-final-veg_010-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-veg_010-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "168448",
+      "foodDescription": "Pumpkin, raw",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "referenceDescription": "cup (1\" cubes)",
+      "referenceGrams": 116.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
     "usda-fruit_001-2": {
       "provider": "USDA FoodData Central",
@@ -6295,19 +5740,33 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-fruit_006-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-fruit_006-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "167765",
+      "foodDescription": "Watermelon, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/167765/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "wedge (approx 1/16 of melon)",
+      "referenceGrams": 286.0,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "originalRow": {
+        "id": "81935",
+        "fdc_id": "167765",
+        "seq_num": "4",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "wedge (approx 1/16 of melon)",
+        "gram_weight": "286",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "usda-fruit_007-2": {
       "provider": "USDA FoodData Central",
@@ -6520,20 +5979,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-meat_001-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "portion-meat_001-0": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "168249",
@@ -6562,20 +6007,6 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-meat_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "portion-meat_002-0": {
       "provider": "香港衞生署家庭健康服務",
       "foodRecordId": "FHS-14732",
@@ -6591,20 +6022,6 @@
       "alternateRecord": true,
       "snapshotSha256": "010058929e80e2fe4a0c5d30bec884fa41306e6ebf92c84aa63fa347cdef2de5"
     },
-    "hk-final-meat_003-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-meat_003-1": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "173627",
@@ -6619,20 +6036,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-meat_004-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-meat_004-1": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "171077",
@@ -6646,20 +6049,6 @@
       "portionIndex": 1,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": true
-    },
-    "hk-final-meat_005-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "portion-meat_005-0": {
       "provider": "USDA FoodData Central",
@@ -6689,20 +6078,6 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-meat_007-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "portion-meat_007-0": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "174210",
@@ -6731,20 +6106,6 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-meat_009-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-meat_009-2": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "173709",
@@ -6758,20 +6119,6 @@
       "portionIndex": 2,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-meat_010-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "usda-meat_010-1": {
       "provider": "USDA FoodData Central",
@@ -6787,20 +6134,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-soy_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-soy_002-1": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "172475",
@@ -6814,20 +6147,6 @@
       "portionIndex": 1,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-soy_004-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "portion-soy_004-0": {
       "provider": "宮城野ゆば本舗 原廠網店",
@@ -6899,20 +6218,6 @@
       "portionIndex": 0,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-egg_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "portion-soy_003-0": {
       "provider": "USDA FoodData Central",
@@ -7027,19 +6332,33 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-grain_012-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-grain_012-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169998",
+      "foodDescription": "Corn, sweet, yellow, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/169998/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "ear, medium (6-3/4\" to 7-1/2\" long) yields",
+      "referenceGrams": 102.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "85848",
+        "fdc_id": "169998",
+        "seq_num": "3",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "ear, medium (6-3/4\" to 7-1/2\" long) yields",
+        "gram_weight": "102",
+        "data_points": "3",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "hk-final-grain_013-CHP-energy-quinoa": {
       "provider": "香港衞生署衞生防護中心",
@@ -7055,47 +6374,68 @@
       "alternateRecord": true,
       "snapshotSha256": "1e81644c1bb9b57505964c17cc00603bf392f3486cacdf2f47f6776e7ea9835d"
     },
-    "hk-final-grain_014-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "portion-grain_014-0": {
+      "provider": "源順米粉製造商產品頁",
+      "foodRecordId": "佛祖牌100%純米米粉",
+      "foodDescription": "佛祖牌100%純米米粉：單包重量200 g",
+      "url": "https://isun.hc.net.tw/231454307052525/index.php",
+      "release": "來源頁面／原始記錄",
+      "accessed": "2026-10-23",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "佛祖牌100%純米米粉：單包重量200 g",
+      "referenceGrams": 200.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1,
+      "alternateRecord": true,
+      "snapshotSha256": "4d207701b31d38db914bb70a5bedd011735e9003a74ace77ebccd36006452bfa"
     },
-    "hk-final-grain_015-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-grain_015-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "168914",
+      "foodDescription": "Rice noodles, cooked",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "referenceDescription": "cup",
+      "referenceGrams": 176.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "hk-final-grain_016-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-grain_016-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169756",
+      "foodDescription": "Rice, white, long-grain, regular, raw, unenriched",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "referenceDescription": "cup",
+      "referenceGrams": 185.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "alternateRecord": true,
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
     "usda-grain_017-2": {
       "provider": "USDA FoodData Central",
@@ -7139,20 +6479,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_011-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-veg_012-4": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "169977",
@@ -7167,33 +6493,33 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_012-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_013-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169986",
+      "foodDescription": "Cauliflower, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "floweret",
+      "referenceGrams": 13.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-veg_013-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "85819",
+        "fdc_id": "169986",
+        "seq_num": "2",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "floweret",
+        "gram_weight": "13",
+        "data_points": "1",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "usda-veg_014-6": {
       "provider": "USDA FoodData Central",
@@ -7209,20 +6535,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_014-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-veg_015-2": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "169247",
@@ -7236,20 +6548,6 @@
       "portionIndex": 2,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-veg_015-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "usda-veg_016-1": {
       "provider": "USDA FoodData Central",
@@ -7265,89 +6563,77 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_016-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_017-long-eggplant": {
+      "provider": "香港衞生署星級有營食肆運動",
+      "foodRecordId": "eatsmart-1016",
+      "foodDescription": "日本長茄子：1個約150克（食譜原材料）",
+      "url": "https://restaurant.eatsmart.gov.hk/b5/content.aspx?content_id=1016",
+      "release": "營廚第二十三期；來源頁2019-05-01",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "日本長茄子1個",
+      "referenceGrams": 150,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "snapshotSha256": "db8d74cfc8f6a431e4f1d973732a223b822badeb83755168e365e16df23efa49",
+      "portionStatus": "recipe_estimate",
+      "edibleWeightStatus": "source_does_not_specify_trimming"
     },
-    "hk-final-veg_017-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "usda-veg_018-2": {
+    "child-v3-veg_018-count": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "170427",
       "foodDescription": "Peppers, sweet, green, raw",
-      "release": "2018-04",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
-      "referenceAmount": "1",
-      "referenceDescription": "tbsp",
-      "referenceGrams": 9.3,
-      "measureUnitId": "9999",
-      "portionIndex": 2,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": true
-    },
-    "hk-final-veg_018-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+      "url": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "medium (approx 2-3/4\" long, 2-1/2\" dia)",
+      "referenceGrams": 119.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "86627",
+        "fdc_id": "170427",
+        "seq_num": "5",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "medium (approx 2-3/4\" long, 2-1/2\" dia)",
+        "gram_weight": "119",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
-    "usda-veg_019-2": {
+    "child-v3-veg_019-count": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "170108",
       "foodDescription": "Peppers, sweet, red, raw",
-      "release": "2018-04",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
-      "referenceAmount": "1",
-      "referenceDescription": "tablespoon",
-      "referenceGrams": 9.3,
-      "measureUnitId": "9999",
-      "portionIndex": 2,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": true
-    },
-    "hk-final-veg_019-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+      "url": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "medium (approx 2-3/4\" long, 2-1/2 dia.)",
+      "referenceGrams": 119.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "86066",
+        "fdc_id": "170108",
+        "seq_num": "5",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "medium (approx 2-3/4\" long, 2-1/2 dia.)",
+        "gram_weight": "119",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "portion-veg_020-0": {
       "provider": "USDA FoodData Central",
@@ -7377,48 +6663,6 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "portion-veg_020-1": {
-      "provider": "USDA FoodData Central",
-      "foodRecordId": "169383",
-      "foodDescription": "Peppers, sweet, yellow, raw",
-      "url": "https://fdc.nal.usda.gov/food-details/169383/nutrients",
-      "release": "SR Legacy 2018-04",
-      "accessed": "2026-10-23",
-      "referenceAmount": "10",
-      "referenceDescription": "strips",
-      "referenceGrams": 52.0,
-      "derivation": "referenceGrams / referenceAmount",
-      "factor": 1,
-      "alternateRecord": true,
-      "originalRow": {
-        "id": "84763",
-        "fdc_id": "169383",
-        "seq_num": "2",
-        "amount": "10",
-        "measure_unit_id": "9999",
-        "portion_description": "",
-        "modifier": "strips",
-        "gram_weight": "52",
-        "data_points": "",
-        "footnote": "",
-        "min_year_acquired": ""
-      },
-      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
-    },
-    "hk-final-veg_020-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-veg_021-0": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "790646",
@@ -7432,20 +6676,6 @@
       "portionIndex": 0,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-veg_021-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "usda-veg_022-0": {
       "provider": "USDA FoodData Central",
@@ -7461,47 +6691,33 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_022-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "usda-veg_023-1": {
+    "child-v3-veg_023-count": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "169230",
       "foodDescription": "Garlic, raw",
-      "release": "2018-04",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
-      "referenceAmount": "1",
-      "referenceDescription": "tsp",
-      "referenceGrams": 2.8,
-      "measureUnitId": "9999",
-      "portionIndex": 1,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": true
-    },
-    "hk-final-veg_023-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+      "url": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "clove",
+      "referenceGrams": 3.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "84480",
+        "fdc_id": "169230",
+        "seq_num": "3",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "clove",
+        "gram_weight": "3",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "usda-veg_024-2": {
       "provider": "USDA FoodData Central",
@@ -7531,20 +6747,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_024-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-veg_025-3": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "170005",
@@ -7573,20 +6775,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_025-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-veg_026-4": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "169988",
@@ -7601,33 +6789,33 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-veg_026-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_027-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "168389",
+      "foodDescription": "Asparagus, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/168389/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "spear, medium (5-1/4\" to 7\" long)",
+      "referenceGrams": 16.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-veg_027-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "83014",
+        "fdc_id": "168389",
+        "seq_num": "3",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "spear, medium (5-1/4\" to 7\" long)",
+        "gram_weight": "16",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "usda-veg_028-1": {
       "provider": "USDA FoodData Central",
@@ -7642,20 +6830,6 @@
       "portionIndex": 1,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-veg_028-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "portion-veg_029-0": {
       "provider": "USDA FoodData Central",
@@ -7685,61 +6859,76 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-veg_029-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_030-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169251",
+      "foodDescription": "Mushrooms, white, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/169251/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "medium",
+      "referenceGrams": 18.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "84529",
+        "fdc_id": "169251",
+        "seq_num": "4",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "medium",
+        "gram_weight": "18",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
-    "hk-final-veg_030-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "portion-veg_031-0": {
+      "provider": "YES Produce 原廠產品規格",
+      "foodRecordId": "King-Oyster-Mushroom",
+      "foodDescription": "King Oyster Mushroom: 300 grams per pack",
+      "url": "https://www.yesproduce.com/mushrooms",
+      "release": "來源頁面／原始記錄",
+      "accessed": "2026-10-23",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "King Oyster Mushroom: 300 grams per pack",
+      "referenceGrams": 300.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1,
+      "alternateRecord": true,
+      "snapshotSha256": "7af9364d8bd0cea7dee5c15297b6fb60cd36dd7b799f0d50c9ce7ec808db5c0a"
     },
-    "hk-final-veg_031-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-veg_032-count": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "168580",
+      "foodDescription": "Mushrooms, oyster, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/168580/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
+      "referenceDescription": "small",
+      "referenceGrams": 15.0,
       "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-veg_032-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "83362",
+        "fdc_id": "168580",
+        "seq_num": "2",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "small",
+        "gram_weight": "15",
+        "data_points": "",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "datasetSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
     },
     "portion-veg_033-0": {
       "provider": "USDA FoodData Central",
@@ -7769,145 +6958,173 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-veg_033-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-veg_034-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "170419",
+      "foodDescription": "Peas, green, raw",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "referenceDescription": "cup",
+      "referenceGrams": 145.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "hk-final-veg_034-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-veg_035-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169957",
+      "foodDescription": "Mung beans, mature seeds, sprouted, raw",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "referenceDescription": "cup",
+      "referenceGrams": 104.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "hk-final-veg_035-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-bean_001-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "173757",
+      "foodDescription": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "referenceDescription": "cup",
+      "referenceGrams": 164.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "hk-final-bean_001-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-bean_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "usda-bean_002-1": {
+    "child-v3-bean_002-bowl250": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "172421",
       "foodDescription": "Lentils, mature seeds, cooked, boiled, without salt",
       "release": "2018-04",
       "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "tbsp",
-      "referenceGrams": 12.3,
+      "referenceDescription": "cup",
+      "referenceGrams": 198.0,
       "measureUnitId": "9999",
-      "portionIndex": 1,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false
-    },
-    "hk-final-bean_003-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "usda-bean_003-1": {
+    "child-v3-bean_003-bowl250": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "175194",
       "foodDescription": "Beans, kidney, red, mature seeds, cooked, boiled, without salt",
       "release": "2018-04",
       "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "tbsp",
-      "referenceGrams": 11.0,
+      "referenceDescription": "cup",
+      "referenceGrams": 177.0,
       "measureUnitId": "9999",
-      "portionIndex": 1,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false
-    },
-    "hk-final-bean_004-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
-    "hk-final-bean_005-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-bean_004-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "173735",
+      "foodDescription": "Beans, black, mature seeds, cooked, boiled, without salt",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
+      "referenceDescription": "cup",
+      "referenceGrams": 172.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
       "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
+    },
+    "child-v3-bean_005-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "168411",
+      "foodDescription": "Edamame, frozen, prepared",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "referenceAmount": "1",
+      "referenceDescription": "cup",
+      "referenceGrams": 155.0,
+      "measureUnitId": "9999",
+      "portionIndex": 0,
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "alternateRecord": false,
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
     "usda-nut_001-5": {
       "provider": "USDA FoodData Central",
@@ -7923,20 +7140,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": true
     },
-    "hk-final-nut_001-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-nut_002-5": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "170187",
@@ -7951,47 +7154,51 @@
       "derivation": "referenceGrams / 14 halves",
       "alternateRecord": true
     },
-    "hk-final-nut_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-nut_003-bowl250": {
+      "provider": "NOW Foods 原廠標籤",
+      "foodRecordId": "NOW-7065",
+      "foodDescription": "1/4 cup raw unsalted cashews = 30 g",
+      "url": "https://www.nowfoods.com/products/natural-foods/cashews-whole-raw-unsalted",
+      "release": "來源頁面／原始記錄",
       "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "referenceAmount": "0.25",
+      "referenceDescription": "1/4 cup raw unsalted cashews = 30 g",
+      "referenceGrams": 30.0,
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "factor": 1.0416666666666667,
+      "alternateRecord": true,
+      "conversion": {
+        "sourceVolumeMl": 240,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/owm/metric-si/metric-kitchen/metric-kitchen-cooking-measurement-equivalencies"
+      },
+      "portionStatus": "volume_scaled_estimate"
     },
-    "hk-final-nut_003-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
+    "child-v3-nut_004-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "172430",
+      "foodDescription": "Peanuts, all types, raw",
+      "release": "2018-04",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-nut_004-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "referenceDescription": "cup",
+      "referenceGrams": 146.0,
+      "measureUnitId": "9999",
+      "portionIndex": 1,
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "alternateRecord": true,
+      "factor": 1.0566882094325938,
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate",
+      "accessed": "2026-10-27"
     },
     "usda-nut_005-1": {
       "provider": "USDA FoodData Central",
@@ -8006,34 +7213,6 @@
       "portionIndex": 1,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
-    },
-    "hk-final-nut_005-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "hk-final-fish_001-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
     },
     "portion-fish_001-0": {
       "provider": "USDA FoodData Central",
@@ -8063,20 +7242,6 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-fish_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "portion-fish_002-0": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "175176",
@@ -8105,20 +7270,6 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-sea_001-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "portion-sea_001-0": {
       "provider": "Jamie Oliver 原作者食譜",
       "foodRecordId": "salt-pepper-squid",
@@ -8134,21 +7285,7 @@
       "alternateRecord": true,
       "snapshotSha256": "9eed262f2a3dbb2afd400c9c6601d80ad17ca36930682cdee79f76c281d22707"
     },
-    "hk-final-sea_002-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
-    "usda-sea_002-0": {
+    "child-v3-sea_002-large-scallop": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "174220",
       "foodDescription": "Mollusks, scallop, mixed species, raw",
@@ -8159,8 +7296,11 @@
       "referenceGrams": 30.0,
       "measureUnitId": "9999",
       "portionIndex": 0,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "alternateRecord": false,
+      "factor": 0.5,
+      "portionStatus": "count_divided_estimate",
+      "conversionNote": "來源一份含2大粒，除以2得每大粒15克。"
     },
     "usda-fruit_008-6": {
       "provider": "USDA FoodData Central",
@@ -8232,19 +7372,41 @@
       },
       "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
     },
-    "hk-final-fruit_012-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
+    "child-v3-fruit_012-bowl250": {
+      "provider": "USDA FoodData Central",
+      "foodRecordId": "169910",
+      "foodDescription": "Mangos, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/169910/nutrients",
+      "release": "SR Legacy 2018-04",
       "accessed": "2026-10-27",
       "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+      "referenceDescription": "cup pieces",
+      "referenceGrams": 165.0,
+      "derivation": "referenceGrams / referenceAmount * factor",
+      "factor": 1.0566882094325938,
+      "alternateRecord": true,
+      "originalRow": {
+        "id": "85651",
+        "fdc_id": "169910",
+        "seq_num": "1",
+        "amount": "1",
+        "measure_unit_id": "9999",
+        "portion_description": "",
+        "modifier": "cup pieces",
+        "gram_weight": "165",
+        "data_points": "3",
+        "footnote": "",
+        "min_year_acquired": ""
+      },
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "conversion": {
+        "sourceVolumeMl": 236.5882365,
+        "targetVolumeMl": 250,
+        "method": "volume_ratio",
+        "assumption": "same food preparation and comparable packing; estimate, not measured",
+        "volumeSource": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+      },
+      "portionStatus": "volume_scaled_estimate"
     },
     "portion-fruit_013-0": {
       "provider": "USDA FoodData Central",
@@ -8540,20 +7702,6 @@
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
     },
-    "hk-final-soy_006-HK-sima-tael": {
-      "provider": "香港政府度量衡換算表（立法會文件）",
-      "foodRecordId": "HK-sima-tael",
-      "foodDescription": "1司馬兩 = 37.7994克",
-      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf#page=148",
-      "release": "2017官方文件",
-      "accessed": "2026-10-27",
-      "referenceAmount": "1",
-      "referenceDescription": "1 tael (sima) = 37.7994 gram",
-      "referenceGrams": 37.7994,
-      "derivation": "referenceGrams / referenceAmount",
-      "alternateRecord": false,
-      "snapshotSha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
-    },
     "usda-soy_006-0": {
       "provider": "USDA FoodData Central",
       "foodRecordId": "172449",
@@ -8612,11 +7760,25 @@
       "factor": 1,
       "alternateRecord": false,
       "snapshotSha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
+    },
+    "child-v3-dairy_009-slice": {
+      "provider": "安怡香港官方產品頁",
+      "foodRecordId": "ANLENE-HK-ORIGINAL-CHEESE-20.8",
+      "foodDescription": "安怡原味高鈣芝士片，每食用份量20.8克；250克12片包裝的每片參考",
+      "url": "https://www.anlene.com/hk/zh/products/cheese/anlene-high-calcium-cheese",
+      "release": "官方網頁已索引的產品標籤參考（非本批產品實測）",
+      "accessed": "2026-10-27",
+      "referenceAmount": "1",
+      "referenceDescription": "片（20.8克標籤份量）",
+      "referenceGrams": 20.8,
+      "derivation": "referenceGrams / referenceAmount",
+      "alternateRecord": false,
+      "portionStatus": "brand_label_reference"
     }
   },
   "coverage": {
-    "selectableFoods": 119,
-    "foodsWithHouseholdMeasures": 119,
+    "selectableFoods": 120,
+    "foodsWithHouseholdMeasures": 120,
     "missingCodes": []
   },
   "retiredFoods": {
