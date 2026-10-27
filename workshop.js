@@ -285,7 +285,7 @@
     if(conceptImage?.key!==conceptKey())return false;
     const record={key:conceptImage.key,model:conceptImage.model,asset:snapshot(conceptImage.asset),draft:snapshot(draft),savedAt:new Date().toISOString()};
     try {await Pub.store.saveActive(record);return true;}
-    catch(e){if(conceptImage?.key===record.key)error('image-error',e.message+' 圖片仍在本頁，請下載「食譜＋概念圖作品包」。');return false;}
+    catch(e){if(conceptImage?.key===record.key)error('image-error',e.message+' 圖片仍在本頁，請按「完成作品及製作QR code」儲存至雲端。');return false;}
   }
   function stopImage(message='') {
     const active=pendingImage;pendingImage=null;active?.controller.abort();
@@ -338,7 +338,7 @@
       if(!active())return;
       showConcept(asset,model,key);saveDraft();
       const saved=await persistConcept();if(!active())return;
-      $('image-status').textContent=saved?'概念圖已自動儲存在這部裝置，會隨作品包交給老師。上傳後，家長頁會顯示同一張圖片。':'概念圖已生成，但本機儲存未成功；請立即下載作品包。';
+      $('image-status').textContent=saved?'概念圖已自動儲存在這部裝置；請按「完成作品及製作QR code」，把食譜及圖片一齊交到雲端。':'概念圖已生成，但本機儲存未成功；請先完成雲端提交，或使用老師後備下載。';
       await prepareShare(true);
     } catch(e) {
       if(active()) {
@@ -393,7 +393,7 @@
       pendingAI=null;draft.title=result.title;draft.steps=result.steps;if(result.minutes)draft.minutes=result.minutes;
       touch();currentAnalysis={key:analysisKey(),data:analysis};renderAdvice();
       $('recipe-title').value=draft.title;$('recipe-minutes').value=draft.minutes||'';renderSteps();renderRecipePreview();
-      $('ai-status').textContent='建議及食譜已生成！材料份量保持你的選擇。你可再按下方按鈕生成概念圖，完成後下載作品包交給老師。';
+      $('ai-status').textContent='建議及食譜已生成！材料份量保持你的選擇。你可再按下方按鈕生成概念圖，完成後一鍵提交作品到雲端。';
       prepareShare(true);
       generateConceptImage({automatic:true});
     } catch (e) {

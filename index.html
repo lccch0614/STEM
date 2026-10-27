@@ -13,8 +13,9 @@
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
 <link rel="stylesheet" href="scenario-quiz.css?v=2026-10-24-1">
-<link rel="stylesheet" href="workshop.css?v=7">
+<link rel="stylesheet" href="workshop.css?v=8">
 <link rel="stylesheet" href="publication.css?v=2026-10-26-1">
+<link rel="stylesheet" href="cloud-workshop.css?v=2026-10-27-1">
 <link rel="stylesheet" href="nutrition-encyclopedia.css?v=2026-10-24-1">
 
 </head>
@@ -126,15 +127,18 @@
       </section>
       <section id="magnet-section" class="card" aria-labelledby="review-heading" hidden>
         <h2 id="review-heading">我的雪櫃貼</h2>
-        <div class="ws-actions"><label>小廚師暱稱<input id="chef-name-input" maxlength="20" value="小廚師" placeholder="小廚師" autocomplete="off"></label><button id="preview-parent" class="ws-secondary" type="button">預覽完整食譜</button><button id="approve-recipe" class="ws-secondary" type="button">更新雪櫃貼</button></div><p id="review-status" class="ws-status" role="status" aria-live="polite"></p>
-        <details class="ws-publish-settings"><summary>老師列印設定</summary><label>家長可開啟的正式 HTTPS 網址<input id="share-base" type="url" placeholder="填寫已上載的網頁完整網址" autocomplete="url"></label><p class="ws-note">網站上載後會自動使用目前網址；本機試用時由老師設定一次。</p><label>磁貼尺寸<select id="magnet-size"><option value="acrylic" selected>5 × 5 cm亞加力（48 × 48 mm貼片）</option><option value="compact">60 × 80 mm</option><option value="standard">80 × 100 mm</option><option value="large">100 × 130 mm</option></select></label></details>
+        <div class="ws-actions"><label>小廚師暱稱<input id="chef-name-input" maxlength="20" value="小廚師" placeholder="小廚師" autocomplete="off"></label><button id="preview-parent" class="ws-secondary" type="button">預覽完整食譜</button></div><p id="review-status" class="ws-status" role="status" aria-live="polite"></p>
+        <div class="cloud-submit-card"><h3>一鍵交作品，製作雪櫃貼</h3><p>食譜和概念圖會一齊儲存到雲端，老師可以直接查看及列印。</p><div class="cloud-submit-fields"><label for="cloud-code">工作坊代碼<input id="cloud-code" maxlength="32" placeholder="老師提供的FOOD代碼" autocomplete="off" autocapitalize="characters" spellcheck="false"></label><label for="cloud-number">學生編號<input id="cloud-number" type="number" min="1" max="60" step="1" placeholder="例如01"></label></div><button id="cloud-submit" class="btn btn-add" type="button" disabled>完成作品及製作QR code</button><p id="cloud-student-status" role="status" aria-live="polite"></p><div id="cloud-qr" class="cloud-qr-box" hidden><div id="cloud-qr-card"></div><p><a id="cloud-parent-link" target="_blank" rel="noopener noreferrer">開啟已儲存的家長頁</a></p><small id="cloud-work-id"></small><p class="ws-note">已儲存版本可由老師批次列印；之後修改食譜，請再提交新版本。</p></div><details class="ws-extra"><summary>老師：圖片失敗的文字後備</summary><label class="pub-check"><input id="pub-text-fallback" type="checkbox">老師已在管理頁批准此編號使用文字後備</label><p class="ws-note">老師先在管理頁批准對應學生編號，再勾選此項提交。正常作品需要概念圖。</p></details></div>
+        <details id="cloud-offline-backup" class="ws-extra"><summary>老師：下載及舊版列印後備</summary><p class="ws-note">以下供網絡故障時備份；新雲端作品請使用上方「完成作品」按鈕。</p><button id="approve-recipe" class="ws-secondary" type="button">更新雪櫃貼</button>        <details class="ws-publish-settings"><summary>老師列印設定</summary><label>家長可開啟的正式 HTTPS 網址<input id="share-base" type="url" placeholder="填寫已上載的網頁完整網址" autocomplete="url"></label><p class="ws-note">網站上載後會自動使用目前網址；本機試用時由老師設定一次。</p><label>磁貼尺寸<select id="magnet-size"><option value="acrylic" selected>5 × 5 cm亞加力（48 × 48 mm貼片）</option><option value="compact">60 × 80 mm</option><option value="standard">80 × 100 mm</option><option value="large">100 × 130 mm</option></select></label></details>
         <div id="qr-error" class="ws-error" role="alert" hidden></div><p id="qr-status" class="ws-status" role="status" aria-live="polite"></p><div id="magnet-preview" class="ws-magnet-preview" hidden></div>
         <button id="print-magnet" class="btn btn-add" type="button" disabled hidden>🖨️ 打印雪櫃貼</button>
-        <div class="pub-student"><h3>把食譜和圖片交給老師</h3><p>概念圖會自動儲存在這部裝置。下載作品包後，用老師指定的方式交檔（例如AirDrop、學校雲端或課堂平台）。</p><button id="pub-export-student" class="btn btn-add" type="button" disabled>下載食譜＋概念圖作品包</button><details class="ws-extra"><summary>老師後備選項</summary><label class="pub-check"><input id="pub-text-fallback" type="checkbox">圖片未能生成時，由老師確認交文字版本</label><p class="ws-note">如需舊版自帶文字的QR code，可另外下載以下JSON，交「舊版文字作品列印」處理。</p><button id="export-approved" class="ws-secondary" type="button" disabled>下載舊版文字JSON（不含圖片）</button></details><p id="pub-student-status" role="status" aria-live="polite"></p><p class="ws-note">下載位置由瀏覽器決定，通常在「下載項目」。作品包未會自動傳送給老師或GitHub；上線核對後才可列印磁貼。</p></div>
+        <div class="pub-student"><h3>把食譜和圖片交給老師</h3><p>概念圖會自動儲存在這部裝置。下載作品包後，用老師指定的方式交檔（例如AirDrop、學校雲端或課堂平台）。</p><button id="pub-export-student" class="btn btn-add" type="button" disabled>下載食譜＋概念圖作品包</button><details class="ws-extra"><summary>老師後備選項</summary><p class="ws-note">如需舊版自帶文字的QR code，可另外下載以下JSON，交「舊版文字作品列印」處理。</p><button id="export-approved" class="ws-secondary" type="button" disabled>下載舊版文字JSON（不含圖片）</button></details><p id="pub-student-status" role="status" aria-live="polite"></p><p class="ws-note">下載位置由瀏覽器決定，通常在「下載項目」。作品包未會自動傳送給老師或GitHub；上線核對後才可列印磁貼。</p></div></details>
 
       </section>
+      <p class="ws-note"><a href="teacher.html">老師：開啟全班雲端管理頁</a></p><details class="card ws-extra"><summary>老師：離線收檔及匯入後備</summary>
       <details id="publication-desk" class="card pub-desk"><summary>老師收集台：收檔 → 匯入 → 上傳 → 列印</summary><p>四位老師可各自收檔，再把「老師收集包」交給一位統籌老師合併。只用作品暱稱／代號，請勿填全名或聯絡資料。</p><ol><li><strong>收檔及匯入：</strong>選擇學生作品包或其他老師收集包，可多選。毋須解壓或改名。</li><li><strong>備份及上傳：</strong>下載GitHub上傳包，解壓後將r資料夾上傳至STEM根目錄，與index.html並列。保留所有舊作品。</li><li><strong>核對後列印：</strong>待GitHub Pages更新，核對每份作品和圖片，再用A4、實際大小100%列印，剪出48×48mm貼片。</li></ol><div class="ws-actions"><label class="ws-file-button">匯入作品／老師收集包<input id="pub-import" type="file" accept=".zip,application/zip" multiple></label><button id="pub-backup" type="button" class="ws-secondary" disabled>下載老師收集包</button><button id="pub-upload" type="button" class="ws-secondary" disabled>下載GitHub上傳包</button><button id="pub-verify" type="button" class="ws-secondary" disabled>核對上線作品及圖片</button><button id="pub-print" type="button" class="btn btn-add" disabled>列印已核對磁貼</button></div><p id="pub-desk-status" class="ws-status" role="status" aria-live="polite">正在開啟本機收集台…</p><p class="ws-note">本機收集台不會跨裝置同步，請每位老師下載收集包備份。匯入重複作品會略過；修改後的作品會有新代號。列印前請移除不採用的舊版本。</p><ul id="pub-work-list" class="pub-work-list"></ul></details>
         <details id="teacher-queue" class="ws-extra"><summary>舊版文字作品列印（不含圖片）</summary><div class="ws-actions"><button id="queue-magnet" class="ws-secondary" type="button" disabled hidden>加入列印佇列</button><label class="ws-file-button">匯入作品<input id="import-approved" type="file" accept=".json,application/json" multiple></label><button id="print-queue" class="ws-secondary" type="button" disabled>批次打印</button></div><p id="queue-status" role="status" aria-live="polite"></p><ul id="print-queue-list"></ul></details>
+      </details>
     </div>
 
 
@@ -218,10 +222,13 @@
 <script src="portion-tools.js?v=3"></script>
 <script src="vendor/jszip-3.10.1.min.js"></script>
 <script src="workshop-core.js?v=7"></script>
-<script src="publication-core.js?v=2026-10-26-1"></script>
+<script src="publication-core.js?v=2026-10-27-2"></script>
+<script src="cloud-config.js?v=2026-10-27-1"></script>
+<script src="cloud-client.js?v=2026-10-27-1"></script>
 <script src="ai-connection.js?v=2026-10-27-1"></script>
-<script src="workshop.js?v=10"></script>
+<script src="workshop.js?v=11"></script>
 <script src="publication-ui.js?v=2026-10-26-1"></script>
+<script src="cloud-student.js?v=2026-10-27-1"></script>
 <script src="nutrition-encyclopedia.js?v=2026-10-24-2"></script>
 <script src="scenario-bank.js?v=2026-10-24-1"></script>
 <script src="scenario-core.js?v=2026-10-24-1"></script>

@@ -57,7 +57,7 @@
     if(rebuilt.id!==raw.id||rebuilt.digest!==raw.digest||(raw.image&&rebuilt.image.sha256!==raw.image.sha256))throw new Error('作品內容與代號不相符，請重新下載原作品包。');
     rebuilt.createdAt=raw.createdAt;return rebuilt;
   }
-  const url=work=>new URL('r/'+work.id+'.html',work.base).href;
+  const url=work=>work.cloudId&&/^c-[a-f0-9]{32}$/.test(work.cloudId)?new URL('recipe.html?id='+work.cloudId,work.base).href:new URL('r/'+work.id+'.html',work.base).href;
   function pageHTML(work,preview=false){
     const p=work.payload,values=Object.entries(C.nutrients).map(([key,m])=>`${m.label}：${p.u[key]===null?'資料不足':p.u[key]+' '+m.unit}`).join(' · ');
     const noteFields=[['惜食方法',p.w],['設計說明',p.r],['敏感食材備註',p.a],['可能涉及的致敏物',p.z]].filter(([,v])=>v);
