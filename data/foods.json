@@ -10,7 +10,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -30,7 +30,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 130.0,
     "carbs": 28.17,
@@ -70,7 +70,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "carb_002",
@@ -83,7 +84,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -103,7 +104,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 123.0,
     "carbs": 25.58,
@@ -143,7 +144,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "carb_003",
@@ -156,7 +158,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；未強化，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -176,7 +178,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 158.0,
     "carbs": 30.86,
@@ -267,7 +269,8 @@
     "allergens": [
       "含麩質穀物（須查標籤）"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "carb_004",
@@ -280,7 +283,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮烏冬可食部分，不連湯汁；日本標準參考，非特定品牌",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -297,9 +300,10 @@
       "url": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=1_01039_7",
       "snapshotUrl": "data/food-sources.html#carb_004",
       "release": "日本食品標準成分表（八訂）增補2023年",
-      "accessed": "2026-10-23",
+      "accessed": "2026-10-27",
       "sourceType": "MEXT",
-      "sha256": "f311ab83d1c6e0ff67ebade3760cbae8019b3d1aa7f81ea0b75fec517ec8a02c"
+      "sha256": "f311ab83d1c6e0ff67ebade3760cbae8019b3d1aa7f81ea0b75fec517ec8a02c",
+      "reviewSha256": "f311ab83d1c6e0ff67ebade3760cbae8019b3d1aa7f81ea0b75fec517ec8a02c"
     },
     "nutrientMeta": {
       "calories": {
@@ -340,7 +344,8 @@
     "previousName": "烏冬 (熟)",
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": []
+    "referencePortions": [],
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "carb_005",
@@ -353,7 +358,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；強化，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -373,7 +378,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 158.0,
     "carbs": 30.86,
@@ -464,7 +469,8 @@
     "allergens": [
       "含麩質穀物（須查標籤）"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "carb_006",
@@ -477,7 +483,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -497,7 +503,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 252.0,
     "carbs": 42.71,
@@ -545,85 +551,8 @@
     "allergens": [
       "含麩質穀物（須查標籤）"
     ],
-    "requiresCooking": false
-  },
-  {
-    "code": "carb_007",
-    "name": "蒸饅頭",
-    "enName": "饅頭(均值)(Wheat bun, leavened, steamed (Mean))",
-    "category": "grains",
-    "categoryName": "穀物及薯類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "熟重；蒸製成品，來源為均值",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "verified",
-    "source": {
-      "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
-      "recordId": "0501070114040",
-      "description": "饅頭(均值)(Wheat bun, leavened, steamed (Mean))",
-      "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-      "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-      "lookupMethod": "POST",
-      "lookupFields": {
-        "fg_id": "01",
-        "fsg_id": "07",
-        "food_id": "0501070114040",
-        "inShortMode": "0"
-      },
-      "release": "CFC2002Ed2（食安中心轉載）",
-      "accessed": "2026-10-21"
-    },
-    "calories": 223.0,
-    "protein": 7.0,
-    "carbs": 47.0,
-    "fat": 1.1,
-    "fiber": null,
-    "nutrientMeta": {
-      "calories": {
-        "originalValue": "223",
-        "status": "reported"
-      },
-      "protein": {
-        "originalValue": "7.0",
-        "status": "reported"
-      },
-      "carbs": {
-        "originalValue": "47.0",
-        "status": "reported"
-      },
-      "fat": {
-        "originalValue": "1.1",
-        "status": "reported"
-      },
-      "fiber": {
-        "originalValue": "1.3",
-        "status": "different_definition"
-      }
-    },
-    "carbsBasis": "total",
-    "fiberBasis": "insoluble",
-    "originalNutrients": {
-      "能量*": "223",
-      "蛋白質": "7.0",
-      "碳水化合物*": "47.0",
-      "脂肪": "1.1",
-      "膳食纖維*": "1.3"
-    },
-    "allergens": [
-      "含麩質穀物（須查標籤）"
-    ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "carb_008",
@@ -636,7 +565,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；去皮蒸薯仔可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -653,9 +582,10 @@
       "url": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=2_02018_7",
       "snapshotUrl": "data/food-sources.html#carb_008",
       "release": "日本食品標準成分表（八訂）增補2023年",
-      "accessed": "2026-10-23",
+      "accessed": "2026-10-27",
       "sourceType": "MEXT",
-      "sha256": "d2b3df2d7fb79cebf1288f5a2bcfff2eeb644aa63b9e83d3168ee1bb26fce1e1"
+      "sha256": "d2b3df2d7fb79cebf1288f5a2bcfff2eeb644aa63b9e83d3168ee1bb26fce1e1",
+      "reviewSha256": "d2b3df2d7fb79cebf1288f5a2bcfff2eeb644aa63b9e83d3168ee1bb26fce1e1"
     },
     "nutrientMeta": {
       "calories": {
@@ -694,7 +624,8 @@
     "previousName": "蒸薯仔",
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": []
+    "referencePortions": [],
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_001",
@@ -707,7 +638,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "液態重量；乳脂3.25%，無添加維他命A及D",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -727,7 +658,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 61.0,
     "carbs": 4.78,
@@ -787,7 +718,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_002",
@@ -800,7 +732,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "液態重量；無添加維他命A及D",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -820,7 +752,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 35.0,
     "carbs": 4.86,
@@ -868,7 +800,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_003",
@@ -881,7 +814,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -901,7 +834,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 63.0,
     "carbs": 7.04,
@@ -961,59 +894,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
-  },
-  {
-    "code": "dairy_004",
-    "name": "高鈣芝士片",
-    "enName": "Cheddar Cheese Slice",
-    "category": "dairy",
-    "categoryName": "奶類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "原有項目；產品或生熟狀態待核對",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "pending_label",
-    "source": null,
-    "auditNote": "「高鈣」及芝士片配方因品牌而異，未有指定產品標籤，不能用一般車打芝士冒充。請提供品牌、產品名稱、每100克營養標籤及每片重量；未列膳食纖維保留缺值。",
-    "nutrientMeta": {
-      "calories": {
-        "status": "not_verified"
-      },
-      "carbs": {
-        "status": "not_verified"
-      },
-      "protein": {
-        "status": "not_verified"
-      },
-      "fat": {
-        "status": "not_verified"
-      },
-      "fiber": {
-        "status": "not_verified"
-      }
-    },
-    "calories": null,
-    "carbs": null,
-    "protein": null,
-    "fat": null,
-    "fiber": null,
-    "allergens": [
-      "奶"
-    ],
     "requiresCooking": false,
-    "auditReviewed": "2026-10-23",
-    "alternativeCodes": []
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_005",
@@ -1026,7 +908,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "乾粉重量；未沖調",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1046,7 +928,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 362.0,
     "carbs": 51.98,
@@ -1100,83 +982,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
-  },
-  {
-    "code": "veg_001",
-    "name": "菜心",
-    "enName": "菜心(Flowering white cabbage)",
-    "category": "vegetables",
-    "categoryName": "蔬菜類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "按來源「菜心」可食部分；來源未另列烹調狀態",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "verified",
-    "source": {
-      "provider": "香港食物安全中心／食物安全中心轄下的食物研究化驗所 (FRL)",
-      "recordId": "10030200303",
-      "description": "菜心(Flowering white cabbage)",
-      "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-      "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-      "lookupMethod": "POST",
-      "lookupFields": {
-        "fg_id": "03",
-        "fsg_id": "02",
-        "food_id": "10030200303",
-        "inShortMode": "0"
-      },
-      "release": "FRL網站記錄；頁面未列數據版本",
-      "accessed": "2026-10-21"
-    },
-    "calories": 12.0,
-    "protein": 2.1,
-    "carbs": null,
-    "fat": 0.3,
-    "fiber": 1.5,
-    "nutrientMeta": {
-      "calories": {
-        "originalValue": "12",
-        "status": "reported"
-      },
-      "protein": {
-        "originalValue": "2.1",
-        "status": "reported"
-      },
-      "carbs": {
-        "originalValue": "0.11",
-        "status": "different_definition"
-      },
-      "fat": {
-        "originalValue": "0.3",
-        "status": "reported"
-      },
-      "fiber": {
-        "originalValue": "1.5",
-        "status": "reported"
-      }
-    },
-    "carbsBasis": "available",
-    "fiberBasis": "total",
-    "originalNutrients": {
-      "能量*": "12",
-      "蛋白質": "2.1",
-      "碳水化合物*": "0.11",
-      "脂肪": "0.3",
-      "膳食纖維*": "1.5"
-    },
-    "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_002",
@@ -1189,7 +996,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1209,7 +1016,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2019-12-16",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 32.0,
     "carbs": 6.27,
@@ -1249,7 +1056,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_003",
@@ -1262,7 +1070,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1282,7 +1090,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 23.0,
     "carbs": 3.63,
@@ -1340,7 +1148,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_004",
@@ -1353,7 +1162,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；成熟紅蘿蔔可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1373,7 +1182,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-04-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 44.978589,
     "carbs": 10.26755,
@@ -1406,7 +1215,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_005",
@@ -1419,7 +1229,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1439,7 +1249,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 17.0032275,
     "carbs": 3.51495,
@@ -1472,7 +1282,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_006",
@@ -1485,7 +1296,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；成熟紅番茄可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1505,7 +1316,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 18.0,
     "carbs": 3.89,
@@ -1617,83 +1428,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
-  },
-  {
-    "code": "veg_007",
-    "name": "節瓜",
-    "enName": "節瓜(Hairy melon)",
-    "category": "vegetables",
-    "categoryName": "蔬菜類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "按來源「節瓜」可食部分；來源未另列烹調狀態",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "verified",
-    "source": {
-      "provider": "香港食物安全中心／食物安全中心轄下的食物研究化驗所 (FRL)",
-      "recordId": "10030300277",
-      "description": "節瓜(Hairy melon)",
-      "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-      "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-      "lookupMethod": "POST",
-      "lookupFields": {
-        "fg_id": "03",
-        "fsg_id": "03",
-        "food_id": "10030300277",
-        "inShortMode": "0"
-      },
-      "release": "FRL網站記錄；頁面未列數據版本",
-      "accessed": "2026-10-21"
-    },
-    "calories": 15.0,
-    "protein": 0.8,
-    "carbs": null,
-    "fat": null,
-    "fiber": 1.5,
-    "nutrientMeta": {
-      "calories": {
-        "originalValue": "15",
-        "status": "reported"
-      },
-      "protein": {
-        "originalValue": "0.8",
-        "status": "reported"
-      },
-      "carbs": {
-        "originalValue": "2.6",
-        "status": "different_definition"
-      },
-      "fat": {
-        "originalValue": "Trace",
-        "status": "trace"
-      },
-      "fiber": {
-        "originalValue": "1.5",
-        "status": "reported"
-      }
-    },
-    "carbsBasis": "available",
-    "fiberBasis": "total",
-    "originalNutrients": {
-      "能量*": "15",
-      "蛋白質": "0.8",
-      "碳水化合物*": "2.6",
-      "脂肪": "Trace",
-      "膳食纖維*": "1.5"
-    },
-    "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_008",
@@ -1706,7 +1442,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1726,7 +1462,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2021-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 36.7150215,
     "carbs": 8.141425,
@@ -1759,7 +1495,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_009",
@@ -1772,7 +1509,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；連皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1792,7 +1529,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 16.0,
     "carbs": 3.27,
@@ -1825,7 +1562,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_010",
@@ -1838,7 +1576,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1858,7 +1596,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 26.0,
     "carbs": 6.5,
@@ -1898,7 +1636,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_001",
@@ -1911,7 +1650,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；連皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1931,7 +1670,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2020-10-30",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 58.20306,
     "carbs": 15.6511625,
@@ -1964,7 +1703,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_002",
@@ -1977,7 +1717,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；果肉可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -1997,7 +1737,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 89.0,
     "carbs": 22.84,
@@ -2079,7 +1819,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_003",
@@ -2092,7 +1833,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；臍橙可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2112,7 +1853,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2019-12-16",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 47.0,
     "carbs": 11.8,
@@ -2159,7 +1900,8 @@
     ],
     "previousName": "新奇士橙",
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_004",
@@ -2172,7 +1914,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2192,7 +1934,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-10-31",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 58.48917,
     "carbs": 13.818075,
@@ -2225,7 +1967,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_005",
@@ -2238,7 +1981,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2258,7 +2001,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 69.0,
     "carbs": 18.1,
@@ -2310,7 +2053,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_006",
@@ -2323,7 +2067,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；西瓜果肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2343,7 +2087,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 30.0,
     "carbs": 7.55,
@@ -2413,7 +2157,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_007",
@@ -2426,7 +2171,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2446,7 +2191,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 43.0,
     "carbs": 10.82,
@@ -2504,7 +2249,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_001",
@@ -2517,7 +2263,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量；大豆及小麥製醬油",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2537,7 +2283,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 53.0,
     "carbs": 4.93,
@@ -2599,7 +2345,8 @@
       "大豆",
       "含麩質穀物（須查標籤）"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_002",
@@ -2612,7 +2359,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2632,7 +2379,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 51.0,
     "carbs": 10.92,
@@ -2675,7 +2422,8 @@
       "軟體／貝類",
       "加工食品配料（須查標籤）"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_003",
@@ -2688,7 +2436,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "油重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2708,7 +2456,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 884.0,
     "carbs": 0.0,
@@ -2762,7 +2510,8 @@
     "allergens": [
       "芝麻"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_004",
@@ -2775,7 +2524,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2795,7 +2544,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 101.0,
     "carbs": 27.4,
@@ -2847,63 +2596,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
-  },
-  {
-    "code": "seas_005",
-    "name": "蒸魚豉油",
-    "enName": "Steamed Fish Soy Sauce",
-    "category": "oil_salt_sugar",
-    "categoryName": "油、鹽、糖及調味料",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 5,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "原有項目；產品或生熟狀態待核對",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "pending_label",
-    "source": null,
-    "auditNote": "蒸魚豉油的糖、鹽及配方因品牌而異，需要指定產品的營養標籤；一般醬油不能當作同一產品。可另選已核實的「醬油（大豆及小麥製）」，但不會自動替換舊草稿。",
-    "nutrientMeta": {
-      "calories": {
-        "status": "not_verified"
-      },
-      "carbs": {
-        "status": "not_verified"
-      },
-      "protein": {
-        "status": "not_verified"
-      },
-      "fat": {
-        "status": "not_verified"
-      },
-      "fiber": {
-        "status": "not_verified"
-      }
-    },
-    "calories": null,
-    "carbs": null,
-    "protein": null,
-    "fat": null,
-    "fiber": null,
-    "allergens": [
-      "大豆",
-      "魚",
-      "加工食品配料（須查標籤）"
-    ],
     "requiresCooking": false,
-    "auditReviewed": "2026-10-23",
-    "alternativeCodes": [
-      "seas_001"
-    ]
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_007",
@@ -2916,7 +2610,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "油重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -2936,7 +2630,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 884.0,
     "carbs": 0.0,
@@ -2990,7 +2684,8 @@
     "allergens": [
       "花生"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_008",
@@ -3003,7 +2698,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "油重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3023,7 +2718,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 884.0,
     "carbs": 0.0,
@@ -3075,7 +2770,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_009",
@@ -3088,7 +2784,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "食鹽重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3108,7 +2804,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 0.0,
     "carbs": 0.0,
@@ -3166,7 +2862,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_010",
@@ -3179,7 +2876,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "食用鹽重量；日本「並塩／あら塩」參考，氯化鈉95%以上；非調味鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3196,9 +2893,10 @@
       "url": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=17_17013_7",
       "snapshotUrl": "data/food-sources.html#seas_010",
       "release": "日本食品標準成分表（八訂）增補2023年",
-      "accessed": "2026-10-23",
+      "accessed": "2026-10-27",
       "sourceType": "MEXT",
-      "sha256": "63e072230104c43417b42e45c5253a31e1ac6ba850af77e2e03745895b64ef4b"
+      "sha256": "63e072230104c43417b42e45c5253a31e1ac6ba850af77e2e03745895b64ef4b",
+      "reviewSha256": "63e072230104c43417b42e45c5253a31e1ac6ba850af77e2e03745895b64ef4b"
     },
     "nutrientMeta": {
       "calories": {
@@ -3237,7 +2935,8 @@
     "previousName": "粗鹽",
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": []
+    "referencePortions": [],
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "seas_006",
@@ -3250,7 +2949,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "糖重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3270,7 +2969,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 387.0,
     "carbs": 99.98,
@@ -3328,7 +3027,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_001",
@@ -3341,7 +3041,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；豬柳可分離瘦肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3361,7 +3061,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 109.0,
     "carbs": 0.0,
@@ -3414,7 +3114,8 @@
     ],
     "previousName": "瘦豬肉",
     "allergens": [],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_002",
@@ -3427,7 +3128,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；90%瘦肉、10%脂肪",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3447,7 +3148,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 176.0,
     "carbs": 0.0,
@@ -3488,7 +3189,8 @@
     ],
     "previousName": "免治牛肉 (瘦)",
     "allergens": [],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_003",
@@ -3501,7 +3203,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去骨去皮雞髀肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3521,7 +3223,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 121.0,
     "carbs": 0.0,
@@ -3567,12 +3269,13 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_004",
     "name": "去皮雞胸肉",
-    "enName": "Chicken, breast, boneless, skinless, raw",
+    "enName": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
     "category": "protein",
     "categoryName": "肉、魚、蛋及豆製品類",
     "unit": "克",
@@ -3580,7 +3283,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去骨去皮雞胸肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3592,24 +3295,24 @@
     "status": "verified",
     "source": {
       "provider": "USDA FoodData Central",
-      "recordId": "2646170",
-      "description": "Chicken, breast, boneless, skinless, raw",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "recordId": "171077",
+      "description": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/171077/nutrients",
       "snapshotUrl": "data/food-sources.html#meat_004",
-      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_csv_2026-04-30.zip",
-      "dataset": "foundation",
-      "release": "2026-04-30",
-      "publicationDate": "2023-10-26",
-      "accessed": "2026-10-21"
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "dataset": "sr",
+      "release": "2018-04",
+      "publicationDate": "2019-04-01",
+      "accessed": "2026-10-27"
     },
-    "calories": 112.20227,
+    "calories": 120.0,
     "carbs": 0.0,
-    "protein": 22.525,
-    "fat": 1.934,
-    "fiber": null,
+    "protein": 22.5,
+    "fat": 2.62,
+    "fiber": 0.0,
     "nutrientMeta": {
       "calories": {
-        "sourceNutrientId": "2048",
+        "sourceNutrientId": "1008",
         "status": "reported"
       },
       "carbs": {
@@ -3625,20 +3328,41 @@
         "status": "reported"
       },
       "fiber": {
-        "sourceNutrientId": null,
-        "status": "not_reported"
+        "sourceNutrientId": "1079",
+        "status": "reported"
       }
     },
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": [],
+    "referencePortions": [
+      {
+        "amount": "4",
+        "description": "oz",
+        "grams": 113.0,
+        "measureUnitId": "9999"
+      },
+      {
+        "amount": "1",
+        "description": "piece",
+        "grams": 272.0,
+        "measureUnitId": "9999"
+      },
+      {
+        "amount": "1",
+        "description": "package",
+        "grams": 926.0,
+        "measureUnitId": "9999"
+      }
+    ],
     "allergens": [],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "previousName": "去皮雞胸肉",
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_005",
     "name": "三文魚（養殖大西洋鮭魚）",
-    "enName": "Fish, salmon, Atlantic, farm raised, raw",
+    "enName": "Fish, salmon, Atlantic, farmed, raw",
     "category": "protein",
     "categoryName": "肉、魚、蛋及豆製品類",
     "unit": "克",
@@ -3646,7 +3370,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；養殖大西洋鮭魚可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3658,24 +3382,24 @@
     "status": "verified",
     "source": {
       "provider": "USDA FoodData Central",
-      "recordId": "2684441",
-      "description": "Fish, salmon, Atlantic, farm raised, raw",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "recordId": "175167",
+      "description": "Fish, salmon, Atlantic, farmed, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/175167/nutrients",
       "snapshotUrl": "data/food-sources.html#meat_005",
-      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_csv_2026-04-30.zip",
-      "dataset": "foundation",
-      "release": "2026-04-30",
-      "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "dataset": "sr",
+      "release": "2018-04",
+      "publicationDate": "2019-04-01",
+      "accessed": "2026-10-27"
     },
-    "calories": 203.10632,
+    "calories": 208.0,
     "carbs": 0.0,
-    "protein": 20.31875,
-    "fat": 13.11,
-    "fiber": null,
+    "protein": 20.42,
+    "fat": 13.42,
+    "fiber": 0.0,
     "nutrientMeta": {
       "calories": {
-        "sourceNutrientId": "2048",
+        "sourceNutrientId": "1008",
         "status": "reported"
       },
       "carbs": {
@@ -3691,83 +3415,45 @@
         "status": "reported"
       },
       "fiber": {
-        "sourceNutrientId": null,
-        "status": "not_reported"
+        "sourceNutrientId": "1079",
+        "status": "reported"
       }
     },
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": [],
-    "previousName": "三文魚/鮭魚",
-    "allergens": [
-      "魚"
-    ],
-    "requiresCooking": true
-  },
-  {
-    "code": "meat_006",
-    "name": "鯇魚腩",
-    "enName": "Grass Carp Belly",
-    "category": "protein",
-    "categoryName": "肉、魚、蛋及豆製品類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "原有項目；產品或生熟狀態待核對",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "pending_label",
-    "source": null,
-    "auditNote": "尚未找到精確對應「鯇魚腩」部位及生熟狀態的可靠成分記錄；整條草魚或一般魚肉不能當作魚腩。須核實部位及可食部分狀態後才可啟用。",
-    "nutrientMeta": {
-      "calories": {
-        "status": "not_verified"
+    "referencePortions": [
+      {
+        "amount": "3",
+        "description": "oz",
+        "grams": 85.0,
+        "measureUnitId": "9999"
       },
-      "carbs": {
-        "status": "not_verified"
-      },
-      "protein": {
-        "status": "not_verified"
-      },
-      "fat": {
-        "status": "not_verified"
-      },
-      "fiber": {
-        "status": "not_verified"
+      {
+        "amount": "0.5",
+        "description": "fillet",
+        "grams": 198.0,
+        "measureUnitId": "9999"
       }
-    },
-    "calories": null,
-    "carbs": null,
-    "protein": null,
-    "fat": null,
-    "fiber": null,
+    ],
+    "previousName": "三文魚（養殖大西洋鮭魚）",
     "allergens": [
       "魚"
     ],
     "requiresCooking": true,
-    "auditReviewed": "2026-10-23",
-    "alternativeCodes": []
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_007",
-    "name": "鮮蝦仁",
-    "enName": "Crustaceans, shrimp, farm raised, raw",
+    "name": "蝦仁（生，混合品種）",
+    "enName": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
     "category": "protein",
     "categoryName": "肉、魚、蛋及豆製品類",
     "unit": "克",
     "unitWeight": 1,
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "生重；養殖蝦可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "state": "生重；混合品種蝦可食部分；來源註明可能含保水添加物",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3779,24 +3465,24 @@
     "status": "verified",
     "source": {
       "provider": "USDA FoodData Central",
-      "recordId": "2684443",
-      "description": "Crustaceans, shrimp, farm raised, raw",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "recordId": "174210",
+      "description": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+      "url": "https://fdc.nal.usda.gov/food-details/174210/nutrients",
       "snapshotUrl": "data/food-sources.html#meat_007",
-      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_csv_2026-04-30.zip",
-      "dataset": "foundation",
-      "release": "2026-04-30",
-      "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "dataset": "sr",
+      "release": "2018-04",
+      "publicationDate": "2019-04-01",
+      "accessed": "2026-10-27"
     },
-    "calories": 75.699433,
-    "carbs": 0.48495,
-    "protein": 15.56875,
-    "fat": 0.8013,
-    "fiber": null,
+    "calories": 71.0,
+    "carbs": 0.91,
+    "protein": 13.61,
+    "fat": 1.01,
+    "fiber": 0.0,
     "nutrientMeta": {
       "calories": {
-        "sourceNutrientId": "2048",
+        "sourceNutrientId": "1008",
         "status": "reported"
       },
       "carbs": {
@@ -3812,96 +3498,44 @@
         "status": "reported"
       },
       "fiber": {
-        "sourceNutrientId": null,
-        "status": "not_reported"
+        "sourceNutrientId": "1079",
+        "status": "reported"
       }
     },
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": [],
+    "referencePortions": [
+      {
+        "amount": "1",
+        "description": "medium",
+        "grams": 6.0,
+        "measureUnitId": "9999"
+      },
+      {
+        "amount": "1",
+        "description": "small",
+        "grams": 5.0,
+        "measureUnitId": "9999"
+      },
+      {
+        "amount": "3",
+        "description": "oz",
+        "grams": 85.0,
+        "measureUnitId": "9999"
+      },
+      {
+        "amount": "4",
+        "description": "large",
+        "grams": 28.0,
+        "measureUnitId": "9999"
+      }
+    ],
     "allergens": [
       "甲殼類"
     ],
-    "requiresCooking": true
-  },
-  {
-    "code": "meat_008",
-    "name": "叉燒（一般成品）",
-    "enName": "叉燒(Barbecued pork)",
-    "category": "protein",
-    "categoryName": "肉、魚、蛋及豆製品類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "熟製成品重量；非指定瘦肉",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "verified",
-    "source": {
-      "provider": "香港食物安全中心／食物安全中心轄下的食物研究化驗所 (FRL)",
-      "recordId": "10060600763",
-      "description": "叉燒(Barbecued pork)",
-      "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-      "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-      "lookupMethod": "POST",
-      "lookupFields": {
-        "fg_id": "06",
-        "fsg_id": "06",
-        "food_id": "10060600763",
-        "inShortMode": "0"
-      },
-      "release": "FRL網站記錄；頁面未列數據版本",
-      "accessed": "2026-10-21"
-    },
-    "calories": 300.0,
-    "protein": 25.0,
-    "carbs": null,
-    "fat": 17.0,
-    "fiber": 0.0,
-    "nutrientMeta": {
-      "calories": {
-        "originalValue": "300",
-        "status": "reported"
-      },
-      "protein": {
-        "originalValue": "25",
-        "status": "reported"
-      },
-      "carbs": {
-        "originalValue": "9.4",
-        "status": "different_definition"
-      },
-      "fat": {
-        "originalValue": "17",
-        "status": "reported"
-      },
-      "fiber": {
-        "originalValue": "0",
-        "status": "reported"
-      }
-    },
-    "carbsBasis": "available",
-    "fiberBasis": "total",
-    "originalNutrients": {
-      "能量*": "300",
-      "蛋白質": "25",
-      "碳水化合物*": "9.4",
-      "脂肪": "17",
-      "膳食纖維*": "0"
-    },
-    "previousName": "蜜汁叉燒 (瘦)",
-    "allergens": [
-      "加工食品配料（須查標籤）"
-    ],
-    "requiresCooking": false
+    "requiresCooking": true,
+    "previousName": "鮮蝦仁",
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_009",
@@ -3914,7 +3548,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "水浸罐裝；瀝乾可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -3934,7 +3568,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 86.0,
     "carbs": 0.0,
@@ -4000,7 +3634,8 @@
     "allergens": [
       "魚"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "meat_010",
@@ -4013,7 +3648,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去皮去骨雞翼肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4033,7 +3668,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 126.0,
     "carbs": 0.0,
@@ -4080,61 +3715,8 @@
     ],
     "previousName": "去皮雞翼",
     "allergens": [],
-    "requiresCooking": true
-  },
-  {
-    "code": "soy_001",
-    "name": "蒸水豆腐",
-    "enName": "Soft Tofu",
-    "category": "protein",
-    "categoryName": "肉、魚、蛋及豆製品類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "原有項目；產品或生熟狀態待核對",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "pending_label",
-    "source": null,
-    "auditNote": "名稱「蒸水豆腐」包含熟製狀態，未找到精確對應記錄；南豆腐或未烹調軟豆腐不能冒充蒸後重量。可另選已核實「軟豆腐（未烹調）」並按未烹調重量輸入。",
-    "nutrientMeta": {
-      "calories": {
-        "status": "not_verified"
-      },
-      "carbs": {
-        "status": "not_verified"
-      },
-      "protein": {
-        "status": "not_verified"
-      },
-      "fat": {
-        "status": "not_verified"
-      },
-      "fiber": {
-        "status": "not_verified"
-      }
-    },
-    "calories": null,
-    "carbs": null,
-    "protein": null,
-    "fat": null,
-    "fiber": null,
-    "allergens": [
-      "大豆"
-    ],
-    "requiresCooking": false,
-    "auditReviewed": "2026-10-23",
-    "alternativeCodes": [
-      "soy_006"
-    ]
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "soy_002",
@@ -4147,7 +3729,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；硫酸鈣製硬豆腐",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4167,7 +3749,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 144.0,
     "carbs": 2.78,
@@ -4215,7 +3797,8 @@
     "allergens": [
       "大豆"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "soy_004",
@@ -4228,7 +3811,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未乾燥、非油炸的鮮豆漿薄膜可食重量；日本生湯葉參考，非乾腐皮或浸發枝竹",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4245,9 +3828,10 @@
       "url": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=4_04059_7",
       "snapshotUrl": "data/food-sources.html#soy_004",
       "release": "日本食品標準成分表（八訂）增補2023年",
-      "accessed": "2026-10-23",
+      "accessed": "2026-10-27",
       "sourceType": "MEXT",
-      "sha256": "00a7650d7ad877125899eb613d0f7b7137cadb71d3d2bfd47aa094afc3b41ccb"
+      "sha256": "00a7650d7ad877125899eb613d0f7b7137cadb71d3d2bfd47aa094afc3b41ccb",
+      "reviewSha256": "00a7650d7ad877125899eb613d0f7b7137cadb71d3d2bfd47aa094afc3b41ccb"
     },
     "nutrientMeta": {
       "calories": {
@@ -4288,59 +3872,8 @@
     "previousName": "鮮腐皮",
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": []
-  },
-  {
-    "code": "soy_005",
-    "name": "枝竹 (浸發)",
-    "enName": "Dried Beancurd Stick",
-    "category": "protein",
-    "categoryName": "肉、魚、蛋及豆製品類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "原有項目；產品或生熟狀態待核對",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "pending_label",
-    "source": null,
-    "auditNote": "食安中心枝竹記錄0502000315080並非浸發狀態（每100克478千卡），不可套用於吸水後重量；鮮腐皮及日式熱水泡發湯葉亦非同一枝竹產品。需要指定產品浸發後的可靠資料或實驗室分析。",
-    "nutrientMeta": {
-      "calories": {
-        "status": "not_verified"
-      },
-      "carbs": {
-        "status": "not_verified"
-      },
-      "protein": {
-        "status": "not_verified"
-      },
-      "fat": {
-        "status": "not_verified"
-      },
-      "fiber": {
-        "status": "not_verified"
-      }
-    },
-    "calories": null,
-    "carbs": null,
-    "protein": null,
-    "fat": null,
-    "fiber": null,
-    "allergens": [
-      "大豆"
-    ],
-    "requiresCooking": false,
-    "auditReviewed": "2026-10-23",
-    "alternativeCodes": []
+    "referencePortions": [],
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "egg_001",
@@ -4353,7 +3886,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去殼全蛋",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4373,7 +3906,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 143.0,
     "carbs": 0.72,
@@ -4445,7 +3978,8 @@
     "allergens": [
       "蛋"
     ],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "egg_002",
@@ -4458,7 +3992,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去殼全蛋",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4478,7 +4012,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 158.0,
     "carbs": 0.41,
@@ -4520,163 +4054,8 @@
     "allergens": [
       "蛋"
     ],
-    "requiresCooking": true
-  },
-  {
-    "code": "egg_003",
-    "name": "鹹鴨蛋",
-    "enName": "鹹鴨蛋(Duck, egg, whole, salt preserved)",
-    "category": "protein",
-    "categoryName": "肉、魚、蛋及豆製品類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "醃製去殼全蛋；來源未註明生熟，使用時須成人確認及煮熟",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "verified",
-    "source": {
-      "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
-      "recordId": "0509001122020",
-      "description": "鹹鴨蛋(Duck, egg, whole, salt preserved)",
-      "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-      "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-      "lookupMethod": "POST",
-      "lookupFields": {
-        "fg_id": "09",
-        "fsg_id": "00",
-        "food_id": "0509001122020",
-        "inShortMode": "0"
-      },
-      "release": "CFC2002Ed2（食安中心轉載）",
-      "accessed": "2026-10-21"
-    },
-    "calories": 190.0,
-    "protein": 12.7,
-    "carbs": 6.3,
-    "fat": 12.7,
-    "fiber": null,
-    "nutrientMeta": {
-      "calories": {
-        "originalValue": "190",
-        "status": "reported"
-      },
-      "protein": {
-        "originalValue": "12.7",
-        "status": "reported"
-      },
-      "carbs": {
-        "originalValue": "6.3",
-        "status": "reported"
-      },
-      "fat": {
-        "originalValue": "12.7",
-        "status": "reported"
-      },
-      "fiber": {
-        "originalValue": "NA",
-        "status": "not_reported"
-      }
-    },
-    "carbsBasis": "total",
-    "fiberBasis": "insoluble",
-    "originalNutrients": {
-      "能量*": "190",
-      "蛋白質": "12.7",
-      "碳水化合物*": "6.3",
-      "脂肪": "12.7",
-      "膳食纖維*": "NA"
-    },
-    "allergens": [
-      "蛋"
-    ],
-    "requiresCooking": true
-  },
-  {
-    "code": "egg_004",
-    "name": "皮蛋",
-    "enName": "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)",
-    "category": "protein",
-    "categoryName": "肉、魚、蛋及豆製品類",
-    "unit": "克",
-    "unitWeight": 1,
-    "defaultQuantity": 100,
-    "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "醃製去殼全蛋",
-    "dataVersion": "2026-10-23-v1",
-    "nutritionBasis": "per_100g_edible",
-    "shelfLifeDays": null,
-    "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-    "storage": {
-      "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-      "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-    },
-    "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-    "status": "verified",
-    "source": {
-      "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
-      "recordId": "0509001122010",
-      "description": "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)",
-      "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-      "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-      "lookupMethod": "POST",
-      "lookupFields": {
-        "fg_id": "09",
-        "fsg_id": "00",
-        "food_id": "0509001122010",
-        "inShortMode": "0"
-      },
-      "release": "CFC2002Ed2（食安中心轉載）",
-      "accessed": "2026-10-21"
-    },
-    "calories": 171.0,
-    "protein": 14.2,
-    "carbs": 4.5,
-    "fat": 10.7,
-    "fiber": null,
-    "nutrientMeta": {
-      "calories": {
-        "originalValue": "171",
-        "status": "reported"
-      },
-      "protein": {
-        "originalValue": "14.2",
-        "status": "reported"
-      },
-      "carbs": {
-        "originalValue": "4.5",
-        "status": "reported"
-      },
-      "fat": {
-        "originalValue": "10.7",
-        "status": "reported"
-      },
-      "fiber": {
-        "originalValue": "NA",
-        "status": "not_reported"
-      }
-    },
-    "carbsBasis": "total",
-    "fiberBasis": "insoluble",
-    "originalNutrients": {
-      "能量*": "171",
-      "蛋白質": "14.2",
-      "碳水化合物*": "4.5",
-      "脂肪": "10.7",
-      "膳食纖維*": "NA"
-    },
-    "allergens": [
-      "蛋"
-    ],
-    "requiresCooking": false
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "soy_003",
@@ -4689,7 +4068,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "液態重量；原味無糖，常溫保存型",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4709,7 +4088,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2021-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 38.485,
     "carbs": 1.293125,
@@ -4744,7 +4123,8 @@
     "allergens": [
       "大豆"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "liq_001",
@@ -4757,7 +4137,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "飲用自來水重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4777,7 +4157,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 0.0,
     "carbs": 0.0,
@@ -4829,7 +4209,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "liq_002",
@@ -4842,7 +4223,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "液態重量；無糖、無添加維他命C",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4862,7 +4243,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 46.0,
     "carbs": 11.3,
@@ -4914,7 +4295,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_009",
@@ -4927,7 +4309,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "乾重；未煮原片燕麥",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -4947,7 +4329,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 378.866123,
     "carbs": 68.65755,
@@ -4982,7 +4364,8 @@
     "allergens": [
       "含麩質穀物（須查標籤）"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_010",
@@ -4995,7 +4378,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；清水煮，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5015,7 +4398,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 71.0,
     "carbs": 12.0,
@@ -5069,7 +4452,8 @@
     "allergens": [
       "含麩質穀物（須查標籤）"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_011",
@@ -5082,7 +4466,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮去皮，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5102,7 +4486,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 76.0,
     "carbs": 17.72,
@@ -5148,7 +4532,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_012",
@@ -5161,7 +4546,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；黃白甜粟米可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5181,7 +4566,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-10-31",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 72.85765625,
     "carbs": 14.689625,
@@ -5214,7 +4599,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_013",
@@ -5227,7 +4613,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5247,7 +4633,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 120.0,
     "carbs": 21.3,
@@ -5287,7 +4673,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_014",
@@ -5300,7 +4687,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "乾重；未煮",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5320,7 +4707,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 364.0,
     "carbs": 80.18,
@@ -5360,7 +4747,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_015",
@@ -5373,7 +4761,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5393,7 +4781,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 108.0,
     "carbs": 24.01,
@@ -5433,7 +4821,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_016",
@@ -5446,7 +4835,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "乾重；未煮，未強化長粒白米",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5466,7 +4855,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2023-04-20",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 369.637321,
     "carbs": 80.31315,
@@ -5499,7 +4888,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "grain_017",
@@ -5512,7 +4902,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮去皮，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5532,7 +4922,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 86.0,
     "carbs": 20.01,
@@ -5590,7 +4980,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_011",
@@ -5603,7 +4994,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5623,7 +5014,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 25.0,
     "carbs": 5.8,
@@ -5705,7 +5096,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_012",
@@ -5718,7 +5110,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5738,7 +5130,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 31.0,
     "carbs": 7.37,
@@ -5808,7 +5200,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_013",
@@ -5821,7 +5214,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5841,7 +5234,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 22.85237775,
     "carbs": 4.723075,
@@ -5874,7 +5267,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_014",
@@ -5887,7 +5281,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -5907,7 +5301,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 14.0,
     "carbs": 2.97,
@@ -5995,7 +5389,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_015",
@@ -6008,7 +5403,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6028,7 +5423,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 17.0,
     "carbs": 3.29,
@@ -6092,7 +5487,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_016",
@@ -6105,7 +5501,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；連皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6125,7 +5521,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 15.0,
     "carbs": 3.63,
@@ -6171,7 +5567,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_017",
@@ -6184,7 +5581,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6204,7 +5601,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 22.35856525,
     "carbs": 5.399325,
@@ -6237,7 +5634,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_018",
@@ -6250,7 +5648,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6270,7 +5668,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-04-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 19.692148,
     "carbs": 4.7781,
@@ -6303,7 +5701,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_019",
@@ -6316,7 +5715,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6336,7 +5735,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-04-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 26.98843175,
     "carbs": 6.653175,
@@ -6369,7 +5768,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_020",
@@ -6382,7 +5782,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6402,7 +5802,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-04-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 26.58104025,
     "carbs": 6.601725,
@@ -6435,7 +5835,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_021",
@@ -6448,7 +5849,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6468,7 +5869,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2020-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 36.0,
     "carbs": 8.61,
@@ -6508,7 +5909,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_022",
@@ -6521,7 +5923,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6541,7 +5943,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2020-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 42.0,
     "carbs": 9.93,
@@ -6581,7 +5983,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_023",
@@ -6594,7 +5997,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6614,7 +6017,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2020-10-30",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 130.0,
     "carbs": 28.2,
@@ -6647,7 +6050,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_024",
@@ -6660,7 +6064,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6680,7 +6084,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 80.0,
     "carbs": 17.77,
@@ -6732,7 +6136,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_025",
@@ -6745,7 +6150,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去根莖葉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6765,7 +6170,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 32.0,
     "carbs": 7.34,
@@ -6829,7 +6234,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_026",
@@ -6842,7 +6248,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6862,7 +6268,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 14.0,
     "carbs": 2.97,
@@ -6938,7 +6344,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_027",
@@ -6951,7 +6358,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -6971,7 +6378,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-10-31",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 23.529215,
     "carbs": 5.1012,
@@ -7004,7 +6411,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_028",
@@ -7017,7 +6425,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；球莖及下部葉段",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7037,7 +6445,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 61.0,
     "carbs": 14.15,
@@ -7089,7 +6497,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_029",
@@ -7102,7 +6511,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7122,7 +6531,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2021-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 36.3915875,
     "carbs": 8.170625,
@@ -7155,7 +6564,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_030",
@@ -7168,7 +6578,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7188,7 +6598,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2021-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 24.8732585,
     "carbs": 4.079375,
@@ -7221,7 +6631,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_031",
@@ -7234,7 +6645,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7254,7 +6665,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2021-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 38.460412,
     "carbs": 8.50065,
@@ -7287,7 +6698,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_032",
@@ -7300,7 +6712,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7320,7 +6732,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2021-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 33.31965,
     "carbs": 6.94125,
@@ -7353,7 +6765,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_033",
@@ -7366,7 +6779,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7386,7 +6799,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 33.5679465,
     "carbs": 7.41245,
@@ -7419,7 +6832,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_034",
@@ -7432,7 +6846,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去莢可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7452,7 +6866,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 81.0,
     "carbs": 14.45,
@@ -7492,7 +6906,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "veg_035",
@@ -7505,7 +6920,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7525,7 +6940,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 30.0,
     "carbs": 5.94,
@@ -7571,7 +6986,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "bean_001",
@@ -7584,7 +7000,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7604,7 +7020,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 164.0,
     "carbs": 27.42,
@@ -7644,7 +7060,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "bean_002",
@@ -7657,7 +7074,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7677,7 +7094,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 116.0,
     "carbs": 20.13,
@@ -7723,7 +7140,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "bean_003",
@@ -7736,7 +7154,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮，無添加鹽",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7756,7 +7174,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 127.0,
     "carbs": 22.8,
@@ -7802,7 +7220,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "bean_004",
@@ -7815,7 +7234,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "熟重；水煮，無添加鹽；非黑大豆",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7835,7 +7254,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 132.0,
     "carbs": 23.71,
@@ -7875,7 +7294,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "bean_005",
@@ -7888,7 +7308,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "冷凍產品煮熟重量；去莢可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7908,7 +7328,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 121.0,
     "carbs": 8.91,
@@ -7950,7 +7370,8 @@
     "allergens": [
       "大豆"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "nut_001",
@@ -7963,7 +7384,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烘烤重量；果仁",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -7983,7 +7404,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 583.597022,
     "carbs": 20.03462,
@@ -8018,7 +7439,8 @@
     "allergens": [
       "木本堅果"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "nut_002",
@@ -8031,7 +7453,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烘烤重量；果仁",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8051,7 +7473,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 678.66434,
     "carbs": 10.9096,
@@ -8086,7 +7508,8 @@
     "allergens": [
       "木本堅果"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "nut_003",
@@ -8099,7 +7522,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烘烤重量；果仁",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8119,7 +7542,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2023-04-20",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 533.47799,
     "carbs": 36.2887,
@@ -8154,7 +7577,8 @@
     "allergens": [
       "木本堅果"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "nut_004",
@@ -8167,7 +7591,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；花生仁",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8187,7 +7611,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2023-04-20",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 550.62181,
     "carbs": 26.498,
@@ -8222,7 +7646,8 @@
     "allergens": [
       "花生"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "nut_005",
@@ -8235,7 +7660,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "乾重；整粒芝麻",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8255,7 +7680,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 573.0,
     "carbs": 23.45,
@@ -8303,20 +7728,21 @@
     "allergens": [
       "芝麻"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fish_001",
-    "name": "大西洋鱈魚（野生）",
-    "enName": "Fish, cod, Atlantic, wild caught, raw",
+    "name": "大西洋鱈魚（生）",
+    "enName": "Fish, cod, Atlantic, raw",
     "category": "protein",
     "categoryName": "肉、魚、蛋及豆製品類",
     "unit": "克",
     "unitWeight": 1,
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "生重；野生大西洋鱈魚可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "state": "生重；大西洋鱈魚可食部分；來源未限定養殖或野生",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8328,24 +7754,24 @@
     "status": "verified",
     "source": {
       "provider": "USDA FoodData Central",
-      "recordId": "2684444",
-      "description": "Fish, cod, Atlantic, wild caught, raw",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "recordId": "171955",
+      "description": "Fish, cod, Atlantic, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/171955/nutrients",
       "snapshotUrl": "data/food-sources.html#fish_001",
-      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_csv_2026-04-30.zip",
-      "dataset": "foundation",
-      "release": "2026-04-30",
-      "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "dataset": "sr",
+      "release": "2018-04",
+      "publicationDate": "2019-04-01",
+      "accessed": "2026-10-27"
     },
-    "calories": 70.477065,
+    "calories": 82.0,
     "carbs": 0.0,
-    "protein": 16.06875,
-    "fat": 0.6675,
-    "fiber": null,
+    "protein": 17.81,
+    "fat": 0.67,
+    "fiber": 0.0,
     "nutrientMeta": {
       "calories": {
-        "sourceNutrientId": "2048",
+        "sourceNutrientId": "1008",
         "status": "reported"
       },
       "carbs": {
@@ -8361,30 +7787,45 @@
         "status": "reported"
       },
       "fiber": {
-        "sourceNutrientId": null,
-        "status": "not_reported"
+        "sourceNutrientId": "1079",
+        "status": "reported"
       }
     },
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": [],
+    "referencePortions": [
+      {
+        "amount": "3",
+        "description": "oz",
+        "grams": 85.0,
+        "measureUnitId": "9999"
+      },
+      {
+        "amount": "1",
+        "description": "fillet",
+        "grams": 231.0,
+        "measureUnitId": "9999"
+      }
+    ],
     "allergens": [
       "魚"
     ],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "previousName": "大西洋鱈魚（野生）",
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fish_002",
-    "name": "羅非魚（養殖）",
-    "enName": "Fish, tilapia, farm raised, raw",
+    "name": "羅非魚（生）",
+    "enName": "Fish, tilapia, raw",
     "category": "protein",
     "categoryName": "肉、魚、蛋及豆製品類",
     "unit": "克",
     "unitWeight": 1,
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-    "state": "生重；養殖羅非魚可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "state": "生重；羅非魚可食部分；來源未限定養殖或野生",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8396,24 +7837,24 @@
     "status": "verified",
     "source": {
       "provider": "USDA FoodData Central",
-      "recordId": "2684442",
-      "description": "Fish, tilapia, farm raised, raw",
-      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "recordId": "175176",
+      "description": "Fish, tilapia, raw",
+      "url": "https://fdc.nal.usda.gov/food-details/175176/nutrients",
       "snapshotUrl": "data/food-sources.html#fish_002",
-      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_csv_2026-04-30.zip",
-      "dataset": "foundation",
-      "release": "2026-04-30",
-      "publicationDate": "2024-04-18",
-      "accessed": "2026-10-21"
+      "datasetUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "dataset": "sr",
+      "release": "2018-04",
+      "publicationDate": "2019-04-01",
+      "accessed": "2026-10-27"
     },
-    "calories": 99.95727,
+    "calories": 96.0,
     "carbs": 0.0,
-    "protein": 19.0,
-    "fat": 2.479,
-    "fiber": null,
+    "protein": 20.08,
+    "fat": 1.7,
+    "fiber": 0.0,
     "nutrientMeta": {
       "calories": {
-        "sourceNutrientId": "2048",
+        "sourceNutrientId": "1008",
         "status": "reported"
       },
       "carbs": {
@@ -8429,17 +7870,26 @@
         "status": "reported"
       },
       "fiber": {
-        "sourceNutrientId": null,
-        "status": "not_reported"
+        "sourceNutrientId": "1079",
+        "status": "reported"
       }
     },
     "carbsBasis": "total_by_difference",
     "fiberBasis": "total",
-    "referencePortions": [],
+    "referencePortions": [
+      {
+        "amount": "1",
+        "description": "fillet",
+        "grams": 116.0,
+        "measureUnitId": "9999"
+      }
+    ],
     "allergens": [
       "魚"
     ],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "previousName": "羅非魚（養殖）",
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "sea_001",
@@ -8452,7 +7902,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；混合品種魷魚可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8472,7 +7922,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 92.0,
     "carbs": 3.08,
@@ -8520,7 +7970,8 @@
     "allergens": [
       "軟體／貝類"
     ],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "sea_002",
@@ -8533,7 +7984,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；混合品種帶子可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8553,7 +8004,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 69.0,
     "carbs": 3.18,
@@ -8601,7 +8052,8 @@
     "allergens": [
       "軟體／貝類"
     ],
-    "requiresCooking": true
+    "requiresCooking": true,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_008",
@@ -8614,7 +8066,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8634,7 +8086,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 32.0,
     "carbs": 7.68,
@@ -8728,7 +8180,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_009",
@@ -8741,7 +8194,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8761,7 +8214,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 57.0,
     "carbs": 14.49,
@@ -8807,7 +8260,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_010",
@@ -8820,7 +8274,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8840,7 +8294,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 52.0,
     "carbs": 11.94,
@@ -8892,7 +8346,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_011",
@@ -8905,7 +8360,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8925,7 +8380,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2022-10-28",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 54.046596,
     "carbs": 14.0914625,
@@ -8958,7 +8413,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_012",
@@ -8971,7 +8427,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去皮果肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -8991,7 +8447,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-10-31",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 61.635825,
     "carbs": 15.265,
@@ -9024,7 +8480,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_013",
@@ -9037,7 +8494,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；連皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9057,7 +8514,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-10-31",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 57.320421,
     "carbs": 14.7674,
@@ -9090,7 +8547,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_014",
@@ -9103,7 +8561,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9123,7 +8581,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 29.0,
     "carbs": 9.32,
@@ -9187,7 +8645,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_015",
@@ -9200,7 +8659,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9220,7 +8679,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 32.0,
     "carbs": 8.08,
@@ -9278,7 +8737,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_016",
@@ -9291,7 +8751,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9311,7 +8771,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 39.0,
     "carbs": 9.54,
@@ -9381,7 +8841,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_017",
@@ -9394,7 +8855,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；連皮可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9414,7 +8875,7 @@
       "dataset": "foundation",
       "release": "2026-04-30",
       "publicationDate": "2024-10-31",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 52.747095,
     "carbs": 13.455575,
@@ -9447,7 +8908,8 @@
     "fiberBasis": "total",
     "referencePortions": [],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_018",
@@ -9460,7 +8922,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；可食部分",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9480,7 +8942,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 36.0,
     "carbs": 9.09,
@@ -9562,7 +9024,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "fruit_019",
@@ -9575,7 +9038,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "生重；去皮果肉",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9595,7 +9058,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 160.0,
     "carbs": 8.53,
@@ -9659,7 +9122,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_006",
@@ -9672,7 +9136,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "液態重量；添加維他命A及D",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9692,7 +9156,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 42.0,
     "carbs": 4.99,
@@ -9746,7 +9210,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_007",
@@ -9759,7 +9224,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9779,7 +9244,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 59.0,
     "carbs": 3.6,
@@ -9821,7 +9286,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "dairy_008",
@@ -9834,7 +9300,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "成品重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9854,7 +9320,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 717.0,
     "carbs": 0.06,
@@ -9914,7 +9380,8 @@
     "allergens": [
       "奶"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "oil_001",
@@ -9927,7 +9394,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "油重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -9947,7 +9414,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 884.0,
     "carbs": 0.0,
@@ -9999,7 +9466,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "oil_002",
@@ -10012,7 +9480,7 @@
     "defaultQuantity": 5,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "油重量",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -10032,7 +9500,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 900.0,
     "carbs": 0.0,
@@ -10084,7 +9552,8 @@
       }
     ],
     "allergens": [],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   },
   {
     "code": "soy_006",
@@ -10097,7 +9566,7 @@
     "defaultQuantity": 100,
     "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
     "state": "未烹調重量；硫酸鈣及氯化鎂製軟豆腐",
-    "dataVersion": "2026-10-23-v1",
+    "dataVersion": "2026-10-27-final-v1",
     "nutritionBasis": "per_100g_edible",
     "shelfLifeDays": null,
     "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
@@ -10117,7 +9586,7 @@
       "dataset": "sr",
       "release": "2018-04",
       "publicationDate": "2019-04-01",
-      "accessed": "2026-10-21"
+      "accessed": "2026-10-27"
     },
     "calories": 61.0,
     "carbs": 1.18,
@@ -10183,6 +9652,7 @@
     "allergens": [
       "大豆"
     ],
-    "requiresCooking": false
+    "requiresCooking": false,
+    "auditReviewed": "2026-10-27"
   }
 ]

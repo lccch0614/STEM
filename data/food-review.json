@@ -1,0 +1,1011 @@
+{
+  "version": "2026-10-27-final-v1",
+  "reviewed": "2026-10-27",
+  "activeFoods": 116,
+  "numericValuesChecked": 580,
+  "usdaNumericValuesChecked": 560,
+  "mextNumericValuesChecked": 20,
+  "officialSourceEstimated": [
+    {
+      "code": "carb_004",
+      "name": "烏冬（熟，水煮）",
+      "fields": [
+        "fiber"
+      ]
+    },
+    {
+      "code": "seas_010",
+      "name": "粗鹽（日式並鹽參考）",
+      "fields": [
+        "fiber"
+      ]
+    }
+  ],
+  "replacements": [
+    {
+      "code": "meat_004",
+      "previousName": "去皮雞胸肉",
+      "name": "去皮雞胸肉",
+      "oldRecordId": "2646170",
+      "recordId": "171077",
+      "reason": "改為同一官方記錄提供完整五項數據；來源明列纖維為0，並非自行補零。",
+      "before": {
+        "calories": 112.20227,
+        "carbs": 0.0,
+        "protein": 22.525,
+        "fat": 1.934,
+        "fiber": null
+      },
+      "after": {
+        "calories": 120.0,
+        "carbs": 0.0,
+        "protein": 22.5,
+        "fat": 2.62,
+        "fiber": 0.0
+      }
+    },
+    {
+      "code": "meat_005",
+      "previousName": "三文魚（養殖大西洋鮭魚）",
+      "name": "三文魚（養殖大西洋鮭魚）",
+      "oldRecordId": "2684441",
+      "recordId": "175167",
+      "reason": "改為同一官方記錄提供完整五項數據；來源明列纖維為0，並非自行補零。",
+      "before": {
+        "calories": 203.10632,
+        "carbs": 0.0,
+        "protein": 20.31875,
+        "fat": 13.11,
+        "fiber": null
+      },
+      "after": {
+        "calories": 208.0,
+        "carbs": 0.0,
+        "protein": 20.42,
+        "fat": 13.42,
+        "fiber": 0.0
+      }
+    },
+    {
+      "code": "meat_007",
+      "previousName": "鮮蝦仁",
+      "name": "蝦仁（生，混合品種）",
+      "oldRecordId": "2684443",
+      "recordId": "174210",
+      "reason": "改為同一官方記錄提供完整五項數據；來源明列纖維為0，並非自行補零。",
+      "before": {
+        "calories": 75.699433,
+        "carbs": 0.48495,
+        "protein": 15.56875,
+        "fat": 0.8013,
+        "fiber": null
+      },
+      "after": {
+        "calories": 71.0,
+        "carbs": 0.91,
+        "protein": 13.61,
+        "fat": 1.01,
+        "fiber": 0.0
+      }
+    },
+    {
+      "code": "fish_001",
+      "previousName": "大西洋鱈魚（野生）",
+      "name": "大西洋鱈魚（生）",
+      "oldRecordId": "2684444",
+      "recordId": "171955",
+      "reason": "改為同一官方記錄提供完整五項數據；來源明列纖維為0，並非自行補零。",
+      "before": {
+        "calories": 70.477065,
+        "carbs": 0.0,
+        "protein": 16.06875,
+        "fat": 0.6675,
+        "fiber": null
+      },
+      "after": {
+        "calories": 82.0,
+        "carbs": 0.0,
+        "protein": 17.81,
+        "fat": 0.67,
+        "fiber": 0.0
+      }
+    },
+    {
+      "code": "fish_002",
+      "previousName": "羅非魚（養殖）",
+      "name": "羅非魚（生）",
+      "oldRecordId": "2684442",
+      "recordId": "175176",
+      "reason": "改為同一官方記錄提供完整五項數據；來源明列纖維為0，並非自行補零。",
+      "before": {
+        "calories": 99.95727,
+        "carbs": 0.0,
+        "protein": 19.0,
+        "fat": 2.479,
+        "fiber": null
+      },
+      "after": {
+        "calories": 96.0,
+        "carbs": 0.0,
+        "protein": 20.08,
+        "fat": 1.7,
+        "fiber": 0.0
+      }
+    }
+  ],
+  "excluded": [
+    {
+      "code": "carb_007",
+      "name": "蒸饅頭",
+      "missing": [
+        "fiber"
+      ],
+      "reason": "原記錄未提供可用的總膳食纖維；不將不同定義、微量或未列值當成零。",
+      "originalRecord": {
+        "code": "carb_007",
+        "name": "蒸饅頭",
+        "enName": "饅頭(均值)(Wheat bun, leavened, steamed (Mean))",
+        "category": "grains",
+        "categoryName": "穀物及薯類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "熟重；蒸製成品，來源為均值",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "verified",
+        "source": {
+          "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
+          "recordId": "0501070114040",
+          "description": "饅頭(均值)(Wheat bun, leavened, steamed (Mean))",
+          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
+          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
+          "lookupMethod": "POST",
+          "lookupFields": {
+            "fg_id": "01",
+            "fsg_id": "07",
+            "food_id": "0501070114040",
+            "inShortMode": "0"
+          },
+          "release": "CFC2002Ed2（食安中心轉載）",
+          "accessed": "2026-10-21"
+        },
+        "calories": 223.0,
+        "protein": 7.0,
+        "carbs": 47.0,
+        "fat": 1.1,
+        "fiber": null,
+        "nutrientMeta": {
+          "calories": {
+            "originalValue": "223",
+            "status": "reported"
+          },
+          "protein": {
+            "originalValue": "7.0",
+            "status": "reported"
+          },
+          "carbs": {
+            "originalValue": "47.0",
+            "status": "reported"
+          },
+          "fat": {
+            "originalValue": "1.1",
+            "status": "reported"
+          },
+          "fiber": {
+            "originalValue": "1.3",
+            "status": "different_definition"
+          }
+        },
+        "carbsBasis": "total",
+        "fiberBasis": "insoluble",
+        "originalNutrients": {
+          "能量*": "223",
+          "蛋白質": "7.0",
+          "碳水化合物*": "47.0",
+          "脂肪": "1.1",
+          "膳食纖維*": "1.3"
+        },
+        "allergens": [
+          "含麩質穀物（須查標籤）"
+        ],
+        "requiresCooking": false
+      }
+    },
+    {
+      "code": "dairy_004",
+      "name": "高鈣芝士片",
+      "missing": [
+        "calories",
+        "carbs",
+        "protein",
+        "fat",
+        "fiber"
+      ],
+      "reason": "「高鈣」及芝士片配方因品牌而異，未有指定產品標籤，不能用一般車打芝士冒充。請提供品牌、產品名稱、每100克營養標籤及每片重量；未列膳食纖維保留缺值。",
+      "originalRecord": {
+        "code": "dairy_004",
+        "name": "高鈣芝士片",
+        "enName": "Cheddar Cheese Slice",
+        "category": "dairy",
+        "categoryName": "奶類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "原有項目；產品或生熟狀態待核對",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "pending_label",
+        "source": null,
+        "auditNote": "「高鈣」及芝士片配方因品牌而異，未有指定產品標籤，不能用一般車打芝士冒充。請提供品牌、產品名稱、每100克營養標籤及每片重量；未列膳食纖維保留缺值。",
+        "nutrientMeta": {
+          "calories": {
+            "status": "not_verified"
+          },
+          "carbs": {
+            "status": "not_verified"
+          },
+          "protein": {
+            "status": "not_verified"
+          },
+          "fat": {
+            "status": "not_verified"
+          },
+          "fiber": {
+            "status": "not_verified"
+          }
+        },
+        "calories": null,
+        "carbs": null,
+        "protein": null,
+        "fat": null,
+        "fiber": null,
+        "allergens": [
+          "奶"
+        ],
+        "requiresCooking": false,
+        "auditReviewed": "2026-10-23",
+        "alternativeCodes": []
+      }
+    },
+    {
+      "code": "veg_001",
+      "name": "菜心",
+      "missing": [
+        "carbs"
+      ],
+      "reason": "原記錄未提供可用的總碳水化合物；不將不同定義、微量或未列值當成零。",
+      "originalRecord": {
+        "code": "veg_001",
+        "name": "菜心",
+        "enName": "菜心(Flowering white cabbage)",
+        "category": "vegetables",
+        "categoryName": "蔬菜類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "按來源「菜心」可食部分；來源未另列烹調狀態",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "verified",
+        "source": {
+          "provider": "香港食物安全中心／食物安全中心轄下的食物研究化驗所 (FRL)",
+          "recordId": "10030200303",
+          "description": "菜心(Flowering white cabbage)",
+          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
+          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
+          "lookupMethod": "POST",
+          "lookupFields": {
+            "fg_id": "03",
+            "fsg_id": "02",
+            "food_id": "10030200303",
+            "inShortMode": "0"
+          },
+          "release": "FRL網站記錄；頁面未列數據版本",
+          "accessed": "2026-10-21"
+        },
+        "calories": 12.0,
+        "protein": 2.1,
+        "carbs": null,
+        "fat": 0.3,
+        "fiber": 1.5,
+        "nutrientMeta": {
+          "calories": {
+            "originalValue": "12",
+            "status": "reported"
+          },
+          "protein": {
+            "originalValue": "2.1",
+            "status": "reported"
+          },
+          "carbs": {
+            "originalValue": "0.11",
+            "status": "different_definition"
+          },
+          "fat": {
+            "originalValue": "0.3",
+            "status": "reported"
+          },
+          "fiber": {
+            "originalValue": "1.5",
+            "status": "reported"
+          }
+        },
+        "carbsBasis": "available",
+        "fiberBasis": "total",
+        "originalNutrients": {
+          "能量*": "12",
+          "蛋白質": "2.1",
+          "碳水化合物*": "0.11",
+          "脂肪": "0.3",
+          "膳食纖維*": "1.5"
+        },
+        "allergens": [],
+        "requiresCooking": false
+      }
+    },
+    {
+      "code": "veg_007",
+      "name": "節瓜",
+      "missing": [
+        "carbs",
+        "fat"
+      ],
+      "reason": "原記錄未提供可用的總碳水化合物、脂肪；不將不同定義、微量或未列值當成零。",
+      "originalRecord": {
+        "code": "veg_007",
+        "name": "節瓜",
+        "enName": "節瓜(Hairy melon)",
+        "category": "vegetables",
+        "categoryName": "蔬菜類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "按來源「節瓜」可食部分；來源未另列烹調狀態",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "verified",
+        "source": {
+          "provider": "香港食物安全中心／食物安全中心轄下的食物研究化驗所 (FRL)",
+          "recordId": "10030300277",
+          "description": "節瓜(Hairy melon)",
+          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
+          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
+          "lookupMethod": "POST",
+          "lookupFields": {
+            "fg_id": "03",
+            "fsg_id": "03",
+            "food_id": "10030300277",
+            "inShortMode": "0"
+          },
+          "release": "FRL網站記錄；頁面未列數據版本",
+          "accessed": "2026-10-21"
+        },
+        "calories": 15.0,
+        "protein": 0.8,
+        "carbs": null,
+        "fat": null,
+        "fiber": 1.5,
+        "nutrientMeta": {
+          "calories": {
+            "originalValue": "15",
+            "status": "reported"
+          },
+          "protein": {
+            "originalValue": "0.8",
+            "status": "reported"
+          },
+          "carbs": {
+            "originalValue": "2.6",
+            "status": "different_definition"
+          },
+          "fat": {
+            "originalValue": "Trace",
+            "status": "trace"
+          },
+          "fiber": {
+            "originalValue": "1.5",
+            "status": "reported"
+          }
+        },
+        "carbsBasis": "available",
+        "fiberBasis": "total",
+        "originalNutrients": {
+          "能量*": "15",
+          "蛋白質": "0.8",
+          "碳水化合物*": "2.6",
+          "脂肪": "Trace",
+          "膳食纖維*": "1.5"
+        },
+        "allergens": [],
+        "requiresCooking": false
+      }
+    },
+    {
+      "code": "seas_005",
+      "name": "蒸魚豉油",
+      "missing": [
+        "calories",
+        "carbs",
+        "protein",
+        "fat",
+        "fiber"
+      ],
+      "reason": "蒸魚豉油的糖、鹽及配方因品牌而異，需要指定產品的營養標籤；一般醬油不能當作同一產品。可另選已核實的「醬油（大豆及小麥製）」，但不會自動替換舊草稿。",
+      "originalRecord": {
+        "code": "seas_005",
+        "name": "蒸魚豉油",
+        "enName": "Steamed Fish Soy Sauce",
+        "category": "oil_salt_sugar",
+        "categoryName": "油、鹽、糖及調味料",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 5,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "原有項目；產品或生熟狀態待核對",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "pending_label",
+        "source": null,
+        "auditNote": "蒸魚豉油的糖、鹽及配方因品牌而異，需要指定產品的營養標籤；一般醬油不能當作同一產品。可另選已核實的「醬油（大豆及小麥製）」，但不會自動替換舊草稿。",
+        "nutrientMeta": {
+          "calories": {
+            "status": "not_verified"
+          },
+          "carbs": {
+            "status": "not_verified"
+          },
+          "protein": {
+            "status": "not_verified"
+          },
+          "fat": {
+            "status": "not_verified"
+          },
+          "fiber": {
+            "status": "not_verified"
+          }
+        },
+        "calories": null,
+        "carbs": null,
+        "protein": null,
+        "fat": null,
+        "fiber": null,
+        "allergens": [
+          "大豆",
+          "魚",
+          "加工食品配料（須查標籤）"
+        ],
+        "requiresCooking": false,
+        "auditReviewed": "2026-10-23",
+        "alternativeCodes": [
+          "seas_001"
+        ]
+      }
+    },
+    {
+      "code": "meat_006",
+      "name": "鯇魚腩",
+      "missing": [
+        "calories",
+        "carbs",
+        "protein",
+        "fat",
+        "fiber"
+      ],
+      "reason": "尚未找到精確對應「鯇魚腩」部位及生熟狀態的可靠成分記錄；整條草魚或一般魚肉不能當作魚腩。須核實部位及可食部分狀態後才可啟用。",
+      "originalRecord": {
+        "code": "meat_006",
+        "name": "鯇魚腩",
+        "enName": "Grass Carp Belly",
+        "category": "protein",
+        "categoryName": "肉、魚、蛋及豆製品類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "原有項目；產品或生熟狀態待核對",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "pending_label",
+        "source": null,
+        "auditNote": "尚未找到精確對應「鯇魚腩」部位及生熟狀態的可靠成分記錄；整條草魚或一般魚肉不能當作魚腩。須核實部位及可食部分狀態後才可啟用。",
+        "nutrientMeta": {
+          "calories": {
+            "status": "not_verified"
+          },
+          "carbs": {
+            "status": "not_verified"
+          },
+          "protein": {
+            "status": "not_verified"
+          },
+          "fat": {
+            "status": "not_verified"
+          },
+          "fiber": {
+            "status": "not_verified"
+          }
+        },
+        "calories": null,
+        "carbs": null,
+        "protein": null,
+        "fat": null,
+        "fiber": null,
+        "allergens": [
+          "魚"
+        ],
+        "requiresCooking": true,
+        "auditReviewed": "2026-10-23",
+        "alternativeCodes": []
+      }
+    },
+    {
+      "code": "meat_008",
+      "name": "叉燒（一般成品）",
+      "missing": [
+        "carbs"
+      ],
+      "reason": "原記錄未提供可用的總碳水化合物；不將不同定義、微量或未列值當成零。",
+      "originalRecord": {
+        "code": "meat_008",
+        "name": "叉燒（一般成品）",
+        "enName": "叉燒(Barbecued pork)",
+        "category": "protein",
+        "categoryName": "肉、魚、蛋及豆製品類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "熟製成品重量；非指定瘦肉",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "verified",
+        "source": {
+          "provider": "香港食物安全中心／食物安全中心轄下的食物研究化驗所 (FRL)",
+          "recordId": "10060600763",
+          "description": "叉燒(Barbecued pork)",
+          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
+          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
+          "lookupMethod": "POST",
+          "lookupFields": {
+            "fg_id": "06",
+            "fsg_id": "06",
+            "food_id": "10060600763",
+            "inShortMode": "0"
+          },
+          "release": "FRL網站記錄；頁面未列數據版本",
+          "accessed": "2026-10-21"
+        },
+        "calories": 300.0,
+        "protein": 25.0,
+        "carbs": null,
+        "fat": 17.0,
+        "fiber": 0.0,
+        "nutrientMeta": {
+          "calories": {
+            "originalValue": "300",
+            "status": "reported"
+          },
+          "protein": {
+            "originalValue": "25",
+            "status": "reported"
+          },
+          "carbs": {
+            "originalValue": "9.4",
+            "status": "different_definition"
+          },
+          "fat": {
+            "originalValue": "17",
+            "status": "reported"
+          },
+          "fiber": {
+            "originalValue": "0",
+            "status": "reported"
+          }
+        },
+        "carbsBasis": "available",
+        "fiberBasis": "total",
+        "originalNutrients": {
+          "能量*": "300",
+          "蛋白質": "25",
+          "碳水化合物*": "9.4",
+          "脂肪": "17",
+          "膳食纖維*": "0"
+        },
+        "previousName": "蜜汁叉燒 (瘦)",
+        "allergens": [
+          "加工食品配料（須查標籤）"
+        ],
+        "requiresCooking": false
+      }
+    },
+    {
+      "code": "soy_001",
+      "name": "蒸水豆腐",
+      "missing": [
+        "calories",
+        "carbs",
+        "protein",
+        "fat",
+        "fiber"
+      ],
+      "reason": "名稱「蒸水豆腐」包含熟製狀態，未找到精確對應記錄；南豆腐或未烹調軟豆腐不能冒充蒸後重量。可另選已核實「軟豆腐（未烹調）」並按未烹調重量輸入。",
+      "originalRecord": {
+        "code": "soy_001",
+        "name": "蒸水豆腐",
+        "enName": "Soft Tofu",
+        "category": "protein",
+        "categoryName": "肉、魚、蛋及豆製品類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "原有項目；產品或生熟狀態待核對",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "pending_label",
+        "source": null,
+        "auditNote": "名稱「蒸水豆腐」包含熟製狀態，未找到精確對應記錄；南豆腐或未烹調軟豆腐不能冒充蒸後重量。可另選已核實「軟豆腐（未烹調）」並按未烹調重量輸入。",
+        "nutrientMeta": {
+          "calories": {
+            "status": "not_verified"
+          },
+          "carbs": {
+            "status": "not_verified"
+          },
+          "protein": {
+            "status": "not_verified"
+          },
+          "fat": {
+            "status": "not_verified"
+          },
+          "fiber": {
+            "status": "not_verified"
+          }
+        },
+        "calories": null,
+        "carbs": null,
+        "protein": null,
+        "fat": null,
+        "fiber": null,
+        "allergens": [
+          "大豆"
+        ],
+        "requiresCooking": false,
+        "auditReviewed": "2026-10-23",
+        "alternativeCodes": [
+          "soy_006"
+        ]
+      }
+    },
+    {
+      "code": "soy_005",
+      "name": "枝竹 (浸發)",
+      "missing": [
+        "calories",
+        "carbs",
+        "protein",
+        "fat",
+        "fiber"
+      ],
+      "reason": "食安中心枝竹記錄0502000315080並非浸發狀態（每100克478千卡），不可套用於吸水後重量；鮮腐皮及日式熱水泡發湯葉亦非同一枝竹產品。需要指定產品浸發後的可靠資料或實驗室分析。",
+      "originalRecord": {
+        "code": "soy_005",
+        "name": "枝竹 (浸發)",
+        "enName": "Dried Beancurd Stick",
+        "category": "protein",
+        "categoryName": "肉、魚、蛋及豆製品類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "原有項目；產品或生熟狀態待核對",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "pending_label",
+        "source": null,
+        "auditNote": "食安中心枝竹記錄0502000315080並非浸發狀態（每100克478千卡），不可套用於吸水後重量；鮮腐皮及日式熱水泡發湯葉亦非同一枝竹產品。需要指定產品浸發後的可靠資料或實驗室分析。",
+        "nutrientMeta": {
+          "calories": {
+            "status": "not_verified"
+          },
+          "carbs": {
+            "status": "not_verified"
+          },
+          "protein": {
+            "status": "not_verified"
+          },
+          "fat": {
+            "status": "not_verified"
+          },
+          "fiber": {
+            "status": "not_verified"
+          }
+        },
+        "calories": null,
+        "carbs": null,
+        "protein": null,
+        "fat": null,
+        "fiber": null,
+        "allergens": [
+          "大豆"
+        ],
+        "requiresCooking": false,
+        "auditReviewed": "2026-10-23",
+        "alternativeCodes": []
+      }
+    },
+    {
+      "code": "egg_003",
+      "name": "鹹鴨蛋",
+      "missing": [
+        "fiber"
+      ],
+      "reason": "原記錄未提供可用的總膳食纖維；不將不同定義、微量或未列值當成零。",
+      "originalRecord": {
+        "code": "egg_003",
+        "name": "鹹鴨蛋",
+        "enName": "鹹鴨蛋(Duck, egg, whole, salt preserved)",
+        "category": "protein",
+        "categoryName": "肉、魚、蛋及豆製品類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "醃製去殼全蛋；來源未註明生熟，使用時須成人確認及煮熟",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "verified",
+        "source": {
+          "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
+          "recordId": "0509001122020",
+          "description": "鹹鴨蛋(Duck, egg, whole, salt preserved)",
+          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
+          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
+          "lookupMethod": "POST",
+          "lookupFields": {
+            "fg_id": "09",
+            "fsg_id": "00",
+            "food_id": "0509001122020",
+            "inShortMode": "0"
+          },
+          "release": "CFC2002Ed2（食安中心轉載）",
+          "accessed": "2026-10-21"
+        },
+        "calories": 190.0,
+        "protein": 12.7,
+        "carbs": 6.3,
+        "fat": 12.7,
+        "fiber": null,
+        "nutrientMeta": {
+          "calories": {
+            "originalValue": "190",
+            "status": "reported"
+          },
+          "protein": {
+            "originalValue": "12.7",
+            "status": "reported"
+          },
+          "carbs": {
+            "originalValue": "6.3",
+            "status": "reported"
+          },
+          "fat": {
+            "originalValue": "12.7",
+            "status": "reported"
+          },
+          "fiber": {
+            "originalValue": "NA",
+            "status": "not_reported"
+          }
+        },
+        "carbsBasis": "total",
+        "fiberBasis": "insoluble",
+        "originalNutrients": {
+          "能量*": "190",
+          "蛋白質": "12.7",
+          "碳水化合物*": "6.3",
+          "脂肪": "12.7",
+          "膳食纖維*": "NA"
+        },
+        "allergens": [
+          "蛋"
+        ],
+        "requiresCooking": true
+      }
+    },
+    {
+      "code": "egg_004",
+      "name": "皮蛋",
+      "missing": [
+        "fiber"
+      ],
+      "reason": "原記錄未提供可用的總膳食纖維；不將不同定義、微量或未列值當成零。",
+      "originalRecord": {
+        "code": "egg_004",
+        "name": "皮蛋",
+        "enName": "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)",
+        "category": "protein",
+        "categoryName": "肉、魚、蛋及豆製品類",
+        "unit": "克",
+        "unitWeight": 1,
+        "defaultQuantity": 100,
+        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
+        "state": "醃製去殼全蛋",
+        "dataVersion": "2026-10-23-v1",
+        "nutritionBasis": "per_100g_edible",
+        "shelfLifeDays": null,
+        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
+        "storage": {
+          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
+          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
+        },
+        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
+        "status": "verified",
+        "source": {
+          "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
+          "recordId": "0509001122010",
+          "description": "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)",
+          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
+          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
+          "lookupMethod": "POST",
+          "lookupFields": {
+            "fg_id": "09",
+            "fsg_id": "00",
+            "food_id": "0509001122010",
+            "inShortMode": "0"
+          },
+          "release": "CFC2002Ed2（食安中心轉載）",
+          "accessed": "2026-10-21"
+        },
+        "calories": 171.0,
+        "protein": 14.2,
+        "carbs": 4.5,
+        "fat": 10.7,
+        "fiber": null,
+        "nutrientMeta": {
+          "calories": {
+            "originalValue": "171",
+            "status": "reported"
+          },
+          "protein": {
+            "originalValue": "14.2",
+            "status": "reported"
+          },
+          "carbs": {
+            "originalValue": "4.5",
+            "status": "reported"
+          },
+          "fat": {
+            "originalValue": "10.7",
+            "status": "reported"
+          },
+          "fiber": {
+            "originalValue": "NA",
+            "status": "not_reported"
+          }
+        },
+        "carbsBasis": "total",
+        "fiberBasis": "insoluble",
+        "originalNutrients": {
+          "能量*": "171",
+          "蛋白質": "14.2",
+          "碳水化合物*": "4.5",
+          "脂肪": "10.7",
+          "膳食纖維*": "NA"
+        },
+        "allergens": [
+          "蛋"
+        ],
+        "requiresCooking": false
+      }
+    }
+  ],
+  "sourceDownloads": [
+    {
+      "file": "chp-energy.pdf",
+      "url": "https://www.chp.gov.hk/files/pdf/exn_nutp_058b.pdf",
+      "bytes": 6226656,
+      "sha256": "1e81644c1bb9b57505964c17cc00603bf392f3486cacdf2f47f6776e7ea9835d"
+    },
+    {
+      "file": "chp-fibre.pdf",
+      "url": "https://www.chp.gov.hk/files/her/exn_nutp054b_en.pdf",
+      "bytes": 909209,
+      "sha256": "dfb35dca72643149eacd0588b70b29c2fe6119353436d8fc08e7f8b5a938d593"
+    },
+    {
+      "file": "hk-weight-conversion.pdf",
+      "url": "https://www.legco.gov.hk/yr16-17/english/bc/bc56/papers/bc5620171121cb2-297-2-e.pdf",
+      "bytes": 8081320,
+      "sha256": "2d8457734ac1956dac39e6ae10736042bb85afda535b5c2e4e9152c45399bb59"
+    },
+    {
+      "file": "usda-sr.zip",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "bytes": 6074592,
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
+    },
+    {
+      "file": "usda-foundation.zip",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_csv_2026-04-30.zip",
+      "bytes": 3825741,
+      "sha256": "70457ee9d9342f43bda2010318c85f04210c689fdeb9cd2da4c513b0e8dbc655"
+    }
+  ],
+  "householdMeasures": 179
+}

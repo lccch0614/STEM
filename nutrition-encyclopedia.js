@@ -142,7 +142,7 @@
     if(loading)return;loading=true;
     $('pedia-load-status').hidden=false;$('pedia-load-status').textContent='正在載入營養圖鑑……';$('pedia-retry').hidden=true;
     try{
-      const response=await fetch('./data/nutrition-encyclopedia.json?v=2026-10-24-1');if(!response.ok)throw new Error('未能載入');
+      const response=await fetch('./data/nutrition-encyclopedia.json?v=2026-10-27-final-1');if(!response.ok)throw new Error('未能載入');
       content=validate(await response.json());entries=new Map(content.entries.map(e=>[e.id,e]));$('pedia-load-status').hidden=true;render();
     }catch{$('pedia-load-status').textContent='圖鑑未能載入，請檢查網絡後重試。餐盤及其他活動仍可使用。';$('pedia-retry').hidden=false;}
     finally{loading=false;}

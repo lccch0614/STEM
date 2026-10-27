@@ -3,10 +3,10 @@
   const C = window.FoodWorkshopCore, P = window.PortionTools, Pub=window.WorkshopPublication, A=window.WorkshopAI, $ = id => document.getElementById(id);
   const DRAFT_KEY = 'food-workshop-draft-v1', SETTINGS_KEY = 'food-workshop-settings-v1', QUEUE_KEY = 'food-workshop-queue-v1';
   const PORTION_SETTINGS_KEY='food-workshop-portions-v1';
-  let portionCatalog={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
+  let portionCatalog={},retiredFoods={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
   const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
-  const fresh = () => ({version:1,dataVersion:'2026-10-23-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
+  const fresh = () => ({version:1,dataVersion:'2026-10-27-final-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
   let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
   let lastTextDiagnostic=null;
   let queue = [], pendingAI = null, pendingImage = null, currentAnalysis = null, conceptImage = null, saveTimer, qrTimer, initialized = false;
@@ -15,6 +15,26 @@
   const format = (n,key) => n === null ? '資料不足' : n.toFixed(key === 'calories' ? 0 : 1);
   function error(id,message = '') {$(id).textContent=message;$(id).hidden=!message;}
   function readStorage(key) {try {const raw=localStorage.getItem(key);return raw ? JSON.parse(raw) : null;} catch {return null;}}
+  function reviewedDraft(raw) {
+    if(!raw||!Array.isArray(raw.items))throw new Error('草稿格式無效。');
+    const removed=raw.items.filter(item=>Object.hasOwn(retiredFoods,item.code));
+    const value=C.validateDraft({...raw,items:raw.items.filter(item=>!Object.hasOwn(retiredFoods,item.code))},database,portionCatalog);
+    // Removing an ingredient invalidates its old instructions, while the original stays downloadable.
+    if(removed.length){value.steps=[''];value.minutes=0;}
+    return {value,removed};
+  }
+  function draftReviewNotice(raw,removed=[],failure='') {
+    const node=$('food-data-notice');node.hidden=false;
+    const archived=readStorage('food-workshop-draft-before-food-review-v1');
+    const alreadyCurrent=!failure&&!removed.length&&raw.dataVersion===database[0]?.dataVersion;
+    if(alreadyCurrent&&!archived){node.hidden=true;return;}
+    const names=[...new Set(removed.map(item=>retiredFoods[item.code]))];
+    node.textContent=alreadyCurrent?'已保留上次食材資料更新前的原稿備份，可隨時下載。':failure?'原草稿未套用：'+failure+' 原稿仍可在此下載。':names.length?`本版已抽起：${names.join('、')}。已保留其餘材料克數、菜名及原稿備份；舊步驟已清空，請重新生成或填寫做法。`:'食材資料庫已核對更新；原有克數保留，營養按本版來源重新計算。請核對食材名稱、生熟狀態及份量單位。';
+    if(removed.length||failure){try{localStorage.setItem('food-workshop-draft-before-food-review-v1',JSON.stringify(raw));}catch{}
+    }
+    const backup=removed.length||failure?raw:archived;
+    if(backup){const button=document.createElement('button');button.type='button';button.className='ws-link';button.textContent='下載更新前原稿';button.addEventListener('click',()=>download('食材更新前-原稿備份.json',backup));node.append(document.createTextNode(' '),button);}
+  }
   function saveDraft() {
     clearTimeout(saveTimer);
     if (!initialized) return;
@@ -302,9 +322,15 @@
     const atRevision=revision;
     try {
       const saved=await Pub.store.active();if(!saved||atRevision!==revision)return;
-      if(!savedDraft&&saved.draft){draft=C.validateDraft(saved.draft,database,portionCatalog);fillFields();}
-      if(saved.key!==conceptKey())return;
-      Pub.jpegBytes(saved.asset);showConcept(saved.asset,saved.model,saved.key);
+      if(!savedDraft&&saved.draft){const restored=reviewedDraft(saved.draft);draft=restored.value;draftReviewNotice(saved.draft,restored.removed);fillFields();}
+      const key=conceptKey();
+      if(saved.key!==key){
+        // A database-version change alone does not alter the depicted ingredients or recipe.
+        const before=JSON.parse(saved.key),after=JSON.parse(key);
+        if(!Array.isArray(before)||!Array.isArray(after)||before.length!==after.length||JSON.stringify(before.slice(0,-1))!==JSON.stringify(after.slice(0,-1)))return;
+      }
+      Pub.jpegBytes(saved.asset);showConcept(saved.asset,saved.model,key);
+      if(saved.key!==key)await persistConcept();
       $('image-status').textContent='已恢復自動儲存的概念圖；沒有再次呼叫AI。';
     }catch(e){error('image-error',e.message);}
   }
@@ -515,7 +541,7 @@
       if(notes.length){const learning=section('食譜備註');for(const [label,value] of notes){const para=document.createElement('p'),strong=document.createElement('strong');strong.textContent=`${label}：`;para.append(strong,document.createTextNode(value));learning.append(para);}}
       const nutrition=section('每人營養估算');
       const values=document.createElement('p');values.textContent=Object.entries(C.nutrients).map(([key,m]) => `${m.label} ${format(p.u[key],key)}${p.u[key]===null?'':m.unit}`).join(' · ');nutrition.append(values);
-      const note=document.createElement('p');note.className='ws-note';note.textContent=p.d?`食材資料版本：${p.d}。按食譜所列狀態及來源數據估算；缺項顯示資料不足，未另列糖及鈉，並非個人飲食建議。`:'此為舊版食譜所儲存的營養估算，未附本次資料版本；數字保持原作品內容，並非個人飲食建議。';nutrition.append(note);
+      const note=document.createElement('p');note.className='ws-note';note.textContent=p.d?`食材資料版本：${p.d}。按食譜所列狀態及來源數據估算；未另列糖及鈉，並非個人飲食建議。`:'此為舊版食譜所儲存的營養估算，未附本次資料版本；數字保持原作品內容，並非個人飲食建議。';nutrition.append(note);
     }
     const safe=section('親子煮食提醒'), safeText=document.createElement('p');safeText.textContent=C.safety;safe.append(safeText);
     const feedback=section('家庭實踐小記');
@@ -536,15 +562,15 @@
   }
   async function loadFoods() {
     try {
-      const response=await fetch('./data/foods.json?v=2026-10-23-1');if (!response.ok) throw new Error('未能載入食材資料。');
+      const response=await fetch('./data/foods.json?v=2026-10-27-final-1');if (!response.ok) throw new Error('未能載入食材資料。');
       const data=await response.json();
-      if (!Array.isArray(data)||!data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0)) throw new Error('食材資料格式無效。');
+      if (!Array.isArray(data)||!data.length||new Set(data.map(f=>f.code)).size!==data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0||f.status!=='verified'||!f.source||Object.keys(C.nutrients).some(key=>typeof f[key]!=='number'||!Number.isFinite(f[key])||f[key]<0))) throw new Error('食材資料版本未能完整核對，請重新載入定稿檔案。');
       database=data;
-      try{const response=await fetch('./data/portion-guides.json?v=2026-10-23-all-1');if(!response.ok)throw new Error('未能載入份量');portionCatalog=P.catalog(await response.json(),database);}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
+      try{const response=await fetch('./data/portion-guides.json?v=2026-10-27-final-1');if(!response.ok)throw new Error('未能載入份量');const raw=await response.json();portionCatalog=P.catalog(raw,database);retiredFoods=raw.retiredFoods||{};}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
       try{const saved=readStorage(PORTION_SETTINGS_KEY);if(saved)workshopMeasures=P.settings(saved,database);}catch{$('teacher-portion-status').textContent='上次實測設定未能核對，請重新匯入或量度。';}
       foodOptions();document.querySelectorAll('[data-food-count]').forEach(node=>node.textContent=`提供 ${data.filter(food=>food.status==='verified').length} 款附官方來源的可選食材`);
       const saved=readStorage(DRAFT_KEY);
-      if (saved) {try {draft=C.validateDraft(saved,database,portionCatalog);$('draft-status').textContent='已恢復上次食譜。';if(saved.dataVersion!==database[0]?.dataVersion){$('food-data-notice').hidden=false;$('food-data-notice').textContent='食材資料庫已核對更新；上次餐盤克數保留，營養會按新數據重新計算。請核對材料名稱及生熟狀態；待核對項目顯示資料不足。';}} catch {$('draft-status').textContent='上次草稿無法恢復；可開啟下載過的草稿。';}}
+      if (saved) {try {const restored=reviewedDraft(saved);draft=restored.value;$('draft-status').textContent='已恢復上次食譜。';draftReviewNotice(saved,restored.removed);} catch(e) {$('draft-status').textContent='上次草稿未套用；可下載原稿保留。';draftReviewNotice(saved,[],e.message);}}
       initialized=true;fillFields();await restoreConcept(saved);
       window.dispatchEvent(new CustomEvent('food-workshop:ready'));
       if(draft.title.trim()&&draft.steps.some(step=>step.trim()))prepareShare(true);
@@ -603,9 +629,9 @@
     $('export-draft').addEventListener('click',() => {syncFields();saveDraft();download('我的惜食食譜-草稿.json',draft);});
     $('export-approved').addEventListener('click',() => {try {const entry=ensureQR();download('我的惜食食譜-文字版.json',{kind:'food-workshop-approved',version:1,payload:entry.payload,size:entry.size==='acrylic'?'standard':entry.size});} catch (e) {error('qr-error',e.message);}});
     $('import-draft').addEventListener('change',async event => {
-      try {if (!initialized) throw new Error('請先成功載入食材資料。');const incoming=C.validateDraft(await jsonFile(event.target.files[0]),database,portionCatalog);
+      try {if (!initialized) throw new Error('請先成功載入食材資料。');const raw=await jsonFile(event.target.files[0]),restored=reviewedDraft(raw),incoming=restored.value;
         if (!confirm('開啟草稿會取代目前作品；如要保留，請先取消並下載目前草稿。繼續？')) return;
-        resetConcept();draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();if(incoming.dataVersion!==database[0]?.dataVersion){$('food-data-notice').hidden=false;$('food-data-notice').textContent='已保留草稿的材料克數，營養按本次來源數據重新計算。請核對材料名稱及生熟狀態；待核對項目顯示資料不足。';}saveDraft();prepareShare(true);
+        resetConcept();draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();draftReviewNotice(raw,restored.removed);saveDraft();prepareShare(true);
       } catch (e) {$('draft-status').textContent=e.message;} finally {event.target.value='';}
     });
     $('new-project').addEventListener('click',() => {if (!confirm('開始另一份作品會取代目前草稿；如要保留，請先下載。繼續？')) return;resetConcept();draft=fresh();comparison=null;touch('已開始新作品。');fillFields();saveDraft();});

@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-23-v1",
-  "accessed": "2026-10-23",
+  "version": "2026-10-27-final-v1",
+  "accessed": "2026-10-27",
   "basis": "每100克可食部分，按記錄指定狀態。總碳水化合物和總膳食纖維分別計算；不混用可獲得碳水或不溶性纖維。Trace及未列資料保留為null，不填0。",
   "energyPreference": [
     "2048 Atwater specific",
@@ -710,147 +710,6 @@
         }
       ]
     },
-    "CFS:0501070114040": {
-      "code": "carb_007",
-      "id": "0501070114040",
-      "lookup": {
-        "fg_id": "01",
-        "fsg_id": "07",
-        "food_id": "0501070114040",
-        "inShortMode": "0"
-      },
-      "rows": [
-        [
-          "",
-          ""
-        ],
-        [
-          "食物類別:",
-          "穀類及其製品(Cereals and cereal products)"
-        ],
-        [
-          "食物細分類別:",
-          "麵包(Breads and rolls)"
-        ],
-        [
-          "食物名稱:",
-          "饅頭(均值)(Wheat bun, leavened, steamed (Mean))"
-        ],
-        [
-          "資料來源:",
-          "中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)"
-        ],
-        [
-          "分量:",
-          "100 克可食用部份"
-        ],
-        [
-          "營養",
-          "單位",
-          "數值"
-        ],
-        [
-          "能量*",
-          "千卡",
-          "223"
-        ],
-        [
-          "蛋白質",
-          "克",
-          "7.0"
-        ],
-        [
-          "碳水化合物*",
-          "克",
-          "47.0"
-        ],
-        [
-          "脂肪",
-          "克",
-          "1.1"
-        ],
-        [
-          "膳食纖維*",
-          "克",
-          "1.3"
-        ],
-        [
-          "糖",
-          "克",
-          "NA"
-        ],
-        [
-          "飽和脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "反式脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "膽固醇",
-          "毫克",
-          "NA"
-        ],
-        [
-          "酒精",
-          "克",
-          ""
-        ],
-        [
-          "鈣",
-          "毫克",
-          "38"
-        ],
-        [
-          "銅",
-          "毫克",
-          "0.10"
-        ],
-        [
-          "鐵",
-          "毫克",
-          "1.8"
-        ],
-        [
-          "鎂",
-          "毫克",
-          "30"
-        ],
-        [
-          "錳",
-          "毫克",
-          "0.78"
-        ],
-        [
-          "磷",
-          "毫克",
-          "107"
-        ],
-        [
-          "鉀",
-          "毫克",
-          "138"
-        ],
-        [
-          "鈉",
-          "毫克",
-          "165.1"
-        ],
-        [
-          "鋅",
-          "毫克",
-          "0.71"
-        ],
-        [
-          "維他命 C",
-          "毫克",
-          "NA"
-        ]
-      ]
-    },
     "USDA:172217": {
       "food": {
         "fdc_id": "172217",
@@ -1334,147 +1193,6 @@
           "footnote": "",
           "min_year_acquired": ""
         }
-      ]
-    },
-    "CFS:10030200303": {
-      "code": "veg_001",
-      "id": "10030200303",
-      "lookup": {
-        "fg_id": "03",
-        "fsg_id": "02",
-        "food_id": "10030200303",
-        "inShortMode": "0"
-      },
-      "rows": [
-        [
-          "",
-          ""
-        ],
-        [
-          "食物類別:",
-          "蔬菜類及其製品(Vegetables and vegetable products)"
-        ],
-        [
-          "食物細分類別:",
-          "葉菜、莖菜、芽菜及蕓薹屬類蔬菜(Leaf, stalk, shoot and brassica vegetables)"
-        ],
-        [
-          "食物名稱:",
-          "菜心(Flowering white cabbage)"
-        ],
-        [
-          "資料來源:",
-          "食物安全中心轄下的食物研究化驗所 (FRL)"
-        ],
-        [
-          "分量:",
-          "100 克可食用部份"
-        ],
-        [
-          "營養",
-          "單位",
-          "數值"
-        ],
-        [
-          "能量*",
-          "千卡",
-          "12"
-        ],
-        [
-          "蛋白質",
-          "克",
-          "2.1"
-        ],
-        [
-          "碳水化合物*",
-          "克",
-          "0.11"
-        ],
-        [
-          "脂肪",
-          "克",
-          "0.3"
-        ],
-        [
-          "膳食纖維*",
-          "克",
-          "1.5"
-        ],
-        [
-          "糖",
-          "克",
-          "0.44"
-        ],
-        [
-          "飽和脂肪",
-          "克",
-          "0.032"
-        ],
-        [
-          "反式脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "膽固醇",
-          "毫克",
-          "0"
-        ],
-        [
-          "酒精",
-          "克",
-          ""
-        ],
-        [
-          "鈣",
-          "毫克",
-          "100"
-        ],
-        [
-          "銅",
-          "毫克",
-          "0"
-        ],
-        [
-          "鐵",
-          "毫克",
-          "Trace"
-        ],
-        [
-          "鎂",
-          "毫克",
-          "13"
-        ],
-        [
-          "錳",
-          "毫克",
-          "0"
-        ],
-        [
-          "磷",
-          "毫克",
-          "36"
-        ],
-        [
-          "鉀",
-          "毫克",
-          "330"
-        ],
-        [
-          "鈉",
-          "毫克",
-          "30"
-        ],
-        [
-          "鋅",
-          "毫克",
-          "0"
-        ],
-        [
-          "維他命 C",
-          "毫克",
-          "37"
-        ]
       ]
     },
     "USDA:747447": {
@@ -2154,151 +1872,6 @@
           "footnote": "",
           "min_year_acquired": ""
         }
-      ]
-    },
-    "CFS:10030300277": {
-      "code": "veg_007",
-      "id": "10030300277",
-      "lookup": {
-        "fg_id": "03",
-        "fsg_id": "03",
-        "food_id": "10030300277",
-        "inShortMode": "0"
-      },
-      "rows": [
-        [
-          "",
-          ""
-        ],
-        [
-          "食物類別:",
-          "蔬菜類及其製品(Vegetables and vegetable products)"
-        ],
-        [
-          "食物細分類別:",
-          "南瓜及葫蘆瓜(Squashes and gourds )"
-        ],
-        [
-          "食物名稱:",
-          "節瓜(Hairy melon)"
-        ],
-        [
-          "別名:",
-          "[毛瓜]"
-        ],
-        [
-          "資料來源:",
-          "食物安全中心轄下的食物研究化驗所 (FRL)"
-        ],
-        [
-          "分量:",
-          "100 克可食用部份"
-        ],
-        [
-          "營養",
-          "單位",
-          "數值"
-        ],
-        [
-          "能量*",
-          "千卡",
-          "15"
-        ],
-        [
-          "蛋白質",
-          "克",
-          "0.8"
-        ],
-        [
-          "碳水化合物*",
-          "克",
-          "2.6"
-        ],
-        [
-          "脂肪",
-          "克",
-          "Trace"
-        ],
-        [
-          "膳食纖維*",
-          "克",
-          "1.5"
-        ],
-        [
-          "糖",
-          "克",
-          "2.1"
-        ],
-        [
-          "飽和脂肪",
-          "克",
-          "0.029"
-        ],
-        [
-          "反式脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "膽固醇",
-          "毫克",
-          "0"
-        ],
-        [
-          "酒精",
-          "克",
-          ""
-        ],
-        [
-          "鈣",
-          "毫克",
-          "15"
-        ],
-        [
-          "銅",
-          "毫克",
-          "0"
-        ],
-        [
-          "鐵",
-          "毫克",
-          "0"
-        ],
-        [
-          "鎂",
-          "毫克",
-          "11"
-        ],
-        [
-          "錳",
-          "毫克",
-          "0"
-        ],
-        [
-          "磷",
-          "毫克",
-          "22"
-        ],
-        [
-          "鉀",
-          "毫克",
-          "190"
-        ],
-        [
-          "鈉",
-          "毫克",
-          "0"
-        ],
-        [
-          "鋅",
-          "毫克",
-          "0"
-        ],
-        [
-          "維他命 C",
-          "毫克",
-          "71"
-        ]
       ]
     },
     "USDA:2003600": {
@@ -4749,381 +4322,6 @@
         }
       ]
     },
-    "USDA:2646170": {
-      "food": {
-        "fdc_id": "2646170",
-        "data_type": "foundation_food",
-        "description": "Chicken, breast, boneless, skinless, raw",
-        "food_category_id": "5",
-        "publication_date": "2023-10-26",
-        "_dataset": "foundation"
-      },
-      "nutrientRows": {
-        "1005": {
-          "id": "33295326",
-          "fdc_id": "2646170",
-          "nutrient_id": "1005",
-          "amount": "0",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1004": {
-          "id": "33295220",
-          "fdc_id": "2646170",
-          "nutrient_id": "1004",
-          "amount": "1.934",
-          "data_points": "8",
-          "derivation_id": "1",
-          "min": "1.31",
-          "max": "3.1",
-          "median": "1.71",
-          "footnote": "",
-          "min_year_acquired": "2023"
-        },
-        "2048": {
-          "id": "33295328",
-          "fdc_id": "2646170",
-          "nutrient_id": "2048",
-          "amount": "112.20227",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "2047": {
-          "id": "33295327",
-          "fdc_id": "2646170",
-          "nutrient_id": "2047",
-          "amount": "106.034",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1003": {
-          "id": "33295325",
-          "fdc_id": "2646170",
-          "nutrient_id": "1003",
-          "amount": "22.525",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "21.5625",
-          "max": "23.375",
-          "median": "22.46875",
-          "footnote": "",
-          "min_year_acquired": ""
-        }
-      },
-      "portionRows": []
-    },
-    "USDA:2684441": {
-      "food": {
-        "fdc_id": "2684441",
-        "data_type": "foundation_food",
-        "description": "Fish, salmon, Atlantic, farm raised, raw",
-        "food_category_id": "15",
-        "publication_date": "2024-04-18",
-        "_dataset": "foundation"
-      },
-      "nutrientRows": {
-        "1005": {
-          "id": "33829274",
-          "fdc_id": "2684441",
-          "nutrient_id": "1005",
-          "amount": "0",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1004": {
-          "id": "33829168",
-          "fdc_id": "2684441",
-          "nutrient_id": "1004",
-          "amount": "13.11",
-          "data_points": "8",
-          "derivation_id": "1",
-          "min": "10.44",
-          "max": "16.04",
-          "median": "13.36",
-          "footnote": "",
-          "min_year_acquired": "2023"
-        },
-        "2048": {
-          "id": "33829277",
-          "fdc_id": "2684441",
-          "nutrient_id": "2048",
-          "amount": "203.10632",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "2047": {
-          "id": "33829276",
-          "fdc_id": "2684441",
-          "nutrient_id": "2047",
-          "amount": "197.294",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1003": {
-          "id": "33829273",
-          "fdc_id": "2684441",
-          "nutrient_id": "1003",
-          "amount": "20.31875",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "19.625",
-          "max": "21.875",
-          "median": "20.09375",
-          "footnote": "",
-          "min_year_acquired": ""
-        }
-      },
-      "portionRows": []
-    },
-    "USDA:2684443": {
-      "food": {
-        "fdc_id": "2684443",
-        "data_type": "foundation_food",
-        "description": "Crustaceans, shrimp, farm raised, raw",
-        "food_category_id": "15",
-        "publication_date": "2024-04-18",
-        "_dataset": "foundation"
-      },
-      "nutrientRows": {
-        "1005": {
-          "id": "33829286",
-          "fdc_id": "2684443",
-          "nutrient_id": "1005",
-          "amount": "0.48495",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1004": {
-          "id": "33829204",
-          "fdc_id": "2684443",
-          "nutrient_id": "1004",
-          "amount": "0.8013",
-          "data_points": "8",
-          "derivation_id": "1",
-          "min": "0.5",
-          "max": "1.37",
-          "median": "0.75",
-          "footnote": "",
-          "min_year_acquired": "2023"
-        },
-        "2048": {
-          "id": "33829289",
-          "fdc_id": "2684443",
-          "nutrient_id": "2048",
-          "amount": "75.699433",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "2047": {
-          "id": "33829288",
-          "fdc_id": "2684443",
-          "nutrient_id": "2047",
-          "amount": "71.4265",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1003": {
-          "id": "33829285",
-          "fdc_id": "2684443",
-          "nutrient_id": "1003",
-          "amount": "15.56875",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "12.0625",
-          "max": "21.25",
-          "median": "14.34375",
-          "footnote": "",
-          "min_year_acquired": ""
-        }
-      },
-      "portionRows": []
-    },
-    "CFS:10060600763": {
-      "code": "meat_008",
-      "id": "10060600763",
-      "lookup": {
-        "fg_id": "06",
-        "fsg_id": "06",
-        "food_id": "10060600763",
-        "inShortMode": "0"
-      },
-      "rows": [
-        [
-          "",
-          ""
-        ],
-        [
-          "食物類別:",
-          "畜肉類及其製品(Meat and meat products)"
-        ],
-        [
-          "食物細分類別:",
-          "豬及其製品(Pig and pig products )"
-        ],
-        [
-          "食物名稱:",
-          "叉燒(Barbecued pork)"
-        ],
-        [
-          "資料來源:",
-          "食物安全中心轄下的食物研究化驗所 (FRL)"
-        ],
-        [
-          "分量:",
-          "100 克可食用部份"
-        ],
-        [
-          "營養",
-          "單位",
-          "數值"
-        ],
-        [
-          "能量*",
-          "千卡",
-          "300"
-        ],
-        [
-          "蛋白質",
-          "克",
-          "25"
-        ],
-        [
-          "碳水化合物*",
-          "克",
-          "9.4"
-        ],
-        [
-          "脂肪",
-          "克",
-          "17"
-        ],
-        [
-          "膳食纖維*",
-          "克",
-          "0"
-        ],
-        [
-          "糖",
-          "克",
-          "4.6"
-        ],
-        [
-          "飽和脂肪",
-          "克",
-          "6"
-        ],
-        [
-          "反式脂肪",
-          "克",
-          "0.11"
-        ],
-        [
-          "膽固醇",
-          "毫克",
-          "93"
-        ],
-        [
-          "酒精",
-          "克",
-          ""
-        ],
-        [
-          "鈣",
-          "毫克",
-          "8.1"
-        ],
-        [
-          "銅",
-          "毫克",
-          "0.097"
-        ],
-        [
-          "鐵",
-          "毫克",
-          "1.2"
-        ],
-        [
-          "鎂",
-          "毫克",
-          "22"
-        ],
-        [
-          "錳",
-          "毫克",
-          "Trace"
-        ],
-        [
-          "磷",
-          "毫克",
-          "170"
-        ],
-        [
-          "鉀",
-          "毫克",
-          "250"
-        ],
-        [
-          "鈉",
-          "毫克",
-          "660"
-        ],
-        [
-          "鋅",
-          "毫克",
-          "3.7"
-        ],
-        [
-          "維他命 C",
-          "毫克",
-          "NA"
-        ]
-      ]
-    },
     "USDA:173709": {
       "food": {
         "fdc_id": "173709",
@@ -5725,288 +4923,6 @@
           "footnote": "",
           "min_year_acquired": ""
         }
-      ]
-    },
-    "CFS:0509001122020": {
-      "code": "egg_003",
-      "id": "0509001122020",
-      "lookup": {
-        "fg_id": "09",
-        "fsg_id": "00",
-        "food_id": "0509001122020",
-        "inShortMode": "0"
-      },
-      "rows": [
-        [
-          "",
-          ""
-        ],
-        [
-          "食物類別:",
-          "蛋類及其製品(Eggs and egg products  )"
-        ],
-        [
-          "食物細分類別:",
-          "蛋類及其製品(Eggs and egg products  )"
-        ],
-        [
-          "食物名稱:",
-          "鹹鴨蛋(Duck, egg, whole, salt preserved)"
-        ],
-        [
-          "資料來源:",
-          "中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)"
-        ],
-        [
-          "分量:",
-          "100 克可食用部份"
-        ],
-        [
-          "營養",
-          "單位",
-          "數值"
-        ],
-        [
-          "能量*",
-          "千卡",
-          "190"
-        ],
-        [
-          "蛋白質",
-          "克",
-          "12.7"
-        ],
-        [
-          "碳水化合物*",
-          "克",
-          "6.3"
-        ],
-        [
-          "脂肪",
-          "克",
-          "12.7"
-        ],
-        [
-          "膳食纖維*",
-          "克",
-          "NA"
-        ],
-        [
-          "糖",
-          "克",
-          "NA"
-        ],
-        [
-          "飽和脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "反式脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "膽固醇",
-          "毫克",
-          "647"
-        ],
-        [
-          "酒精",
-          "克",
-          ""
-        ],
-        [
-          "鈣",
-          "毫克",
-          "118"
-        ],
-        [
-          "銅",
-          "毫克",
-          "0.14"
-        ],
-        [
-          "鐵",
-          "毫克",
-          "3.6"
-        ],
-        [
-          "鎂",
-          "毫克",
-          "30"
-        ],
-        [
-          "錳",
-          "毫克",
-          "0.10"
-        ],
-        [
-          "磷",
-          "毫克",
-          "231"
-        ],
-        [
-          "鉀",
-          "毫克",
-          "184"
-        ],
-        [
-          "鈉",
-          "毫克",
-          "2706.1"
-        ],
-        [
-          "鋅",
-          "毫克",
-          "1.74"
-        ],
-        [
-          "維他命 C",
-          "毫克",
-          "NA"
-        ]
-      ]
-    },
-    "CFS:0509001122010": {
-      "code": "egg_004",
-      "id": "0509001122010",
-      "lookup": {
-        "fg_id": "09",
-        "fsg_id": "00",
-        "food_id": "0509001122010",
-        "inShortMode": "0"
-      },
-      "rows": [
-        [
-          "",
-          ""
-        ],
-        [
-          "食物類別:",
-          "蛋類及其製品(Eggs and egg products  )"
-        ],
-        [
-          "食物細分類別:",
-          "蛋類及其製品(Eggs and egg products  )"
-        ],
-        [
-          "食物名稱:",
-          "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)"
-        ],
-        [
-          "資料來源:",
-          "中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)"
-        ],
-        [
-          "分量:",
-          "100 克可食用部份"
-        ],
-        [
-          "營養",
-          "單位",
-          "數值"
-        ],
-        [
-          "能量*",
-          "千卡",
-          "171"
-        ],
-        [
-          "蛋白質",
-          "克",
-          "14.2"
-        ],
-        [
-          "碳水化合物*",
-          "克",
-          "4.5"
-        ],
-        [
-          "脂肪",
-          "克",
-          "10.7"
-        ],
-        [
-          "膳食纖維*",
-          "克",
-          "NA"
-        ],
-        [
-          "糖",
-          "克",
-          "NA"
-        ],
-        [
-          "飽和脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "反式脂肪",
-          "克",
-          "NA"
-        ],
-        [
-          "膽固醇",
-          "毫克",
-          "608"
-        ],
-        [
-          "酒精",
-          "克",
-          ""
-        ],
-        [
-          "鈣",
-          "毫克",
-          "63"
-        ],
-        [
-          "銅",
-          "毫克",
-          "0.12"
-        ],
-        [
-          "鐵",
-          "毫克",
-          "3.3"
-        ],
-        [
-          "鎂",
-          "毫克",
-          "13"
-        ],
-        [
-          "錳",
-          "毫克",
-          "0.06"
-        ],
-        [
-          "磷",
-          "毫克",
-          "165"
-        ],
-        [
-          "鉀",
-          "毫克",
-          "152"
-        ],
-        [
-          "鈉",
-          "毫克",
-          "542.7"
-        ],
-        [
-          "鋅",
-          "毫克",
-          "1.48"
-        ],
-        [
-          "維他命 C",
-          "毫克",
-          "NA"
-        ]
       ]
     },
     "USDA:1999630": {
@@ -11106,162 +10022,6 @@
         }
       ]
     },
-    "USDA:2684444": {
-      "food": {
-        "fdc_id": "2684444",
-        "data_type": "foundation_food",
-        "description": "Fish, cod, Atlantic, wild caught, raw",
-        "food_category_id": "15",
-        "publication_date": "2024-04-18",
-        "_dataset": "foundation"
-      },
-      "nutrientRows": {
-        "1005": {
-          "id": "33829292",
-          "fdc_id": "2684444",
-          "nutrient_id": "1005",
-          "amount": "0",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1004": {
-          "id": "33829222",
-          "fdc_id": "2684444",
-          "nutrient_id": "1004",
-          "amount": "0.6675",
-          "data_points": "8",
-          "derivation_id": "1",
-          "min": "0.49",
-          "max": "0.95",
-          "median": "0.6",
-          "footnote": "",
-          "min_year_acquired": "2023"
-        },
-        "2048": {
-          "id": "33829295",
-          "fdc_id": "2684444",
-          "nutrient_id": "2048",
-          "amount": "70.477065",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "2047": {
-          "id": "33829294",
-          "fdc_id": "2684444",
-          "nutrient_id": "2047",
-          "amount": "65.9855",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1003": {
-          "id": "33829291",
-          "fdc_id": "2684444",
-          "nutrient_id": "1003",
-          "amount": "16.06875",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "12.0",
-          "max": "20.6875",
-          "median": "16.34375",
-          "footnote": "",
-          "min_year_acquired": ""
-        }
-      },
-      "portionRows": []
-    },
-    "USDA:2684442": {
-      "food": {
-        "fdc_id": "2684442",
-        "data_type": "foundation_food",
-        "description": "Fish, tilapia, farm raised, raw",
-        "food_category_id": "15",
-        "publication_date": "2024-04-18",
-        "_dataset": "foundation"
-      },
-      "nutrientRows": {
-        "1005": {
-          "id": "33829280",
-          "fdc_id": "2684442",
-          "nutrient_id": "1005",
-          "amount": "0",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1004": {
-          "id": "33829186",
-          "fdc_id": "2684442",
-          "nutrient_id": "1004",
-          "amount": "2.479",
-          "data_points": "8",
-          "derivation_id": "1",
-          "min": "1.41",
-          "max": "3.74",
-          "median": "2.185",
-          "footnote": "",
-          "min_year_acquired": "2023"
-        },
-        "2048": {
-          "id": "33829283",
-          "fdc_id": "2684442",
-          "nutrient_id": "2048",
-          "amount": "99.95727",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "2047": {
-          "id": "33829282",
-          "fdc_id": "2684442",
-          "nutrient_id": "2047",
-          "amount": "94.659",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "",
-          "max": "",
-          "median": "",
-          "footnote": "",
-          "min_year_acquired": ""
-        },
-        "1003": {
-          "id": "33829279",
-          "fdc_id": "2684442",
-          "nutrient_id": "1003",
-          "amount": "19.0",
-          "data_points": "",
-          "derivation_id": "49",
-          "min": "16.6875",
-          "max": "20.5",
-          "median": "19.6875",
-          "footnote": "",
-          "min_year_acquired": ""
-        }
-      },
-      "portionRows": []
-    },
     "USDA:174223": {
       "food": {
         "fdc_id": "174223",
@@ -15175,80 +13935,565 @@
       },
       "basis": "100g edible portion",
       "accessed": "2026-10-23"
+    },
+    "USDA:171077": {
+      "food": {
+        "fdc_id": "171077",
+        "data_type": "sr_legacy_food",
+        "description": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+        "food_category_id": "5",
+        "publication_date": "2019-04-01",
+        "_dataset": "sr"
+      },
+      "nutrientRows": {
+        "1008": {
+          "id": "1578066",
+          "fdc_id": "171077",
+          "nutrient_id": "1008",
+          "amount": "120",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1005": {
+          "id": "1578117",
+          "fdc_id": "171077",
+          "nutrient_id": "1005",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1003": {
+          "id": "1578105",
+          "fdc_id": "171077",
+          "nutrient_id": "1003",
+          "amount": "22.5",
+          "data_points": "6",
+          "derivation_id": "1",
+          "min": "21.88",
+          "max": "23.44",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1004": {
+          "id": "1578065",
+          "fdc_id": "171077",
+          "nutrient_id": "1004",
+          "amount": "2.62",
+          "data_points": "6",
+          "derivation_id": "1",
+          "min": "1.86",
+          "max": "3.45",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1079": {
+          "id": "1578118",
+          "fdc_id": "171077",
+          "nutrient_id": "1079",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      },
+      "portionRows": [
+        {
+          "id": "87919",
+          "fdc_id": "171077",
+          "seq_num": "1",
+          "amount": "4",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "oz",
+          "gram_weight": "113",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "87920",
+          "fdc_id": "171077",
+          "seq_num": "2",
+          "amount": "1",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "piece",
+          "gram_weight": "272",
+          "data_points": "13",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "87921",
+          "fdc_id": "171077",
+          "seq_num": "3",
+          "amount": "1",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "package",
+          "gram_weight": "926",
+          "data_points": "13",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      ]
+    },
+    "USDA:175167": {
+      "food": {
+        "fdc_id": "175167",
+        "data_type": "sr_legacy_food",
+        "description": "Fish, salmon, Atlantic, farmed, raw",
+        "food_category_id": "15",
+        "publication_date": "2019-04-01",
+        "_dataset": "sr"
+      },
+      "nutrientRows": {
+        "1008": {
+          "id": "1918084",
+          "fdc_id": "175167",
+          "nutrient_id": "1008",
+          "amount": "208",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1005": {
+          "id": "1918165",
+          "fdc_id": "175167",
+          "nutrient_id": "1005",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1003": {
+          "id": "1918132",
+          "fdc_id": "175167",
+          "nutrient_id": "1003",
+          "amount": "20.42",
+          "data_points": "4",
+          "derivation_id": "1",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1004": {
+          "id": "1918098",
+          "fdc_id": "175167",
+          "nutrient_id": "1004",
+          "amount": "13.42",
+          "data_points": "4",
+          "derivation_id": "1",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1079": {
+          "id": "1918162",
+          "fdc_id": "175167",
+          "nutrient_id": "1079",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      },
+      "portionRows": [
+        {
+          "id": "95786",
+          "fdc_id": "175167",
+          "seq_num": "1",
+          "amount": "3",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "oz",
+          "gram_weight": "85",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "95787",
+          "fdc_id": "175167",
+          "seq_num": "2",
+          "amount": "0.5",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "fillet",
+          "gram_weight": "198",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      ]
+    },
+    "USDA:174210": {
+      "food": {
+        "fdc_id": "174210",
+        "data_type": "sr_legacy_food",
+        "description": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+        "food_category_id": "15",
+        "publication_date": "2019-04-01",
+        "_dataset": "sr"
+      },
+      "nutrientRows": {
+        "1008": {
+          "id": "1840425",
+          "fdc_id": "174210",
+          "nutrient_id": "1008",
+          "amount": "71",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1005": {
+          "id": "1840424",
+          "fdc_id": "174210",
+          "nutrient_id": "1005",
+          "amount": "0.91",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1003": {
+          "id": "1840502",
+          "fdc_id": "174210",
+          "nutrient_id": "1003",
+          "amount": "13.61",
+          "data_points": "4",
+          "derivation_id": "1",
+          "min": "12.94",
+          "max": "14.44",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1004": {
+          "id": "1840423",
+          "fdc_id": "174210",
+          "nutrient_id": "1004",
+          "amount": "1.01",
+          "data_points": "4",
+          "derivation_id": "1",
+          "min": "0.85",
+          "max": "1.16",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1079": {
+          "id": "1840542",
+          "fdc_id": "174210",
+          "nutrient_id": "1079",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      },
+      "portionRows": [
+        {
+          "id": "93939",
+          "fdc_id": "174210",
+          "seq_num": "1",
+          "amount": "1",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "medium",
+          "gram_weight": "6",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "93940",
+          "fdc_id": "174210",
+          "seq_num": "2",
+          "amount": "1",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "small",
+          "gram_weight": "5",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "93941",
+          "fdc_id": "174210",
+          "seq_num": "3",
+          "amount": "3",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "oz",
+          "gram_weight": "85",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "93942",
+          "fdc_id": "174210",
+          "seq_num": "4",
+          "amount": "4",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "large",
+          "gram_weight": "28",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      ]
+    },
+    "USDA:171955": {
+      "food": {
+        "fdc_id": "171955",
+        "data_type": "sr_legacy_food",
+        "description": "Fish, cod, Atlantic, raw",
+        "food_category_id": "15",
+        "publication_date": "2019-04-01",
+        "_dataset": "sr"
+      },
+      "nutrientRows": {
+        "1008": {
+          "id": "1653393",
+          "fdc_id": "171955",
+          "nutrient_id": "1008",
+          "amount": "82",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1005": {
+          "id": "1653439",
+          "fdc_id": "171955",
+          "nutrient_id": "1005",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1003": {
+          "id": "1653429",
+          "fdc_id": "171955",
+          "nutrient_id": "1003",
+          "amount": "17.81",
+          "data_points": "605",
+          "derivation_id": "",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1004": {
+          "id": "1653438",
+          "fdc_id": "171955",
+          "nutrient_id": "1004",
+          "amount": "0.67",
+          "data_points": "293",
+          "derivation_id": "",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1079": {
+          "id": "1653408",
+          "fdc_id": "171955",
+          "nutrient_id": "1079",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      },
+      "portionRows": [
+        {
+          "id": "89620",
+          "fdc_id": "171955",
+          "seq_num": "1",
+          "amount": "3",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "oz",
+          "gram_weight": "85",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        {
+          "id": "89621",
+          "fdc_id": "171955",
+          "seq_num": "2",
+          "amount": "1",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "fillet",
+          "gram_weight": "231",
+          "data_points": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      ]
+    },
+    "USDA:175176": {
+      "food": {
+        "fdc_id": "175176",
+        "data_type": "sr_legacy_food",
+        "description": "Fish, tilapia, raw",
+        "food_category_id": "15",
+        "publication_date": "2019-04-01",
+        "_dataset": "sr"
+      },
+      "nutrientRows": {
+        "1008": {
+          "id": "1918966",
+          "fdc_id": "175176",
+          "nutrient_id": "1008",
+          "amount": "96",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1005": {
+          "id": "1918965",
+          "fdc_id": "175176",
+          "nutrient_id": "1005",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "49",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1003": {
+          "id": "1918911",
+          "fdc_id": "175176",
+          "nutrient_id": "1003",
+          "amount": "20.08",
+          "data_points": "3",
+          "derivation_id": "1",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1004": {
+          "id": "1918899",
+          "fdc_id": "175176",
+          "nutrient_id": "1004",
+          "amount": "1.7",
+          "data_points": "3",
+          "derivation_id": "1",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        },
+        "1079": {
+          "id": "1918962",
+          "fdc_id": "175176",
+          "nutrient_id": "1079",
+          "amount": "0",
+          "data_points": "0",
+          "derivation_id": "68",
+          "min": "",
+          "max": "",
+          "median": "",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      },
+      "portionRows": [
+        {
+          "id": "95803",
+          "fdc_id": "175176",
+          "seq_num": "1",
+          "amount": "1",
+          "measure_unit_id": "9999",
+          "portion_description": "",
+          "modifier": "fillet",
+          "gram_weight": "116",
+          "data_points": "43",
+          "footnote": "",
+          "min_year_acquired": ""
+        }
+      ]
     }
   },
   "mextGuide": "https://fooddb.mext.go.jp/",
-  "review20261023": [
-    {
-      "code": "carb_004",
-      "previousName": "烏冬 (熟)",
-      "name": "烏冬（熟，水煮）",
-      "result": "verified",
-      "sourceUrl": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=1_01039_7",
-      "state": "熟重；水煮烏冬可食部分，不連湯汁；日本標準參考，非特定品牌"
-    },
-    {
-      "code": "carb_008",
-      "previousName": "蒸薯仔",
-      "name": "蒸薯仔（去皮）",
-      "result": "verified",
-      "sourceUrl": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=2_02018_7",
-      "state": "熟重；去皮蒸薯仔可食部分"
-    },
-    {
-      "code": "seas_010",
-      "previousName": "粗鹽",
-      "name": "粗鹽（日式並鹽參考）",
-      "result": "verified",
-      "sourceUrl": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=17_17013_7",
-      "state": "食用鹽重量；日本「並塩／あら塩」參考，氯化鈉95%以上；非調味鹽"
-    },
-    {
-      "code": "soy_004",
-      "previousName": "鮮腐皮",
-      "name": "鮮腐皮（生湯葉參考）",
-      "result": "verified",
-      "sourceUrl": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=4_04059_7",
-      "state": "未乾燥、非油炸的鮮豆漿薄膜可食重量；日本生湯葉參考，非乾腐皮或浸發枝竹"
-    },
-    {
-      "code": "dairy_004",
-      "name": "高鈣芝士片",
-      "result": "pending_exact_match",
-      "reason": "「高鈣」及芝士片配方因品牌而異，未有指定產品標籤，不能用一般車打芝士冒充。請提供品牌、產品名稱、每100克營養標籤及每片重量；未列膳食纖維保留缺值。",
-      "alternativeCodes": []
-    },
-    {
-      "code": "seas_005",
-      "name": "蒸魚豉油",
-      "result": "pending_exact_match",
-      "reason": "蒸魚豉油的糖、鹽及配方因品牌而異，需要指定產品的營養標籤；一般醬油不能當作同一產品。可另選已核實的「醬油（大豆及小麥製）」，但不會自動替換舊草稿。",
-      "alternativeCodes": [
-        "seas_001"
-      ]
-    },
-    {
-      "code": "meat_006",
-      "name": "鯇魚腩",
-      "result": "pending_exact_match",
-      "reason": "尚未找到精確對應「鯇魚腩」部位及生熟狀態的可靠成分記錄；整條草魚或一般魚肉不能當作魚腩。須核實部位及可食部分狀態後才可啟用。",
-      "alternativeCodes": []
-    },
-    {
-      "code": "soy_001",
-      "name": "蒸水豆腐",
-      "result": "pending_exact_match",
-      "reason": "名稱「蒸水豆腐」包含熟製狀態，未找到精確對應記錄；南豆腐或未烹調軟豆腐不能冒充蒸後重量。可另選已核實「軟豆腐（未烹調）」並按未烹調重量輸入。",
-      "alternativeCodes": [
-        "soy_006"
-      ]
-    },
-    {
-      "code": "soy_005",
-      "name": "枝竹 (浸發)",
-      "result": "pending_exact_match",
-      "reason": "食安中心枝竹記錄0502000315080並非浸發狀態（每100克478千卡），不可套用於吸水後重量；鮮腐皮及日式熱水泡發湯葉亦非同一枝竹產品。需要指定產品浸發後的可靠資料或實驗室分析。",
-      "alternativeCodes": []
-    }
-  ]
+  "finalReview": {
+    "date": "2026-10-27",
+    "activeFoods": 116,
+    "numericValuesChecked": 580,
+    "withdrawnFoods": 11,
+    "report": "food-review.json"
+  }
 }
