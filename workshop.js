@@ -6,7 +6,7 @@
   let portionCatalog={},retiredFoods={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
   const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
-  const fresh = () => ({version:1,dataVersion:'2026-10-27-final-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
+  const fresh = () => ({version:1,dataVersion:'2026-10-27-final-v2',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
   let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
   let lastTextDiagnostic=null;
   let queue = [], pendingAI = null, pendingImage = null, currentAnalysis = null, conceptImage = null, saveTimer, qrTimer, initialized = false;
@@ -175,7 +175,7 @@
       const form=document.createElement('form');form.method='POST';form.action=f.source.recordUrl;form.target='_blank';form.rel='noopener noreferrer';
       for(const [name,value] of Object.entries(f.source.lookupFields)){const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;form.append(input);}
       const button=document.createElement('button');button.type='submit';button.className='ws-link';button.textContent='查看食安中心原始食物記錄';form.append(button);root.append(form);
-    } else {const a=document.createElement('a');a.href=f.source.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=f.source.sourceType==='MEXT'?'查看日本文部科學省原始食物記錄':'查看 USDA 官方資料下載頁';const local=document.createElement('a');local.href=f.source.snapshotUrl;local.target='_blank';local.rel='noopener noreferrer';local.textContent='查看本次引用記錄';root.append(local,document.createTextNode(' · '),a);}
+    } else {const a=document.createElement('a');a.href=f.source.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='查看官方原始資料來源';const local=document.createElement('a');local.href=f.source.snapshotUrl;local.target='_blank';local.rel='noopener noreferrer';local.textContent='查看本次引用記錄';root.append(local,document.createTextNode(' · '),a);}
     note('數據為指定樣本或食物記錄的參考值；品種、品牌及實際處理方法會影響營養值。');
     note(`保存：${f.storage.note}`);
     const a=document.createElement('a');a.href=f.storage.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='食安中心保存指引';root.append(a);
@@ -562,11 +562,11 @@
   }
   async function loadFoods() {
     try {
-      const response=await fetch('./data/foods.json?v=2026-10-27-final-1');if (!response.ok) throw new Error('未能載入食材資料。');
+      const response=await fetch('./data/foods.json?v=2026-10-27-final-2');if (!response.ok) throw new Error('未能載入食材資料。');
       const data=await response.json();
       if (!Array.isArray(data)||!data.length||new Set(data.map(f=>f.code)).size!==data.length||data.some(f => typeof f.code!=='string'||typeof f.name!=='string'||!Number.isFinite(f.unitWeight)||f.unitWeight<=0||f.status!=='verified'||!f.source||Object.keys(C.nutrients).some(key=>typeof f[key]!=='number'||!Number.isFinite(f[key])||f[key]<0))) throw new Error('食材資料版本未能完整核對，請重新載入定稿檔案。');
       database=data;
-      try{const response=await fetch('./data/portion-guides.json?v=2026-10-27-final-1');if(!response.ok)throw new Error('未能載入份量');const raw=await response.json();portionCatalog=P.catalog(raw,database);retiredFoods=raw.retiredFoods||{};}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
+      try{const response=await fetch('./data/portion-guides.json?v=2026-10-27-final-2');if(!response.ok)throw new Error('未能載入份量');const raw=await response.json();portionCatalog=P.catalog(raw,database);retiredFoods=raw.retiredFoods||{};}catch{$('portion-load-status').textContent='家用份量對照未能載入；你仍可用老師實測設定或自行輸入克數。';portionCatalog={};}
       try{const saved=readStorage(PORTION_SETTINGS_KEY);if(saved)workshopMeasures=P.settings(saved,database);}catch{$('teacher-portion-status').textContent='上次實測設定未能核對，請重新匯入或量度。';}
       foodOptions();document.querySelectorAll('[data-food-count]').forEach(node=>node.textContent=`提供 ${data.filter(food=>food.status==='verified').length} 款附官方來源的可選食材`);
       const saved=readStorage(DRAFT_KEY);

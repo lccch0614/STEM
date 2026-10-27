@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "dataVersion": "2026-10-27-final-v1",
+  "dataVersion": "2026-10-27-final-v2",
   "note": "每款可選食材均有有來源的常用單位，保留自行輸入克數。香港碗份量逐項引用；兩為香港司馬兩37.7994克。件數、杯、碗是參考估算，並非所有實物的固定重量或建議食量。",
   "guides": {
     "carb_001": [
@@ -4833,6 +4833,87 @@
         "rawKey": "soy_006:0",
         "hkCommon": true
       }
+    ],
+    "carb_007": [
+      {
+        "id": "portion-carb_007-0",
+        "label": "個（大白饅頭100克參考）",
+        "gramsPerUnit": 100.0,
+        "kind": "reference",
+        "foodState": "成品重量；台灣白饅頭樣本，非指定品牌",
+        "note": "份量引用原廠10個共1000克的參考規格；營養採用TFDA白饅頭樣本，並非該品牌營養標籤。大小、水分及配方會有差異。",
+        "defaultQuantity": 0.5,
+        "source": {
+          "provider": "南山食品 原廠產品頁",
+          "foodRecordId": "10151",
+          "foodDescription": "特級大白饅頭：1包10粒，包裝重量1000 g",
+          "url": "https://nanshan-food.com.tw/products_view.asp?ID=360",
+          "release": "來源頁面／原始記錄",
+          "accessed": "2026-10-23",
+          "referenceAmount": "10",
+          "referenceDescription": "特級大白饅頭：1包10粒，包裝重量1000 g",
+          "referenceGrams": 1000.0,
+          "derivation": "referenceGrams / referenceAmount",
+          "factor": 1,
+          "alternateRecord": true,
+          "snapshotSha256": "956d1fac46e419967a0491b3371a72b36317c1e6c28cf221868ecbaaa32504d6"
+        },
+        "hkCommon": true
+      }
+    ],
+    "egg_004": [
+      {
+        "id": "portion-egg_004-0",
+        "label": "隻（去殼皮蛋，55克參考大小）",
+        "gramsPerUnit": 55.0,
+        "kind": "reference",
+        "foodState": "成品重量；鴨蛋製皮蛋，去殼可食部分",
+        "note": "1隻去殼約55克引用台灣原廠產品的可食部分標籤份量；營養使用日本標準鴨皮蛋記錄。大小及配方可能不同。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "新竹縣關西鎮農會 原產品資料",
+          "foodRecordId": "羅董養生皮蛋",
+          "foodDescription": "養生皮蛋：4粒；nutrition label 4 servings, 55 g per serving",
+          "url": "https://www.kuanhsi.org.tw/products_detail/299",
+          "release": "來源頁面／原始記錄",
+          "accessed": "2026-10-23",
+          "referenceAmount": "1",
+          "referenceDescription": "養生皮蛋：4粒；nutrition label 4 servings, 55 g per serving",
+          "referenceGrams": 55.0,
+          "derivation": "referenceGrams / referenceAmount",
+          "factor": 1,
+          "alternateRecord": true,
+          "snapshotSha256": "5dc7574317edad8daf63a70ce5761ce6aae4f6eb3021dbec258b9d1c5fb76171"
+        },
+        "hkCommon": true
+      }
+    ],
+    "egg_005": [
+      {
+        "id": "fdc-label-egg_005-2412490",
+        "label": "隻（Hocean去殼熟蛋）",
+        "gramsPerUnit": 62.5,
+        "kind": "official",
+        "foodState": "熟製成品；Hocean產品去殼可食部分",
+        "note": "只適用Hocean熟鹹鴨蛋標籤的1隻62.5克；不是所有鹹蛋的固定重量或成分。營養為原廠標籤及USDA換算值，含標示四捨五入。",
+        "defaultQuantity": 1,
+        "source": {
+          "provider": "USDA FoodData Central／Hocean原標籤",
+          "foodRecordId": "2412490",
+          "foodDescription": "Salted cooked duck eggs: label serving 1 egg = 62.5 g",
+          "url": "https://fdc.nal.usda.gov/food-details/2412490/nutrients",
+          "release": "來源頁面／原始記錄",
+          "accessed": "2026-10-27",
+          "referenceAmount": "1",
+          "referenceDescription": "Salted cooked duck eggs: label serving 1 egg = 62.5 g",
+          "referenceGrams": 62.5,
+          "derivation": "referenceGrams / referenceAmount",
+          "factor": 1,
+          "alternateRecord": false,
+          "snapshotSha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
+        },
+        "hkCommon": true
+      }
     ]
   },
   "referenceRows": {
@@ -8486,15 +8567,59 @@
       "portionIndex": 0,
       "derivation": "referenceGrams / referenceAmount",
       "alternateRecord": false
+    },
+    "portion-carb_007-0": {
+      "provider": "南山食品 原廠產品頁",
+      "foodRecordId": "10151",
+      "foodDescription": "特級大白饅頭：1包10粒，包裝重量1000 g",
+      "url": "https://nanshan-food.com.tw/products_view.asp?ID=360",
+      "release": "來源頁面／原始記錄",
+      "accessed": "2026-10-23",
+      "referenceAmount": "10",
+      "referenceDescription": "特級大白饅頭：1包10粒，包裝重量1000 g",
+      "referenceGrams": 1000.0,
+      "derivation": "referenceGrams / referenceAmount",
+      "factor": 1,
+      "alternateRecord": true,
+      "snapshotSha256": "956d1fac46e419967a0491b3371a72b36317c1e6c28cf221868ecbaaa32504d6"
+    },
+    "portion-egg_004-0": {
+      "provider": "新竹縣關西鎮農會 原產品資料",
+      "foodRecordId": "羅董養生皮蛋",
+      "foodDescription": "養生皮蛋：4粒；nutrition label 4 servings, 55 g per serving",
+      "url": "https://www.kuanhsi.org.tw/products_detail/299",
+      "release": "來源頁面／原始記錄",
+      "accessed": "2026-10-23",
+      "referenceAmount": "1",
+      "referenceDescription": "養生皮蛋：4粒；nutrition label 4 servings, 55 g per serving",
+      "referenceGrams": 55.0,
+      "derivation": "referenceGrams / referenceAmount",
+      "factor": 1,
+      "alternateRecord": true,
+      "snapshotSha256": "5dc7574317edad8daf63a70ce5761ce6aae4f6eb3021dbec258b9d1c5fb76171"
+    },
+    "fdc-label-egg_005-2412490": {
+      "provider": "USDA FoodData Central／Hocean原標籤",
+      "foodRecordId": "2412490",
+      "foodDescription": "Salted cooked duck eggs: label serving 1 egg = 62.5 g",
+      "url": "https://fdc.nal.usda.gov/food-details/2412490/nutrients",
+      "release": "來源頁面／原始記錄",
+      "accessed": "2026-10-27",
+      "referenceAmount": "1",
+      "referenceDescription": "Salted cooked duck eggs: label serving 1 egg = 62.5 g",
+      "referenceGrams": 62.5,
+      "derivation": "referenceGrams / referenceAmount",
+      "factor": 1,
+      "alternateRecord": false,
+      "snapshotSha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
     }
   },
   "coverage": {
-    "selectableFoods": 116,
-    "foodsWithHouseholdMeasures": 116,
+    "selectableFoods": 119,
+    "foodsWithHouseholdMeasures": 119,
     "missingCodes": []
   },
   "retiredFoods": {
-    "carb_007": "蒸饅頭",
     "dairy_004": "高鈣芝士片",
     "veg_001": "菜心",
     "veg_007": "節瓜",
@@ -8503,7 +8628,6 @@
     "meat_008": "叉燒（一般成品）",
     "soy_001": "蒸水豆腐",
     "soy_005": "枝竹 (浸發)",
-    "egg_003": "鹹鴨蛋",
-    "egg_004": "皮蛋"
+    "egg_003": "鹹鴨蛋"
   }
 }

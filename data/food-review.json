@@ -1,8 +1,8 @@
 {
-  "version": "2026-10-27-final-v1",
+  "version": "2026-10-27-final-v2",
   "reviewed": "2026-10-27",
-  "activeFoods": 116,
-  "numericValuesChecked": 580,
+  "activeFoods": 119,
+  "numericValuesChecked": 595,
   "usdaNumericValuesChecked": 560,
   "mextNumericValuesChecked": 20,
   "officialSourceEstimated": [
@@ -16,6 +16,13 @@
     {
       "code": "seas_010",
       "name": "粗鹽（日式並鹽參考）",
+      "fields": [
+        "fiber"
+      ]
+    },
+    {
+      "code": "egg_004",
+      "name": "皮蛋（鴨蛋，日本標準參考）",
       "fields": [
         "fiber"
       ]
@@ -135,92 +142,6 @@
   ],
   "excluded": [
     {
-      "code": "carb_007",
-      "name": "蒸饅頭",
-      "missing": [
-        "fiber"
-      ],
-      "reason": "原記錄未提供可用的總膳食纖維；不將不同定義、微量或未列值當成零。",
-      "originalRecord": {
-        "code": "carb_007",
-        "name": "蒸饅頭",
-        "enName": "饅頭(均值)(Wheat bun, leavened, steamed (Mean))",
-        "category": "grains",
-        "categoryName": "穀物及薯類",
-        "unit": "克",
-        "unitWeight": 1,
-        "defaultQuantity": 100,
-        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-        "state": "熟重；蒸製成品，來源為均值",
-        "dataVersion": "2026-10-23-v1",
-        "nutritionBasis": "per_100g_edible",
-        "shelfLifeDays": null,
-        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-        "storage": {
-          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-        },
-        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-        "status": "verified",
-        "source": {
-          "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
-          "recordId": "0501070114040",
-          "description": "饅頭(均值)(Wheat bun, leavened, steamed (Mean))",
-          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-          "lookupMethod": "POST",
-          "lookupFields": {
-            "fg_id": "01",
-            "fsg_id": "07",
-            "food_id": "0501070114040",
-            "inShortMode": "0"
-          },
-          "release": "CFC2002Ed2（食安中心轉載）",
-          "accessed": "2026-10-21"
-        },
-        "calories": 223.0,
-        "protein": 7.0,
-        "carbs": 47.0,
-        "fat": 1.1,
-        "fiber": null,
-        "nutrientMeta": {
-          "calories": {
-            "originalValue": "223",
-            "status": "reported"
-          },
-          "protein": {
-            "originalValue": "7.0",
-            "status": "reported"
-          },
-          "carbs": {
-            "originalValue": "47.0",
-            "status": "reported"
-          },
-          "fat": {
-            "originalValue": "1.1",
-            "status": "reported"
-          },
-          "fiber": {
-            "originalValue": "1.3",
-            "status": "different_definition"
-          }
-        },
-        "carbsBasis": "total",
-        "fiberBasis": "insoluble",
-        "originalNutrients": {
-          "能量*": "223",
-          "蛋白質": "7.0",
-          "碳水化合物*": "47.0",
-          "脂肪": "1.1",
-          "膳食纖維*": "1.3"
-        },
-        "allergens": [
-          "含麩質穀物（須查標籤）"
-        ],
-        "requiresCooking": false
-      }
-    },
-    {
       "code": "dairy_004",
       "name": "高鈣芝士片",
       "missing": [
@@ -230,7 +151,7 @@
         "fat",
         "fiber"
       ],
-      "reason": "「高鈣」及芝士片配方因品牌而異，未有指定產品標籤，不能用一般車打芝士冒充。請提供品牌、產品名稱、每100克營養標籤及每片重量；未列膳食纖維保留缺值。",
+      "reason": "原表每片20克與後續補充20.8克不一致；熱量、蛋白質及脂肪是範圍，並非同一產品標籤的單一組數據，亦未核實纖維。",
       "originalRecord": {
         "code": "dairy_004",
         "name": "高鈣芝士片",
@@ -290,7 +211,7 @@
       "missing": [
         "carbs"
       ],
-      "reason": "原記錄未提供可用的總碳水化合物；不將不同定義、微量或未列值當成零。",
+      "reason": "原表為白灼熟菜心；目前找到的TFDA油菜心記錄E3201001是生重，不能套用於熟重。亦未核實該樣本與香港菜心的品種完全對應。",
       "originalRecord": {
         "code": "veg_001",
         "name": "菜心",
@@ -375,7 +296,7 @@
         "carbs",
         "fat"
       ],
-      "reason": "原記錄未提供可用的總碳水化合物、脂肪；不將不同定義、微量或未列值當成零。",
+      "reason": "未找到與原表清蒸節瓜完全對應的完整五項記錄；不能用生冬瓜、蒲瓜或其他瓜類替代。",
       "originalRecord": {
         "code": "veg_007",
         "name": "節瓜",
@@ -463,7 +384,7 @@
         "fat",
         "fiber"
       ],
-      "reason": "蒸魚豉油的糖、鹽及配方因品牌而異，需要指定產品的營養標籤；一般醬油不能當作同一產品。可另選已核實的「醬油（大豆及小麥製）」，但不會自動替換舊草稿。",
+      "reason": "官方瓶身圖標示每5毫升6千卡、碳水1.2克、蛋白質0.4克，網頁文字標示5克，存在單位差異；15毫升按瓶身為18千卡，與原表16千卡不同。標籤未列纖維，亦未證實15毫升等於18克。",
       "originalRecord": {
         "code": "seas_005",
         "name": "蒸魚豉油",
@@ -531,7 +452,7 @@
         "fat",
         "fiber"
       ],
-      "reason": "尚未找到精確對應「鯇魚腩」部位及生熟狀態的可靠成分記錄；整條草魚或一般魚肉不能當作魚腩。須核實部位及可食部分狀態後才可啟用。",
+      "reason": "TFDA草魚切片J0401301不是魚腩部位，且纖維欄留空，不能作原表去骨鯇魚腩的完整來源。",
       "originalRecord": {
         "code": "meat_006",
         "name": "鯇魚腩",
@@ -591,7 +512,7 @@
       "missing": [
         "carbs"
       ],
-      "reason": "原記錄未提供可用的總碳水化合物；不將不同定義、微量或未列值當成零。",
+      "reason": "TFDA叉燒肉R5100101未列膳食纖維，且未限定半肥瘦部位，不能證實原表的0.2克。",
       "originalRecord": {
         "code": "meat_008",
         "name": "叉燒（一般成品）",
@@ -682,7 +603,7 @@
         "fat",
         "fiber"
       ],
-      "reason": "名稱「蒸水豆腐」包含熟製狀態，未找到精確對應記錄；南豆腐或未烹調軟豆腐不能冒充蒸後重量。可另選已核實「軟豆腐（未烹調）」並按未烹調重量輸入。",
+      "reason": "TFDA嫩豆腐R4701201並未說明蒸後重量；不能把未指定蒸製狀態的資料套用到蒸水豆腐。",
       "originalRecord": {
         "code": "soy_001",
         "name": "蒸水豆腐",
@@ -748,7 +669,7 @@
         "fat",
         "fiber"
       ],
-      "reason": "食安中心枝竹記錄0502000315080並非浸發狀態（每100克478千卡），不可套用於吸水後重量；鮮腐皮及日式熱水泡發湯葉亦非同一枝竹產品。需要指定產品浸發後的可靠資料或實驗室分析。",
+      "reason": "未找到精確對應浸發後枝竹、吸水條件及濕重的原始記錄；不借用乾枝竹或鮮豆皮數據。",
       "originalRecord": {
         "code": "soy_005",
         "name": "枝竹 (浸發)",
@@ -808,7 +729,7 @@
       "missing": [
         "fiber"
       ],
-      "reason": "原記錄未提供可用的總膳食纖維；不將不同定義、微量或未列值當成零。",
+      "reason": "未指定品牌的一般鹹鴨蛋仍未完整核實；可另選有完整標籤來源的Hocean熟鹹鴨蛋，並不自動替換。",
       "originalRecord": {
         "code": "egg_003",
         "name": "鹹鴨蛋",
@@ -886,93 +807,10 @@
           "蛋"
         ],
         "requiresCooking": true
-      }
-    },
-    {
-      "code": "egg_004",
-      "name": "皮蛋",
-      "missing": [
-        "fiber"
-      ],
-      "reason": "原記錄未提供可用的總膳食纖維；不將不同定義、微量或未列值當成零。",
-      "originalRecord": {
-        "code": "egg_004",
-        "name": "皮蛋",
-        "enName": "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)",
-        "category": "protein",
-        "categoryName": "肉、魚、蛋及豆製品類",
-        "unit": "克",
-        "unitWeight": 1,
-        "defaultQuantity": 100,
-        "portionBasis": "可食部分實際秤重；預填數值只供輸入起點，並非建議份量",
-        "state": "醃製去殼全蛋",
-        "dataVersion": "2026-10-23-v1",
-        "nutritionBasis": "per_100g_edible",
-        "shelfLifeDays": null,
-        "wasteTip": "按用餐人數及實際需要秤重，先用較早購入而仍安全的材料。",
-        "storage": {
-          "note": "保存方法及食用期限請按產品標籤和實際儲存條件；容易腐壞食物須盡快冷凍（保鮮）於4°C或以下。",
-          "sourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/five_keys_apply_store.html"
-        },
-        "allergenSourceUrl": "https://www.cfs.gov.hk/tc_chi/consumer_zone/safefood_all/food_allergy.html",
-        "status": "verified",
-        "source": {
-          "provider": "香港食物安全中心／中國疾病預防控制中心轄下的營養與食品安全所 (CFC2002Ed2)",
-          "recordId": "0509001122010",
-          "description": "松花蛋(鴨蛋)[皮蛋](“Pine flower” duck egg, whole, preserved in powdered lime)",
-          "url": "https://www.cfs.gov.hk/tc_chi/nutrient/searchmenu.php",
-          "recordUrl": "https://www.cfs.gov.hk/tc_chi/nutrient/fc-myreport.php",
-          "lookupMethod": "POST",
-          "lookupFields": {
-            "fg_id": "09",
-            "fsg_id": "00",
-            "food_id": "0509001122010",
-            "inShortMode": "0"
-          },
-          "release": "CFC2002Ed2（食安中心轉載）",
-          "accessed": "2026-10-21"
-        },
-        "calories": 171.0,
-        "protein": 14.2,
-        "carbs": 4.5,
-        "fat": 10.7,
-        "fiber": null,
-        "nutrientMeta": {
-          "calories": {
-            "originalValue": "171",
-            "status": "reported"
-          },
-          "protein": {
-            "originalValue": "14.2",
-            "status": "reported"
-          },
-          "carbs": {
-            "originalValue": "4.5",
-            "status": "reported"
-          },
-          "fat": {
-            "originalValue": "10.7",
-            "status": "reported"
-          },
-          "fiber": {
-            "originalValue": "NA",
-            "status": "not_reported"
-          }
-        },
-        "carbsBasis": "total",
-        "fiberBasis": "insoluble",
-        "originalNutrients": {
-          "能量*": "171",
-          "蛋白質": "14.2",
-          "碳水化合物*": "4.5",
-          "脂肪": "10.7",
-          "膳食纖維*": "NA"
-        },
-        "allergens": [
-          "蛋"
-        ],
-        "requiresCooking": false
-      }
+      },
+      "alternativeCodes": [
+        "egg_005"
+      ]
     }
   ],
   "sourceDownloads": [
@@ -1007,5 +845,156 @@
       "sha256": "70457ee9d9342f43bda2010318c85f04210c689fdeb9cd2da4c513b0e8dbc655"
     }
   ],
-  "householdMeasures": 179
+  "householdMeasures": 182,
+  "supplement": {
+    "report": "food-supplement-review.json",
+    "activeAdditions": [
+      {
+        "inputCode": "carb_007",
+        "activeCode": "carb_007",
+        "name": "白饅頭（成品，台灣樣本）",
+        "source": {
+          "provider": "台灣衛生福利部食品藥物管理署",
+          "sourceType": "TFDA",
+          "recordId": "R2400201",
+          "description": "白饅頭；前處理：混合均勻打碎",
+          "url": "https://data.gov.tw/dataset/8543",
+          "datasetUrl": "https://data.fda.gov.tw/data/opendata/export/20/csv",
+          "release": "政府開放資料集8543；2026-10-27下載快照",
+          "accessed": "2026-10-27",
+          "snapshotUrl": "data/food-sources.html#carb_007",
+          "sha256": "9aeb0cdbefad3f82be9b4089f044c8d0bc087a6b7453ba96832d126ff6ea3aa1"
+        },
+        "per100g": {
+          "calories": 248.0,
+          "carbs": 51.3,
+          "protein": 8.1,
+          "fat": 1.2,
+          "fiber": 1.1
+        },
+        "portion": {
+          "id": "portion-carb_007-0",
+          "label": "個（大白饅頭100克參考）",
+          "gramsPerUnit": 100.0,
+          "kind": "reference",
+          "foodState": "成品重量；台灣白饅頭樣本，非指定品牌",
+          "note": "份量引用原廠10個共1000克的參考規格；營養採用TFDA白饅頭樣本，並非該品牌營養標籤。大小、水分及配方會有差異。",
+          "defaultQuantity": 0.5,
+          "source": {
+            "provider": "南山食品 原廠產品頁",
+            "foodRecordId": "10151",
+            "foodDescription": "特級大白饅頭：1包10粒，包裝重量1000 g",
+            "url": "https://nanshan-food.com.tw/products_view.asp?ID=360",
+            "release": "來源頁面／原始記錄",
+            "accessed": "2026-10-23",
+            "referenceAmount": "10",
+            "referenceDescription": "特級大白饅頭：1包10粒，包裝重量1000 g",
+            "referenceGrams": 1000.0,
+            "derivation": "referenceGrams / referenceAmount",
+            "factor": 1,
+            "alternateRecord": true,
+            "snapshotSha256": "956d1fac46e419967a0491b3371a72b36317c1e6c28cf221868ecbaaa32504d6"
+          },
+          "hkCommon": true
+        }
+      },
+      {
+        "inputCode": "egg_004",
+        "activeCode": "egg_004",
+        "name": "皮蛋（鴨蛋，日本標準參考）",
+        "source": {
+          "provider": "日本文部科學省 食品成分資料庫",
+          "sourceType": "MEXT",
+          "recordId": "12020",
+          "description": "卵類／あひる卵／ピータン",
+          "url": "https://fooddb.mext.go.jp/details/details.pl?ITEM_NO=12_12020_7",
+          "release": "日本食品標準成分表（八訂）增補2023年",
+          "accessed": "2026-10-27",
+          "snapshotUrl": "data/food-sources.html#egg_004",
+          "sha256": "8485c5db14bf319e2d6eb68b7ff924aa38c2c7e15c13d7769c88b58796874c64"
+        },
+        "per100g": {
+          "calories": 188.0,
+          "carbs": 0.0,
+          "protein": 13.7,
+          "fat": 16.5,
+          "fiber": 0.0
+        },
+        "portion": {
+          "id": "portion-egg_004-0",
+          "label": "隻（去殼皮蛋，55克參考大小）",
+          "gramsPerUnit": 55.0,
+          "kind": "reference",
+          "foodState": "成品重量；鴨蛋製皮蛋，去殼可食部分",
+          "note": "1隻去殼約55克引用台灣原廠產品的可食部分標籤份量；營養使用日本標準鴨皮蛋記錄。大小及配方可能不同。",
+          "defaultQuantity": 1,
+          "source": {
+            "provider": "新竹縣關西鎮農會 原產品資料",
+            "foodRecordId": "羅董養生皮蛋",
+            "foodDescription": "養生皮蛋：4粒；nutrition label 4 servings, 55 g per serving",
+            "url": "https://www.kuanhsi.org.tw/products_detail/299",
+            "release": "來源頁面／原始記錄",
+            "accessed": "2026-10-23",
+            "referenceAmount": "1",
+            "referenceDescription": "養生皮蛋：4粒；nutrition label 4 servings, 55 g per serving",
+            "referenceGrams": 55.0,
+            "derivation": "referenceGrams / referenceAmount",
+            "factor": 1,
+            "alternateRecord": true,
+            "snapshotSha256": "5dc7574317edad8daf63a70ce5761ce6aae4f6eb3021dbec258b9d1c5fb76171"
+          },
+          "hkCommon": true
+        }
+      },
+      {
+        "inputCode": "egg_003",
+        "activeCode": "egg_005",
+        "name": "熟鹹鴨蛋（Hocean品牌）",
+        "source": {
+          "provider": "USDA FoodData Central／Hocean原廠標籤",
+          "sourceType": "FDC-Branded",
+          "recordId": "2412490",
+          "description": "SALTED COOKED DUCK EGGS, SALTED; Hocean Inc.",
+          "url": "https://fdc.nal.usda.gov/food-details/2412490/nutrients",
+          "release": "USDA原廠標籤記錄，發布2022-12-22",
+          "accessed": "2026-10-27",
+          "snapshotUrl": "data/food-sources.html#egg_005",
+          "sha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
+        },
+        "per100g": {
+          "calories": 160.0,
+          "carbs": 1.6,
+          "protein": 12.8,
+          "fat": 12.8,
+          "fiber": 0.0
+        },
+        "portion": {
+          "id": "fdc-label-egg_005-2412490",
+          "label": "隻（Hocean去殼熟蛋）",
+          "gramsPerUnit": 62.5,
+          "kind": "official",
+          "foodState": "熟製成品；Hocean產品去殼可食部分",
+          "note": "只適用Hocean熟鹹鴨蛋標籤的1隻62.5克；不是所有鹹蛋的固定重量或成分。營養為原廠標籤及USDA換算值，含標示四捨五入。",
+          "defaultQuantity": 1,
+          "source": {
+            "provider": "USDA FoodData Central／Hocean原標籤",
+            "foodRecordId": "2412490",
+            "foodDescription": "Salted cooked duck eggs: label serving 1 egg = 62.5 g",
+            "url": "https://fdc.nal.usda.gov/food-details/2412490/nutrients",
+            "release": "來源頁面／原始記錄",
+            "accessed": "2026-10-27",
+            "referenceAmount": "1",
+            "referenceDescription": "Salted cooked duck eggs: label serving 1 egg = 62.5 g",
+            "referenceGrams": 62.5,
+            "derivation": "referenceGrams / referenceAmount",
+            "factor": 1,
+            "alternateRecord": false,
+            "snapshotSha256": "ebc6feb01d4aed63bbbac572e4381666ec879d41a28ab3c88ae7b0af1e28d943"
+          },
+          "hkCommon": true
+        }
+      }
+    ],
+    "pending": 8
+  }
 }
