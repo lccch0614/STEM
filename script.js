@@ -1,4 +1,4 @@
-const PRESET_OPENROUTER_KEY = "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"; // 在此沿用你自己的 API 設定
+const PRESET_OPENROUTER_KEY = "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"; // 在此沿用你自己的 API 設定
 
 const nutritionDictData = [
   { id: 1, name: "蛋白質 (Protein)", icon: "💪", category: "growth", desc: "像建築工人一樣，幫助你的肌肉和骨骼快快長大！", foods: "雞蛋、牛肉、豆腐、牛奶" },
