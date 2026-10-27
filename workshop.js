@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const C = window.FoodWorkshopCore, P = window.PortionTools, Pub=window.WorkshopPublication, $ = id => document.getElementById(id);
+  const C = window.FoodWorkshopCore, P = window.PortionTools, Pub=window.WorkshopPublication, A=window.WorkshopAI, $ = id => document.getElementById(id);
   const DRAFT_KEY = 'food-workshop-draft-v1', SETTINGS_KEY = 'food-workshop-settings-v1', QUEUE_KEY = 'food-workshop-queue-v1';
   const PORTION_SETTINGS_KEY='food-workshop-portions-v1';
   let portionCatalog={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
@@ -8,6 +8,7 @@
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
   const fresh = () => ({version:1,dataVersion:'2026-10-23-v1',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
   let draft = fresh(), database = [], comparison = null, basis = 'total', revision = 0, approved = '', qr = null, qrEpoch = 0;
+  let lastTextDiagnostic=null;
   let queue = [], pendingAI = null, pendingImage = null, currentAnalysis = null, conceptImage = null, saveTimer, qrTimer, initialized = false;
   const references = Object.fromEntries(Object.entries(C.nutrients).map(([key,m]) => [key,m.reference]));
   const snapshot = value => JSON.parse(JSON.stringify(value));
@@ -349,8 +350,18 @@
       if(pendingImage?.controller===controller) {pendingImage=null;$('generate-image').disabled=false;renderImageChoice();$('cancel-image').hidden=true;Pub.notify();}
     }
   }
+  function renderTextChoice(){
+    const model=A.models.find(m=>m.id===$('text-model').value);
+    $('text-model-info').textContent=model?model.price+'（2026-10-27查閱，以實際供應商計費為準）。':'';
+    $('text-model-source').href=model?.url||'https://openrouter.ai/models';
+  }
+  function showTextDiagnostic(diag){
+    lastTextDiagnostic=diag;$('ai-diagnostics').hidden=!diag;
+    $('ai-diagnostic-content').textContent=diag?JSON.stringify(diag,null,2):'';
+  }
   async function generateAI() {
-    error('ai-error');syncFields();
+    if(pendingAI)return;
+    error('ai-error');showTextDiagnostic(null);syncFields();
     if (!draft.items.length) {error('ai-error','請先加入食材，再請 AI 提供建議。');return;}
     for(const input of [$('servings'),...$('plate-list').querySelectorAll('input:not(:disabled)')])if(!input.value||!input.reportValidity()){error('ai-error','請先填妥人數及所有材料的有效份量。');return;}
     if($('recipe-minutes').value&&!$('recipe-minutes').reportValidity()){error('ai-error','請填寫有效時間，或留空表示不限制。');return;}
@@ -358,36 +369,37 @@
     if (problems.length) {error('ai-error',problems.join(' '));return;}
     if (!PRESET_OPENROUTER_KEY?.trim()) {error('ai-error','尚未設定 AI 連線。你仍可直接編輯食譜。');return;}
     if ((draft.title.trim()||draft.steps.some(s => s.trim())) && !confirm('AI 會重新分析餐盤，並取代目前菜名和步驟；你所選材料及份量會保留。繼續？')) return;
-    if(pendingImage)resetConcept('正在更新食譜，稍後會生成新概念圖。');
-    const version=revision, materials=snapshot(draft.items), context=snapshot(draft);
+    if(pendingImage)resetConcept('正在更新食譜；完成後可按需要生成新概念圖。');
+    const version=revision, materials=snapshot(draft.items), context=snapshot(draft),model=$('text-model').value;
     const controller=new AbortController();pendingAI=controller;
-    $('ai-analyze-btn').disabled=true;$('cancel-ai').hidden=false;$('ai-status').textContent='AI 正在分析食材配搭、每人份量及編寫食譜…';
+    $('ai-analyze-btn').disabled=true;$('cancel-ai').hidden=false;$('ai-status').textContent=`AI 正在分析食材配搭、每人份量及編寫食譜…最多等候${A.timeoutMs(model)/60000}分鐘。`;
     let timedOut=false;
-    const timer=setTimeout(() => {timedOut=true;controller.abort();},60000);
+    const timer=setTimeout(() => {timedOut=true;controller.abort();},A.timeoutMs(model));
     try {
       const itemDescriptions=materials.map(i => {const food=database.find(f=>f.code===i.code);return {id:i.id,name:food.name,category:food.categoryName,state:C.stateLabel(food),dataStatus:food.status,nutrientDefinitions:{carbs:food.carbsBasis,fiber:food.fiberBasis},grams:i.grams,gramsPerPerson:i.grams/context.servings,unit:food.unit,unitWeight:food.unitWeight,householdPortion:i.portion?{description:P.describe(i.portion),gramsPerUnit:i.portion.gramsPerUnit,kind:i.portion.kind}:null,availablePortions:measuresFor(food).map(g=>({label:g.label,gramsPerUnit:g.gramsPerUnit,kind:g.kind})),method:i.method};});
       const prompt=`你是香港高小營養與惜食工作坊的食譜助手，使用繁體中文、簡單友善的語句。先按實際選材、整份和每人份量分析餐盤，提供食材配搭及份量建議，各1至2項；每項寫具體建議和原因。合適的安排亦可建議保留，不必強行改動。份量建議優先使用提供的家用單位（例如半個、一片），可附約克數；只用已提供的gramsPerUnit換算，不可假定一碗或一件的重量。未提供換算時才用克數。份量建議須引用所選材料的克數及家用單位，清楚區分整份與每人份量。這是課堂參考，不是個人營養診斷；每人食量不同，不能提供減肥指示、健康評分或聲稱符合個人一日需要。營養數值是按資料來源指定狀態估算，烹調方式不會自動換算營養；null代表缺項、微量或營養定義不相符，不能填0或猜測。dataStatus為pending_label的食材未核實營養；缺值為null，沒有鈉、糖及完整過敏原數據，不可捏造。不能把材料克數比例當作體積比例。建議的增減或替代材料只寫在analysis，不可擅自套用於食譜，學生會自行決定。食譜必須使用目前所有材料，完整保留id及克數，不可刪除、改份量或加入未列出的油、糖、鹽、醬料、清水或配料。若目前材料無法組合成安全可行食譜，仍須回傳analysis，另加error說明先如何調整，不要編造食譜。器具留空及時間0代表未限制。步驟包含適當火力、估計時間、熟透檢查及成人協助；提供1至10步，每步最多180字，菜名最多40字。summary最多180字，suggestion最多160字，reason最多180字。設計條件：${JSON.stringify({servings:context.servings,minutes:context.minutes,equipment:context.equipment,stock:context.stock,allergyNotes:context.allergy,materials:itemDescriptions,nutritionTotal:C.totals(materials,database),nutritionPerPerson:C.totals(materials,database,context.servings)})}。只輸出有效 JSON，格式：{"analysis":{"summary":"餐盤觀察","foodSuggestions":[{"suggestion":"食材建議","reason":"原因"}],"portionSuggestions":[{"suggestion":"每人份量建議","reason":"原因"}]},"recipeTitle":"菜名","minutes":25,"materials":[{"id":"原材料id","grams":原克數}],"recipeSteps":["步驟文字"]}。`;
-      const response=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify({model:$('text-model').value,messages:[{role:'system',content:prompt},{role:'user',content:'請分析我的食材及每人份量，並用目前餐盤生成食譜。'}],temperature:0.4,max_tokens:2600}),signal:controller.signal});
-      const body=await response.json();
-      if (!response.ok||body.error) throw new Error(`OpenRouter ${response.status}: ${body.error?.message||'未能提供建議及食譜'}`);
-      const content=body.choices?.[0]?.message?.content;
+      const response=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify(A.request(model,prompt)),signal:controller.signal});
+      let body;
+      try{body=await response.json();}catch(e){if(e.name==='AbortError')throw e;throw new A.RequestError(A.diagnostic({model,status:response.ok?0:response.status,body:{error:{message:'AI服務沒有回傳可讀取的JSON資料。'}},kind:response.ok?'format':'',requestId:response.headers?.get('x-request-id')||'',secret:PRESET_OPENROUTER_KEY}));}
+      if (!response.ok||body?.error) throw new A.RequestError(A.diagnostic({model,status:response.status,body,requestId:response.headers?.get('x-request-id')||response.headers?.get('x-openrouter-request-id')||'',secret:PRESET_OPENROUTER_KEY}));
+      const content=body?.choices?.[0]?.message?.content;
       if (typeof content!=='string') throw new Error('AI 沒有回傳可讀取的建議及食譜，請重試或手動編輯。');
       const raw=JSON.parse(content.replace(/<think>[\s\S]*?<\/think>/g,'').replace(/^\s*```(?:json)?\s*/,'').replace(/\s*```\s*$/,'').trim());
       const analysis=C.parseAnalysis(raw.analysis);
       if (pendingAI!==controller||revision!==version) return;
       currentAnalysis={key:analysisKey(),data:analysis};renderAdvice();
-      if (raw.error) throw new Error(String(raw.error).slice(0,300));
+      if (raw.error) {const e=new Error(String(raw.error).slice(0,300));e.recipeConstraint=true;throw e;}
       const result=C.parseAI(raw,materials);
       pendingAI=null;draft.title=result.title;draft.steps=result.steps;if(result.minutes)draft.minutes=result.minutes;
       touch();currentAnalysis={key:analysisKey(),data:analysis};renderAdvice();
       $('recipe-title').value=draft.title;$('recipe-minutes').value=draft.minutes||'';renderSteps();renderRecipePreview();
-      $('ai-status').textContent='建議及食譜已生成！材料份量保持你的選擇。可先打印雪櫃貼；概念圖進度會在下方顯示。';
+      $('ai-status').textContent='建議及食譜已生成！材料份量保持你的選擇。你可再按下方按鈕生成概念圖，完成後下載作品包交給老師。';
       prepareShare(true);
       generateConceptImage({automatic:true});
     } catch (e) {
       if (pendingAI===controller) {
-        if (e.name==='AbortError') error('ai-error',timedOut?'等待超過一分鐘。你可以重試，或直接手動完成食譜。':'已停止等待。');
-        else error('ai-error',`${e.message}。目前草稿仍然保留，你可調整材料後重試或手動編輯。`);
+        const diag=e.diagnostic||A.diagnostic({model,status:0,body:{error:{message:e.message}},secret:PRESET_OPENROUTER_KEY,kind:e.name==='AbortError'?(timedOut?'timeout':'cancelled'):e instanceof TypeError?'network':e.recipeConstraint?'recipe':'format'});
+        showTextDiagnostic(diag);error('ai-error',A.failureMessage(diag));saveDraft();
         $('ai-status').textContent='';
       }
     } finally {
@@ -400,7 +412,7 @@
     try {return C.shareBase(location.href);} catch {return '';}
   }
   function settingsSave() {
-    try {localStorage.setItem(SETTINGS_KEY,JSON.stringify({base:$('share-base').value,size:draft.size,imageModel:$('image-model').value,textModel:$('text-model').value}));} catch {/* Draft download remains available. */}
+    try {localStorage.setItem(SETTINGS_KEY,JSON.stringify({base:$('share-base').value,size:draft.size,imageModel:$('image-model').value,textModel:$('text-model').value,textSettingsVersion:A.settingsVersion}));} catch {/* Draft download remains available. */}
   }
   async function buildQR(payload,base,size,publication=null) {
     if (!window.LZString||!window.QRCode) throw new Error('QR 程式尚未載入；請檢查網絡後重新整理。草稿仍可下載。');
@@ -543,6 +555,8 @@
   }
   function bind() {
     bindPortions();
+    A.models.forEach(model=>$('text-model').add(new Option(model.name+(model.id==='openrouter/free'?'':'（付費）'),model.id)));
+    $('download-ai-diagnostic').addEventListener('click',()=>{if(lastTextDiagnostic)download('AI連線診斷.json',lastTextDiagnostic);});
     $('fixed-safety').textContent=C.safety;
     C.methods.forEach(method => $('cooking-select').add(new Option(method,method)));
     $('category-select').addEventListener('change',foodOptions);$('food-select').addEventListener('change',showFoodDetail);
@@ -635,8 +649,8 @@
     const settings=readStorage(SETTINGS_KEY);$('share-base').value=typeof settings?.base==='string'?settings.base:autoBase();
     // Paid calls remain manual. A saved explicit choice is respected.
     $('image-model').value=C.imageModels.some(m=>m.id===settings?.imageModel)||settings?.imageModel==='free-only'?settings.imageModel:'bytedance-seed/seedream-5-0-flash';renderImageChoice();
-    $('text-model').value=settings?.textModel==='openrouter/free'?'openrouter/free':'google/gemini-2.5-flash-lite';
-    $('text-model').addEventListener('change',settingsSave);
+    $('text-model').value=A.choose(settings);renderTextChoice();
+    $('text-model').addEventListener('change',()=>{if(pendingAI)cancelAI('已停止套用舊模型的回覆；按生成才會呼叫新模型。');renderTextChoice();settingsSave();});
     restoreQueue();renderQueue();fillFields();
     if (location.hash.startsWith('#recipe=')) {
       try {if (!window.LZString) throw new Error('壓縮程式未載入，請檢查網絡並重新整理。');renderParent(C.decodeHash(location.hash,LZString));}
