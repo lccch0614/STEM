@@ -95,6 +95,7 @@
         <h2 id="materials-heading">第一步：挑選食材與烹調方式</h2>
         <form id="ingredient-form" class="selector-grid">
           <div class="field-group"><label for="category-select">食材類別</label><select id="category-select"><option value="all">全部類別</option><option value="grains">穀物及薯類</option><option value="vegetables">蔬菜類</option><option value="fruits">水果類</option><option value="protein">肉、魚、蛋及豆製品類</option><option value="dairy">奶類</option><option value="nuts_seeds">堅果及種子</option><option value="oil_salt_sugar">油、鹽、糖及調味料</option><option value="liquids">飲品及清水</option></select></div>
+          <div class="field-group"><label for="food-search">搜尋食材（選填）</label><input id="food-search" type="search" placeholder="例如：雞、薯仔、蘋果" autocomplete="off" aria-describedby="food-search-status"><p id="food-search-status" class="ws-note" role="status" aria-live="polite"></p></div>
           <div class="field-group"><label for="food-select">選擇食材</label><select id="food-select" required><option value="">正在載入食材…</option></select></div>
           <div class="field-group"><label for="portion-select">份量單位</label><select id="portion-select" aria-label="份量單位"></select></div>
           <div class="field-group"><label for="cooking-select">烹調方式</label><select id="cooking-select"></select></div>
@@ -227,7 +228,7 @@
 <script src="cloud-config.js?v=2026-10-27-1"></script>
 <script src="cloud-client.js?v=school-v1"></script>
 <script src="ai-connection.js?v=2026-10-27-1"></script>
-<script src="workshop.js?v=school-v1"></script>
+<script src="workshop.js?v=food-search-v1"></script>
 <script src="publication-ui.js?v=final-v2"></script>
 <script src="cloud-student.js?v=2026-10-29-quota-v1"></script>
 <script src="nutrition-encyclopedia.js?v=2026-10-27-final-1"></script>

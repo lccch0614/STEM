@@ -152,17 +152,45 @@
     $('import-measures').addEventListener('change',async event=>{try{const file=event.target.files[0];if(!file||file.size>3000000)throw new Error('請選擇3MB以下的工作坊份量設定JSON。');const incoming=P.settings(JSON.parse(await file.text()),database);if(!confirm('匯入會取代本機的工作坊實測設定；已加入餐盤的份量會保留。繼續？'))return;workshopMeasures=incoming;storeMeasures('已匯入實測份量設定。');renderMeasureChoices(database.find(f=>f.code===$('food-select').value));renderMaterials();}catch(e){$('teacher-portion-status').textContent=e.message;}finally{event.target.value='';}});
   }
 
+  // Search aliases are presentation-only and never alter food records.
+  const searchAliases = [
+    ['薯仔 馬鈴薯 土豆 洋芋','薯仔'],['番薯 紅薯 地瓜','番薯'],
+    ['西蘭花 西蘭 花椰菜 綠花椰','西蘭花'],['白菜花 花椰菜 椰菜花','白菜花'],
+    ['番茄 西紅柿 蕃茄','番茄'],['青瓜 黃瓜','青瓜'],['粟米 玉米','粟米'],
+    ['洋蔥 洋葱','洋蔥'],['士多啤梨 草莓','士多啤梨'],['奇異果 獼猴桃 奇異','奇異果'],
+    ['牛油果 酪梨','牛油果'],['提子 葡萄','提子'],['菠蘿 鳳梨','菠蘿'],
+    ['三文魚 鮭魚','三文魚'],['吞拿魚 鮪魚','吞拿魚'],['方包 吐司 麵包','方包'],
+    ['意粉 意大利粉 意麵 義大利麵','意粉|意大利粉'],['雞髀 雞腿 雞扒','雞扒'],
+    ['芝士 起司 乳酪','芝士'],['乳酪 酸奶 優格','乳酪'],['醬油 豉油 生抽','醬油']
+  ];
+  const searchNormalize = text => text.normalize('NFKC').toLowerCase().replace(/\s+/g,'');
+  function searchText(f) {
+    const aliases=searchAliases.filter(([,match])=>match.split('|').some(term=>f.name.includes(term))).map(([words])=>words).join(' ');
+    return searchNormalize([f.name,f.enName,f.categoryName,f.state,aliases].join(' '));
+  }
+  function studentFoodName(f) {
+    const distinct={carb_003:'意粉（未強化）',carb_005:'意大利粉（強化）',carb_008:'蒸薯仔（去皮）',grain_017:'水煮薯仔（去皮）',soy_002:'硬豆腐（板豆腐）',veg_011:'綠椰菜',veg_016:'青瓜（連皮）',fruit_014:'檸檬（去皮）'};
+    const name=distinct[f.code]||f.name.replace(/\s*[（(][^）)]*[）)]/g,'').trim();
+    const state=f.state||'';let shortState='';
+    if(/熟重|煮熟重量|熟製成品/.test(state))shortState='熟';
+    else if(/生重|未烹調重量|未烘烤重量/.test(state))shortState='生';
+    else if(/乾重|乾粉重量/.test(state))shortState='乾';
+    return (foodEmoji[f.code]?foodEmoji[f.code]+' ':'')+name+(shortState?'（'+shortState+'）':'');
+  }
   function foodOptions() {
-    const category=$('category-select').value, select=$('food-select');
-    select.replaceChildren(new Option('請選擇食材',''));
-    database.filter(f => category==='all'||f.category===category).forEach(f => {const option=new Option(`${foodLabel(f)}（${f.categoryName}）${f.status==='pending_label'?'〔營養待核對，供舊草稿〕':''}`,f.code);option.disabled=f.status==='pending_label';select.add(option);});
+    const category=$('category-select').value,select=$('food-select'),previous=select.value,query=searchNormalize($('food-search').value);
+    const matches=database.filter(f=>(category==='all'||f.category===category)&&(!query||searchText(f).includes(query)));
+    select.replaceChildren(new Option(matches.length?'請選擇食材':'找不到食材，試試其他名稱',''));
+    matches.forEach(f=>{const option=new Option(studentFoodName(f)+(f.status==='pending_label'?'〔營養待核對，供舊草稿〕':''),f.code);option.disabled=f.status==='pending_label';select.add(option);});
+    $('food-search-status').textContent=query?(matches.length?'找到 '+matches.length+' 款食材。':'找不到食材，試試其他名稱'):'';
+    if(previous&&matches.some(f=>f.code===previous)){select.value=previous;return;}
     showFoodDetail();
   }
   function showFoodDetail() {
     const f=database.find(x=>x.code===$('food-select').value),root=$('food-source-content');root.replaceChildren();
     $('unit-label').textContent='份';$('food-source-detail').hidden=!f;renderMeasureChoices(f);
     if(!f){$('food-detail').textContent='先選食材，再揀常見單位及數量；約克數會自動顯示。';return;}
-    $('food-detail').textContent=`${C.stateLabel(f)}。常見用量只作近似量度，並非建議食量。`;
+    $('food-detail').textContent=`食材資料：${f.name}；${C.stateLabel(f)}。常見用量只作近似量度，並非建議食量。`;
     function note(text){const p=document.createElement('p');p.textContent=text;root.append(p);}
     note('營養以可食部分克數計算；家用單位為參考換算，工作坊實測單位另外標示。');
     note(`每100克：${Object.entries(C.nutrients).map(([key,m])=>`${m.label} ${format(f[key],key)}${f[key]===null?'':m.unit}`).join('；')}。`);
@@ -593,7 +621,7 @@
     $('download-ai-diagnostic').addEventListener('click',()=>{if(lastTextDiagnostic)download('AI連線診斷.json',lastTextDiagnostic);});
     $('fixed-safety').textContent=C.safety;
     C.methods.forEach(method => $('cooking-select').add(new Option(method,method)));
-    $('category-select').addEventListener('change',foodOptions);$('food-select').addEventListener('change',showFoodDetail);
+    $('category-select').addEventListener('change',foodOptions);$('food-search').addEventListener('input',foodOptions);$('food-select').addEventListener('change',showFoodDetail);
     $('ingredient-form').addEventListener('submit',event => {
       event.preventDefault();error('food-error');
       try {
@@ -667,7 +695,7 @@
     selectFood(code){
       const food=database.find(f=>f.code===code&&f.status==='verified');
       if(!initialized||!food)return false;
-      $('category-select').value=food.category;foodOptions();
+      $('category-select').value=food.category;$('food-search').value='';foodOptions();
       $('food-select').value=food.code;showFoodDetail();
       return true;
     }
