@@ -15,7 +15,7 @@
     standard: {label: '75 × 95 mm', width: 75, height: 95, qr: 43, columns: 2, perPage: 4},
     large: {label: '95 × 125 mm', width: 95, height: 125, qr: 63, columns: 1, perPage: 2}
   };
-  const safety = '刀具、明火、熱油及高溫器具由成人處理或協助。肉、蛋、海鮮須徹底煮熟；生熟食物及用具分開。剩食盡快分裝冷卻，兩小時內冷藏；不確定安全便請成人判斷，不能為惜食勉強食用。';
+  const safety = '刀具、明火、熱油及高溫器具由成人處理或協助。肉、蛋、海鮮須徹底煮熟；生熟食物及用具分開。生雞肉毋須清洗，成人應用食物溫度計核對最厚處中心達至少75°C並維持30秒。剩食盡快分裝冷卻，兩小時內冷藏；不確定安全便請成人判斷，不能為惜食勉強食用。';
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const text = (value, limit, label, optional = false) => {
     if (typeof value !== 'string' || value.length > limit || (!optional && !value.trim())) throw new Error(`${label}需要填寫，並不可超過 ${limit} 字。`);
@@ -93,8 +93,40 @@
       steps: Array.isArray(raw.steps) && raw.steps.length <= 10 ? raw.steps.map(x => text(x, 180, '步驟', true)) : [''],
       size: Object.hasOwn(sizes, raw.size) ? raw.size : 'standard'};
   }
+  // This is a targeted safety screen, not a complete assessment of a recipe.
+  function recipeChecks(draft,database) {
+    const steps=(draft.steps||[]).filter(x=>typeof x==='string'&&x.trim()),issues=[];
+    if(!steps.length)return issues;
+    const selected=draft.items.map(i=>database.find(f=>f.code===i.code)).filter(Boolean);
+    const groups=[
+      {label:'醬油',terms:['醬油','豉油','生抽','老抽'],match:/醬油/},
+      {label:'蠔油',terms:['蠔油'],match:/蠔油/},
+      {label:'茄汁',terms:['茄汁','番茄醬'],match:/茄汁/},
+      {label:'食用油',terms:['食用油','植物油','橄欖油','花生油','芝麻油','麻油','粟米油','芥花籽油'],match:/油/},
+      {label:'牛油',terms:['牛油','黃油'],match:/牛油/},
+      {label:'鹽',terms:['食鹽','海鹽','低鈉鹽','加鹽','放鹽','撒鹽','少量鹽','適量鹽','鹽調味','鹽和胡椒','鹽及胡椒'],match:/鹽/},
+      {label:'糖',terms:['砂糖','白糖','紅糖','加糖','放糖','少量糖','適量糖'],match:/糖/},
+      {label:'香草',terms:['香草','羅勒','迷迭香','百里香','芫荽'],match:/香草|羅勒|迷迭香|百里香|芫荽/},
+      {label:'胡椒',terms:['胡椒','黑椒','白椒'],match:/胡椒|黑椒|白椒/},
+      {label:'蒜頭',terms:['蒜頭','蒜蓉','蒜末','蒜片','大蒜'],match:/蒜/},
+      {label:'薑',terms:['薑片','薑絲','薑蓉','薑末'],match:/薑/},
+      {label:'蔥',terms:['蔥花','蔥段','蔥絲'],match:/蔥/}
+    ];
+    const combined=steps.join('。');
+    for(const g of groups) if(g.terms.some(t=>combined.includes(t))&&!selected.some(f=>g.match.test(f.name)))issues.push('步驟提到未加入餐盤的「'+g.label+'」；請刪去，或先加入食材。');
+    const chicken=selected.some(f=>/雞/.test(f.name)&&/生重|未烹調/.test(f.state||''));
+    for(const step of steps){
+      // Do not flag explicit prohibitions such as “不要清洗生雞肉”.
+      const pieces=step.split(/[。；;！!？?]/).filter(x=>!/(?:不要|勿|不應|避免|不可|無需|不用|不必).{0,8}(?:清洗|沖洗|洗淨)/.test(x));
+      if(chicken&&pieces.some(x=>/(?:洗淨|清洗|沖洗|洗滌|洗一洗).{0,12}雞|雞.{0,12}(?:洗淨|清洗|沖洗|洗滌|洗一洗)/.test(x)))issues.push('步驟包含清洗生雞肉；請刪去，並防止生熟交叉污染。');
+      if(chicken&&/(?:汁液|肉色|顏色|變白|不再粉紅|不再呈粉紅|汁水).{0,35}(?:即表示|便是|代表|即可|就是|判斷|已熟|熟透|安全)/.test(step))issues.push('不可單憑雞肉顏色或汁液判斷熟透；請用食物溫度計核對中心溫度。');
+    }
+    if(chicken&&(!/(?:溫度計|探針)/.test(combined)||!/75\s*(?:°|℃|度|攝氏|c)/i.test(combined)||!/30\s*秒/.test(combined)))issues.push('食譜含生雞肉：請加入成人用食物溫度計量度最厚處，中心達至少75°C並維持30秒的步驟。');
+    return [...new Set(issues)];
+  }
   function payload(draft, database) {
     if (!draft.items.length) throw new Error('請先加入材料。');
+    const issues=recipeChecks(draft,database);if(issues.length)throw new Error('食譜未通過檢查：'+issues.join(' '));
     const warning = warnings(draft.items, database);
     if (warning.blocking.length) throw new Error(warning.blocking.join(' '));
     return {
@@ -119,7 +151,10 @@
   }
   function parseAI(raw, items) {
     const title = text(raw?.recipeTitle,40,'AI 菜名');
-    const steps = list(raw?.recipeSteps,1,10,180,'AI 步驟');
+    if(!Array.isArray(raw?.recipeSteps)||raw.recipeSteps.length<1||raw.recipeSteps.length>10)throw new Error('AI 步驟格式不完整，請重試或自行修改。');
+    const ids=new Set(items.map(i=>i.id)), used=new Set();
+    const steps=raw.recipeSteps.map(step=>{if(!step||typeof step!=='object'||!Array.isArray(step.ingredientIds)||step.ingredientIds.some(id=>typeof id!=='string'||!ids.has(id)))throw new Error('AI 步驟的食材編號未能核對，未套用食譜。');step.ingredientIds.forEach(id=>used.add(id));return text(step.text,180,'AI 步驟');});
+    if(items.some(i=>!used.has(i.id)))throw new Error('AI 步驟未涵蓋所有已選食材，未套用食譜。');
     if (!Array.isArray(raw?.materials) || raw.materials.length !== items.length) throw new Error('AI 未有完整保留材料，請重試或手動編輯。');
     const expected = new Map(items.map(i => [i.id,i]));
     const seen = new Set();
@@ -179,5 +214,5 @@
     if (!json || json.length > 20000) throw new Error('無法讀取食譜資料。');
     return validatePayload(JSON.parse(json));
   }
-  window.FoodWorkshopCore = Object.freeze({nutrients, methods, sizes, safety, esc, makeItem, totals, stateLabel, warnings, ingredients, validateDraft, payload, validatePayload, parseAI, parseAnalysis, imageModels, imagePricingDate, imageRequest, imageDataURL, shareBase, decodeHash});
+  window.FoodWorkshopCore = Object.freeze({nutrients, methods, sizes, safety, esc, makeItem, totals, stateLabel, warnings, ingredients, recipeChecks, validateDraft, payload, validatePayload, parseAI, parseAnalysis, imageModels, imagePricingDate, imageRequest, imageDataURL, shareBase, decodeHash});
 })();
