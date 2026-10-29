@@ -83,7 +83,7 @@
   $('pub-print').addEventListener('click',()=>task(async()=>{
     if(!works.length||!works.every(w=>verified.has(w.id)))throw new Error('請先核對全部作品及圖片已上線。');
     const entries=[];for(const work of works)entries.push(await B.buildQR(work.payload,work.base,'acrylic',work));
-    await B.printEntries(entries);message(`已準備${works.length}張48×48mm貼片，共${Math.ceil(works.length/15)}頁A4。請選實際大小100%，關閉頁首頁尾，先試印及掃碼。`);
+    await B.printEntries(entries);message(`已準備${works.length}張43×43mm貼片，共${Math.ceil(works.length/15)}頁A4。請選實際大小100%，關閉頁首頁尾，先試印及掃碼。`);
   }));
   window.WorkshopPublisherUI=Object.freeze({preview});
   (async()=>{

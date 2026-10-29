@@ -4,6 +4,8 @@
   const DRAFT_KEY = 'food-workshop-draft-v1', SETTINGS_KEY = 'food-workshop-settings-v1', QUEUE_KEY = 'food-workshop-queue-v1';
   const PORTION_SETTINGS_KEY='food-workshop-portions-v1';
   let portionCatalog={},retiredFoods={},workshopMeasures={},teacherPhoto='',teacherPhotoEpoch=0;
+  const foodEmoji = {"carb_001":"🍚","carb_002":"🍚","grain_016":"🍚","carb_003":"🍝","carb_005":"🍝","carb_004":"🍜","grain_014":"🍜","grain_015":"🍜","carb_006":"🍞","carb_008":"🥔","grain_017":"🥔","dairy_001":"🥛","dairy_002":"🥛","dairy_005":"🥛","dairy_006":"🥛","soy_003":"🥛","veg_002":"🥦","veg_003":"🥬","veg_005":"🥬","veg_011":"🥬","veg_012":"🥬","veg_013":"🥬","veg_014":"🥬","veg_015":"🥬","veg_004":"🥕","veg_006":"🍅","veg_008":"🍄","veg_029":"🍄","veg_030":"🍄","veg_031":"🍄","veg_032":"🍄","veg_009":"🥒","veg_016":"🥒","veg_010":"🎃","fruit_001":"🍎","fruit_002":"🍌","fruit_003":"🍊","fruit_015":"🍊","fruit_004":"🥝","fruit_005":"🍇","fruit_006":"🍉","fruit_007":"🥭","fruit_012":"🥭","seas_009":"🧂","seas_010":"🧂","meat_001":"🥩","meat_002":"🥩","meat_003":"🍗","meat_004":"🍗","meat_010":"🍗","meat_005":"🐟","meat_009":"🐟","fish_001":"🐟","fish_002":"🐟","meat_007":"🦐","egg_001":"🥚","egg_002":"🥚","egg_004":"🥚","egg_005":"🥚","liq_001":"💧","grain_011":"🍠","grain_012":"🌽","veg_017":"🍆","veg_018":"🫑","veg_019":"🫑","veg_020":"🫑","veg_021":"🧅","veg_022":"🧅","veg_023":"🧄","veg_024":"🫚","bean_001":"🫘","bean_002":"🫘","bean_003":"🫘","bean_004":"🫘","bean_005":"🫘","nut_004":"🥜","sea_001":"🦑","fruit_008":"🍓","fruit_009":"🫐","fruit_011":"🍍","fruit_013":"🍐","fruit_014":"🍋","fruit_016":"🍑","fruit_019":"🥑","dairy_008":"🧈","dairy_009":"🧀"};
+  const foodLabel = food => `${foodEmoji[food.code] ? foodEmoji[food.code] + " " : ""}${food.name}`;
   const fields = {chef:'chef-name-input',title:'recipe-title',stock:'recipe-stock',allergy:'recipe-allergy'};
   const equipmentOptions=['煮食爐','鑊／平底鑊','湯鍋','電飯煲','蒸鍋','焗爐','微波爐','不用加熱'];
   const fresh = () => ({version:1,dataVersion:'2026-10-27-portions-v3',chef:'小廚師',title:'',equipment:'',stock:'',waste:'',reason:'',allergy:'',servings:1,minutes:0,items:[],steps:[''],size:'acrylic'});
@@ -52,7 +54,7 @@
     revision++;approved='';invalidateQR();
     renderAdvice();
     if ((pendingImage&&pendingImage.key!==conceptKey())||(conceptImage&&conceptImage.key!==conceptKey())) resetConcept('食譜已更新，可重新生成概念圖。');
-    $('review-status').textContent=(draft.title.trim()&&draft.steps.some(s=>s.trim())) ? (message || '食譜已更新，可按「更新雪櫃貼」。') : '';
+    $('review-status').textContent=(draft.title.trim()&&draft.steps.some(s=>s.trim())) ? (message || '食譜已更新。') : '';
     if (pendingAI) cancelAI('設計已更改，已停止套用舊的 AI 回覆。');
     $('draft-status').textContent='正在儲存草稿…';
     clearTimeout(saveTimer);saveTimer=setTimeout(saveDraft,250);renderRecipePreview();Pub.notify();
@@ -91,8 +93,8 @@
   }
   function measuresFor(food){return food?[...(workshopMeasures[food.code]?.foodState===food.state?[workshopMeasures[food.code]]:[]),...(portionCatalog[food.code]||[])]:[];}
   function renderMeasureChoices(food){
-    const list=measuresFor(food),select=$('portion-select');select.replaceChildren();list.forEach(g=>select.add(new Option(`${g.label} · 約${Number(g.gramsPerUnit.toFixed(1))}克`,g.id)));select.add(new Option('自行輸入克數（選用）','grams'));
-    $('use-grams').checked=!list.length;$('grams-entry').open=!list.length&&Boolean(food);
+    const list=measuresFor(food),select=$('portion-select');select.replaceChildren();list.forEach(g=>select.add(new Option(`${g.label} · 約${Number(g.gramsPerUnit.toFixed(1))}克`,g.id)));select.add(new Option('自行輸入克數','grams'));
+    $('use-grams').checked=!list.length;
     $('food-qty').value=list[0]?.defaultQuantity||1;$('food-grams').value='';
     applyInputMode();renderTeacherFields(food);
   }
@@ -101,12 +103,12 @@
     $('use-grams').checked=manual;$('portion-controls').hidden=manual;$('portion-select').disabled=!f;if(manual)$('portion-select').value='grams';else if($('portion-select').value==='grams')$('portion-select').value=list[0]?.id||'grams';$('food-qty').disabled=manual;$('food-qty').required=!manual;
     $('food-grams').disabled=!manual;$('food-grams').required=manual&&Boolean(f);
     $('portion-no-guide').hidden=!f||list.length>0;
-    if(manual&&f)$('grams-entry').open=true;
+    $('grams-entry').hidden=!manual||!f;
     updatePortionEstimate();
   }
   function selectedMeasure(){const f=database.find(x=>x.code===$('food-select').value);return measuresFor(f).find(g=>g.id===$('portion-select').value);}
   function currentAmount(food){
-    if($('use-grams').checked){const n=Number($('food-grams').value);if(!$('food-grams').value||!$('food-grams').reportValidity())throw new Error('請老師或家長填妥可食部分克數。');return {grams:n,portion:null};}
+    if($('use-grams').checked){const n=Number($('food-grams').value);if(!$('food-grams').value||!$('food-grams').reportValidity())throw new Error('請填妥可食部分克數。');return {grams:n,portion:null};}
     const guide=selectedMeasure(),quantity=Number($('food-qty').value);if(!guide||!$('food-qty').value||!$('food-qty').reportValidity())throw new Error('請選擇份量單位及有效數量。');
     return {grams:P.grams(guide.gramsPerUnit,quantity),portion:P.snapshot(guide,quantity,food)};
   }
@@ -121,7 +123,7 @@
       $('portion-reference').textContent=`${guide.kind==='workshop'?'工作坊實測':guide.kind==='reference'?'常用份量參考':'來源份量參考'}：${guide.note}`;
       if(guide.photo){$('portion-photo').src=guide.photo;$('portion-photo').hidden=false;}
     }
-    try{const n=manual?Number($('food-grams').value):P.grams(guide?.gramsPerUnit,Number($('food-qty').value));if(!(n>=0.1&&n<=5000))throw new Error('');const people=draft.servings||1;$('portion-estimate').textContent=`${!manual&&guide?P.quantityText(Number($('food-qty').value))+guide.label+'，':''}全份約 ${Number(n.toFixed(1))} 克${people>1?`；供${people}人時，每人約 ${Number((n/people).toFixed(1))} 克`:''}。`;}catch{$('portion-estimate').textContent=manual?'請老師或家長協助填寫克數，或在下方設定實測份量。':'請選擇有效數量（整份材料0.1至5000克）。';}
+    try{const n=manual?Number($('food-grams').value):P.grams(guide?.gramsPerUnit,Number($('food-qty').value));if(!(n>=0.1&&n<=5000))throw new Error('');const people=draft.servings||1;$('portion-estimate').textContent=`${!manual&&guide?P.quantityText(Number($('food-qty').value))+guide.label+'，':''}全份約 ${Number(n.toFixed(1))} 克${people>1?`；供${people}人時，每人約 ${Number((n/people).toFixed(1))} 克`:''}。`;}catch{$('portion-estimate').textContent=manual?'請填寫可食部分的重量（克）。':'請選擇有效數量（整份材料0.1至5000克）。';}
   }
   function renderTeacherFields(food){
     const saved=food&&workshopMeasures[food.code];teacherPhoto=saved?.photo||'';teacherPhotoEpoch++;
@@ -153,7 +155,7 @@
   function foodOptions() {
     const category=$('category-select').value, select=$('food-select');
     select.replaceChildren(new Option('請選擇食材',''));
-    database.filter(f => category==='all'||f.category===category).forEach(f => {const option=new Option(`${f.name}（${f.categoryName}）${f.status==='pending_label'?'〔營養待核對，供舊草稿〕':''}`,f.code);option.disabled=f.status==='pending_label';select.add(option);});
+    database.filter(f => category==='all'||f.category===category).forEach(f => {const option=new Option(`${foodLabel(f)}（${f.categoryName}）${f.status==='pending_label'?'〔營養待核對，供舊草稿〕':''}`,f.code);option.disabled=f.status==='pending_label';select.add(option);});
     showFoodDetail();
   }
   function showFoodDetail() {
@@ -187,13 +189,13 @@
     draft.items.forEach(item => {
       const food=database.find(f => f.code===item.code), row=document.createElement('tr');
       const name=document.createElement('td');
-      const strong=document.createElement('strong');strong.textContent=food.name;
+      const strong=document.createElement('strong');strong.textContent=foodLabel(food);
       const portion=()=>`${C.stateLabel(food)}${food.status==='pending_label'?'；營養待核對':''}`;
       const detail=document.createElement('small');detail.textContent=portion();
       name.append(strong,detail);
       const weightCell=document.createElement('td'),measureSelect=document.createElement('select'),guideList=measuresFor(food);
       if(item.portion&&!guideList.some(g=>g.id===item.portion.id&&P.signature(g)===P.signature(item.portion)))guideList.unshift({...item.portion,saved:true,note:'已儲存在作品的份量參考。'});
-      measureSelect.setAttribute('aria-label',`${food.name}份量單位`);measureSelect.add(new Option('克數（進階）','grams'));guideList.forEach(g=>measureSelect.add(new Option(`${g.label} · 約${Number(g.gramsPerUnit.toFixed(1))}克${g.saved?'（原記錄）':''}`,g.id)));measureSelect.value=item.portion?.id||'grams';
+      measureSelect.setAttribute('aria-label',`${food.name}份量單位`);measureSelect.add(new Option('自行輸入克數','grams'));guideList.forEach(g=>measureSelect.add(new Option(`${g.label} · 約${Number(g.gramsPerUnit.toFixed(1))}克${g.saved?'（原記錄）':''}`,g.id)));measureSelect.value=item.portion?.id||'grams';
       const qtyBox=document.createElement('div'),quantity=document.createElement('input'),estimate=document.createElement('small'),advanced=document.createElement('details'),summary=document.createElement('summary'),input=document.createElement('input');
       qtyBox.className='ws-row-quantity';quantity.type='number';quantity.min='0.001';quantity.max='10000';quantity.step='any';quantity.required=true;quantity.setAttribute('aria-label',`${food.name}整份數量`);quantity.value=item.portion?.quantity||1;qtyBox.append(quantity);
       summary.textContent='自行輸入克數';advanced.className='ws-row-grams';advanced.append(summary,input);input.type='number';input.min='0.1';input.max='5000';input.step='0.1';input.required=true;input.value=Number(item.grams.toFixed(1));input.setAttribute('aria-label',`${food.name}整份克數`);

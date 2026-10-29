@@ -10,10 +10,10 @@
   };
   const methods = ['清蒸', '清炒', '焗／烘烤', '滾湯／燉煮', '香炸／酥炸', '涼拌／生食', '甜品製作'];
   const sizes = {
-    acrylic: {label: '5 × 5 cm亞加力（48 × 48 mm貼片）', width: 48, height: 48, qr: 40, columns: 3, perPage: 15},
-    compact: {label: '60 × 80 mm', width: 60, height: 80, qr: 34, columns: 3, perPage: 9},
-    standard: {label: '80 × 100 mm', width: 80, height: 100, qr: 48, columns: 2, perPage: 4},
-    large: {label: '100 × 130 mm', width: 100, height: 130, qr: 68, columns: 1, perPage: 2}
+    acrylic: {label: '5 × 5 cm亞加力（43 × 43 mm貼片）', width: 43, height: 43, qr: 35, columns: 3, perPage: 15},
+    compact: {label: '55 × 75 mm', width: 55, height: 75, qr: 29, columns: 3, perPage: 9},
+    standard: {label: '75 × 95 mm', width: 75, height: 95, qr: 43, columns: 2, perPage: 4},
+    large: {label: '95 × 125 mm', width: 95, height: 125, qr: 63, columns: 1, perPage: 2}
   };
   const safety = '刀具、明火、熱油及高溫器具由成人處理或協助。肉、蛋、海鮮須徹底煮熟；生熟食物及用具分開。剩食盡快分裝冷卻，兩小時內冷藏；不確定安全便請成人判斷，不能為惜食勉強食用。';
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
