@@ -374,7 +374,7 @@
         $('image-status').textContent='';
       }
     } finally {
-      clearTimeout(timer);
+      clearTimeout(timer);window.CloudStudentAuth.refreshQuota();
       if(pendingImage?.controller===controller) {pendingImage=null;$('generate-image').disabled=false;renderImageChoice();$('cancel-image').hidden=true;Pub.notify();}
     }
   }
@@ -435,7 +435,7 @@
         $('ai-status').textContent='';
       }
     } finally {
-      clearTimeout(timer);
+      clearTimeout(timer);window.CloudStudentAuth.refreshQuota();
       if (pendingAI===controller) pendingAI=null;
       if (!pendingAI) {$('ai-analyze-btn').disabled=false;$('cancel-ai').hidden=true;}
     }

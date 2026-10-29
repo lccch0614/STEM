@@ -25,7 +25,9 @@
   const secret=session?.device||device(),result=await Cloud.request('/api/join',{method:'POST',data:{...entry,device:secret}});session={...result,...entry,device:secret};
   if(!store(KEY,session))status('裝置未能保存登入記錄；提交後請保留作品網址，並請老師確認已收到。');return session;
  }
- window.CloudStudentAuth=Object.freeze({async token(){return (await join(inputs())).token;},invalidate(){if(session){session={...session,expires:0};store(KEY,session);}}});
+ async function quota(){try{const entry=inputs();if(!session||session.code!==entry.code||session.number!==entry.number||session.expires<=Date.now()/1000)return;const r=await Cloud.request('/api/ai/quota',{token:session.token});const q=r.quota;$('quota-status').textContent=`食譜生成：已用 ${q.text.used}／${q.text.limit} 次${q.text.pending?'（處理中或待老師核對）':''}；概念圖：已用 ${q.image.used}／${q.image.limit} 次${q.image.pending?'（處理中或待老師核對）':''}。`;}catch(e){$('quota-status').textContent='未能查看次數，請老師協助：'+e.message;}}
+ $('quota-check').addEventListener('click',async()=>{try{await join(inputs());await quota();}catch(e){$('quota-status').textContent=e.message;}});
+ window.CloudStudentAuth=Object.freeze({async token(){const t=(await join(inputs())).token;await quota();return t;},refreshQuota:quota,invalidate(){if(session){session={...session,expires:0};store(KEY,session);}}});
  $('cloud-submit').addEventListener('click',async()=>{
   if(busy)return;busy=true;++epoch;$('cloud-code').disabled=true;$('cloud-number').disabled=true;$('cloud-qr').hidden=true;$('cloud-submit').disabled=true;const at=epoch;
   try{
@@ -38,9 +40,9 @@
    await show(work,false,at);status('已成功儲存於雲端！老師已收到，可由老師批次列印磁貼。'+(kept?'':' 請保留作品網址並請老師確認。'),'saved');
   }catch(e){status(e.message+' 草稿仍在這部裝置，未顯示可派發的QR。','error');}finally{busy=false;$('cloud-code').disabled=false;$('cloud-number').disabled=false;const available=B.status();$('cloud-submit').disabled=!available.valid||available.busy||(!available.image&&!$('pub-text-fallback').checked);}
  });
- ['cloud-code','cloud-number'].forEach(id=>$(id).addEventListener('input',()=>{submitted=null;$('cloud-qr').hidden=true;update();}));
+ ['cloud-code','cloud-number'].forEach(id=>$(id).addEventListener('input',()=>{submitted=null;$('cloud-qr').hidden=true;$('quota-status').textContent='請加入工作坊查看生成次數。';update();}));
  $('pub-text-fallback').addEventListener('change',update);window.addEventListener('workshop-publication:changed',update);window.addEventListener('food-workshop:ready',update);
  session=read(KEY);submitted=read(SAVED);$('cloud-code').value=new URLSearchParams(location.search).get('class')||session?.code||'';$('cloud-number').value=session?.number||'';
  if(submitted){try{submitted.work=Cloud.validateWork(submitted.work);}catch{submitted=null;}}
- update();
+ update();if(session)quota();
 })();
