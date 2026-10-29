@@ -5,6 +5,6 @@
 .pub-work-list{list-style:none;padding:0;margin:18px 0}.pub-work-list>li{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-top:1px solid #dbe5dd;overflow-wrap:anywhere}.pub-work-list small{display:block;color:#53675b;font-size:12px;margin-top:4px}
 .pub-preview{width:min(930px,94vw);height:92vh;max-width:94vw;max-height:94vh;padding:16px;border:1px solid #cadbd0;border-radius:14px;background:white;box-sizing:border-box}.pub-preview::backdrop{background:#102b25b3}.pub-preview iframe{border:1px solid #d4e4da;width:100%;height:calc(100% - 100px);box-sizing:border-box}.pub-preview p{font-size:14px;line-height:1.6;margin:10px 0}
 .ws-magnet.ws-magnet-acrylic{padding:1.2mm;border:.2mm dashed #94a3b8;gap:.4mm;justify-content:flex-start;overflow:hidden}
-.ws-acrylic-caption{font-size:7pt;line-height:3.4mm;height:3.4mm;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;flex-shrink:0}
+.ws-acrylic-caption{font-size:6pt;line-height:2.2mm;height:4.4mm;width:100%;white-space:pre-line;overflow:hidden;text-overflow:ellipsis;font-weight:700;flex-shrink:0}
 .ws-magnet-acrylic img{width:35mm;height:35mm;max-width:none;border:0;flex-shrink:0}
 @media(max-width:650px){.pub-work-list>li{align-items:flex-start;flex-direction:column}.pub-desk .ws-actions{gap:8px}.pub-desk .ws-actions>*{max-width:100%}}

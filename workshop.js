@@ -461,8 +461,8 @@
   function magnetNode(entry) {
     const size=C.sizes[entry.size], card=document.createElement('article');card.className='ws-magnet'+(entry.size==='acrylic'?' ws-magnet-acrylic':'');
     card.style.setProperty('--magnet-width',`${size.width}mm`);card.style.setProperty('--magnet-height',`${size.height}mm`);card.style.setProperty('--qr-width',`${size.qr}mm`);
-    if(entry.size==='acrylic'){const caption=document.createElement('div');caption.className='ws-acrylic-caption';caption.textContent=entry.payload.c+' · '+entry.payload.t;caption.title=caption.textContent;card.append(caption);const image=document.createElement('img');image.src=entry.dataURL;image.alt=entry.payload.t+'完整食譜 QR code';card.append(image);return card;}
-    for (const [className,text] of [['ws-magnet-brand','創科「惜」食小廚師'],['ws-magnet-chef',entry.payload.c],['ws-magnet-title',entry.payload.t]]) {
+    if(entry.size==='acrylic'){const caption=document.createElement('div');caption.className='ws-acrylic-caption';caption.textContent='獅子會蔣翠琼中學\n'+entry.payload.c+' · '+entry.payload.t;caption.title=caption.textContent;card.append(caption);const image=document.createElement('img');image.src=entry.dataURL;image.alt=entry.payload.t+'完整食譜 QR code';card.append(image);return card;}
+    for (const [className,text] of [['ws-magnet-brand','獅子會蔣翠琼中學｜創科「惜」食小廚師'],['ws-magnet-chef',entry.payload.c],['ws-magnet-title',entry.payload.t]]) {
       const div=document.createElement('div');div.className=className;div.textContent=text;card.append(div);
     }
     const img=document.createElement('img');img.src=entry.dataURL;img.alt=`${entry.payload.t}完整食譜 QR code`;card.append(img);
