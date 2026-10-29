@@ -228,10 +228,10 @@
       qtyBox.className='ws-row-quantity';quantity.type='number';quantity.min='0.001';quantity.max='10000';quantity.step='any';quantity.required=true;quantity.setAttribute('aria-label',`${food.name}整份數量`);quantity.value=item.portion?.quantity||1;qtyBox.append(quantity);
       summary.textContent='自行輸入克數';advanced.className='ws-row-grams';advanced.append(summary,input);input.type='number';input.min='0.1';input.max='5000';input.step='0.1';input.required=true;input.value=Number(item.grams.toFixed(1));input.setAttribute('aria-label',`${food.name}整份克數`);
       function displayAmount(){const has=Boolean(item.portion);quantity.disabled=!has;quantity.required=has;qtyBox.hidden=!has;input.disabled=has;advanced.hidden=has;advanced.open=!has;estimate.textContent=`${has?'約 ':''}${Number(item.grams.toFixed(1))} 克（全份）${has&&item.portion.kind==='workshop'?' · 工作坊參考':''}`;detail.textContent=portion();}
-      function commitAmount(guide,count){try{const weight=P.grams(guide.gramsPerUnit,count),updated=C.makeItem(food,weight,item.method,item.id,P.snapshot(guide,count,food));Object.assign(item,updated);input.value=weight;displayAmount();error('food-error');touch('材料份量已更新，可重新生成食譜。');renderNutrition();}catch(e){currentAnalysis=null;resetConcept('請先填妥材料份量。');touch();error('food-error',e.message);}}
+      function commitAmount(guide,count){try{const weight=P.grams(guide.gramsPerUnit,count),updated=C.makeItem(food,weight,item.method,item.id,P.snapshot(guide,count,food));Object.assign(item,updated);input.value=weight;displayAmount();error('food-error');touch('材料份量已更新，可重新生成食譜。');renderNutrition();}catch(e){resetConcept('請先填妥材料份量。');touch();error('food-error',e.message);}}
       quantity.addEventListener('input',()=>{const guide=guideList.find(g=>g.id===measureSelect.value);if(guide)commitAmount(guide,Number(quantity.value));});
       measureSelect.addEventListener('change',()=>{if(measureSelect.value==='grams'){delete item.portion;displayAmount();touch('已改用克數；原有重量保留。');}else{const guide=guideList.find(g=>g.id===measureSelect.value);quantity.value=guide.defaultQuantity||1;commitAmount(guide,Number(quantity.value));}});
-      input.addEventListener('input',()=>{if(!input.value||!input.checkValidity()){currentAnalysis=null;resetConcept('請先填妥材料份量。');touch();return;}delete item.portion;item.grams=Number(input.value);displayAmount();touch('材料份量已更新，可重新生成食譜。');renderNutrition();});
+      input.addEventListener('input',()=>{if(!input.value||!input.checkValidity()){resetConcept('請先填妥材料份量。');touch();return;}delete item.portion;item.grams=Number(input.value);displayAmount();touch('材料份量已更新，可重新生成食譜。');renderNutrition();});
       displayAmount();weightCell.append(measureSelect,qtyBox,estimate,advanced);
       const methodCell=document.createElement('td'), select=document.createElement('select');select.setAttribute('aria-label',`${food.name}烹調方式`);
       C.methods.forEach(m => select.add(new Option(m,m)));select.value=item.method;
@@ -308,7 +308,10 @@
     return JSON.stringify([draft.items.map(i=>[i.code,i.grams,i.method]),draft.servings,draft.title.trim(),draft.steps.map(s=>s.trim()),draft.equipment.trim(),database[0]?.dataVersion||'']);
   }
   function renderAdvice() {
-    if(currentAnalysis?.key!==analysisKey()) currentAnalysis=null;
+    const invalidAmount=[...$('plate-list').querySelectorAll('input:not(:disabled)')].some(input=>!input.value||!input.checkValidity());
+    const invalidServings=!$('servings').value||!$('servings').checkValidity();
+    const stale=!!currentAnalysis&&(currentAnalysis.key!==analysisKey()||invalidAmount||invalidServings);
+    $('ai-advice-status').hidden=!stale;
     $('ai-advice').hidden=!currentAnalysis;
     $('ai-observation').textContent=currentAnalysis?.data.summary||'';
     for(const [id,key] of [['ai-food-suggestions','foodSuggestions'],['ai-portion-suggestions','portionSuggestions']]) {
@@ -635,7 +638,7 @@
       } catch (e) {error('food-error',e.message);}
     });
     $('reset-btn').addEventListener('click',() => {if (draft.items.length&&confirm('清空所有材料？食譜文字會保留供你修改。')) {draft.items=[];comparison=null;touch('材料已清空，請重新配好材料及修改步驟。');renderMaterials();renderNutrition();}});
-    for (const id of [...Object.values(fields),'servings','recipe-minutes']) $(id).addEventListener('input',() => {syncFields();if((id==='servings'||id==='recipe-minutes')&&(!$(id).value||!$(id).checkValidity())){currentAnalysis=null;if(id==='servings')resetConcept('請先填妥食用人數。');}touch();if (id==='servings'){renderNutrition();updatePortionEstimate();}});
+    for (const id of [...Object.values(fields),'servings','recipe-minutes']) $(id).addEventListener('input',() => {syncFields();if((id==='servings'||id==='recipe-minutes')&&(!$(id).value||!$(id).checkValidity())){if(id==='servings')resetConcept('請先填妥食用人數。');}touch();if (id==='servings'){renderNutrition();updatePortionEstimate();}});
     $('add-step').addEventListener('click',() => {if (draft.steps.length<10) {draft.steps.push('');touch();renderSteps(true);}});
     $('nutrition-basis').addEventListener('change',() => {basis=$('nutrition-basis').value;renderNutrition();});
     $('save-comparison-btn').addEventListener('click',() => {comparison={items:snapshot(draft.items),servings:draft.servings};renderNutrition();});
@@ -667,10 +670,10 @@
     $('import-draft').addEventListener('change',async event => {
       try {if (!initialized) throw new Error('請先成功載入食材資料。');const raw=await jsonFile(event.target.files[0]),restored=reviewedDraft(raw),incoming=restored.value;
         if (!confirm('開啟草稿會取代目前作品；如要保留，請先取消並下載目前草稿。繼續？')) return;
-        resetConcept();draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();draftReviewNotice(raw,restored.removed);saveDraft();prepareShare(true);
+        resetConcept();currentAnalysis=null;draft=incoming;comparison=null;touch('已開啟草稿。');fillFields();draftReviewNotice(raw,restored.removed);saveDraft();prepareShare(true);
       } catch (e) {$('draft-status').textContent=e.message;} finally {event.target.value='';}
     });
-    $('new-project').addEventListener('click',() => {if (!confirm('開始另一份作品會取代目前草稿；如要保留，請先下載。繼續？')) return;resetConcept();draft=fresh();comparison=null;touch('已開始新作品。');fillFields();saveDraft();});
+    $('new-project').addEventListener('click',() => {if (!confirm('開始另一份作品會取代目前草稿；如要保留，請先下載。繼續？')) return;resetConcept();currentAnalysis=null;draft=fresh();comparison=null;touch('已開始新作品。');fillFields();saveDraft();});
     $('import-approved').addEventListener('change',async event => {
       try {
         const files=[...event.target.files];if (!files.length) return;if (files.length+queue.length>60) throw new Error('佇列最多60份作品。');

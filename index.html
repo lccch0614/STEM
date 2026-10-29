@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="quiz-upgrade.css?v=2">
 <link rel="stylesheet" href="scenario-quiz.css?v=2026-10-24-1">
-<link rel="stylesheet" href="workshop.css?v=8">
+<link rel="stylesheet" href="workshop.css?v=advice-retain-v1">
 <link rel="stylesheet" href="publication.css?v=school-v1">
 <link rel="stylesheet" href="cloud-workshop.css?v=print-fix-v1">
 <link rel="stylesheet" href="nutrition-encyclopedia.css?v=2026-10-24-1">
@@ -121,7 +121,7 @@
         <div class="ws-actions"><button id="ai-analyze-btn" class="btn btn-ai" type="button">✨ AI 分析餐盤及生成食譜</button><button id="cancel-ai" class="ws-secondary" type="button" hidden>停止等待</button><button id="manual-help" class="ws-link" type="button">自己寫食譜</button></div>
         <p class="ws-note">食譜分析及概念圖使用現有 OpenRouter 額度；圖片按所選模型計費。</p>
         <p id="ai-status" class="ws-status" role="status" aria-live="polite"></p><div id="ai-error" class="ws-error" role="alert" hidden></div><details id="ai-diagnostics" class="ws-extra teacher-only" hidden><summary>老師：查看AI連線診斷</summary><p class="ws-note">以下只記錄最近一次失敗，不會自動傳送。可下載交老師核對；金鑰及請求內容不會加入診斷。</p><pre id="ai-diagnostic-content" class="ws-diagnostic-content"></pre><button id="download-ai-diagnostic" type="button" class="ws-secondary">下載診斷資料</button></details>
-        <section id="ai-advice" class="ws-advice" aria-labelledby="ai-advice-heading" hidden><h3 id="ai-advice-heading">AI 給你的餐盤建議</h3><p id="ai-observation"></p><div class="ws-advice-columns"><div><h4>食材配搭</h4><ul id="ai-food-suggestions"></ul></div><div><h4>每人份量</h4><ul id="ai-portion-suggestions"></ul></div></div><p class="ws-note">建議供課堂討論；每人食量不同。你可自行修改上方餐盤，再按 AI 重新分析及生成。</p></section>
+        <section id="ai-advice" class="ws-advice" aria-labelledby="ai-advice-heading" hidden><h3 id="ai-advice-heading">AI 給你的餐盤建議</h3><p id="ai-advice-status" class="ws-advice-stale" role="status" hidden>你已修改餐盤或設計條件。以下是修改前的建議，方便你參考；未反映最新材料及份量。想更新建議，請按「AI 分析餐盤及生成食譜」。</p><p id="ai-observation"></p><div class="ws-advice-columns"><div><h4>食材配搭</h4><ul id="ai-food-suggestions"></ul></div><div><h4>每人份量</h4><ul id="ai-portion-suggestions"></ul></div></div><p class="ws-note">建議供課堂討論；每人食量不同。你可自行修改上方餐盤，再按 AI 重新分析及生成。</p></section>
         <div id="recipe-result" hidden><div id="recipe-preview" class="recipe-container"></div></div>
         <details id="recipe-edit-details" class="ws-extra" hidden><summary>修改菜名或步驟（選用）</summary><label>菜名<input id="recipe-title" maxlength="40" placeholder="為自己的菜式命名"></label><div id="recipe-step-editors"></div><button id="add-step" class="ws-secondary" type="button">加入一個步驟</button><p class="ws-note">新增材料或調味料，請回到上方餐盤加入。</p></details>
         <section id="concept-section" class="ws-concept" aria-labelledby="concept-heading" hidden><h3 id="concept-heading">AI 菜式概念圖</h3><p class="ws-note">圖片僅供構思；實際材料及份量以食譜為準。</p><p id="image-status" class="ws-status" role="status" aria-live="polite"></p><div id="image-error" class="ws-error" role="alert" hidden></div><img id="concept-image" alt="按這份食譜生成的 AI 菜式概念圖" hidden><div class="ws-actions"><button id="generate-image" class="ws-secondary" type="button">生成概念圖</button><button id="cancel-image" class="ws-link" type="button" hidden>停止畫圖</button><a id="download-image" class="ws-secondary" download="我的菜式概念圖.png" hidden>下載概念圖</a></div><details id="image-settings" class="ws-extra teacher-only"><summary>老師圖片設定：免費／付費選擇</summary><label for="image-model">圖片模型</label><select id="image-model" aria-describedby="image-model-info"></select><p id="image-model-info" class="ws-note" role="status"></p><p class="ws-note"><a id="image-model-source" href="https://openrouter.ai/blog/tutorials/image-generation-models/" target="_blank" rel="noopener noreferrer">查看官方模型／收費資料</a></p><p class="ws-note">工作坊預選Seedream 5.0 Flash，參考每張US$0.018（1K）。只有按生成按鈕才收費；每次一張，失敗不會自動轉模型。可改用免費模式（目前未有可用繪圖模型），或請老師確認文字版後備。圖片自動儲存於本機，交作品包及上傳後才會出現在家長頁。</p></details></section>
@@ -228,7 +228,7 @@
 <script src="cloud-config.js?v=2026-10-27-1"></script>
 <script src="cloud-client.js?v=school-v1"></script>
 <script src="ai-connection.js?v=2026-10-27-1"></script>
-<script src="workshop.js?v=food-search-v1"></script>
+<script src="workshop.js?v=advice-retain-v1"></script>
 <script src="publication-ui.js?v=final-v2"></script>
 <script src="cloud-student.js?v=2026-10-29-quota-v1"></script>
 <script src="nutrition-encyclopedia.js?v=2026-10-27-final-1"></script>
