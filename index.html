@@ -115,7 +115,7 @@
         <h2 id="recipe-heading">第三步：AI 建議、食譜與概念圖</h2>
         <fieldset id="equipment-options" class="ws-equipment"><legend>可用器具 <span class="ws-note">（可多選，不選也可以）</span></legend><div id="equipment-choices"></div></fieldset>
         <details class="ws-extra"><summary>其他選項（選填）</summary><div class="ws-grid"><label>希望幾分鐘內完成？<input id="recipe-minutes" type="number" min="1" max="240" placeholder="不限制"></label><label>敏感食材備註<input id="recipe-allergy" maxlength="120" placeholder="有需要才填寫"></label><label class="ws-span">想優先使用的家中材料<textarea id="recipe-stock" maxlength="160" rows="2" placeholder="有需要才填寫"></textarea></label></div></details>
-        <div id="text-settings" class="ws-text-settings"><label for="text-model">食譜及建議模型</label><select id="text-model" aria-describedby="text-model-info"></select><p id="text-model-info" class="ws-note" role="status"></p><p class="ws-note"><a id="text-model-source" href="https://openrouter.ai/deepseek/deepseek-v3.2" target="_blank" rel="noopener noreferrer">查看官方模型及收費資料</a> · 每按一次生成發出一次請求；失敗不自動轉模型或重試。</p></div>
+        <div class="cloud-submit-card"><h3>先加入工作坊</h3><p>輸入老師提供的工作坊代碼及你的學生編號，之後便可使用 AI；交作品時毋須再填一次。</p><div class="cloud-submit-fields"><label for="cloud-code">工作坊代碼<input id="cloud-code" maxlength="32" placeholder="老師提供的FOOD代碼" autocomplete="off" autocapitalize="characters" spellcheck="false"></label><label for="cloud-number">學生編號<input id="cloud-number" type="number" min="1" max="60" step="1" placeholder="例如01"></label></div><p class="ws-note">只供本次活動使用，請勿與別人共用學生編號。</p></div><div id="text-settings" class="ws-text-settings"><label for="text-model">食譜及建議模型</label><select id="text-model" aria-describedby="text-model-info"></select><p id="text-model-info" class="ws-note" role="status"></p><p class="ws-note"><a id="text-model-source" href="https://openrouter.ai/deepseek/deepseek-v3.2" target="_blank" rel="noopener noreferrer">查看官方模型及收費資料</a> · 每按一次生成發出一次請求；失敗不自動轉模型或重試。</p></div>
         <div class="ws-actions"><button id="ai-analyze-btn" class="btn btn-ai" type="button">✨ AI 分析餐盤及生成食譜</button><button id="cancel-ai" class="ws-secondary" type="button" hidden>停止等待</button><button id="manual-help" class="ws-link" type="button">自己寫食譜</button></div>
         <p class="ws-note">食譜分析及概念圖使用現有 OpenRouter 額度；圖片按所選模型計費。</p>
         <p id="ai-status" class="ws-status" role="status" aria-live="polite"></p><div id="ai-error" class="ws-error" role="alert" hidden></div><details id="ai-diagnostics" class="ws-extra" hidden><summary>老師：查看AI連線診斷</summary><p class="ws-note">以下只記錄最近一次失敗，不會自動傳送。可下載交老師核對；金鑰及請求內容不會加入診斷。</p><pre id="ai-diagnostic-content" class="ws-diagnostic-content"></pre><button id="download-ai-diagnostic" type="button" class="ws-secondary">下載診斷資料</button></details>
@@ -128,7 +128,7 @@
       <section id="magnet-section" class="card" aria-labelledby="review-heading" hidden>
         <h2 id="review-heading">我的雪櫃貼</h2>
         <div class="ws-actions"><label>小廚師暱稱<input id="chef-name-input" maxlength="20" value="小廚師" placeholder="小廚師" autocomplete="off"></label><button id="preview-parent" class="ws-secondary" type="button">預覽完整食譜</button></div><p id="review-status" class="ws-status" role="status" aria-live="polite"></p>
-        <div class="cloud-submit-card"><h3>一鍵交作品，製作雪櫃貼</h3><p>食譜和概念圖會一齊儲存到雲端，老師可以直接查看及列印。</p><div class="cloud-submit-fields"><label for="cloud-code">工作坊代碼<input id="cloud-code" maxlength="32" placeholder="老師提供的FOOD代碼" autocomplete="off" autocapitalize="characters" spellcheck="false"></label><label for="cloud-number">學生編號<input id="cloud-number" type="number" min="1" max="60" step="1" placeholder="例如01"></label></div><button id="cloud-submit" class="btn btn-add" type="button" disabled>完成作品及製作QR code</button><p id="cloud-student-status" role="status" aria-live="polite"></p><div id="cloud-qr" class="cloud-qr-box" hidden><div id="cloud-qr-card"></div><p><a id="cloud-parent-link" target="_blank" rel="noopener noreferrer">開啟已儲存的家長頁</a></p><small id="cloud-work-id"></small><p class="ws-note">已儲存版本可由老師批次列印；之後修改食譜，請再提交新版本。</p></div><details class="ws-extra"><summary>老師：圖片失敗的文字後備</summary><label class="pub-check"><input id="pub-text-fallback" type="checkbox">老師已在管理頁批准此編號使用文字後備</label><p class="ws-note">老師先在管理頁批准對應學生編號，再勾選此項提交。正常作品需要概念圖。</p></details></div>
+        <div class="cloud-submit-card"><h3>一鍵交作品，製作雪櫃貼</h3><p>食譜和概念圖會一齊儲存到雲端，老師可以直接查看及列印。</p><button id="cloud-submit" class="btn btn-add" type="button" disabled>完成作品及製作QR code</button><p id="cloud-student-status" role="status" aria-live="polite"></p><div id="cloud-qr" class="cloud-qr-box" hidden><div id="cloud-qr-card"></div><p><a id="cloud-parent-link" target="_blank" rel="noopener noreferrer">開啟已儲存的家長頁</a></p><small id="cloud-work-id"></small><p class="ws-note">已儲存版本可由老師批次列印；之後修改食譜，請再提交新版本。</p></div><details class="ws-extra"><summary>老師：圖片失敗的文字後備</summary><label class="pub-check"><input id="pub-text-fallback" type="checkbox">老師已在管理頁批准此編號使用文字後備</label><p class="ws-note">老師先在管理頁批准對應學生編號，再勾選此項提交。正常作品需要概念圖。</p></details></div>
         <details id="cloud-offline-backup" class="ws-extra"><summary>老師：下載及舊版列印後備</summary><p class="ws-note">以下供網絡故障時備份；新雲端作品請使用上方「完成作品」按鈕。</p><button id="approve-recipe" class="ws-secondary" type="button">更新雪櫃貼</button>        <details class="ws-publish-settings"><summary>老師列印設定</summary><label>家長可開啟的正式 HTTPS 網址<input id="share-base" type="url" placeholder="填寫已上載的網頁完整網址" autocomplete="url"></label><p class="ws-note">網站上載後會自動使用目前網址；本機試用時由老師設定一次。</p><label>磁貼尺寸<select id="magnet-size"><option value="acrylic" selected>5 × 5 cm亞加力（48 × 48 mm貼片）</option><option value="compact">60 × 80 mm</option><option value="standard">80 × 100 mm</option><option value="large">100 × 130 mm</option></select></label></details>
         <div id="qr-error" class="ws-error" role="alert" hidden></div><p id="qr-status" class="ws-status" role="status" aria-live="polite"></p><div id="magnet-preview" class="ws-magnet-preview" hidden></div>
         <button id="print-magnet" class="btn btn-add" type="button" disabled hidden>🖨️ 打印雪櫃貼</button>
@@ -216,7 +216,7 @@
 <script src="vendor/qrcode-1.5.1.min.js"></script>
 
 <!-- 自己的 JS 最後載入 -->
-<script src="script.js?v=workshop-final-2026-10-27"></script>
+<script src="script.js?v=2026-10-29-secure-ai-1"></script>
 <script src="quiz-bank.js?v=2"></script>
 <script src="quiz-upgrade.js?v=3"></script>
 <script src="portion-tools.js?v=3"></script>
@@ -226,9 +226,9 @@
 <script src="cloud-config.js?v=2026-10-27-1"></script>
 <script src="cloud-client.js?v=2026-10-27-1"></script>
 <script src="ai-connection.js?v=2026-10-27-1"></script>
-<script src="workshop.js?v=2026-10-27-portions-3"></script>
+<script src="workshop.js?v=2026-10-29-secure-ai-1"></script>
 <script src="publication-ui.js?v=2026-10-26-1"></script>
-<script src="cloud-student.js?v=2026-10-27-1"></script>
+<script src="cloud-student.js?v=2026-10-29-secure-ai-1"></script>
 <script src="nutrition-encyclopedia.js?v=2026-10-27-final-1"></script>
 <script src="scenario-bank.js?v=2026-10-24-1"></script>
 <script src="scenario-core.js?v=2026-10-24-1"></script>

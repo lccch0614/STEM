@@ -347,7 +347,6 @@
       $('image-settings').open=true;$('image-model').focus();return;
     }
     try {validPayload();} catch(e) {error('image-error',e.message);return;}
-    if(!PRESET_OPENROUTER_KEY?.trim()) {error('image-error','尚未設定 AI 連線；請老師協助。');return;}
     if(conceptImage?.key===conceptKey()&&!confirm('已有保存的概念圖。再次生成會另行收費，成功後取代本機圖片。繼續？'))return;
     stopImage();
     const model=$('image-model').value,key=conceptKey(),controller=new AbortController();
@@ -358,9 +357,11 @@
     const timer=setTimeout(()=>{timedOut=true;controller.abort();},120000);
     const active=()=>pendingImage?.controller===controller&&conceptKey()===key&&$('image-model').value===model;
     try {
-      const response=await fetch('https://openrouter.ai/api/v1/images',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify(C.imageRequest(draft,database,model)),signal:controller.signal});
+      const token=await window.CloudStudentAuth.token();if(!active())return;
+      const response=await fetch(window.CloudWorkshopConfig.api+'/api/ai/image',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:JSON.stringify(C.imageRequest(draft,database,model)),signal:controller.signal});
+      if(response.status===401)window.CloudStudentAuth.invalidate();
       const body=await response.json();
-      if(!response.ok||body.error)throw new Error(response.status===402?'OpenRouter 402：繪圖額度不足，請老師核對帳戶額度。':`OpenRouter ${response.status}: ${body.error?.message||'未能生成圖片'}`);
+      if(!response.ok||body.error)throw new Error(response.status===402?'OpenRouter 402：繪圖額度不足，請老師核對帳戶額度。':(typeof body.error==='string'?body.error:`AI 服務 ${response.status}: ${body.error?.message||'未能生成圖片'}`));
       const asset=await Pub.normalizeImage(C.imageDataURL(body));
       if(!active())return;
       showConcept(asset,model,key);saveDraft();
@@ -394,7 +395,6 @@
     if($('recipe-minutes').value&&!$('recipe-minutes').reportValidity()){error('ai-error','請填寫有效時間，或留空表示不限制。');return;}
     const problems=C.warnings(draft.items,database).blocking;
     if (problems.length) {error('ai-error',problems.join(' '));return;}
-    if (!PRESET_OPENROUTER_KEY?.trim()) {error('ai-error','尚未設定 AI 連線。你仍可直接編輯食譜。');return;}
     if ((draft.title.trim()||draft.steps.some(s => s.trim())) && !confirm('AI 會重新分析餐盤，並取代目前菜名和步驟；你所選材料及份量會保留。繼續？')) return;
     if(pendingImage)resetConcept('正在更新食譜；完成後可按需要生成新概念圖。');
     const version=revision, materials=snapshot(draft.items), context=snapshot(draft),model=$('text-model').value;
@@ -405,10 +405,14 @@
     try {
       const itemDescriptions=materials.map(i => {const food=database.find(f=>f.code===i.code);return {id:i.id,name:food.name,category:food.categoryName,state:C.stateLabel(food),dataStatus:food.status,nutrientDefinitions:{carbs:food.carbsBasis,fiber:food.fiberBasis},grams:i.grams,gramsPerPerson:i.grams/context.servings,unit:food.unit,unitWeight:food.unitWeight,householdPortion:i.portion?{description:P.describe(i.portion),gramsPerUnit:i.portion.gramsPerUnit,kind:i.portion.kind}:null,availablePortions:measuresFor(food).map(g=>({label:g.label,gramsPerUnit:g.gramsPerUnit,kind:g.kind})),method:i.method};});
       const prompt=`你是香港高小營養與惜食工作坊的食譜助手，使用繁體中文、簡單友善的語句。先按實際選材、整份和每人份量分析餐盤，提供食材配搭及份量建議，各1至2項；每項寫具體建議和原因。合適的安排亦可建議保留，不必強行改動。份量建議優先使用提供的家用單位（例如半個、一片），可附約克數；只用已提供的gramsPerUnit換算，不可假定一碗或一件的重量。未提供換算時才用克數。份量建議須引用所選材料的克數及家用單位，清楚區分整份與每人份量。這是課堂參考，不是個人營養診斷；每人食量不同，不能提供減肥指示、健康評分或聲稱符合個人一日需要。營養數值是按資料來源指定狀態估算，烹調方式不會自動換算營養；null代表缺項、微量或營養定義不相符，不能填0或猜測。dataStatus為pending_label的食材未核實營養；缺值為null，沒有鈉、糖及完整過敏原數據，不可捏造。不能把材料克數比例當作體積比例。建議的增減或替代材料只寫在analysis，不可擅自套用於食譜，學生會自行決定。食譜必須使用目前所有材料，完整保留id及克數，不可刪除、改份量或加入未列出的油、糖、鹽、醬料、清水或配料。若目前材料無法組合成安全可行食譜，仍須回傳analysis，另加error說明先如何調整，不要編造食譜。器具留空及時間0代表未限制。步驟包含適當火力、估計時間、熟透檢查及成人協助；提供1至10步，每步最多180字，菜名最多40字。summary最多180字，suggestion最多160字，reason最多180字。設計條件：${JSON.stringify({servings:context.servings,minutes:context.minutes,equipment:context.equipment,stock:context.stock,allergyNotes:context.allergy,materials:itemDescriptions,nutritionTotal:C.totals(materials,database),nutritionPerPerson:C.totals(materials,database,context.servings)})}。只輸出有效 JSON，格式：{"analysis":{"summary":"餐盤觀察","foodSuggestions":[{"suggestion":"食材建議","reason":"原因"}],"portionSuggestions":[{"suggestion":"每人份量建議","reason":"原因"}]},"recipeTitle":"菜名","minutes":25,"materials":[{"id":"原材料id","grams":原克數}],"recipeSteps":["步驟文字"]}。`;
-      const response=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${PRESET_OPENROUTER_KEY.trim()}`},body:JSON.stringify(A.request(model,prompt)),signal:controller.signal});
+      let token;try{token=await window.CloudStudentAuth.token();}catch(e){e.workshopAuth=true;throw e;}
+      if(pendingAI!==controller||revision!==version)return;
+      const response=await fetch(window.CloudWorkshopConfig.api+'/api/ai/text',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:JSON.stringify(A.request(model,prompt)),signal:controller.signal});
+      if(response.status===401)window.CloudStudentAuth.invalidate();
       let body;
-      try{body=await response.json();}catch(e){if(e.name==='AbortError')throw e;throw new A.RequestError(A.diagnostic({model,status:response.ok?0:response.status,body:{error:{message:'AI服務沒有回傳可讀取的JSON資料。'}},kind:response.ok?'format':'',requestId:response.headers?.get('x-request-id')||'',secret:PRESET_OPENROUTER_KEY}));}
-      if (!response.ok||body?.error) throw new A.RequestError(A.diagnostic({model,status:response.status,body,requestId:response.headers?.get('x-request-id')||response.headers?.get('x-openrouter-request-id')||'',secret:PRESET_OPENROUTER_KEY}));
+      try{body=await response.json();}catch(e){if(e.name==='AbortError')throw e;throw new A.RequestError(A.diagnostic({model,status:response.ok?0:response.status,body:{error:{message:'AI服務沒有回傳可讀取的JSON資料。'}},kind:response.ok?'format':'',requestId:response.headers?.get('x-request-id')||''}));}
+      if(typeof body?.error==='string'){const e=new Error(body.error);e.workshopAuth=true;throw e;}
+      if (!response.ok||body?.error) throw new A.RequestError(A.diagnostic({model,status:response.status,body,requestId:response.headers?.get('x-request-id')||response.headers?.get('x-openrouter-request-id')||''}));
       const content=body?.choices?.[0]?.message?.content;
       if (typeof content!=='string') throw new Error('AI 沒有回傳可讀取的建議及食譜，請重試或手動編輯。');
       const raw=JSON.parse(content.replace(/<think>[\s\S]*?<\/think>/g,'').replace(/^\s*```(?:json)?\s*/,'').replace(/\s*```\s*$/,'').trim());
@@ -425,7 +429,8 @@
       generateConceptImage({automatic:true});
     } catch (e) {
       if (pendingAI===controller) {
-        const diag=e.diagnostic||A.diagnostic({model,status:0,body:{error:{message:e.message}},secret:PRESET_OPENROUTER_KEY,kind:e.name==='AbortError'?(timedOut?'timeout':'cancelled'):e instanceof TypeError?'network':e.recipeConstraint?'recipe':'format'});
+        if(e.workshopAuth){error('ai-error',e.message);$('ai-status').textContent='';saveDraft();return;}
+        const diag=e.diagnostic||A.diagnostic({model,status:0,body:{error:{message:e.message}},kind:e.name==='AbortError'?(timedOut?'timeout':'cancelled'):e instanceof TypeError?'network':e.recipeConstraint?'recipe':'format'});
         showTextDiagnostic(diag);error('ai-error',A.failureMessage(diag));saveDraft();
         $('ai-status').textContent='';
       }

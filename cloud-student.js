@@ -25,6 +25,7 @@
   const secret=session?.device||device(),result=await Cloud.request('/api/join',{method:'POST',data:{...entry,device:secret}});session={...result,...entry,device:secret};
   if(!store(KEY,session))status('裝置未能保存登入記錄；提交後請保留作品網址，並請老師確認已收到。');return session;
  }
+ window.CloudStudentAuth=Object.freeze({async token(){return (await join(inputs())).token;},invalidate(){if(session){session={...session,expires:0};store(KEY,session);}}});
  $('cloud-submit').addEventListener('click',async()=>{
   if(busy)return;busy=true;++epoch;$('cloud-code').disabled=true;$('cloud-number').disabled=true;$('cloud-qr').hidden=true;$('cloud-submit').disabled=true;const at=epoch;
   try{
