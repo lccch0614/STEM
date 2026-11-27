@@ -91,6 +91,7 @@
     for (const [key, max] of Object.entries({chef:20,title:40,equipment:100,stock:160,waste:160,reason:200,allergy:120})) fields[key] = text(raw[key] ?? '', max, key, true);
     return {version:1, dataVersion:text(raw.dataVersion??'',40,'資料版本',true), ...fields, items, servings:number(raw.servings,1,12,'人數',true), minutes:number(raw.minutes ?? 0,0,240,'時間',true),
       steps: Array.isArray(raw.steps) && raw.steps.length <= 10 ? raw.steps.map(x => text(x, 180, '步驟', true)) : [''],
+      recipePlateKey: typeof raw.recipePlateKey === 'string' && raw.recipePlateKey.length <= 4096 ? raw.recipePlateKey : null,
       size: Object.hasOwn(sizes, raw.size) ? raw.size : 'standard'};
   }
   // This is a targeted safety screen, not a complete assessment of a recipe.
@@ -113,12 +114,19 @@
       {label:'蔥',terms:['蔥花','蔥段','蔥絲'],match:/蔥/}
     ];
     const combined=steps.join('。');
+    const recipeText=[draft.title||'',combined].join('。');
+    const chickenMeat=/雞(?:肉|扒|排|胸|翼|腿|髀|柳|件|腳|腎|肝)/;
+    const eggFood=/雞蛋|鵪鶉蛋|鴨蛋|皮蛋/;
+    const requiresEgg=/雞蛋|鵪鶉蛋|鴨蛋|皮蛋|蛋液|蛋黃|蛋清|蛋白液|蒸蛋|炒蛋|煎蛋|水蛋|番茄蛋|蛋花/;
+    if(requiresEgg.test(recipeText)&&!selected.some(f=>eggFood.test(f.name)))issues.push('菜名或步驟提到未加入餐盤的蛋，請修正食譜或先加入食材。');
+    if(chickenMeat.test(recipeText)&&!selected.some(f=>chickenMeat.test(f.name)))issues.push('菜名或步驟提到未加入餐盤的雞肉，請修正食譜或先加入食材。');
+    if(/豆腐/.test(recipeText)&&!selected.some(f=>/豆腐/.test(f.name)))issues.push('菜名或步驟提到未加入餐盤的豆腐，請修正食譜或先加入食材。');
     for(const g of groups) if(g.terms.some(t=>combined.includes(t))&&!selected.some(f=>g.match.test(f.name)))issues.push('步驟提到未加入餐盤的「'+g.label+'」；請刪去，或先加入食材。');
-    const chicken=selected.some(f=>/雞/.test(f.name)&&/生重|未烹調/.test(f.state||''));
+    const chicken=selected.some(f=>chickenMeat.test(f.name)&&/生重|未烹調/.test(stateLabel(f)));
     for(const step of steps){
       // Do not flag explicit prohibitions such as “不要清洗生雞肉”.
       const pieces=step.split(/[。；;！!？?]/).filter(x=>!/(?:不要|勿|不應|避免|不可|無需|不用|不必).{0,8}(?:清洗|沖洗|洗淨)/.test(x));
-      if(chicken&&pieces.some(x=>/(?:洗淨|清洗|沖洗|洗滌|洗一洗).{0,12}雞|雞.{0,12}(?:洗淨|清洗|沖洗|洗滌|洗一洗)/.test(x)))issues.push('步驟包含清洗生雞肉；請刪去，並防止生熟交叉污染。');
+      if(chicken&&pieces.some(x=>/(?:洗淨|清洗|沖洗|洗滌|洗一洗).{0,12}雞(?!蛋)|雞(?!蛋).{0,12}(?:洗淨|清洗|沖洗|洗滌|洗一洗)/.test(x)))issues.push('步驟包含清洗生雞肉；請刪去，並防止生熟交叉污染。');
       if(chicken&&/(?:汁液|肉色|顏色|變白|不再粉紅|不再呈粉紅|汁水).{0,35}(?:即表示|便是|代表|即可|就是|判斷|已熟|熟透|安全)/.test(step))issues.push('不可單憑雞肉顏色或汁液判斷熟透；請用食物溫度計核對中心溫度。');
     }
     if(chicken&&(!/(?:溫度計|探針)/.test(combined)||!/75\s*(?:°|℃|度|攝氏|c)/i.test(combined)||!/30\s*秒/.test(combined)))issues.push('食譜含生雞肉：請加入成人用食物溫度計量度最厚處，中心達至少75°C並維持30秒的步驟。');
