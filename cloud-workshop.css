@@ -9,3 +9,52 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
 @media print {
   .cloud-teacher #print-root .ws-print-page { gap: 0; }
 }
+
+/* Open Day square cards: 48 mm insert for a 50 mm magnet. */
+.ws-magnet.ws-magnet-card.ws-magnet-square {
+  width: 48mm;
+  height: 48mm;
+  padding: 1mm 2mm;
+  gap: .25mm;
+  border-color: #6a8b7e;
+  background: #edf6ed;
+  color: #153e32;
+}
+.ws-magnet-square .magnet-header {
+  padding: 0;
+  height: 3.4mm;
+  line-height: 3.4mm;
+  background: #176044;
+  color: white;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: .12mm;
+}
+.ws-magnet-square .magnet-subtitle {
+  margin: 0;
+  height: 2.7mm;
+  line-height: 2.7mm;
+  font-size: 6.5pt;
+  color: #3e5e51;
+}
+.ws-magnet.ws-magnet-square .magnet-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: 6.2mm;
+  line-height: 3.1mm;
+  font-size: 8.5pt;
+  overflow-wrap: anywhere;
+}
+.ws-magnet.ws-magnet-square img {
+  width: 30mm !important;
+  height: 30mm !important;
+  display: block;
+}
+.ws-magnet-square .magnet-foot {
+  height: 2.6mm;
+  line-height: 2.6mm;
+  font-size: 6.5pt;
+  color: #244c3e;
+}
+.ws-magnet-square .magnet-deco { display: none; }

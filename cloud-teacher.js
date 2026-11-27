@@ -36,9 +36,14 @@
  $('copy-join-link').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('teacher-join-link').href);status('已複製學生加入網址。');}catch{status('請長按或右鍵複製學生加入網址。');}});
  $('teacher-close').addEventListener('click',()=>task(async()=>{if(!confirm('停止這個工作坊收件？學生將不能再提交，家長仍可開啟已保存作品。'))return;await headers('/api/teacher/rooms/'+current.room.id+'/close',{method:'POST',data:{}});await refresh();status('已停止收件，家長作品頁繼續提供。');}));
  $('teacher-print').addEventListener('click',()=>task(async()=>{
+  const format = $('teacher-magnet-format').value;
   const roomId=current.room.id,selected=[...checked].sort((a,b)=>a-b).map(number=>({number,id:chosen.get(number)}));if(!selected.length)throw new Error('請先選擇作品。');const works=[];
   for(let i=0;i<selected.length;i++){status(`正在核對食譜及圖片 ${i+1}／${selected.length}…`);works.push(await Cloud.verified(selected[i].id));}
-  await headers('/api/teacher/rooms/'+roomId+'/pin',{method:'POST',data:{works:selected}});await Cloud.printWorks(works);status(`已準備${works.length}張55×85mm貼片，共${Math.ceil(works.length/6)}頁A4。請選實際大小100%、關閉頁首頁尾，先試印及掃碼。`);await refresh();
+  await headers('/api/teacher/rooms/'+roomId+'/pin',{method:'POST',data:{works:selected}});
+  await Cloud.printWorks(works, format);
+  const {label, perPage} = Cloud.printFormats[format];
+  status(`已準備 ${works.length} 張 ${label} 貼片，共 ${Math.ceil(works.length / perPage)} 頁 A4。請選實際大小 100%、關閉頁首頁尾，先試印及掃碼。`);
+  await refresh();
  }));
  $('teacher-backup').addEventListener('click',()=>task(async()=>{
   const ids=[...current.versions].sort((a,b)=>a.student_number-b.student_number||a.created_at-b.created_at).map(v=>v.id);if(!ids.length)throw new Error('未有已提交作品。');const works=[];for(let i=0;i<ids.length;i++){status(`正在備份 ${i+1}／${ids.length}…`);const work=await Cloud.verified(ids[i]);work.studentNumber=versions.get(ids[i]).student_number;works.push(work);}await Cloud.backup(works,current.room,current.students);status('已下載全班及所有已提交版本備份，包含食譜、圖片、學生編號及原作品網址。');
