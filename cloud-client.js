@@ -37,6 +37,37 @@
   classic: Object.freeze({perPage: 6, width: 55, qrWidth: 40, label: '55×85 mm'}),
   square: Object.freeze({perPage: 15, width: 48, qrWidth: 30, label: '48×48 mm'}),
  });
+ function teacherMagnet(work, format){
+  const article = document.createElement('article');
+  article.className = 'ws-magnet teacher-magnet teacher-magnet--' + format;
+  article.style.setProperty('--qr-width', printFormats[format].qrWidth + 'mm');
+
+  article.innerHTML = `<header class="teacher-magnet-brand">有營惜食特攻隊</header>
+    <div class="teacher-magnet-caption"><div class="teacher-magnet-title"></div></div>
+    <div class="teacher-magnet-art">
+      <svg class="teacher-magnet-chef" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="24" fill="#cbe7da"/>
+        <ellipse cx="24" cy="27" rx="13" ry="12" fill="#ffdb73" stroke="#20554a" stroke-width="1.6"/>
+        <path d="M13 19c-6-2-4-9 1-9 1 0 2 .3 3 .8 1-6 11-7 14 0 5-3 10 1 8 5-1 2-2 3-4 3v3H13z" fill="white" stroke="#20554a" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M14 19h20" stroke="#20554a" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="19" cy="27" rx="1.4" ry="1.8" fill="#20554a"/>
+        <ellipse cx="29" cy="27" rx="1.4" ry="1.8" fill="#20554a"/>
+        <ellipse cx="16" cy="31" rx="2.2" ry="1.2" fill="#f8a993"/>
+        <ellipse cx="32" cy="31" rx="2.2" ry="1.2" fill="#f8a993"/>
+        <path d="M22 31q2.1 2.7 4.2 0" fill="none" stroke="#20554a" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+      <span class="teacher-magnet-sparkle" aria-hidden="true"></span>
+      <img class="teacher-magnet-qr">
+    </div>
+    <footer class="teacher-magnet-footer"><span>掃碼睇食譜</span></footer>`;
+  article.querySelector('.teacher-magnet-title').textContent = work.payload.t;
+  if (format === 'classic') {
+   article.querySelector('.teacher-magnet-caption').append(article.querySelector('.teacher-magnet-chef'));
+  }
+  const image = article.querySelector('.teacher-magnet-qr');
+  image.alt = work.payload.t + '食譜 QR Code';
+  return {article, image};
+ }
  async function printWorks(works, format = 'classic'){
   if (!Object.hasOwn(printFormats, format)) throw new Error('不支援的磁貼列印尺寸。');
   if(!works.length)throw new Error('請先選擇作品。');let root=document.getElementById('print-root');if(!root){root=document.createElement('div');root.id='print-root';document.body.append(root);}root.replaceChildren();
@@ -47,18 +78,32 @@
    page.style.setProperty('--print-columns', '3');
    page.style.setProperty('--magnet-width', width + 'mm');
    for (const work of works.slice(offset, offset + perPage)) {
-    const card = magnet(work);
-    if (format === 'square') {
-     card.article.classList.add('ws-magnet-square');
-     card.article.querySelector('.magnet-header').textContent = '有營惜食特攻隊';
-     card.article.querySelector('.magnet-foot').textContent = '掃碼睇食譜';
-    }
+    const card = teacherMagnet(work, format);
     card.image.src = await qr(work, qrWidth);
     page.append(card.article);
    }
    root.append(page);
   }
-  root.classList.add('ws-measuring');try{await Promise.all([...root.querySelectorAll('img')].map(img=>img.decode()));if([...root.querySelectorAll('.ws-magnet')].some(card=>card.scrollHeight>card.clientHeight+2))throw new Error('磁貼排版超出範圍，請先核對列印尺寸。');}finally{root.classList.remove('ws-measuring');}window.print();
+  root.classList.add('ws-measuring');
+  try {
+   await Promise.all([...root.querySelectorAll('img')].map(img => img.decode()));
+   for (const title of root.querySelectorAll('.teacher-magnet-title')) {
+    const style = getComputedStyle(title);
+    const lineHeight = parseFloat(style.lineHeight);
+    let fontSize = parseFloat(style.fontSize);
+    while (title.getBoundingClientRect().height > 2 * lineHeight + .5 && fontSize > 8) {
+     fontSize = Math.max(8, fontSize - .5);
+     title.style.fontSize = fontSize + 'px';
+    }
+    title.style.webkitLineClamp = '2';
+   }
+   if ([...root.querySelectorAll('.ws-magnet')].some(card => card.scrollHeight > card.clientHeight + 2)) {
+    throw new Error('磁貼排版超出範圍，請先核對列印尺寸。');
+   }
+  } finally {
+   root.classList.remove('ws-measuring');
+  }
+  window.print();
  }
  function download(name,bytes){const url=URL.createObjectURL(new Blob([bytes],{type:'application/zip'})),link=document.createElement('a');link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
  async function backup(works,room,roster=[]){
