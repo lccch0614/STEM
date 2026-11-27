@@ -17,12 +17,24 @@
   const format = (n,key) => n === null ? '資料不足' : n.toFixed(key === 'calories' ? 0 : 1);
   function error(id,message = '') {$(id).textContent=message;$(id).hidden=!message;}
   function readStorage(key) {try {const raw=localStorage.getItem(key);return raw ? JSON.parse(raw) : null;} catch {return null;}}
+  function plateKey(value=draft) {
+    const items=value.items.map(i=>JSON.stringify([i.code,i.grams,i.method])).sort();
+    return JSON.stringify([value.servings,items]);
+  }
+  function hasRecipe(value=draft) {
+    return Boolean(value.title.trim()&&value.steps.some(step=>step.trim()));
+  }
+  function recipeNeedsReview() {
+    return hasRecipe()&&Boolean(draft.recipePlateKey)&&draft.recipePlateKey!==plateKey();
+  }
+  const reviewMessage='餐盤已更改，請重新生成食譜，或核對菜名和做法後確認。';
   function reviewedDraft(raw) {
     if(!raw||!Array.isArray(raw.items))throw new Error('草稿格式無效。');
     const removed=raw.items.filter(item=>Object.hasOwn(retiredFoods,item.code));
     const value=C.validateDraft({...raw,items:raw.items.filter(item=>!Object.hasOwn(retiredFoods,item.code))},database,portionCatalog);
     // Removing an ingredient invalidates its old instructions, while the original stays downloadable.
-    if(removed.length){value.steps=[''];value.minutes=0;}
+    if(removed.length){value.steps=[''];value.minutes=0;value.recipePlateKey=null;}
+    if(hasRecipe(value)&&!value.recipePlateKey)value.recipePlateKey=plateKey(value);
     return {value,removed};
   }
   function draftReviewNotice(raw,removed=[],failure='') {
@@ -52,6 +64,7 @@
   }
   function touch(message = '') {
     revision++;approved='';invalidateQR();
+    if(!draft.recipePlateKey&&hasRecipe())draft.recipePlateKey=plateKey();
     renderAdvice();
     if ((pendingImage&&pendingImage.key!==conceptKey())||(conceptImage&&conceptImage.key!==conceptKey())) resetConcept('食譜已更新，可重新生成概念圖。');
     $('review-status').textContent=(draft.title.trim()&&draft.steps.some(s=>s.trim())) ? (message || '食譜已更新。') : '';
@@ -81,10 +94,12 @@
     }
   }
   function renderRecipePreview() {
-    const available=Boolean(draft.title.trim()&&draft.steps.some(step=>step.trim()));
+    const written=hasRecipe(),stale=recipeNeedsReview(),available=written&&!stale;
     $('recipe-result').hidden=!available;$('magnet-section').hidden=!available;$('concept-section').hidden=!available;
-    if(available)$('recipe-edit-details').hidden=false;
-    const issues=available?C.recipeChecks(draft,database):[];$('recipe-safety-status').hidden=!issues.length;$('recipe-safety-status').textContent=issues.length?'請先檢查並修改食譜，才可提交或製作磁貼： '+issues.join(' '):'';
+    $('recipe-stale-status').hidden=!stale;$('recipe-stale-status').textContent=stale?reviewMessage:'';
+    $('confirm-recipe-plate').hidden=!stale;
+    if(written)$('recipe-edit-details').hidden=false;
+    const issues=written?C.recipeChecks(draft,database):[];$('recipe-safety-status').hidden=!issues.length;$('recipe-safety-status').textContent=issues.length?'請先檢查並修改食譜，才可提交或製作磁貼： '+issues.join(' '):'';
     const root=$('recipe-preview');root.replaceChildren();if(!available)return;
     const title=document.createElement('h3');title.className='recipe-title';title.textContent=draft.title;root.append(title);
     for (const [heading,lines,tag] of [['材料',C.ingredients(draft.items,database),'ul'],['做法',draft.steps.filter(step=>step.trim()),'ol']]) {
@@ -291,8 +306,9 @@
     $('add-step').disabled=draft.steps.length>=10;
     if (focusLast) $(`recipe-step-${draft.steps.length-1}`).focus();
   }
-  function validPayload() {
+  function validPayload(allowReviewedPlate=false) {
     syncFields();
+    if(!allowReviewedPlate&&recipeNeedsReview())throw new Error(reviewMessage);
     if (!$('servings').value||!$('servings').reportValidity()) throw new Error('請先填妥有效人數。');
     if ($('recipe-minutes').value&&!$('recipe-minutes').reportValidity()) throw new Error('請填寫有效時間，或留空表示不限制。');
     for (const input of $('plate-list').querySelectorAll('input:not(:disabled)')) if (!input.value||!input.reportValidity()) throw new Error('請先填妥所有材料的有效克數。');
@@ -477,10 +493,10 @@
       currentAnalysis={key:analysisKey(),data:analysis};renderAdvice();
       if (raw.error) {const e=new Error(String(raw.error).slice(0,300));e.recipeConstraint=true;throw e;}
       const result=C.parseAI(raw,materials);
-      const issues=C.recipeChecks({...context,steps:result.steps},database);if(issues.length){const e=new Error('食譜未通過檢查：'+issues.join(' '));e.recipeConstraint=true;throw e;}
-      pendingAI=null;draft.title=result.title;draft.steps=result.steps;if(result.minutes)draft.minutes=result.minutes;
-      touch();currentAnalysis={key:analysisKey(),data:analysis};renderAdvice();
-      $('recipe-title').value=draft.title;$('recipe-minutes').value=draft.minutes||'';renderSteps();renderRecipePreview();
+      const issues=C.recipeChecks({...context,title:result.title,steps:result.steps},database);if(issues.length){const e=new Error('食譜未通過檢查：'+issues.join(' '));e.recipeConstraint=true;throw e;}
+      pendingAI=null;draft.title=result.title;draft.steps=result.steps;draft.minutes=result.minutes;draft.recipePlateKey=plateKey();
+      $('recipe-title').value=draft.title;$('recipe-minutes').value=draft.minutes||'';renderSteps();
+      currentAnalysis={key:analysisKey(),data:analysis};touch();
       $('ai-status').textContent='建議及食譜已生成！材料份量保持你的選擇。你可再按下方按鈕生成概念圖，完成後一鍵提交作品到雲端。';
       prepareShare(true);
       generateConceptImage({automatic:true});
@@ -677,6 +693,13 @@
     $('image-model').addEventListener('change',()=>{stopImage(C.imageModels.some(m=>m.id===$('image-model').value)?'已選擇付費模型；按「生成概念圖（付費）」才會使用額度。':'已切換免費模式；目前沒有免費繪圖模型，不會發出畫圖請求。');settingsSave();});
     $('ai-analyze-btn').addEventListener('click',generateAI);$('cancel-ai').addEventListener('click',() => cancelAI());
     $('approve-recipe').addEventListener('click',() => prepareShare());
+    $('confirm-recipe-plate').addEventListener('click',()=>{
+      try {
+        validPayload(true);draft.recipePlateKey=plateKey();touch('已確認菜名及做法配合目前餐盤。');prepareShare(true);
+      } catch (e) {
+        $('recipe-stale-status').textContent=e.message;
+      }
+    });
     $('equipment-choices').addEventListener('change',() => {syncFields();touch('器具已更新，可重新生成食譜。');});
     $('chef-name-input').addEventListener('change',() => prepareShare(true));
     $('share-base').addEventListener('input',() => {settingsSave();invalidateQR();clearTimeout(qrTimer);if (approved) qrTimer=setTimeout(refreshQR,400);});
@@ -729,7 +752,7 @@
   });
   window.WorkshopPublishing=Object.freeze({
     current(){const payload=validPayload();return {payload,image:conceptImage?.key===conceptKey()?snapshot(conceptImage.asset):null,base:$('share-base').value,busy:Boolean(pendingImage),size:draft.size};},
-    status(){let valid=false;try{valid=initialized&&Boolean(C.payload(draft,database))&&$('servings').checkValidity()&&Boolean($('servings').value)&&[...$('plate-list').querySelectorAll('input:not(:disabled)')].every(el=>el.value&&el.checkValidity());}catch{}return {valid,image:conceptImage?.key===conceptKey(),busy:Boolean(pendingImage)};},
+    status(){let valid=false;try{valid=initialized&&!recipeNeedsReview()&&Boolean(C.payload(draft,database))&&$('servings').checkValidity()&&Boolean($('servings').value)&&[...$('plate-list').querySelectorAll('input:not(:disabled)')].every(el=>el.value&&el.checkValidity());}catch{}return {valid,image:conceptImage?.key===conceptKey(),busy:Boolean(pendingImage)};},
     buildQR,printEntries
   });
   async function boot() {
