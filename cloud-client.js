@@ -43,7 +43,10 @@
   article.style.setProperty('--qr-width', printFormats[format].qrWidth + 'mm');
 
   article.innerHTML = `<header class="teacher-magnet-brand">有營惜食特攻隊</header>
-    <div class="teacher-magnet-caption"><div class="teacher-magnet-title"></div></div>
+    <div class="teacher-magnet-caption">
+      <div class="teacher-magnet-title"></div>
+      <div class="teacher-magnet-byline"></div>
+    </div>
     <div class="teacher-magnet-art">
       <svg class="teacher-magnet-chef" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
         <circle cx="24" cy="24" r="24" fill="#cbe7da"/>
@@ -61,6 +64,7 @@
     </div>
     <footer class="teacher-magnet-footer"><span>掃碼睇食譜</span></footer>`;
   article.querySelector('.teacher-magnet-title').textContent = work.payload.t;
+  article.querySelector('.teacher-magnet-byline').textContent = '小廚師：' + work.payload.c;
   if (format === 'classic') {
    article.querySelector('.teacher-magnet-caption').append(article.querySelector('.teacher-magnet-chef'));
   }
@@ -96,6 +100,13 @@
      title.style.fontSize = fontSize + 'px';
     }
     title.style.webkitLineClamp = '2';
+   }
+   for (const byline of root.querySelectorAll('.teacher-magnet-byline')) {
+    let fontSize = parseFloat(getComputedStyle(byline).fontSize);
+    while (byline.scrollWidth > byline.clientWidth && fontSize > 6.5) {
+     fontSize = Math.max(6.5, fontSize - .5);
+     byline.style.fontSize = fontSize + 'px';
+    }
    }
    if ([...root.querySelectorAll('.ws-magnet')].some(card => card.scrollHeight > card.clientHeight + 2)) {
     throw new Error('磁貼排版超出範圍，請先核對列印尺寸。');

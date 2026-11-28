@@ -19,7 +19,7 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
   --magnet-dark-mint: #3c7666;
   --magnet-brand-height: 7mm;
   --magnet-footer-height: 7mm;
-  --magnet-chef-size: 14mm;
+  --magnet-chef-size: 13mm;
   width: 55mm;
   height: 85mm;
   padding: 0;
@@ -36,12 +36,11 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
   print-color-adjust: exact;
 }
 .ws-magnet.teacher-magnet--square {
-  --magnet-brand-height: 4.75mm;
-  --magnet-footer-height: 4.8mm;
+  --magnet-brand-height: 4mm;
+  --magnet-footer-height: 3.9mm;
   --magnet-chef-size: 7.8mm;
   width: 48mm;
   height: 48mm;
-  grid-template-rows: var(--magnet-brand-height) 1fr var(--qr-width) .6mm var(--magnet-footer-height);
 }
 .teacher-magnet-brand,
 .teacher-magnet-footer {
@@ -77,7 +76,7 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
 .teacher-magnet-caption {
   display: grid;
   place-items: center;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr auto auto;
   padding: 0 2.5mm;
   min-height: 0;
 }
@@ -90,6 +89,14 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
   font-weight: 800;
   font-size: 12pt;
   line-height: 5.3mm;
+}
+.teacher-magnet-byline {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 10pt;
+  font-weight: 700;
+  line-height: 4.3mm;
 }
 .teacher-magnet-art {
   position: relative;
@@ -104,10 +111,10 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
   border: 0;
 }
 .teacher-magnet-chef {
-  grid-row: 2;
+  grid-row: 3;
   width: var(--magnet-chef-size);
   height: var(--magnet-chef-size);
-  margin-bottom: 2mm;
+  margin-bottom: 1mm;
 }
 .teacher-magnet-sparkle {
   position: absolute;
@@ -136,8 +143,9 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
 .teacher-magnet-footer::before { left: 7mm; background: var(--magnet-peach); }
 .teacher-magnet-footer::after { right: 7mm; background: var(--magnet-dark-mint); }
 .teacher-magnet--square .teacher-magnet-brand { font-size: 7pt; }
-.teacher-magnet--square .teacher-magnet-caption { grid-template-rows: 1fr; padding: 0 1.8mm; }
-.teacher-magnet--square .teacher-magnet-title { font-size: 9pt; line-height: 3.78mm; }
+.teacher-magnet--square .teacher-magnet-caption { grid-template-rows: 1fr auto; padding: 0 1.8mm; }
+.teacher-magnet--square .teacher-magnet-title { font-size: 8.5pt; line-height: 3.15mm; }
+.teacher-magnet--square .teacher-magnet-byline { font-size: 7.5pt; line-height: 3.15mm; }
 .teacher-magnet--square .teacher-magnet-chef {
   position: absolute;
   grid-row: auto;
@@ -146,7 +154,7 @@ body:not(.teacher-mode) .teacher-only{display:none!important}
   margin: 0;
 }
 .teacher-magnet--square .teacher-magnet-footer { font-size: 6.7pt; }
-.teacher-magnet--square .teacher-magnet-footer span { padding: .6mm 3.7mm; }
+.teacher-magnet--square .teacher-magnet-footer span { padding: .38mm 3.7mm; }
 .teacher-magnet--classic .teacher-magnet-art::after {
   content: "";
   position: absolute;
